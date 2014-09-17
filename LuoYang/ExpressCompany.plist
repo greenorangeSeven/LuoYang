@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>name</key>
+		<string>EMS快递</string>
+		<key>code</key>
+		<string>ems</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>申通快递</string>
+		<key>code</key>
+		<string>shentong</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>圆通快递</string>
+		<key>code</key>
+		<string>yuantong</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>中通快递</string>
+		<key>code</key>
+		<string>zhongtong</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>百世汇通</string>
+		<key>code</key>
+		<string>huitong</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>天天快递</string>
+		<key>code</key>
+		<string>tiantian</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>韵达快递</string>
+		<key>code</key>
+		<string>yunda</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>顺丰速运</string>
+		<key>code</key>
+		<string>shunfeng</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>速尔快递</string>
+		<key>code</key>
+		<string>sure</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>全峰快递</string>
+		<key>code</key>
+		<string>quanfeng</string>
+	</dict>
+</array>
+</plist>
