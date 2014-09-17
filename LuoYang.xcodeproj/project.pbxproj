@@ -1,0 +1,452 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		14A7BA2E19C92078009039DF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14A7BA2D19C92078009039DF /* Foundation.framework */; };
+		14A7BA3019C92078009039DF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14A7BA2F19C92078009039DF /* CoreGraphics.framework */; };
+		14A7BA3219C92078009039DF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14A7BA3119C92078009039DF /* UIKit.framework */; };
+		14A7BA3819C92078009039DF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 14A7BA3619C92078009039DF /* InfoPlist.strings */; };
+		14A7BA3A19C92078009039DF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A7BA3919C92078009039DF /* main.m */; };
+		14A7BA3E19C92078009039DF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A7BA3D19C92078009039DF /* AppDelegate.m */; };
+		14A7BA4019C92078009039DF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14A7BA3F19C92078009039DF /* Images.xcassets */; };
+		14A7BA4719C92078009039DF /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14A7BA4619C92078009039DF /* XCTest.framework */; };
+		14A7BA4819C92078009039DF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14A7BA2D19C92078009039DF /* Foundation.framework */; };
+		14A7BA4919C92078009039DF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14A7BA3119C92078009039DF /* UIKit.framework */; };
+		14A7BA5119C92078009039DF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 14A7BA4F19C92078009039DF /* InfoPlist.strings */; };
+		14A7BA5319C92078009039DF /* LuoYangTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A7BA5219C92078009039DF /* LuoYangTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		14A7BA4A19C92078009039DF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 14A7BA2219C92078009039DF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 14A7BA2919C92078009039DF;
+			remoteInfo = LuoYang;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		14A7BA2A19C92078009039DF /* LuoYang.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LuoYang.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		14A7BA2D19C92078009039DF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		14A7BA2F19C92078009039DF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		14A7BA3119C92078009039DF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		14A7BA3519C92078009039DF /* LuoYang-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LuoYang-Info.plist"; sourceTree = "<group>"; };
+		14A7BA3719C92078009039DF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		14A7BA3919C92078009039DF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		14A7BA3B19C92078009039DF /* LuoYang-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LuoYang-Prefix.pch"; sourceTree = "<group>"; };
+		14A7BA3C19C92078009039DF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		14A7BA3D19C92078009039DF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		14A7BA3F19C92078009039DF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		14A7BA4519C92078009039DF /* LuoYangTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LuoYangTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		14A7BA4619C92078009039DF /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		14A7BA4E19C92078009039DF /* LuoYangTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LuoYangTests-Info.plist"; sourceTree = "<group>"; };
+		14A7BA5019C92078009039DF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		14A7BA5219C92078009039DF /* LuoYangTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LuoYangTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		14A7BA2719C92078009039DF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				14A7BA3019C92078009039DF /* CoreGraphics.framework in Frameworks */,
+				14A7BA3219C92078009039DF /* UIKit.framework in Frameworks */,
+				14A7BA2E19C92078009039DF /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		14A7BA4219C92078009039DF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				14A7BA4719C92078009039DF /* XCTest.framework in Frameworks */,
+				14A7BA4919C92078009039DF /* UIKit.framework in Frameworks */,
+				14A7BA4819C92078009039DF /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		14A7BA2119C92078009039DF = {
+			isa = PBXGroup;
+			children = (
+				14A7BA3319C92078009039DF /* LuoYang */,
+				14A7BA4C19C92078009039DF /* LuoYangTests */,
+				14A7BA2C19C92078009039DF /* Frameworks */,
+				14A7BA2B19C92078009039DF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		14A7BA2B19C92078009039DF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				14A7BA2A19C92078009039DF /* LuoYang.app */,
+				14A7BA4519C92078009039DF /* LuoYangTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		14A7BA2C19C92078009039DF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				14A7BA2D19C92078009039DF /* Foundation.framework */,
+				14A7BA2F19C92078009039DF /* CoreGraphics.framework */,
+				14A7BA3119C92078009039DF /* UIKit.framework */,
+				14A7BA4619C92078009039DF /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		14A7BA3319C92078009039DF /* LuoYang */ = {
+			isa = PBXGroup;
+			children = (
+				14A7BA3C19C92078009039DF /* AppDelegate.h */,
+				14A7BA3D19C92078009039DF /* AppDelegate.m */,
+				14A7BA3F19C92078009039DF /* Images.xcassets */,
+				14A7BA3419C92078009039DF /* Supporting Files */,
+			);
+			path = LuoYang;
+			sourceTree = "<group>";
+		};
+		14A7BA3419C92078009039DF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				14A7BA3519C92078009039DF /* LuoYang-Info.plist */,
+				14A7BA3619C92078009039DF /* InfoPlist.strings */,
+				14A7BA3919C92078009039DF /* main.m */,
+				14A7BA3B19C92078009039DF /* LuoYang-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		14A7BA4C19C92078009039DF /* LuoYangTests */ = {
+			isa = PBXGroup;
+			children = (
+				14A7BA5219C92078009039DF /* LuoYangTests.m */,
+				14A7BA4D19C92078009039DF /* Supporting Files */,
+			);
+			path = LuoYangTests;
+			sourceTree = "<group>";
+		};
+		14A7BA4D19C92078009039DF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				14A7BA4E19C92078009039DF /* LuoYangTests-Info.plist */,
+				14A7BA4F19C92078009039DF /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		14A7BA2919C92078009039DF /* LuoYang */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 14A7BA5619C92078009039DF /* Build configuration list for PBXNativeTarget "LuoYang" */;
+			buildPhases = (
+				14A7BA2619C92078009039DF /* Sources */,
+				14A7BA2719C92078009039DF /* Frameworks */,
+				14A7BA2819C92078009039DF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LuoYang;
+			productName = LuoYang;
+			productReference = 14A7BA2A19C92078009039DF /* LuoYang.app */;
+			productType = "com.apple.product-type.application";
+		};
+		14A7BA4419C92078009039DF /* LuoYangTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 14A7BA5919C92078009039DF /* Build configuration list for PBXNativeTarget "LuoYangTests" */;
+			buildPhases = (
+				14A7BA4119C92078009039DF /* Sources */,
+				14A7BA4219C92078009039DF /* Frameworks */,
+				14A7BA4319C92078009039DF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				14A7BA4B19C92078009039DF /* PBXTargetDependency */,
+			);
+			name = LuoYangTests;
+			productName = LuoYangTests;
+			productReference = 14A7BA4519C92078009039DF /* LuoYangTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		14A7BA2219C92078009039DF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = greenorange;
+				TargetAttributes = {
+					14A7BA4419C92078009039DF = {
+						TestTargetID = 14A7BA2919C92078009039DF;
+					};
+				};
+			};
+			buildConfigurationList = 14A7BA2519C92078009039DF /* Build configuration list for PBXProject "LuoYang" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 14A7BA2119C92078009039DF;
+			productRefGroup = 14A7BA2B19C92078009039DF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				14A7BA2919C92078009039DF /* LuoYang */,
+				14A7BA4419C92078009039DF /* LuoYangTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		14A7BA2819C92078009039DF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				14A7BA3819C92078009039DF /* InfoPlist.strings in Resources */,
+				14A7BA4019C92078009039DF /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		14A7BA4319C92078009039DF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				14A7BA5119C92078009039DF /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		14A7BA2619C92078009039DF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				14A7BA3E19C92078009039DF /* AppDelegate.m in Sources */,
+				14A7BA3A19C92078009039DF /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		14A7BA4119C92078009039DF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				14A7BA5319C92078009039DF /* LuoYangTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		14A7BA4B19C92078009039DF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 14A7BA2919C92078009039DF /* LuoYang */;
+			targetProxy = 14A7BA4A19C92078009039DF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		14A7BA3619C92078009039DF /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				14A7BA3719C92078009039DF /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		14A7BA4F19C92078009039DF /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				14A7BA5019C92078009039DF /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		14A7BA5419C92078009039DF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		14A7BA5519C92078009039DF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		14A7BA5719C92078009039DF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "LuoYang/LuoYang-Prefix.pch";
+				INFOPLIST_FILE = "LuoYang/LuoYang-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		14A7BA5819C92078009039DF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "LuoYang/LuoYang-Prefix.pch";
+				INFOPLIST_FILE = "LuoYang/LuoYang-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		14A7BA5A19C92078009039DF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/LuoYang.app/LuoYang";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "LuoYang/LuoYang-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "LuoYangTests/LuoYangTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		14A7BA5B19C92078009039DF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/LuoYang.app/LuoYang";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "LuoYang/LuoYang-Prefix.pch";
+				INFOPLIST_FILE = "LuoYangTests/LuoYangTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		14A7BA2519C92078009039DF /* Build configuration list for PBXProject "LuoYang" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				14A7BA5419C92078009039DF /* Debug */,
+				14A7BA5519C92078009039DF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		14A7BA5619C92078009039DF /* Build configuration list for PBXNativeTarget "LuoYang" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				14A7BA5719C92078009039DF /* Debug */,
+				14A7BA5819C92078009039DF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		14A7BA5919C92078009039DF /* Build configuration list for PBXNativeTarget "LuoYangTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				14A7BA5A19C92078009039DF /* Debug */,
+				14A7BA5B19C92078009039DF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 14A7BA2219C92078009039DF /* Project object */;
+}
