@@ -348,7 +348,7 @@
     int indexRow = [indexPath row];
     ShopsCate *cate = [shopCateData objectAtIndex:indexRow];
     
-    EGOImageView *imageView = [[EGOImageView alloc] initWithPlaceholderImage:[UIImage imageNamed:@"loadingpic4.png"]];
+    EGOImageView *imageView = [[EGOImageView alloc] initWithPlaceholderImage:[UIImage imageNamed:@"nopic3.png"]];
     imageView.imageURL = [NSURL URLWithString:cate.logo];
     imageView.frame = CGRectMake(15.0f, 9.0f, 50.0f, 50.0f);
     [cell addSubview:imageView];

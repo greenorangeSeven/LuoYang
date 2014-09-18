@@ -54,6 +54,7 @@
 #define appkey @"3lYbLB5fSR2F7x4rE76xbKEKlf296OFw"
 #define api_base_url @"http://121.42.8.86:8900/api"
 #define api_register @"/register"
+#define api_changepwd @"/changePwd"
 #define api_login @"/login"
 #define api_getuserinfo @"/get_member_info"
 #define api_getregion @"/get_region"

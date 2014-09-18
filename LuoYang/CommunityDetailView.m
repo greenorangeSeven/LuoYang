@@ -59,7 +59,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    EGOImageView *imageView = [[EGOImageView alloc] initWithPlaceholderImage:[UIImage imageNamed:@"loadingpic4.png"]];
+    EGOImageView *imageView = [[EGOImageView alloc] initWithPlaceholderImage:[UIImage imageNamed:@"nopic4.png"]];
     imageView.imageURL = [NSURL URLWithString:self.commer.thumb];
     imageView.frame = CGRectMake(0.0f, 0.0f, 320.0f, 206.0f);
     [self.picIv addSubview:imageView];

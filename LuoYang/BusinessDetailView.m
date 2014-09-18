@@ -214,7 +214,7 @@
     }
     
     Goods *good = (Goods *)[goods objectAtIndex:[indexPath row]];
-    EGOImageView *imageView = [[EGOImageView alloc] initWithPlaceholderImage:[UIImage imageNamed:@"loadingpic4.png"]];
+    EGOImageView *imageView = [[EGOImageView alloc] initWithPlaceholderImage:[UIImage imageNamed:@"nopic2.png"]];
     imageView.imageURL = [NSURL URLWithString:good.thumb];
     imageView.frame = CGRectMake(0.0f, 0.0f, 150.0f, 91.0f);
     [cell.picIv addSubview:imageView];

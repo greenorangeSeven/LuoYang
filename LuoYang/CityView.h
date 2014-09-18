@@ -13,8 +13,9 @@
 #import "Article.h"
 #import "CityCell.h"
 #import "CityDetailView.h"
+#import "ADVDetailView.h"
 
-@interface CityView : UIViewController<UITableViewDataSource,UITableViewDelegate,EGORefreshTableHeaderDelegate,MBProgressHUDDelegate,IconDownloaderDelegate>
+@interface CityView : UIViewController<UITableViewDataSource,UITableViewDelegate,EGORefreshTableHeaderDelegate,MBProgressHUDDelegate,IconDownloaderDelegate, SGFocusImageFrameDelegate>
 {
     NSMutableArray *cityArray;
     BOOL isLoading;
@@ -31,8 +32,13 @@
     UIWebView *phoneCallWebView;
     
     MBProgressHUD *hud;
+    
+    NSMutableArray *advDatas;
+    SGFocusImageFrame *bannerView;
+    int advIndex;
 }
 
+@property (weak, nonatomic) IBOutlet UIImageView *advIv;
 @property (weak, nonatomic) NSString *typeStr;
 @property (weak, nonatomic) NSString *typeNameStr;
 

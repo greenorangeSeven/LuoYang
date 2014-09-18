@@ -167,9 +167,14 @@
             break;
         case 4:
         {
-            //            ChooseAreaView *chooseView = [[ChooseAreaView alloc] init];
-            //            chooseView.hidesBottomBarWhenPushed = YES;
-            //            [self.navigationController pushViewController:chooseView animated:YES];
+            if (![[UserModel Instance] isLogin])
+            {
+                [Tool showCustomHUD:@"请先登录" andView:self.view andImage:@"37x-Failure.png" andAfterDelay:2];
+                return;
+            }
+            ChangPWDView *changeView = [[ChangPWDView alloc] init];
+            changeView.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:changeView animated:YES];
         }
             break;
         case 5:

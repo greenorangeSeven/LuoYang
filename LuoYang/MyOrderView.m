@@ -357,7 +357,7 @@
     cell.title.text = goods.goods_name;
     cell.numbers.text = goods.quantity;
     cell.price.text = goods.price;
-    EGOImageView *imageView = [[EGOImageView alloc] initWithPlaceholderImage:[UIImage imageNamed:@"loadingpic4.png"]];
+    EGOImageView *imageView = [[EGOImageView alloc] initWithPlaceholderImage:[UIImage imageNamed:@"nopic2.png"]];
     imageView.imageURL = [NSURL URLWithString:goods.thumb];
     imageView.frame = CGRectMake(0.0f, 0.0f, 80.0f, 80.0f);
     [cell.img addSubview:imageView];

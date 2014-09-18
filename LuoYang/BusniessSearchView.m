@@ -163,7 +163,7 @@
         }
         Shop *shop = [shopData objectAtIndex:[indexPath row]];
         
-        EGOImageView *imageView = [[EGOImageView alloc] initWithPlaceholderImage:[UIImage imageNamed:@"loadingpic4.png"]];
+        EGOImageView *imageView = [[EGOImageView alloc] initWithPlaceholderImage:[UIImage imageNamed:@"nopic2.png"]];
         imageView.imageURL = [NSURL URLWithString:shop.logo];
         imageView.frame = CGRectMake(0.0f, 0.0f, 116.0f, 61.0f);
         [cell.logo addSubview:imageView];

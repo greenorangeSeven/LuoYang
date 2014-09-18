@@ -81,7 +81,7 @@
         self.automaticallyAdjustsScrollViewInsets = NO;
     }
     
-    catalog = @"2";
+    catalog = @"1";
     allCount = 0;
     self.imageDownloadsInProgress = [NSMutableDictionary dictionary];
     commercials = [[NSMutableArray alloc] initWithCapacity:20];

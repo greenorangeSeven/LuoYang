@@ -81,7 +81,7 @@
     assert (!error);
     couponDetail = [Tool readJsonStrToCouponDetail:[request responseString]];
     //图片加载
-    EGOImageView *imageView = [[EGOImageView alloc] initWithPlaceholderImage:[UIImage imageNamed:@"loadingpic1.png"]];
+    EGOImageView *imageView = [[EGOImageView alloc] initWithPlaceholderImage:[UIImage imageNamed:@"nopic1.png"]];
     imageView.imageURL = [NSURL URLWithString:couponDetail.thumb];
     imageView.frame = CGRectMake(0.0f, 0.0f, 320.0f, 187.0f);
     [self.picIv addSubview:imageView];

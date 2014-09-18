@@ -20,7 +20,7 @@
     if (self) {
         UILabel *titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 100, 44)];
         titleLabel.font = [UIFont boldSystemFontOfSize:18];
-        titleLabel.text = @"社区超市";
+        titleLabel.text = @"社区商超";
         titleLabel.backgroundColor = [UIColor clearColor];
         titleLabel.textColor = [Tool getColorForGreen];
         titleLabel.textAlignment = UITextAlignmentCenter;
@@ -224,7 +224,7 @@
     }
     Shop *shop = [shopData objectAtIndex:[indexPath row]];
     
-    EGOImageView *imageView = [[EGOImageView alloc] initWithPlaceholderImage:[UIImage imageNamed:@"loadingpic4.png"]];
+    EGOImageView *imageView = [[EGOImageView alloc] initWithPlaceholderImage:[UIImage imageNamed:@"nopic2.png"]];
     imageView.imageURL = [NSURL URLWithString:shop.logo];
     imageView.frame = CGRectMake(0.0f, 0.0f, 116.0f, 61.0f);
     [cell.logo addSubview:imageView];
@@ -352,7 +352,7 @@
     int indexRow = [indexPath row];
     ShopsCate *cate = [shopCateData objectAtIndex:indexRow];
     
-    EGOImageView *imageView = [[EGOImageView alloc] initWithPlaceholderImage:[UIImage imageNamed:@"loadingpic4.png"]];
+    EGOImageView *imageView = [[EGOImageView alloc] initWithPlaceholderImage:[UIImage imageNamed:@"nopic3.png"]];
     imageView.imageURL = [NSURL URLWithString:cate.logo];
     imageView.frame = CGRectMake(15.0f, 9.0f, 50.0f, 50.0f);
     [cell addSubview:imageView];
