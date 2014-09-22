@@ -34,6 +34,7 @@
         
         UIButton *rBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 50, 21)];
         [rBtn addTarget:self action:@selector(submitAction) forControlEvents:UIControlEventTouchUpInside];
+        [rBtn setTitleColor:[Tool getColorForGreen] forState:UIControlStateNormal];
         [rBtn setTitle:@"完成" forState:UIControlStateNormal];
         [rBtn setFont:[UIFont systemFontOfSize:16.0]];
         UIBarButtonItem *btnFinish = [[UIBarButtonItem alloc]initWithCustomView:rBtn];

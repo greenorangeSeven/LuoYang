@@ -164,6 +164,14 @@
     bannerView.delegate = nil;
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBar.hidden = NO;
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+    bannerView.delegate = self;
+}
+
 - (void)viewDidAppear:(BOOL)animated
 {
     if (isInitialize == NO)
@@ -453,11 +461,23 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    Citys *art = [cityArray objectAtIndex:[indexPath row]];
-    if (art) {
-        CityDetailView *cityDetailView = [[CityDetailView alloc] init];
-        cityDetailView.art = art;
-        [self.navigationController pushViewController:cityDetailView animated:YES];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    int row = [indexPath row];
+    //点击“下面20条”
+    if (row >= [cityArray count]) {
+        //启动刷新
+        if (!isLoading) {
+            [self performSelector:@selector(reload:)];
+        }
+    }
+    else
+    {
+        Citys *art = [cityArray objectAtIndex:[indexPath row]];
+        if (art) {
+            CityDetailView *cityDetailView = [[CityDetailView alloc] init];
+            cityDetailView.art = art;
+            [self.navigationController pushViewController:cityDetailView animated:YES];
+        }
     }
 }
 

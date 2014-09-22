@@ -29,11 +29,11 @@
         UIBarButtonItem *btnBack = [[UIBarButtonItem alloc]initWithCustomView:lBtn];
         self.navigationItem.leftBarButtonItem = btnBack;
         
-        UIButton *rBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 58, 26)];
-        [rBtn addTarget:self action:@selector(shareAction:) forControlEvents:UIControlEventTouchUpInside];
-        [rBtn setImage:[UIImage imageNamed:@"conv_order_share"] forState:UIControlStateNormal];
-        UIBarButtonItem *btnShare = [[UIBarButtonItem alloc]initWithCustomView:rBtn];
-        self.navigationItem.rightBarButtonItem = btnShare;
+//        UIButton *rBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 58, 26)];
+//        [rBtn addTarget:self action:@selector(shareAction:) forControlEvents:UIControlEventTouchUpInside];
+//        [rBtn setImage:[UIImage imageNamed:@"conv_order_share"] forState:UIControlStateNormal];
+//        UIBarButtonItem *btnShare = [[UIBarButtonItem alloc]initWithCustomView:rBtn];
+//        self.navigationItem.rightBarButtonItem = btnShare;
     }
     return self;
 }
@@ -142,7 +142,7 @@
     if (json) {
         status = [json objectForKey:@"status"];
         if ([status isEqualToString:@"1"]) {
-            [self.pointsBtn setTitle:[NSString stringWithFormat:@"点赞( %d )", [self.news.points intValue] + 1] forState:UIControlStateNormal];
+            [self.pointsBtn setTitle:[NSString stringWithFormat:@"已赞( %d )", [self.news.points intValue] + 1] forState:UIControlStateNormal];
             [self.pointsBtn setEnabled:NO];
         }
     }
@@ -173,6 +173,7 @@
         if ([status intValue] == 1) {
             [Tool showCustomHUD:@"报名成功" andView:self.view  andImage:@"37x-Checkmark.png" andAfterDelay:3];
             [self.baomingBtn setEnabled:NO];
+            [self.baomingBtn setTitle:@"已参与" forState:UIControlStateNormal];
         }
         else
         {

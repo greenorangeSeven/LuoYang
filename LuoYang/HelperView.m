@@ -388,7 +388,7 @@
     }
     else
     {
-        return [[DataSingleton Instance] getLoadMoreCell:tableView andIsLoadOver:isLoadOver andLoadOverString:@"已经加载全部内容" andLoadingString:(isLoading ? loadingTip : loadNext20Tip)  andIsLoading:isLoading];
+        return [[DataSingleton Instance] getLoadMoreCell:tableView andIsLoadOver:isLoadOver andLoadOverString:@"暂无数据" andLoadingString:(isLoading ? loadingTip : loadNext20Tip)  andIsLoading:isLoading];
     }
 }
 
@@ -406,6 +406,17 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    int row = [indexPath row];
+    //点击“下面20条”
+    if (row >= [cityArray count]) {
+        //启动刷新
+        if (!isLoading) {
+            [self performSelector:@selector(reload:)];
+        }
+    }
+    else
+    {
     Citys *art = [cityArray objectAtIndex:[indexPath row]];
     if (art)
     {
@@ -413,6 +424,8 @@
         helperDetailView.art = art;
         [self.navigationController pushViewController:helperDetailView animated:YES];
     }
+    }
+    
 }
 
 

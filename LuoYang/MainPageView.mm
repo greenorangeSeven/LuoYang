@@ -166,6 +166,14 @@
     bannerView.delegate = nil;
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBar.hidden = NO;
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+    bannerView.delegate = self;
+}
+
 - (void)getInBoxRemind
 {
     if ([[UserModel Instance] isLogin]) {
@@ -222,12 +230,6 @@
             self.view = nil;// 目的是再次进入时能够重新加载调用viewDidLoad函数。
         }
     }
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
 }
 
 - (IBAction)clickService:(UIButton *)sender

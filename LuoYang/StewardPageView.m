@@ -153,18 +153,20 @@
     bannerView.delegate = nil;
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBar.hidden = NO;
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+    bannerView.delegate = self;
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    self.navigationController.navigationBar.hidden = NO;
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
-}
 
 - (IBAction)stewardFeeAction:(id)sender {
     if ([UserModel Instance].isLogin == NO) {

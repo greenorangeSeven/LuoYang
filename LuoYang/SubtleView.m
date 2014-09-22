@@ -21,7 +21,7 @@
     if (self) {
         UILabel *titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 100, 44)];
         titleLabel.font = [UIFont boldSystemFontOfSize:18];
-        titleLabel.text = @"精选特价";
+        titleLabel.text = @"特价超市";
         titleLabel.backgroundColor = [UIColor clearColor];
         titleLabel.textColor = [Tool getColorForGreen];
         titleLabel.textAlignment = UITextAlignmentCenter;
@@ -154,7 +154,7 @@
 - (IBAction)hotProductAction:(id)sender {
     BusinessDetailView *businessDetailView = [[BusinessDetailView alloc] init];
     businessDetailView.tjTitle = @"热门商品";
-    businessDetailView.tjCatId = @"4";
+    businessDetailView.tjCatId = @"5";
     businessDetailView.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:businessDetailView animated:YES];
 }

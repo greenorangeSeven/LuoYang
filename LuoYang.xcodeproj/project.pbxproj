@@ -1494,8 +1494,8 @@
 				14A7BA3019C92078009039DF /* CoreGraphics.framework in Frameworks */,
 				14A7BE0019C923E1009039DF /* libbaidumapapi.a in Frameworks */,
 				14A7BA3219C92078009039DF /* UIKit.framework in Frameworks */,
-				14A7BFDA19C925D8009039DF /* SinaWeiboConnection.framework in Frameworks */,
 				14A7BF0219C9249D009039DF /* KeyboardManager.framework in Frameworks */,
+				14A7BFDA19C925D8009039DF /* SinaWeiboConnection.framework in Frameworks */,
 				14A7BA2E19C92078009039DF /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3634,6 +3634,8 @@
 					Framework,
 					"$(PROJECT_DIR)/LuoYang/IQKeyboardManager",
 					Framework,
+					"$(PROJECT_DIR)/LuoYang/IQKeyboardManager",
+					Framework,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LuoYang/LuoYang-Prefix.pch";
@@ -3643,6 +3645,7 @@
 					"${SDK_DIR}/usr/include/libxml2",
 				);
 				INFOPLIST_FILE = "LuoYang/LuoYang-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/LuoYang",
@@ -3683,6 +3686,8 @@
 					Framework,
 					"$(PROJECT_DIR)/LuoYang/IQKeyboardManager",
 					Framework,
+					"$(PROJECT_DIR)/LuoYang/IQKeyboardManager",
+					Framework,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LuoYang/LuoYang-Prefix.pch";
@@ -3692,6 +3697,7 @@
 					"${SDK_DIR}/usr/include/libxml2",
 				);
 				INFOPLIST_FILE = "LuoYang/LuoYang-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/LuoYang",

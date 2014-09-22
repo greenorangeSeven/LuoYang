@@ -499,7 +499,7 @@
     NSArray *shareList = [ShareSDK customShareListWithType:
                           sinaItem,
                           tencentItem,
-                          SHARE_TYPE_NUMBER(ShareTypeWeixiSession),
+//                          SHARE_TYPE_NUMBER(ShareTypeWeixiSession),
                           SHARE_TYPE_NUMBER(ShareTypeWeixiTimeline),
                           nil];
     
@@ -514,7 +514,7 @@
     id<ISSShareOptions> shareOptions = [ShareSDK defaultShareOptionsWithTitle:nil      //分享视图标题
                                                               oneKeyShareList:oneKeyShareList           //一键分享菜单
                                                                qqButtonHidden:NO                               //QQ分享按钮是否隐藏
-                                                        wxSessionButtonHidden:NO                   //微信好友分享按钮是否隐藏
+                                                        wxSessionButtonHidden:YES                   //微信好友分享按钮是否隐藏
                                                        wxTimelineButtonHidden:NO                 //微信朋友圈分享按钮是否隐藏
                                                          showKeyboardOnAppear:NO                  //是否显示键盘
                                                             shareViewDelegate:nil                            //分享视图委托
