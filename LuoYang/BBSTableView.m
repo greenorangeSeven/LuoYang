@@ -25,6 +25,13 @@
             [lBtn setImage:[UIImage imageNamed:@"head_back"] forState:UIControlStateNormal];
             UIBarButtonItem *btnBack = [[UIBarButtonItem alloc]initWithCustomView:lBtn];
             self.navigationItem.leftBarButtonItem = btnBack;
+            
+            UIButton *rBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 63, 22)];
+            [rBtn addTarget:self action:@selector(publishAction) forControlEvents:UIControlEventTouchUpInside];
+            [rBtn setTitle:@"+发帖" forState:UIControlStateNormal];
+            [rBtn setTitleColor:[Tool getColorForGreen] forState:UIControlStateNormal];
+            UIBarButtonItem *btnSearch = [[UIBarButtonItem alloc]initWithCustomView:rBtn];
+            self.navigationItem.rightBarButtonItem = btnSearch;
         }
         return self;
     }
@@ -34,6 +41,19 @@
 - (void)backAction
 {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)publishAction
+{
+    if ([UserModel Instance].isLogin == NO)
+    {
+        [Tool noticeLogin:self.view andDelegate:self andTitle:@""];
+        return;
+    }
+    BBSPostedView *publishView = [[BBSPostedView alloc] init];
+    publishView.cid = self.cid;
+    publishView.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:publishView animated:YES];
 }
 
 - (void)viewDidLoad
@@ -46,10 +66,8 @@
     titleLabel.textColor = [Tool getColorForGreen];
     titleLabel.textAlignment = UITextAlignmentCenter;
     self.navigationItem.titleView = titleLabel;
-    BBSReplyView *samplePopupViewController = [[BBSReplyView alloc] initWithNibName:@"BBSReplyView" bundle:nil];
-    [self presentPopupViewController:samplePopupViewController animated:YES completion:^(void) {
-        NSLog(@"popup view presented");
-    }];
+    samplePopupViewController = [[BBSReplyView alloc] initWithNibName:@"BBSReplyView" bundle:nil];
+    samplePopupViewController.parentView = self;
 //    [_replyTF becomeFirstResponder];
     
     //适配iOS7uinavigationbar遮挡问题
@@ -76,6 +94,28 @@
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
 //    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshTableData) name:Notification_RefreshBBS object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshTableDataAll) name:Notification_ADDBBS object:nil];
+    EGOImageView *imageView = [[EGOImageView alloc] initWithPlaceholderImage:[UIImage imageNamed:@"loadingpic4.png"]];
+    imageView.imageURL = [NSURL URLWithString:_project.logo];
+    imageView.frame = CGRectMake(0.0f, 0.0f, 320.0f, 145.0f);
+    [_logoIV addSubview:imageView];
+}
+
+- (void)refreshTableData
+{
+    NSIndexPath *te=[NSIndexPath indexPathForRow:tableIndex inSection:0];//刷新第一个section的第二行
+    [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:te,nil] withRowAnimation:UITableViewRowAnimationMiddle];
+}
+
+- (void)refreshTableDataAll
+{
+    [self refresh];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -153,7 +193,7 @@
         if (!noRefresh) {
             allCount = 0;
         }
-        int pageIndex = allCount / 20;
+        int pageIndex = allCount / 20 + 1;
         NSMutableString *tempUrl = [NSMutableString stringWithFormat:@"%@%@?APPKey=%@&cid=%@&p=%i", api_base_url, api_bbslist, appkey, _cid, pageIndex];
         
         NSString *url = [NSString stringWithString:tempUrl];
@@ -332,14 +372,24 @@
                 }
             }
             BBSModel *bbs = [bbsArray objectAtIndex:[indexPath row]];
-            
+            //内容
             cell.contentLb.text = bbs.content;
             CGRect contentLb = cell.contentLb.frame;
             cell.contentLb.frame = CGRectMake(contentLb.origin.x, contentLb.origin.y, contentLb.size.width, bbs.contentHeight -10);
             if ([bbs.thumb count] > 0)
             {
+                cell.imageIv.hidden = NO;
                 cell.imageIv.frame = CGRectMake(cell.imageIv.frame .origin.x, cell.contentLb.frame.origin.y + cell.contentLb.frame.size.height, cell.imageIv.frame.size.width, cell.imageIv.frame.size.height);
                 cell.timeView.frame = CGRectMake(cell.timeView.frame .origin.x, cell.imageIv.frame.origin.y + cell.imageIv.frame.size.height, cell.timeView.frame.size.width, cell.timeView.frame.size.height);
+                
+                EGOImageView *imageView = [[EGOImageView alloc] initWithPlaceholderImage:[UIImage imageNamed:@"nopic2.png"]];
+                imageView.imageURL = [NSURL URLWithString:[bbs.thumb objectAtIndex:0]];
+                imageView.frame = CGRectMake(0.0f, 0.0f, cell.imageIv.frame.size.width, cell.imageIv.frame.size.height);
+                [cell.imageIv addSubview:imageView];
+                //注册Cell按钮点击事件
+                UITap *clickPicTap = [[UITap alloc] initWithTarget:self action:@selector(clickPicAction:)];
+                [cell.imageIv addGestureRecognizer:clickPicTap];
+                clickPicTap.tag = [indexPath row];
             }
             else
             {
@@ -348,6 +398,7 @@
             }
             cell.replyView.frame = CGRectMake(cell.replyView.frame .origin.x, cell.timeView.frame.origin.y + cell.timeView.frame.size.height, cell.replyView.frame.size.width, cell.replyView.frame.size.height);
             
+            //评论
             cell.replyLb.text = bbs.replysStr;
             NSString *replysStr = [NSString stringWithString:bbs.replysStr];
             if ([replysStr isEqualToString:@""] == NO)
@@ -360,6 +411,7 @@
             {
                 cell.replyView.hidden = YES;
             }
+            //时间
             cell.timeLb.text = bbs.timeStr;
             NSString *nickname = @"匿名用户";
             if ([bbs.nickname isEqualToString:@""] == NO)
@@ -370,35 +422,39 @@
             {
                 nickname = bbs.name;
             }
+            //昵称
             cell.nickNameLb.text = nickname;
-//            cell.summaryLb.text = city.summary;
-//            if (city.imgData) {
-//                cell.thumImg.image = city.imgData;
-//            }
-//            else
-//            {
-//                if ([city.thumb isEqualToString:@""]) {
-//                    city.imgData = [UIImage imageNamed:@"loadingpic2"];
-//                }
-//                else
-//                {
-//                    NSData * imageData = [_iconCache getImage:[TQImageCache parseUrlForCacheName:city.thumb]];
-//                    if (imageData)
-//                    {
-//                        city.imgData = [UIImage imageWithData:imageData];
-//                        cell.thumImg.image = city.imgData;
-//                    }
-//                    else
-//                    {
-//                        IconDownloader *downloader = [_imageDownloadsInProgress objectForKey:[NSString stringWithFormat:@"%d", [indexPath row]]];
-//                        if (downloader == nil) {
-//                            ImgRecord *record = [ImgRecord new];
-//                            record.url = city.thumb;
-//                            [self startIconDownload:record forIndexPath:indexPath];
-//                        }
-//                    }
-//                }
-//            }
+            
+            [cell.replyBtn addTarget:self action:@selector(replyAction:) forControlEvents:UIControlEventTouchUpInside];
+            cell.replyBtn.tag = [indexPath row];
+            //头像
+            if (bbs.imgData) {
+                cell.facePic.image = bbs.imgData;
+            }
+            else
+            {
+                if ([bbs.avatar isEqualToString:@""]) {
+                    bbs.imgData = [UIImage imageNamed:@"userface"];
+                }
+                else
+                {
+                    NSData * imageData = [_iconCache getImage:[TQImageCache parseUrlForCacheName:bbs.avatar]];
+                    if (imageData)
+                    {
+                        bbs.imgData = [UIImage imageWithData:imageData];
+                        cell.facePic.image = bbs.imgData;
+                    }
+                    else
+                    {
+                        IconDownloader *downloader = [_imageDownloadsInProgress objectForKey:[NSString stringWithFormat:@"%d", [indexPath row]]];
+                        if (downloader == nil) {
+                            ImgRecord *record = [ImgRecord new];
+                            record.url = bbs.avatar;
+                            [self startIconDownload:record forIndexPath:indexPath];
+                        }
+                    }
+                }
+            }
             return cell;
         }
         else
@@ -409,6 +465,51 @@
     else
     {
         return [[DataSingleton Instance] getLoadMoreCell:tableView andIsLoadOver:isLoadOver andLoadOverString:@"已经加载全部内容" andLoadingString:(isLoading ? loadingTip : loadNext20Tip)  andIsLoading:isLoading];
+    }
+}
+
+- (void)clickPicAction:(id)sender
+{
+    UITap *tap = (UITap *)sender;
+    if (tap) {
+        BBSModel *bbs = [bbsArray objectAtIndex:tap.tag];
+        if (bbs.thumb && [bbs.thumb count] > 0) {
+            NSMutableArray *photos = [[NSMutableArray alloc] init];
+            for (NSString *imageUrl in bbs.thumb) {
+                [photos addObject:[MWPhoto photoWithURL:[NSURL URLWithString:imageUrl]]];
+            }
+            self.photos = photos;
+            MWPhotoBrowser *browser = [[MWPhotoBrowser alloc] initWithDelegate:self];
+            browser.displayActionButton = YES;
+            self.navigationController.navigationBar.hidden = NO;
+            [self.navigationController pushViewController:browser animated:YES];
+        }
+    }
+}
+
+//MWPhotoBrowserDelegate委托事件
+- (NSUInteger)numberOfPhotosInPhotoBrowser:(MWPhotoBrowser *)photoBrowser {
+    return _photos.count;
+}
+
+- (id <MWPhoto>)photoBrowser:(MWPhotoBrowser *)photoBrowser photoAtIndex:(NSUInteger)index {
+    if (index < _photos.count)
+        return [_photos objectAtIndex:index];
+    return nil;
+}
+
+- (void)replyAction:(id)sender
+{
+    UIButton *tap = (UIButton *)sender;
+    if (tap) {
+        BBSModel *bbs = [bbsArray objectAtIndex:tap.tag];
+        tableIndex = tap.tag;
+        
+        
+        samplePopupViewController.bbs = bbs;
+        [self presentPopupViewController:samplePopupViewController animated:YES completion:^(void) {
+            NSLog(@"popup view presented");
+        }];
     }
 }
 

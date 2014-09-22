@@ -18,5 +18,6 @@
 @property (weak, nonatomic) IBOutlet UIView *replyView;
 @property (weak, nonatomic) IBOutlet UIView *timeView;
 @property (weak, nonatomic) IBOutlet UILabel *replyLb;
+@property (weak, nonatomic) IBOutlet UIButton *replyBtn;
 
 @end

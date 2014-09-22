@@ -314,7 +314,7 @@
             else
             {
                 if ([city.thumb isEqualToString:@""]) {
-                    city.imgData = [UIImage imageNamed:@"loadingpic2"];
+                    city.imgData = [UIImage imageNamed:@"nopic2"];
                 }
                 else
                 {

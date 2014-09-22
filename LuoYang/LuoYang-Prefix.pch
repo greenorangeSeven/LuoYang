@@ -97,6 +97,8 @@
 #define api_articlelist @"/get_article_list"
 #define api_commerciallist @"/get_business_info_list"
 #define api_bbslist @"/bbs"
+#define api_replybbs @"/reply_subject"
+#define api_addbbs @"/add_bbs_subject"
 
 //商品下单地址
 #define api_send_order @"/send_order"
@@ -178,6 +180,8 @@
 #define Notification_RefreshMyRepairs @"Notification_RefreshMyRepairs"
 #define Notification_ShowPackAlertView @"Notification_ShowPackAlertView"
 #define Notification_RefreshSetting @"Notification_RefreshSetting"
+#define Notification_RefreshBBS @"Notification_RefreshBBS"
+#define Notification_ADDBBS @"Notification_ADDBBS"
 
 #define IS_IPHONE_5 ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )568 ) < DBL_EPSILON )
 

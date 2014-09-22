@@ -131,7 +131,7 @@
     else
     {
         if ([project.logo isEqualToString:@""]) {
-            project.imgData = [UIImage imageNamed:@"loadingpic2.png"];
+            project.imgData = [UIImage imageNamed:@"nopic2.png"];
         }
         else
         {
@@ -177,6 +177,7 @@
         BBSTableView *bbsView = [[BBSTableView alloc] init];
         bbsView.cid = project.id;
         bbsView.cname = project.title;
+        bbsView.project = project;
         [self.navigationController pushViewController:bbsView animated:YES];
     }
 }

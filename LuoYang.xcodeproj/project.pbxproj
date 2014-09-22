@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		141C464319CB11750035322A /* BBSTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 141C463819CB11750035322A /* BBSTableView.m */; };
+		141C464419CB11750035322A /* BBSTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 141C463919CB11750035322A /* BBSTableView.xib */; };
+		141C464519CB11750035322A /* BBSTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 141C463B19CB11750035322A /* BBSTableCell.m */; };
+		141C464619CB11750035322A /* BBSTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 141C463C19CB11750035322A /* BBSTableCell.xib */; };
+		141C464719CB11750035322A /* BBSReplyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 141C463E19CB11750035322A /* BBSReplyView.m */; };
+		141C464819CB11750035322A /* BBSReplyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 141C463F19CB11750035322A /* BBSReplyView.xib */; };
+		141C464919CB11750035322A /* BBSPostedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 141C464119CB11750035322A /* BBSPostedView.m */; };
+		141C464A19CB11750035322A /* BBSPostedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 141C464219CB11750035322A /* BBSPostedView.xib */; };
 		1486529819CA6ABD000B3678 /* nopic4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1486529419CA6ABD000B3678 /* nopic4@2x.png */; };
 		1486529919CA6ABD000B3678 /* nopic3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1486529519CA6ABD000B3678 /* nopic3@2x.png */; };
 		1486529A19CA6ABD000B3678 /* nopic2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1486529619CA6ABD000B3678 /* nopic2@2x.png */; };
@@ -133,12 +141,6 @@
 		14A7BB7819C921BA009039DF /* ProjectCollectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14A7BB3A19C921BA009039DF /* ProjectCollectionView.xib */; };
 		14A7BB7919C921BA009039DF /* ProjectCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A7BB3C19C921BA009039DF /* ProjectCollectionCell.m */; };
 		14A7BB7A19C921BA009039DF /* ProjectCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14A7BB3D19C921BA009039DF /* ProjectCollectionCell.xib */; };
-		14A7BB7B19C921BA009039DF /* BBSTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A7BB3F19C921BA009039DF /* BBSTableView.m */; };
-		14A7BB7C19C921BA009039DF /* BBSTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14A7BB4019C921BA009039DF /* BBSTableView.xib */; };
-		14A7BB7D19C921BA009039DF /* BBSTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A7BB4219C921BA009039DF /* BBSTableCell.m */; };
-		14A7BB7E19C921BA009039DF /* BBSTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14A7BB4319C921BA009039DF /* BBSTableCell.xib */; };
-		14A7BB7F19C921BA009039DF /* BBSReplyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A7BB4519C921BA009039DF /* BBSReplyView.m */; };
-		14A7BB8019C921BA009039DF /* BBSReplyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14A7BB4619C921BA009039DF /* BBSReplyView.xib */; };
 		14A7BBA219C921C6009039DF /* CityPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A7BB8219C921C5009039DF /* CityPageView.m */; };
 		14A7BBA319C921C6009039DF /* CityPageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14A7BB8319C921C5009039DF /* CityPageView.xib */; };
 		14A7BBA419C921C6009039DF /* CityView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A7BB8519C921C5009039DF /* CityView.m */; };
@@ -572,6 +574,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		141C463719CB11750035322A /* BBSTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBSTableView.h; sourceTree = "<group>"; };
+		141C463819CB11750035322A /* BBSTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBSTableView.m; sourceTree = "<group>"; };
+		141C463919CB11750035322A /* BBSTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBSTableView.xib; sourceTree = "<group>"; };
+		141C463A19CB11750035322A /* BBSTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBSTableCell.h; sourceTree = "<group>"; };
+		141C463B19CB11750035322A /* BBSTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBSTableCell.m; sourceTree = "<group>"; };
+		141C463C19CB11750035322A /* BBSTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBSTableCell.xib; sourceTree = "<group>"; };
+		141C463D19CB11750035322A /* BBSReplyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBSReplyView.h; sourceTree = "<group>"; };
+		141C463E19CB11750035322A /* BBSReplyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBSReplyView.m; sourceTree = "<group>"; };
+		141C463F19CB11750035322A /* BBSReplyView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBSReplyView.xib; sourceTree = "<group>"; };
+		141C464019CB11750035322A /* BBSPostedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBSPostedView.h; sourceTree = "<group>"; };
+		141C464119CB11750035322A /* BBSPostedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBSPostedView.m; sourceTree = "<group>"; };
+		141C464219CB11750035322A /* BBSPostedView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBSPostedView.xib; sourceTree = "<group>"; };
 		1486529419CA6ABD000B3678 /* nopic4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nopic4@2x.png"; sourceTree = "<group>"; };
 		1486529519CA6ABD000B3678 /* nopic3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nopic3@2x.png"; sourceTree = "<group>"; };
 		1486529619CA6ABD000B3678 /* nopic2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nopic2@2x.png"; sourceTree = "<group>"; };
@@ -757,15 +771,6 @@
 		14A7BB3B19C921BA009039DF /* ProjectCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectCollectionCell.h; sourceTree = "<group>"; };
 		14A7BB3C19C921BA009039DF /* ProjectCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectCollectionCell.m; sourceTree = "<group>"; };
 		14A7BB3D19C921BA009039DF /* ProjectCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectCollectionCell.xib; sourceTree = "<group>"; };
-		14A7BB3E19C921BA009039DF /* BBSTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBSTableView.h; sourceTree = "<group>"; };
-		14A7BB3F19C921BA009039DF /* BBSTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBSTableView.m; sourceTree = "<group>"; };
-		14A7BB4019C921BA009039DF /* BBSTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBSTableView.xib; sourceTree = "<group>"; };
-		14A7BB4119C921BA009039DF /* BBSTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBSTableCell.h; sourceTree = "<group>"; };
-		14A7BB4219C921BA009039DF /* BBSTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBSTableCell.m; sourceTree = "<group>"; };
-		14A7BB4319C921BA009039DF /* BBSTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBSTableCell.xib; sourceTree = "<group>"; };
-		14A7BB4419C921BA009039DF /* BBSReplyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBSReplyView.h; sourceTree = "<group>"; };
-		14A7BB4519C921BA009039DF /* BBSReplyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBSReplyView.m; sourceTree = "<group>"; };
-		14A7BB4619C921BA009039DF /* BBSReplyView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBSReplyView.xib; sourceTree = "<group>"; };
 		14A7BB8119C921C5009039DF /* CityPageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityPageView.h; sourceTree = "<group>"; };
 		14A7BB8219C921C5009039DF /* CityPageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityPageView.m; sourceTree = "<group>"; };
 		14A7BB8319C921C5009039DF /* CityPageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CityPageView.xib; sourceTree = "<group>"; };
@@ -1489,8 +1494,8 @@
 				14A7BA3019C92078009039DF /* CoreGraphics.framework in Frameworks */,
 				14A7BE0019C923E1009039DF /* libbaidumapapi.a in Frameworks */,
 				14A7BA3219C92078009039DF /* UIKit.framework in Frameworks */,
-				14A7BF0219C9249D009039DF /* KeyboardManager.framework in Frameworks */,
 				14A7BFDA19C925D8009039DF /* SinaWeiboConnection.framework in Frameworks */,
+				14A7BF0219C9249D009039DF /* KeyboardManager.framework in Frameworks */,
 				14A7BA2E19C92078009039DF /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1810,15 +1815,18 @@
 				14A7BB3B19C921BA009039DF /* ProjectCollectionCell.h */,
 				14A7BB3C19C921BA009039DF /* ProjectCollectionCell.m */,
 				14A7BB3D19C921BA009039DF /* ProjectCollectionCell.xib */,
-				14A7BB3E19C921BA009039DF /* BBSTableView.h */,
-				14A7BB3F19C921BA009039DF /* BBSTableView.m */,
-				14A7BB4019C921BA009039DF /* BBSTableView.xib */,
-				14A7BB4119C921BA009039DF /* BBSTableCell.h */,
-				14A7BB4219C921BA009039DF /* BBSTableCell.m */,
-				14A7BB4319C921BA009039DF /* BBSTableCell.xib */,
-				14A7BB4419C921BA009039DF /* BBSReplyView.h */,
-				14A7BB4519C921BA009039DF /* BBSReplyView.m */,
-				14A7BB4619C921BA009039DF /* BBSReplyView.xib */,
+				141C463719CB11750035322A /* BBSTableView.h */,
+				141C463819CB11750035322A /* BBSTableView.m */,
+				141C463919CB11750035322A /* BBSTableView.xib */,
+				141C463A19CB11750035322A /* BBSTableCell.h */,
+				141C463B19CB11750035322A /* BBSTableCell.m */,
+				141C463C19CB11750035322A /* BBSTableCell.xib */,
+				141C463D19CB11750035322A /* BBSReplyView.h */,
+				141C463E19CB11750035322A /* BBSReplyView.m */,
+				141C463F19CB11750035322A /* BBSReplyView.xib */,
+				141C464019CB11750035322A /* BBSPostedView.h */,
+				141C464119CB11750035322A /* BBSPostedView.m */,
+				141C464219CB11750035322A /* BBSPostedView.xib */,
 			);
 			name = LifePage;
 			sourceTree = "<group>";
@@ -3029,7 +3037,6 @@
 				14A7BC9119C921E1009039DF /* voln_join_ti@2x.png in Resources */,
 				14A7BAE919C921A0009039DF /* KuaiDi100View.xib in Resources */,
 				14A7BADD19C921A0009039DF /* NewsDetailView.xib in Resources */,
-				14A7BB7E19C921BA009039DF /* BBSTableCell.xib in Resources */,
 				14A7BD2519C921E1009039DF /* top_bg@2x.png in Resources */,
 				14A7BADF19C921A0009039DF /* ExpressView.xib in Resources */,
 				14A7BBA519C921C6009039DF /* CityView.xib in Resources */,
@@ -3053,6 +3060,7 @@
 				14A7BCA319C921E1009039DF /* 37x-Checkmark@2x.png in Resources */,
 				14A7BD0219C921E1009039DF /* business_temp.png in Resources */,
 				14A7BD0719C921E1009039DF /* online_dianfei@2x.png in Resources */,
+				141C464619CB11750035322A /* BBSTableCell.xib in Resources */,
 				14A7BCD019C921E1009039DF /* detail_praise@2x.png in Resources */,
 				14A7BCE219C921E1009039DF /* onlineservice@2x.png in Resources */,
 				14A7BD1519C921E1009039DF /* userface.png in Resources */,
@@ -3075,7 +3083,6 @@
 				14A7BB6A19C921BA009039DF /* StoreMapPointView.xib in Resources */,
 				14A7BB6019C921BA009039DF /* BusinessView.xib in Resources */,
 				14A7BCD819C921E1009039DF /* subtle_day_special@2x.png in Resources */,
-				14A7BB8019C921BA009039DF /* BBSReplyView.xib in Resources */,
 				14A7BCA219C921E1009039DF /* 37x-Checkmark.png in Resources */,
 				14A7BD3319C921E1009039DF /* tab_life@2x.png in Resources */,
 				14A7BD1319C921E1009039DF /* saveinfobtn@2x.png in Resources */,
@@ -3105,7 +3112,6 @@
 				14A7BCFE19C921E1009039DF /* goods_temps.png in Resources */,
 				14A7BCAE19C921E1009039DF /* city_temp@2x.png in Resources */,
 				14A7BFDE19C925D8009039DF /* ShareSDKLocalizable.strings in Resources */,
-				14A7BB7C19C921BA009039DF /* BBSTableView.xib in Resources */,
 				14A7BCB219C921E1009039DF /* cm_ attention@2x.png in Resources */,
 				148E584819C937A3008F9462 /* ChangPWDView.xib in Resources */,
 				14A7BD0119C921E1009039DF /* business_map.png in Resources */,
@@ -3172,6 +3178,7 @@
 				14A7BCFA19C921E1009039DF /* prepayBtnBg.png in Resources */,
 				14A7BCF719C921E1009039DF /* repairslogo@2x.png in Resources */,
 				14A7BD2F19C921E1009039DF /* maingoodbg@2x.png in Resources */,
+				141C464419CB11750035322A /* BBSTableView.xib in Resources */,
 				14A7BB7219C921BA009039DF /* ShoppingCartView.xib in Resources */,
 				14A7BCB819C921E1009039DF /* conv_order_phone@2x.png in Resources */,
 				14A7BCCD19C921E1009039DF /* bdetail_price_bg@2x.png in Resources */,
@@ -3204,6 +3211,7 @@
 				14A7BCD419C921E1009039DF /* business_detail_temp@2x.png in Resources */,
 				14A7BB5A19C921BA009039DF /* CBusinessPublishView.xib in Resources */,
 				14A7BB6E19C921BA009039DF /* GoodsDetailView.xib in Resources */,
+				141C464819CB11750035322A /* BBSReplyView.xib in Resources */,
 				14A7BCD119C921E1009039DF /* detail_join@2x.png in Resources */,
 				14A7BCE619C921E1009039DF /* life_btn_bg@2x.png in Resources */,
 				1486529A19CA6ABD000B3678 /* nopic2@2x.png in Resources */,
@@ -3223,6 +3231,7 @@
 				14A7BBD419C921D1009039DF /* SettingView.xib in Resources */,
 				14A7BBA719C921C6009039DF /* CityCell.xib in Resources */,
 				14A7BCE119C921E1009039DF /* taosao@2x.png in Resources */,
+				141C464A19CB11750035322A /* BBSPostedView.xib in Resources */,
 				14A7BCC019C921E1009039DF /* bm_zhuangxiu@2x.png in Resources */,
 				14A7BAD919C921A0009039DF /* NewsTableView.xib in Resources */,
 				14A7BCAC19C921E1009039DF /* ritem-6@2x.png in Resources */,
@@ -3377,6 +3386,7 @@
 				14A7BD8319C921EE009039DF /* BusinessGoods.m in Sources */,
 				14A7BBAA19C921C6009039DF /* VolnView.m in Sources */,
 				14A7BBE119C921D1009039DF /* MyOrderView.m in Sources */,
+				141C464519CB11750035322A /* BBSTableCell.m in Sources */,
 				14A7BEC219C92445009039DF /* ASIFormDataRequest.m in Sources */,
 				14A7BACC19C921A0009039DF /* MyRepairsView.m in Sources */,
 				14A7BE7319C92416009039DF /* SBJSON.m in Sources */,
@@ -3411,9 +3421,9 @@
 				14A7BEC519C92445009039DF /* ASINetworkQueue.m in Sources */,
 				14A7BEE519C9246A009039DF /* UIViewController+CWPopup.m in Sources */,
 				14A7BFA119C92506009039DF /* NSString+STRegex.m in Sources */,
-				14A7BB7D19C921BA009039DF /* BBSTableCell.m in Sources */,
 				14A7BD7919C921EE009039DF /* News.m in Sources */,
 				14A7BD9119C921EE009039DF /* CityInfo.m in Sources */,
+				141C464719CB11750035322A /* BBSReplyView.m in Sources */,
 				14A7BF1519C924B6009039DF /* FMDatabasePool.m in Sources */,
 				14A7BA3A19C92078009039DF /* main.m in Sources */,
 				14A7BB5D19C921BA009039DF /* SubtleCell.m in Sources */,
@@ -3422,7 +3432,6 @@
 				14A7BE9519C92426009039DF /* AFJSONRequestOperation.m in Sources */,
 				14A7BBB219C921C6009039DF /* HelperView.m in Sources */,
 				14A7BB4D19C921BA009039DF /* ConvOrderView.m in Sources */,
-				14A7BB7B19C921BA009039DF /* BBSTableView.m in Sources */,
 				14A7BBDB19C921D1009039DF /* ChooseAreaView.m in Sources */,
 				14A7BF7619C924FA009039DF /* DACircularProgressView.m in Sources */,
 				14A7BB4919C921BA009039DF /* ConvView.m in Sources */,
@@ -3443,6 +3452,7 @@
 				14A7BE9C19C92426009039DF /* UIImageView+AFNetworking.m in Sources */,
 				14A7BD8719C921EE009039DF /* OrderBusiness.m in Sources */,
 				14A7BAC619C921A0009039DF /* FeeHistoryCell.m in Sources */,
+				141C464919CB11750035322A /* BBSPostedView.m in Sources */,
 				14A7BBD719C921D1009039DF /* LoginView.m in Sources */,
 				14A7BB6319C921BA009039DF /* BusinessCell.m in Sources */,
 				14A7BAC819C921A0009039DF /* RepairsFrameView.m in Sources */,
@@ -3464,6 +3474,7 @@
 				14A7BE4A19C92404009039DF /* NSString+Base64.m in Sources */,
 				14A7BBAC19C921C6009039DF /* VolnCell.m in Sources */,
 				14A7BDCE19C9225D009039DF /* JSNotifier.m in Sources */,
+				141C464319CB11750035322A /* BBSTableView.m in Sources */,
 				14A7BF7C19C924FA009039DF /* PSTCollectionViewFlowLayout.m in Sources */,
 				14A7BF1319C924B6009039DF /* FMDatabase.m in Sources */,
 				14A7BF1719C924B6009039DF /* FMResultSet.m in Sources */,
@@ -3476,7 +3487,6 @@
 				14A7BE7119C92416009039DF /* NSObject+SBJSON.m in Sources */,
 				14A7BBA419C921C6009039DF /* CityView.m in Sources */,
 				14A7BBA219C921C6009039DF /* CityPageView.m in Sources */,
-				14A7BB7F19C921BA009039DF /* BBSReplyView.m in Sources */,
 				14A7BEC719C92445009039DF /* Reachability.m in Sources */,
 				14A7BBB019C921C6009039DF /* VolnJoinView.m in Sources */,
 			);
@@ -3622,6 +3632,8 @@
 					Framework,
 					"$(PROJECT_DIR)/LuoYang/IQKeyboardManager",
 					Framework,
+					"$(PROJECT_DIR)/LuoYang/IQKeyboardManager",
+					Framework,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LuoYang/LuoYang-Prefix.pch";
@@ -3665,6 +3677,8 @@
 					"$(PROJECT_DIR)/LuoYang/ShareSDK/Extend/QQConnectSDK",
 					"$(PROJECT_DIR)/LuoYang/ShareSDK",
 					"$(PROJECT_DIR)/LuoYang/ShareSDK/UI",
+					"$(PROJECT_DIR)/LuoYang/IQKeyboardManager",
+					Framework,
 					"$(PROJECT_DIR)/LuoYang/IQKeyboardManager",
 					Framework,
 					"$(PROJECT_DIR)/LuoYang/IQKeyboardManager",

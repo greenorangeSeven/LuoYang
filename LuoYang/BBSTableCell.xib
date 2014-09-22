@@ -31,7 +31,7 @@
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loadingpic2.png" id="e3J-vU-IET">
+                    <imageView multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loadingpic2.png" id="e3J-vU-IET">
                         <rect key="frame" x="58" y="65" width="90" height="60"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </imageView>
@@ -83,6 +83,7 @@
                 <outlet property="facePic" destination="FZZ-KM-jlz" id="X6z-Wy-sfh"/>
                 <outlet property="imageIv" destination="e3J-vU-IET" id="bPF-m3-qH2"/>
                 <outlet property="nickNameLb" destination="MEj-IQ-yCM" id="CAz-Rr-Qdc"/>
+                <outlet property="replyBtn" destination="ruC-IG-nA1" id="pY5-gg-qwL"/>
                 <outlet property="replyLb" destination="ae4-4X-tSe" id="Ra9-cf-zwE"/>
                 <outlet property="replyView" destination="vrr-X5-Xr5" id="kgx-iN-SGZ"/>
                 <outlet property="timeLb" destination="jZN-WD-CbR" id="8e2-al-utQ"/>
