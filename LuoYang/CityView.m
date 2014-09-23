@@ -247,7 +247,7 @@
         if (!noRefresh) {
             allCount = 0;
         }
-        int pageIndex = allCount / 20;
+        int pageIndex = allCount / 20 + 1;
         NSMutableString *tempUrl = [NSMutableString stringWithFormat:@"%@%@?APPKey=%@&catid=%@&p=%i", api_base_url, api_get_wisdom_list, appkey,self.typeStr,pageIndex];
         
          NSString *url = [NSString stringWithString:tempUrl];

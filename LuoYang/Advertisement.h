@@ -14,6 +14,7 @@
 @property (nonatomic, retain) NSString *title;
 @property (nonatomic, retain) NSString *cid;
 @property (nonatomic, retain) NSString *pic;
+@property (nonatomic, retain) NSString *thumb;
 @property (nonatomic, retain) NSString *content;
 @property (nonatomic, retain) NSString *points;
 

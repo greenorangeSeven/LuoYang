@@ -100,13 +100,13 @@
                                            if (length > 1)
                                            {
                                                Advertisement *adv = [advDatas objectAtIndex:length-1];
-                                               SGFocusImageItem *item = [[SGFocusImageItem alloc] initWithTitle:@"" image:adv.pic tag:-1];
+                                               SGFocusImageItem *item = [[SGFocusImageItem alloc] initWithTitle:@"" image:adv.thumb tag:-1];
                                                [itemArray addObject:item];
                                            }
                                            for (int i = 0; i < length; i++)
                                            {
                                                Advertisement *adv = [advDatas objectAtIndex:i];
-                                               SGFocusImageItem *item = [[SGFocusImageItem alloc] initWithTitle:@"" image:adv.pic tag:-1];
+                                               SGFocusImageItem *item = [[SGFocusImageItem alloc] initWithTitle:@"" image:adv.thumb tag:-1];
                                                [itemArray addObject:item];
                                                
                                            }
@@ -114,7 +114,7 @@
                                            if (length >1)
                                            {
                                                Advertisement *adv = [advDatas objectAtIndex:0];
-                                               SGFocusImageItem *item = [[SGFocusImageItem alloc] initWithTitle:@"" image:adv.pic tag:-1];
+                                               SGFocusImageItem *item = [[SGFocusImageItem alloc] initWithTitle:@"" image:adv.thumb tag:-1];
                                                [itemArray addObject:item];
                                            }
                                            bannerView = [[SGFocusImageFrame alloc] initWithFrame:CGRectMake(0, 0, 320, 200) delegate:self imageItems:itemArray isAuto:NO];
@@ -144,14 +144,35 @@
 - (void)foucusImageFrame:(SGFocusImageFrame *)imageFrame didSelectItem:(SGFocusImageItem *)item
 {
     NSLog(@"%s \n click===>%@",__FUNCTION__,item.title);
+    Advertisement *adv = (Advertisement *)[advDatas objectAtIndex:advIndex];
+    if (adv)
+    {
+        HelperDetailView *helperDetailView = [[HelperDetailView alloc] init];
+        helperDetailView.helpId = adv.id;
+        [self.navigationController pushViewController:helperDetailView animated:YES];
+    }
 }
 
 //顶部图片自动滑动委托协议实现事件
 - (void)foucusImageFrame:(SGFocusImageFrame *)imageFrame currentItem:(int)index
 {
     NSLog(@"%s \n scrollToIndex===>%d",__FUNCTION__,index);
+    advIndex = index;
 }
 
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    bannerView.delegate = nil;
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBar.hidden = NO;
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+    bannerView.delegate = self;
+}
 
 - (void)doneManualRefresh
 {
@@ -219,7 +240,7 @@
         if (!noRefresh) {
             allCount = 0;
         }
-        int pageIndex = allCount / 20;
+        int pageIndex = allCount / 20 + 1;
         NSMutableString *tempUrl = [NSMutableString stringWithFormat:@"%@%@?APPKey=%@&p=%i", api_base_url, api_get_help_list, appkey,pageIndex];
         
         NSString *url = [NSString stringWithString:tempUrl];
@@ -417,13 +438,13 @@
     }
     else
     {
-    Citys *art = [cityArray objectAtIndex:[indexPath row]];
-    if (art)
-    {
-        HelperDetailView *helperDetailView = [[HelperDetailView alloc] init];
-        helperDetailView.art = art;
-        [self.navigationController pushViewController:helperDetailView animated:YES];
-    }
+        Citys *art = [cityArray objectAtIndex:[indexPath row]];
+        if (art)
+        {
+            HelperDetailView *helperDetailView = [[HelperDetailView alloc] init];
+            helperDetailView.helpId = art.id;
+            [self.navigationController pushViewController:helperDetailView animated:YES];
+        }
     }
     
 }

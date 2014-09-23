@@ -9,7 +9,7 @@
 #import "SubtleView.h"
 #import "SubtleCell.h"
 
-@interface SubtleView () <UITableViewDataSource,UITableViewDelegate>
+@interface SubtleView ()
 
 @end
 

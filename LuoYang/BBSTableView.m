@@ -100,6 +100,8 @@
     imageView.imageURL = [NSURL URLWithString:_project.logo];
     imageView.frame = CGRectMake(0.0f, 0.0f, 320.0f, 145.0f);
     [_logoIV addSubview:imageView];
+    
+    userId = [[UserModel Instance] getUserValueForKey:@"id"];
 }
 
 - (void)refreshTableData
@@ -425,8 +427,21 @@
             //昵称
             cell.nickNameLb.text = nickname;
             
+            //评论按钮
             [cell.replyBtn addTarget:self action:@selector(replyAction:) forControlEvents:UIControlEventTouchUpInside];
             cell.replyBtn.tag = [indexPath row];
+            
+            //删除按钮
+            if ([userId isEqualToString:bbs.customer_id]) {
+                cell.delBtn.hidden = NO;
+            }
+            else
+            {
+                cell.delBtn.hidden = YES;
+            }
+            [cell.delBtn addTarget:self action:@selector(delAction:) forControlEvents:UIControlEventTouchUpInside];
+            cell.delBtn.tag = [indexPath row];
+            
             //头像
             if (bbs.imgData) {
                 cell.facePic.image = bbs.imgData;
@@ -510,6 +525,56 @@
         [self presentPopupViewController:samplePopupViewController animated:YES completion:^(void) {
             NSLog(@"popup view presented");
         }];
+    }
+}
+
+- (void)delAction:(id)sender
+{
+    UIButton *tap = (UIButton *)sender;
+    if (tap) {
+        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"删除提醒"
+                                                     message:@"您确定要删除这篇贴子？"
+                                                    delegate:self
+                                           cancelButtonTitle:@"取消"
+                                           otherButtonTitles:@"确定", nil];
+        av.tag =tap.tag;
+        [av show];
+    }
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 1) {
+        int tag = alertView.tag;
+        BBSModel *bbs = [bbsArray objectAtIndex:tag];
+        if (bbs) {
+            NSString *delUrl = [NSString stringWithFormat:@"%@%@?APPKey=%@&userid=%@&id=%@", api_base_url, api_delbbs, appkey, userId, bbs.id];
+            NSURL *url = [ NSURL URLWithString : delUrl];
+            // 构造 ASIHTTPRequest 对象
+            ASIHTTPRequest *request = [ ASIHTTPRequest requestWithURL :url];
+            // 开始同步请求
+            [request startSynchronous ];
+            NSError *error = [request error ];
+            assert (!error);
+            // 如果请求成功，返回 Response
+            NSString *response = [request responseString ];
+            NSData *data = [response dataUsingEncoding:NSUTF8StringEncoding];
+            NSError *err;
+            int status = 0;
+            NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&err];
+            if (json) {
+                status = [[json objectForKey:@"status"] intValue];
+                if (status == 1) {
+                    [Tool showCustomHUD:@"删除成功" andView:self.view  andImage:@"37x-Checkmark.png" andAfterDelay:1];
+                    [bbsArray removeObjectAtIndex:tag];
+                    [self.tableView reloadData];
+                }
+                else
+                {
+                    [Tool showCustomHUD:@"删除失败" andView:self.view  andImage:@"37x-Failure.png" andAfterDelay:1];
+                }
+            }
+        }
     }
 }
 

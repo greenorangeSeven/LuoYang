@@ -172,7 +172,7 @@
         if (!noRefresh) {
             allCount = 0;
         }
-        int pageIndex = allCount / 20;
+        int pageIndex = allCount / 20 + 1;
         NSMutableString *tempUrl = [NSMutableString stringWithFormat:@"%@%@?APPKey=%@&catid=%@&p=%d", api_base_url, api_commerciallist, appkey, catalog, pageIndex];
         
         NSString *cid = [[UserModel Instance] getUserValueForKey:@"cid"];

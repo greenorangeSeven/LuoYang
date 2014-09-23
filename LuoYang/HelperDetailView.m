@@ -86,7 +86,7 @@
     //如果有网络连接
     if ([UserModel Instance].isNetworkRunning)
     {
-        NSString *url = [NSString stringWithFormat:@"%@%@?APPKey=%@&id=%@", api_base_url, api_get_help_info, appkey,_art.id];
+        NSString *url = [NSString stringWithFormat:@"%@%@?APPKey=%@&id=%@", api_base_url, api_get_help_info, appkey,_helpId];
         [[AFOSCClient sharedClient]getPath:url parameters:Nil
                                    success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                        @try {

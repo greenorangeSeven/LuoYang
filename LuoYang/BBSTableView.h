@@ -16,7 +16,7 @@
 #import "UITap.h"
 #import "MWPhotoBrowser.h"
 
-@interface BBSTableView : UIViewController<UITableViewDataSource,UITableViewDelegate,EGORefreshTableHeaderDelegate,MBProgressHUDDelegate,IconDownloaderDelegate,MWPhotoBrowserDelegate>
+@interface BBSTableView : UIViewController<UITableViewDataSource,UITableViewDelegate,EGORefreshTableHeaderDelegate,MBProgressHUDDelegate,IconDownloaderDelegate,MWPhotoBrowserDelegate, UIAlertViewDelegate>
 {
     NSMutableArray *bbsArray;
     BOOL isLoading;
@@ -36,6 +36,8 @@
     int tableIndex;
     BBSReplyView *samplePopupViewController;
     NSArray *_photos;
+    
+    NSString *userId;
 }
 
 @property (nonatomic, retain) NSArray *photos;

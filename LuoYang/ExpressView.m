@@ -50,7 +50,10 @@
         self.automaticallyAdjustsScrollViewInsets = NO;
     }
     [Tool roundView:self.bgView andCornerRadius:3.0];
-    self.scrollView.contentSize = CGSizeMake(self.scrollView.bounds.size.width, self.view.frame.size.height - 56);
+    if (!IS_IPHONE_5) {
+        self.scrollView.contentSize = CGSizeMake(self.scrollView.bounds.size.width, self.view.frame.size.height - 40);
+    }
+
     
     UserModel *usermodel = [UserModel Instance];
     self.nameLb.text = [usermodel getUserValueForKey:@"name"];
@@ -94,12 +97,13 @@
 }
 
 - (IBAction)sendAction:(id)sender {
-    self.sendBtn.enabled = NO;
+    
     NSString *descStr = self.descTv.text;
     if (descStr == nil || [descStr length] == 0) {
         [Tool showCustomHUD:@"请填写描述" andView:self.view  andImage:@"37x-Failure.png" andAfterDelay:1];
         return;
     }
+    self.sendBtn.enabled = NO;
     UserModel *usermodel = [UserModel Instance];
     NSString *apiUrl = [NSString stringWithFormat:@"%@%@", api_base_url, api_addmyoutbox];
     ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:[NSURL URLWithString:apiUrl]];

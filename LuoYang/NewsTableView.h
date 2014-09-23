@@ -9,8 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "NoticeTableCell.h"
 #import "NewsDetailView.h"
+#import "SGFocusImageFrame.h"
+#import "SGFocusImageItem.h"
+#import "ADVDetailView.h"
 
-@interface NewsTableView : UIViewController<UITableViewDelegate,UITableViewDataSource,EGORefreshTableHeaderDelegate,MBProgressHUDDelegate>
+@interface NewsTableView : UIViewController<UITableViewDelegate,UITableViewDataSource,EGORefreshTableHeaderDelegate,MBProgressHUDDelegate, SGFocusImageFrameDelegate>
 {
     NSMutableArray * news;
     BOOL isLoading;
@@ -20,7 +23,13 @@
     //下拉刷新
     EGORefreshTableHeaderView *_refreshHeaderView;
     BOOL _reloading;
+    
+    NSMutableArray *advDatas;
+    SGFocusImageFrame *bannerView;
+    int advIndex;
 }
+
+@property (weak, nonatomic) IBOutlet UIImageView *advIv;
 
 @property (weak, nonatomic) IBOutlet UITableView *newsTable;
 

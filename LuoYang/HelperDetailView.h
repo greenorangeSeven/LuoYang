@@ -13,7 +13,7 @@
     MBProgressHUD *hud;
 }
 
-@property (weak, nonatomic) Citys *art;
+@property (weak, nonatomic) NSString *helpId;
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 
 @end

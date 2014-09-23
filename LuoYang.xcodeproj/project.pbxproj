@@ -15,6 +15,9 @@
 		141C464819CB11750035322A /* BBSReplyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 141C463F19CB11750035322A /* BBSReplyView.xib */; };
 		141C464919CB11750035322A /* BBSPostedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 141C464119CB11750035322A /* BBSPostedView.m */; };
 		141C464A19CB11750035322A /* BBSPostedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 141C464219CB11750035322A /* BBSPostedView.xib */; };
+		142A7DDA19D0126D00F0AD31 /* life_znjj@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 142A7DD719D0126D00F0AD31 /* life_znjj@2x.png */; };
+		142A7DDB19D0126D00F0AD31 /* life_jjzs@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 142A7DD819D0126D00F0AD31 /* life_jjzs@2x.png */; };
+		142A7DDC19D0126D00F0AD31 /* life_sqjr@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 142A7DD919D0126D00F0AD31 /* life_sqjr@2x.png */; };
 		1486529819CA6ABD000B3678 /* nopic4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1486529419CA6ABD000B3678 /* nopic4@2x.png */; };
 		1486529919CA6ABD000B3678 /* nopic3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1486529519CA6ABD000B3678 /* nopic3@2x.png */; };
 		1486529A19CA6ABD000B3678 /* nopic2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1486529619CA6ABD000B3678 /* nopic2@2x.png */; };
@@ -586,6 +589,9 @@
 		141C464019CB11750035322A /* BBSPostedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBSPostedView.h; sourceTree = "<group>"; };
 		141C464119CB11750035322A /* BBSPostedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBSPostedView.m; sourceTree = "<group>"; };
 		141C464219CB11750035322A /* BBSPostedView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBSPostedView.xib; sourceTree = "<group>"; };
+		142A7DD719D0126D00F0AD31 /* life_znjj@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "life_znjj@2x.png"; sourceTree = "<group>"; };
+		142A7DD819D0126D00F0AD31 /* life_jjzs@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "life_jjzs@2x.png"; sourceTree = "<group>"; };
+		142A7DD919D0126D00F0AD31 /* life_sqjr@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "life_sqjr@2x.png"; sourceTree = "<group>"; };
 		1486529419CA6ABD000B3678 /* nopic4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nopic4@2x.png"; sourceTree = "<group>"; };
 		1486529519CA6ABD000B3678 /* nopic3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nopic3@2x.png"; sourceTree = "<group>"; };
 		1486529619CA6ABD000B3678 /* nopic2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nopic2@2x.png"; sourceTree = "<group>"; };
@@ -1911,6 +1917,9 @@
 		14A7BA6119C9214E009039DF /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				142A7DD719D0126D00F0AD31 /* life_znjj@2x.png */,
+				142A7DD819D0126D00F0AD31 /* life_jjzs@2x.png */,
+				142A7DD919D0126D00F0AD31 /* life_sqjr@2x.png */,
 				14A7BBE519C921E1009039DF /* beautylifelogo@2x.png */,
 				14A7BBE619C921E1009039DF /* reply@2x.png */,
 				14A7BBE719C921E1009039DF /* voln_join@2x.png */,
@@ -3029,6 +3038,7 @@
 				1486529919CA6ABD000B3678 /* nopic3@2x.png in Resources */,
 				14A7BA3819C92078009039DF /* InfoPlist.strings in Resources */,
 				14A7BCC319C921E1009039DF /* lm_dianqi@2x.png in Resources */,
+				142A7DDB19D0126D00F0AD31 /* life_jjzs@2x.png in Resources */,
 				14A7BAC919C921A0009039DF /* RepairsFrameView.xib in Resources */,
 				14A7BEDD19C9245E009039DF /* BPushConfig.plist in Resources */,
 				14A7BC9619C921E1009039DF /* activity_zyz@2x.png in Resources */,
@@ -3058,6 +3068,7 @@
 				14A7BCBA19C921E1009039DF /* conv_order_online@2x.png in Resources */,
 				14A7BFFA19C92B6C009039DF /* ExpressCompany.plist in Resources */,
 				14A7BCA319C921E1009039DF /* 37x-Checkmark@2x.png in Resources */,
+				142A7DDC19D0126D00F0AD31 /* life_sqjr@2x.png in Resources */,
 				14A7BD0219C921E1009039DF /* business_temp.png in Resources */,
 				14A7BD0719C921E1009039DF /* online_dianfei@2x.png in Resources */,
 				141C464619CB11750035322A /* BBSTableCell.xib in Resources */,
@@ -3182,6 +3193,7 @@
 				14A7BB7219C921BA009039DF /* ShoppingCartView.xib in Resources */,
 				14A7BCB819C921E1009039DF /* conv_order_phone@2x.png in Resources */,
 				14A7BCCD19C921E1009039DF /* bdetail_price_bg@2x.png in Resources */,
+				142A7DDA19D0126D00F0AD31 /* life_znjj@2x.png in Resources */,
 				14A7BD1819C921E1009039DF /* setting_register@2x.png in Resources */,
 				14A7BC9F19C921E1009039DF /* conv_order_map@2x.png in Resources */,
 				14A7BD2619C921E1009039DF /* rightarrows@2x.png in Resources */,
@@ -3636,6 +3648,10 @@
 					Framework,
 					"$(PROJECT_DIR)/LuoYang/IQKeyboardManager",
 					Framework,
+					"$(PROJECT_DIR)/LuoYang/IQKeyboardManager",
+					Framework,
+					"$(PROJECT_DIR)/LuoYang/IQKeyboardManager",
+					Framework,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LuoYang/LuoYang-Prefix.pch";
@@ -3680,6 +3696,10 @@
 					"$(PROJECT_DIR)/LuoYang/ShareSDK/Extend/QQConnectSDK",
 					"$(PROJECT_DIR)/LuoYang/ShareSDK",
 					"$(PROJECT_DIR)/LuoYang/ShareSDK/UI",
+					"$(PROJECT_DIR)/LuoYang/IQKeyboardManager",
+					Framework,
+					"$(PROJECT_DIR)/LuoYang/IQKeyboardManager",
+					Framework,
 					"$(PROJECT_DIR)/LuoYang/IQKeyboardManager",
 					Framework,
 					"$(PROJECT_DIR)/LuoYang/IQKeyboardManager",
