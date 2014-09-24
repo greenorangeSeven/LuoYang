@@ -29,6 +29,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.newsTable.frame = CGRectMake(self.newsTable.frame.origin.x, self.newsTable.frame.origin.y, self.newsTable.frame.size.width, self.newsTable.frame.size.height-33);
+
     self.newsTable.dataSource = self;
     self.newsTable.delegate = self;
     //    设置无分割线

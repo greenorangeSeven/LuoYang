@@ -27,6 +27,8 @@
     UILabel *noDataLabel;
 }
 
+@property (weak, nonatomic) NSString *type;
+
 @property (weak, nonatomic) IBOutlet UITableView *goodTableView;
 @property (weak, nonatomic) IBOutlet UILabel *totalLb;
 @property (weak, nonatomic) IBOutlet UIButton *buyButton;

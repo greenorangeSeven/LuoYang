@@ -33,11 +33,11 @@
         UIBarButtonItem *btnBack = [[UIBarButtonItem alloc]initWithCustomView:lBtn];
         self.navigationItem.leftBarButtonItem = btnBack;
         
-        UIButton *rBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 52, 27)];
+        UIButton *rBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 30, 30)];
         [rBtn addTarget:self action:@selector(shareAction:) forControlEvents:UIControlEventTouchUpInside];
-        [rBtn setImage:[UIImage imageNamed:@"head_share"] forState:UIControlStateNormal];
-        UIBarButtonItem *btnSearch = [[UIBarButtonItem alloc]initWithCustomView:rBtn];
-        self.navigationItem.rightBarButtonItem = btnSearch;
+        [rBtn setImage:[UIImage imageNamed:@"head_shopcar"] forState:UIControlStateNormal];
+        UIBarButtonItem *btnShopCar = [[UIBarButtonItem alloc]initWithCustomView:rBtn];
+        self.navigationItem.rightBarButtonItem = btnShopCar;
     }
     return self;
 }
@@ -49,12 +49,9 @@
 
 - (void)shareAction:(id)sender
 {
-    NSDictionary *contentDic = [NSDictionary dictionaryWithObjectsAndKeys:
-                                self.good.summary, @"title",
-                                self.good.summary, @"summary",
-                                self.good.thumb, @"thumb",
-                                nil];
-    [Tool shareAction:sender andShowView:self.view andContent:contentDic];
+    ShoppingCartView *shopCarPage = [[ShoppingCartView alloc] init];
+    shopCarPage.type = @"detail";
+    [self.navigationController pushViewController:shopCarPage animated:YES];
 }
 
 - (void)viewDidLoad

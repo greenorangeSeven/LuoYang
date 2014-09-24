@@ -74,13 +74,13 @@
                       [[SettingModel alloc] initWith: @"修改密码" andImg:@"setting_update" andTag:4 andTitle2:nil],
                       nil];
 
-    NSArray *third = [[NSArray alloc] initWithObjects:
-                      [[SettingModel alloc] initWith:@"版本更新" andImg:@"setting_update" andTag:10 andTitle2:nil],
-                      [[SettingModel alloc] initWith:@"推送消息" andImg:@"setting_push" andTag:11 andTitle2:nil],
-                      nil];
+//    NSArray *third = [[NSArray alloc] initWithObjects:
+//                      [[SettingModel alloc] initWith:@"版本更新" andImg:@"setting_update" andTag:10 andTitle2:nil],
+//                      [[SettingModel alloc] initWith:@"推送消息" andImg:@"setting_push" andTag:11 andTitle2:nil],
+//                      nil];
     
     [self.settingsInSection setObject:first forKey:@"帐号"];
-    [self.settingsInSection setObject:third forKey:@"设置"];
+//    [self.settingsInSection setObject:third forKey:@"设置"];
     self.settings = [[NSArray alloc] initWithObjects:@"帐号",@"设置",nil];
 }
 

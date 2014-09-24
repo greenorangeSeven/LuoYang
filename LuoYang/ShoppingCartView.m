@@ -27,18 +27,6 @@
         titleLabel.textColor = [Tool getColorForGreen];
         titleLabel.textAlignment = UITextAlignmentCenter;
         self.navigationItem.titleView = titleLabel;
-        
-        UIButton *lBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 31, 28)];
-        [lBtn addTarget:self action:@selector(myAction) forControlEvents:UIControlEventTouchUpInside];
-        [lBtn setImage:[UIImage imageNamed:@"navi_my"] forState:UIControlStateNormal];
-        UIBarButtonItem *btnMy = [[UIBarButtonItem alloc]initWithCustomView:lBtn];
-        self.navigationItem.leftBarButtonItem = btnMy;
-        
-        UIButton *rBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 31, 28)];
-        [rBtn addTarget:self action:@selector(settingAction) forControlEvents:UIControlEventTouchUpInside];
-        [rBtn setImage:[UIImage imageNamed:@"navi_setting"] forState:UIControlStateNormal];
-        UIBarButtonItem *btnSetting = [[UIBarButtonItem alloc]initWithCustomView:rBtn];
-        self.navigationItem.rightBarButtonItem = btnSetting;
     }
     return self;
     
@@ -54,9 +42,35 @@
     [Tool pushToSettingView:self.navigationController];
 }
 
+- (void)backAction
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    if ([_type isEqualToString:@"detail"]) {
+        UIButton *lBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 25, 25)];
+        [lBtn addTarget:self action:@selector(backAction) forControlEvents:UIControlEventTouchUpInside];
+        [lBtn setImage:[UIImage imageNamed:@"backBtn"] forState:UIControlStateNormal];
+        UIBarButtonItem *btnBack = [[UIBarButtonItem alloc]initWithCustomView:lBtn];
+        self.navigationItem.leftBarButtonItem = btnBack;
+    } else {
+        UIButton *lBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 31, 28)];
+        [lBtn addTarget:self action:@selector(myAction) forControlEvents:UIControlEventTouchUpInside];
+        [lBtn setImage:[UIImage imageNamed:@"navi_my"] forState:UIControlStateNormal];
+        UIBarButtonItem *btnMy = [[UIBarButtonItem alloc]initWithCustomView:lBtn];
+        self.navigationItem.leftBarButtonItem = btnMy;
+        
+        UIButton *rBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 31, 28)];
+        [rBtn addTarget:self action:@selector(settingAction) forControlEvents:UIControlEventTouchUpInside];
+        [rBtn setImage:[UIImage imageNamed:@"navi_setting"] forState:UIControlStateNormal];
+        UIBarButtonItem *btnSetting = [[UIBarButtonItem alloc]initWithCustomView:rBtn];
+        self.navigationItem.rightBarButtonItem = btnSetting;
+    }
+    
     hud = [[MBProgressHUD alloc] initWithView:self.view];
     goodData = [[NSMutableArray alloc] init];
     self.goodTableView.dataSource = self;

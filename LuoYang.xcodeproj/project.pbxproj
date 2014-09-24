@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		140D570719D159EC00C8C067 /* head_shopcar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 140D570619D159EC00C8C067 /* head_shopcar@2x.png */; };
 		141C464319CB11750035322A /* BBSTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 141C463819CB11750035322A /* BBSTableView.m */; };
 		141C464419CB11750035322A /* BBSTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 141C463919CB11750035322A /* BBSTableView.xib */; };
 		141C464519CB11750035322A /* BBSTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 141C463B19CB11750035322A /* BBSTableCell.m */; };
@@ -577,6 +578,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		140D570619D159EC00C8C067 /* head_shopcar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "head_shopcar@2x.png"; sourceTree = "<group>"; };
 		141C463719CB11750035322A /* BBSTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBSTableView.h; sourceTree = "<group>"; };
 		141C463819CB11750035322A /* BBSTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBSTableView.m; sourceTree = "<group>"; };
 		141C463919CB11750035322A /* BBSTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBSTableView.xib; sourceTree = "<group>"; };
@@ -1500,8 +1502,8 @@
 				14A7BA3019C92078009039DF /* CoreGraphics.framework in Frameworks */,
 				14A7BE0019C923E1009039DF /* libbaidumapapi.a in Frameworks */,
 				14A7BA3219C92078009039DF /* UIKit.framework in Frameworks */,
-				14A7BF0219C9249D009039DF /* KeyboardManager.framework in Frameworks */,
 				14A7BFDA19C925D8009039DF /* SinaWeiboConnection.framework in Frameworks */,
+				14A7BF0219C9249D009039DF /* KeyboardManager.framework in Frameworks */,
 				14A7BA2E19C92078009039DF /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1917,6 +1919,7 @@
 		14A7BA6119C9214E009039DF /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				140D570619D159EC00C8C067 /* head_shopcar@2x.png */,
 				142A7DD719D0126D00F0AD31 /* life_znjj@2x.png */,
 				142A7DD819D0126D00F0AD31 /* life_jjzs@2x.png */,
 				142A7DD919D0126D00F0AD31 /* life_sqjr@2x.png */,
@@ -3010,6 +3013,7 @@
 				14A7BD1619C921E1009039DF /* registerbtn@2x.png in Resources */,
 				14A7BCBF19C921E1009039DF /* bm_weixiu@2x.png in Resources */,
 				14A7BD0319C921E1009039DF /* conv_cell_left.png in Resources */,
+				140D570719D159EC00C8C067 /* head_shopcar@2x.png in Resources */,
 				14A7BD1B19C921E1009039DF /* setting_order@2x.png in Resources */,
 				14A7BCB519C921E1009039DF /* xm_wannian.png in Resources */,
 				14A7BAEB19C921A0009039DF /* ArticleView.xib in Resources */,
@@ -3652,6 +3656,10 @@
 					Framework,
 					"$(PROJECT_DIR)/LuoYang/IQKeyboardManager",
 					Framework,
+					"$(PROJECT_DIR)/LuoYang/IQKeyboardManager",
+					Framework,
+					"$(PROJECT_DIR)/LuoYang/IQKeyboardManager",
+					Framework,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LuoYang/LuoYang-Prefix.pch";
@@ -3696,6 +3704,10 @@
 					"$(PROJECT_DIR)/LuoYang/ShareSDK/Extend/QQConnectSDK",
 					"$(PROJECT_DIR)/LuoYang/ShareSDK",
 					"$(PROJECT_DIR)/LuoYang/ShareSDK/UI",
+					"$(PROJECT_DIR)/LuoYang/IQKeyboardManager",
+					Framework,
+					"$(PROJECT_DIR)/LuoYang/IQKeyboardManager",
+					Framework,
 					"$(PROJECT_DIR)/LuoYang/IQKeyboardManager",
 					Framework,
 					"$(PROJECT_DIR)/LuoYang/IQKeyboardManager",
