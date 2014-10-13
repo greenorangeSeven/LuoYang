@@ -145,6 +145,8 @@
 #define api_vol_baoming @"/vol_baoming"
 //志愿者动态详情
 #define api_get_volnews_info @"/get_volnews_info"
+//志愿者列表
+#define api_get_vol_list @"/get_vol_list"
 
 //能帮就帮换灯片
 #define api_get_help_piclist @"/get_help_piclist"

@@ -68,7 +68,7 @@
     self.navigationItem.titleView = titleLabel;
     samplePopupViewController = [[BBSReplyView alloc] initWithNibName:@"BBSReplyView" bundle:nil];
     samplePopupViewController.parentView = self;
-//    [_replyTF becomeFirstResponder];
+    //    [_replyTF becomeFirstResponder];
     
     //适配iOS7uinavigationbar遮挡问题
     if(IS_IOS7)
@@ -93,13 +93,11 @@
     self.view.backgroundColor = [Tool getBackgroundColor];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
-//    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    //    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshTableData) name:Notification_RefreshBBS object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshTableDataAll) name:Notification_ADDBBS object:nil];
-    EGOImageView *imageView = [[EGOImageView alloc] initWithPlaceholderImage:[UIImage imageNamed:@"loadingpic4.png"]];
-    imageView.imageURL = [NSURL URLWithString:_project.logo];
-    imageView.frame = CGRectMake(0.0f, 0.0f, 320.0f, 145.0f);
-    [_logoIV addSubview:imageView];
+    
+    _logoIV.image = _project.imgData;
     
     userId = [[UserModel Instance] getUserValueForKey:@"id"];
 }
@@ -313,7 +311,7 @@
             c.imgData = iconDownloader.imgRecord.img;
             // cache it
             NSData * imageData = UIImagePNGRepresentation(c.imgData);
-            [_iconCache putImage:imageData withName:[TQImageCache parseUrlForCacheName:c.thumb]];
+            [_iconCache putImage:imageData withName:[TQImageCache parseUrlForCacheName:c.avatar]];
             [self.tableView reloadData];
         }
     }
@@ -342,7 +340,7 @@
         {
             height -= 60;
         }
-        if ([bbs.replysStr isEqualToString:@""] == YES)
+        if (bbs.replysStr != nil && [bbs.replysStr isEqualToString:@""] == YES)
         {
             height -= 22;
         }
@@ -403,7 +401,7 @@
             //评论
             cell.replyLb.text = bbs.replysStr;
             NSString *replysStr = [NSString stringWithString:bbs.replysStr];
-            if ([replysStr isEqualToString:@""] == NO)
+            if (replysStr != nil && [replysStr isEqualToString:@""] == NO)
             {
                 cell.replyLb.frame = CGRectMake(cell.replyLb.frame .origin.x, cell.replyLb.frame.origin.y, cell.replyLb.frame.size.width, bbs.replyHeight -10);
                 cell.replyView.frame = CGRectMake(cell.replyView.frame .origin.x, cell.timeView.frame.origin.y + cell.timeView.frame.size.height, cell.replyView.frame.size.width, cell.replyLb.frame.size.height);
@@ -416,11 +414,11 @@
             //时间
             cell.timeLb.text = bbs.timeStr;
             NSString *nickname = @"匿名用户";
-            if ([bbs.nickname isEqualToString:@""] == NO)
+            if (bbs.nickname != nil && [bbs.nickname isEqualToString:@""] == NO)
             {
                 nickname = bbs.nickname;
             }
-            else if ([bbs.name isEqualToString:@""] == NO)
+            else if (bbs.nickname != nil && [bbs.name isEqualToString:@""] == NO)
             {
                 nickname = bbs.name;
             }
@@ -432,7 +430,7 @@
             cell.replyBtn.tag = [indexPath row];
             
             //删除按钮
-            if ([userId isEqualToString:bbs.customer_id]) {
+            if (bbs.customer_id != nil && [userId isEqualToString:bbs.customer_id]) {
                 cell.delBtn.hidden = NO;
             }
             else
@@ -580,7 +578,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-
+    
 }
 
 @end

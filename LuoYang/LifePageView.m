@@ -105,7 +105,7 @@
                                                SGFocusImageItem *item = [[SGFocusImageItem alloc] initWithTitle:@"" image:adv.pic tag:-1];
                                                [itemArray addObject:item];
                                            }
-                                           bannerView = [[SGFocusImageFrame alloc] initWithFrame:CGRectMake(0, 0, 320, 145) delegate:self imageItems:itemArray isAuto:NO];
+                                           bannerView = [[SGFocusImageFrame alloc] initWithFrame:CGRectMake(0, 0, 320, 145) delegate:self imageItems:itemArray isAuto:YES];
                                            [bannerView scrollToIndex:0];
                                            [self.advIv addSubview:bannerView];
                                        }
@@ -218,6 +218,19 @@
         phoneCallWebView = [[UIWebView alloc] initWithFrame:CGRectZero];
     }
     [phoneCallWebView loadRequest:[NSURLRequest requestWithURL:phoneUrl]];
+}
+
+- (IBAction)znjjAction:(id)sender {
+    [Tool showCustomHUD:@"功能努力完善中，敬请期待！" andView:self.view  andImage:@"" andAfterDelay:1];
+    
+}
+
+- (IBAction)jjzsAction:(id)sender {
+    [Tool showCustomHUD:@"功能努力完善中，敬请期待！" andView:self.view  andImage:@"" andAfterDelay:1];
+}
+
+- (IBAction)sqjrAction:(id)sender {
+    [Tool showCustomHUD:@"功能努力完善中，敬请期待！" andView:self.view  andImage:@"" andAfterDelay:1];
 }
 
 @end

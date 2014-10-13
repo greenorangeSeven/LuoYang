@@ -34,6 +34,12 @@
         UIBarButtonItem *btnBack = [[UIBarButtonItem alloc]initWithCustomView:lBtn];
         self.navigationItem.leftBarButtonItem = btnBack;
         
+        UIButton *rBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 52, 27)];
+        [rBtn addTarget:self action:@selector(shareAction:) forControlEvents:UIControlEventTouchUpInside];
+        [rBtn setImage:[UIImage imageNamed:@"head_share"] forState:UIControlStateNormal];
+        UIBarButtonItem *btnSearch = [[UIBarButtonItem alloc]initWithCustomView:rBtn];
+        self.navigationItem.rightBarButtonItem = btnSearch;
+        
     }
     return self;
 }
@@ -41,6 +47,16 @@
 - (void)backAction
 {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (IBAction)shareAction:(id)sender {
+    NSString *shareStr = [Tool flattenHTML:info.content];
+    NSDictionary *contentDic = [NSDictionary dictionaryWithObjectsAndKeys:
+                                shareStr , @"title",
+                                shareStr, @"summary",
+                                info.thumb, @"thumb",
+                                nil];
+    [Tool shareAction:sender andShowView:self.view andContent:contentDic];
 }
 
 - (void)viewDidLoad
@@ -65,7 +81,7 @@
 
 - (void)loadData
 {
-    NSString *html = [NSString stringWithFormat:@"<body>%@<div id='web_title'>%@</div>%@<div id='web_img'><img src='%@' height='150' width='150' hspace='35'/></div></body><div id='web_body'>%@</div></body>", HTML_Style, info.title, HTML_Splitline, info.thumb,info.content];
+    NSString *html = [NSString stringWithFormat:@"<body>%@<div id='web_title'>%@</div>%@<div id='web_img'><img src='%@' width='200' hspace='35'/></div></body><div id='web_body'>%@</div></body>", HTML_Style, info.title, HTML_Splitline, info.thumb,info.content];
     NSString *result = [Tool getHTMLString:html];
     [self.webView loadHTMLString:result baseURL:nil];
     

@@ -67,6 +67,10 @@
         [Tool showCustomHUD:@"请填写内容描述" andView:self.view  andImage:@"37x-Failure.png" andAfterDelay:1];
         return;
     }
+    if (picimage == nil) {
+        [Tool showCustomHUD:@"请上传图片" andView:self.view  andImage:@"37x-Failure.png" andAfterDelay:1];
+        return;
+    }
     if (phoneStr == nil || [phoneStr length] == 0)
     {
         [Tool showCustomHUD:@"请填写联系电话" andView:self.view  andImage:@"37x-Failure.png" andAfterDelay:1];
@@ -134,6 +138,7 @@
             [Tool showCustomHUD:@"提交成功" andView:self.view  andImage:@"37x-Checkmark.png" andAfterDelay:3];
             self.describeField.text = @"";
             self.phoneField.text = @"";
+            picimage = nil;
             [self.selectPhoneBtn setImage:[UIImage imageNamed:@"repairspic.png"] forState:UIControlStateNormal];
         }
             break;

@@ -60,6 +60,8 @@
     hud = [[MBProgressHUD alloc] initWithView:self.view];
     couponIndex = 0;
     
+    self.imageDownloadsInProgress = [NSMutableDictionary dictionary];
+    
     UILabel *titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 100, 44)];
     titleLabel.font = [UIFont boldSystemFontOfSize:18];
     titleLabel.backgroundColor = [UIColor clearColor];
@@ -84,6 +86,35 @@
     [self.collectionView registerClass:[BusinessGoodCell class] forCellWithReuseIdentifier:BusinessGoodCellIdentifier];
     self.collectionView.backgroundColor = [UIColor colorWithRed:0.74 green:0.78 blue:0.81 alpha:1];
     [self reload];
+}
+
+- (void)viewDidUnload
+{
+    [self setCollectionView:nil];
+    [goods removeAllObjects];
+    [_imageDownloadsInProgress removeAllObjects];
+    goods = nil;
+    _iconCache = nil;
+    [super viewDidUnload];
+}
+- (void)didReceiveMemoryWarning
+{
+    NSArray *allDownloads = [self.imageDownloadsInProgress allValues];
+    [allDownloads makeObjectsPerformSelector:@selector(cancelDownload)];
+    //清空
+    for (Goods *c in goods) {
+        c.imgData = nil;
+    }
+    
+    [super didReceiveMemoryWarning];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    if (self.imageDownloadsInProgress != nil) {
+        NSArray *allDownloads = [self.imageDownloadsInProgress allValues];
+        [allDownloads makeObjectsPerformSelector:@selector(cancelDownload)];
+    }
 }
 
 //取数方法
@@ -214,10 +245,10 @@
     }
     
     Goods *good = (Goods *)[goods objectAtIndex:[indexPath row]];
-    EGOImageView *imageView = [[EGOImageView alloc] initWithPlaceholderImage:[UIImage imageNamed:@"nopic2.png"]];
-    imageView.imageURL = [NSURL URLWithString:good.thumb];
-    imageView.frame = CGRectMake(0.0f, 0.0f, 150.0f, 91.0f);
-    [cell.picIv addSubview:imageView];
+//    EGOImageView *imageView = [[EGOImageView alloc] initWithPlaceholderImage:[UIImage imageNamed:@"loadpic2.png"]];
+//    imageView.imageURL = [NSURL URLWithString:good.thumb];
+//    imageView.frame = CGRectMake(0.0f, 0.0f, 150.0f, 91.0f);
+//    [cell.picIv addSubview:imageView];
     
     cell.priceLb.text = [NSString stringWithFormat:@"￥%@", good.price];
     cell.titleLb.text = good.title;
@@ -233,6 +264,34 @@
     slabel.font = [UIFont italicSystemFontOfSize:12.0f];
     slabel.strikeThroughEnabled = YES;
     [cell.marketPriceLb addSubview:slabel];
+    
+    if (good.imgData) {
+        cell.picIv.image = good.imgData;
+    }
+    else
+    {
+        if ([good.thumb isEqualToString:@""]) {
+            good.imgData = [UIImage imageNamed:@"loadpic2"];
+        }
+        else
+        {
+            NSData * imageData = [_iconCache getImage:[TQImageCache parseUrlForCacheName:good.thumb]];
+            if (imageData)
+            {
+                good.imgData = [UIImage imageWithData:imageData];
+                cell.picIv.image = good.imgData;
+            }
+            else
+            {
+                IconDownloader *downloader = [_imageDownloadsInProgress objectForKey:[NSString stringWithFormat:@"%d", [indexPath row]]];
+                if (downloader == nil) {
+                    ImgRecord *record = [ImgRecord new];
+                    record.url = good.thumb;
+                    [self startIconDownload:record forIndexPath:indexPath];
+                }
+            }
+        }
+    }
     
     return cell;
 }
@@ -268,9 +327,40 @@
     return YES;
 }
 
-- (void)didReceiveMemoryWarning
+#pragma 下载图片
+- (void)startIconDownload:(ImgRecord *)imgRecord forIndexPath:(NSIndexPath *)indexPath
 {
-    [super didReceiveMemoryWarning];
+    NSString *key = [NSString stringWithFormat:@"%d",[indexPath row]];
+    IconDownloader *iconDownloader = [_imageDownloadsInProgress objectForKey:key];
+    if (iconDownloader == nil) {
+        iconDownloader = [[IconDownloader alloc] init];
+        iconDownloader.imgRecord = imgRecord;
+        iconDownloader.index = key;
+        iconDownloader.delegate = self;
+        [_imageDownloadsInProgress setObject:iconDownloader forKey:key];
+        [iconDownloader startDownload];
+    }
+}
+
+- (void)appImageDidLoad:(NSString *)index
+{
+    IconDownloader *iconDownloader = [_imageDownloadsInProgress objectForKey:index];
+    if (iconDownloader)
+    {
+        int _index = [index intValue];
+        if (_index >= [goods count])
+        {
+            return;
+        }
+        Goods *c = [goods objectAtIndex:[index intValue]];
+        if (c) {
+            c.imgData = iconDownloader.imgRecord.img;
+            // cache it
+            NSData * imageData = UIImagePNGRepresentation(c.imgData);
+            [_iconCache putImage:imageData withName:[TQImageCache parseUrlForCacheName:c.thumb]];
+            [self.collectionView reloadData];
+        }
+    }
 }
 
 - (IBAction)segnebtedChangeAction:(id)sender {

@@ -53,14 +53,22 @@
 {
     [super viewWillAppear:animated];
     UserModel *usermodel = [UserModel Instance];
-    NSString *provinceStr = [usermodel getUserValueForKey:@"selectProvinceStr"];
-    NSString *cityStr = [usermodel getUserValueForKey:@"selectCityStr"];
-    NSString *regionStr = [usermodel getUserValueForKey:@"selectRegionStr"];
+    //    NSString *provinceStr = [usermodel getUserValueForKey:@"selectProvinceStr"];
+    //    NSString *cityStr = [usermodel getUserValueForKey:@"selectCityStr"];
+    //    NSString *regionStr = [usermodel getUserValueForKey:@"selectRegionStr"];
+    //    NSString *communityStr = [usermodel getUserValueForKey:@"selectCommunityStr"];
+    //    if (regionStr != nil && [regionStr length] > 0)
+    //    {
+    //        self.regionLb.text = [NSString stringWithFormat:@"%@%@%@", provinceStr, cityStr, regionStr];
+    ////        self.communityLb.text = communityStr;
+    //    }
+    
     NSString *communityStr = [usermodel getUserValueForKey:@"selectCommunityStr"];
-    if (regionStr != nil && [regionStr length] > 0)
+    NSString *buildStr = [usermodel getUserValueForKey:@"selectBuildStr"];
+    NSString *houseStr = [usermodel getUserValueForKey:@"selectHouseStr"];
+    if([communityStr length] > 0 && [buildStr length] > 0 && [houseStr length] > 0)
     {
-        self.regionLb.text = [NSString stringWithFormat:@"%@%@%@", provinceStr, cityStr, regionStr];
-        self.communityLb.text = communityStr;
+        self.regionLb.text = [NSString stringWithFormat:@"%@%@%@", communityStr, buildStr, houseStr];
     }
     
     //适配iOS7uinavigationbar遮挡的问题

@@ -303,7 +303,7 @@ BMKMapManager* _mapManager;
      **/
     [ShareSDK connectSinaWeiboWithAppKey:@"1434319718"
                                appSecret:@"c1affea9508aa4d0f8ac8d580d092592"
-                             redirectUri:@"http://house.nwclhn.com"];
+                             redirectUri:@"http://www.hngsntwy.com"];
     
     /**
      连接腾讯微博开放平台应用以使用相关功能，此应用需要引用TencentWeiboConnection.framework
@@ -311,15 +311,15 @@ BMKMapManager* _mapManager;
      
      如果需要实现SSO，需要导入libWeiboSDK.a，并引入WBApi.h，将WBApi类型传入接口
      **/
-    [ShareSDK connectTencentWeiboWithAppKey:@"801525635"
-                                  appSecret:@"c1affea9508aa4d0f8ac8d580d092592"
-                                redirectUri:@"http://house.nwclhn.com"
+    [ShareSDK connectTencentWeiboWithAppKey:@"801543491"
+                                  appSecret:@"85a7164697ff6d0faa6fac6ce9bfa539"
+                                redirectUri:@"http://www.hngsntwy.com"
                                    wbApiCls:[WeiboApi class]];
     /**
      连接微信应用以使用相关功能，此应用需要引用WeChatConnection.framework和微信官方SDK
      http://open.weixin.qq.com上注册应用，并将相关信息填写以下字段
      **/
-    [ShareSDK connectWeChatWithAppId:@"wxd8f6b7ac215ffe1d" wechatCls:[WXApi class]];
+    [ShareSDK connectWeChatWithAppId:@"wx222c78266c573598" wechatCls:[WXApi class]];
 }
 
 @end

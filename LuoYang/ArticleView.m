@@ -73,8 +73,10 @@
     
     if ([[[UserModel Instance] getUserValueForKey:@"house_number"] isEqualToString:@""] == NO)
     {
-        [self initMainADV];
-        [self reload];
+        if (advs ==nil || [advs count] == 0) {
+            [self initMainADV];
+            [self reload];
+        }
     }
 }
 

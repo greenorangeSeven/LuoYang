@@ -21,7 +21,7 @@
     if (self) {
         UILabel *titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 100, 44)];
         titleLabel.font = [UIFont boldSystemFontOfSize:18];
-        titleLabel.text = @"特价超市";
+        titleLabel.text = @"流星雨量贩";
         titleLabel.backgroundColor = [UIColor clearColor];
         titleLabel.textColor = [Tool getColorForGreen];
         titleLabel.textAlignment = UITextAlignmentCenter;
@@ -81,7 +81,7 @@
                                                SGFocusImageItem *item = [[SGFocusImageItem alloc] initWithTitle:@"" image:good.thumb tag:-1];
                                                [itemArray addObject:item];
                                            }
-                                           bannerView = [[SGFocusImageFrame alloc] initWithFrame:CGRectMake(0, 0, 320, 246) delegate:self imageItems:itemArray isAuto:NO];
+                                           bannerView = [[SGFocusImageFrame alloc] initWithFrame:CGRectMake(0, 0, 320, 246) delegate:self imageItems:itemArray isAuto:YES];
                                            [bannerView scrollToIndex:0];
                                            [self.recommendIv addSubview:bannerView];
                                        }
@@ -127,6 +127,13 @@
 {
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden = NO;
+    bannerView.delegate = self;
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    bannerView.delegate = nil;
 }
 
 - (void)didReceiveMemoryWarning
@@ -138,7 +145,7 @@
 - (IBAction)newProductAction:(id)sender {
     BusinessDetailView *businessDetailView = [[BusinessDetailView alloc] init];
     businessDetailView.tjTitle = @"新品首发";
-    businessDetailView.tjCatId = @"2";
+    businessDetailView.tjCatId = @"8";
     businessDetailView.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:businessDetailView animated:YES];
 }
@@ -146,7 +153,7 @@
 - (IBAction)saleProductAction:(id)sender {
     BusinessDetailView *businessDetailView = [[BusinessDetailView alloc] init];
     businessDetailView.tjTitle = @"每日最惠";
-    businessDetailView.tjCatId = @"3";
+    businessDetailView.tjCatId = @"7";
     businessDetailView.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:businessDetailView animated:YES];
 }
@@ -154,7 +161,7 @@
 - (IBAction)hotProductAction:(id)sender {
     BusinessDetailView *businessDetailView = [[BusinessDetailView alloc] init];
     businessDetailView.tjTitle = @"热门商品";
-    businessDetailView.tjCatId = @"5";
+    businessDetailView.tjCatId = @"9";
     businessDetailView.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:businessDetailView animated:YES];
 }

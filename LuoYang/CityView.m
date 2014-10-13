@@ -78,7 +78,16 @@
     //如果有网络连接
     if ([UserModel Instance].isNetworkRunning) {
         //        [Tool showHUD:@"数据加载" andView:self.view andHUD:hud];
-        NSMutableString *tempUrl = [NSMutableString stringWithFormat:@"%@%@?APPKey=%@&spaceid=7", api_base_url, api_getadv, appkey];
+        NSString *advType = @"7";
+        if ([self.typeStr isEqualToString:@"1"]) {
+            advType = @"7";
+        }
+        else
+        {
+            advType = @"10";
+        }
+        
+        NSMutableString *tempUrl = [NSMutableString stringWithFormat:@"%@%@?APPKey=%@&spaceid=%@", api_base_url, api_getadv, appkey, advType];
         NSString *cid = [[UserModel Instance] getUserValueForKey:@"cid"];
         if (cid != nil && [cid length] > 0) {
             [tempUrl appendString:[NSString stringWithFormat:@"&cid=%@", cid]];
@@ -114,7 +123,7 @@
                                                SGFocusImageItem *item = [[SGFocusImageItem alloc] initWithTitle:@"" image:adv.pic tag:-1];
                                                [itemArray addObject:item];
                                            }
-                                           bannerView = [[SGFocusImageFrame alloc] initWithFrame:CGRectMake(0, 0, 320, 181) delegate:self imageItems:itemArray isAuto:NO];
+                                           bannerView = [[SGFocusImageFrame alloc] initWithFrame:CGRectMake(0, 0, 320, 181) delegate:self imageItems:itemArray isAuto:YES];
                                            [bannerView scrollToIndex:0];
                                            [self.advIv addSubview:bannerView];
                                        }

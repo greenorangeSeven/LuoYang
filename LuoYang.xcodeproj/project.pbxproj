@@ -19,6 +19,8 @@
 		142A7DDA19D0126D00F0AD31 /* life_znjj@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 142A7DD719D0126D00F0AD31 /* life_znjj@2x.png */; };
 		142A7DDB19D0126D00F0AD31 /* life_jjzs@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 142A7DD819D0126D00F0AD31 /* life_jjzs@2x.png */; };
 		142A7DDC19D0126D00F0AD31 /* life_sqjr@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 142A7DD919D0126D00F0AD31 /* life_sqjr@2x.png */; };
+		1447B14E19D2BB6300492D55 /* alipayFeeBtn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1447B14D19D2BB6300492D55 /* alipayFeeBtn@2x.png */; };
+		1447B15019D2C01F00492D55 /* alipayBtn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1447B14F19D2C01F00492D55 /* alipayBtn@2x.png */; };
 		1486529819CA6ABD000B3678 /* nopic4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1486529419CA6ABD000B3678 /* nopic4@2x.png */; };
 		1486529919CA6ABD000B3678 /* nopic3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1486529519CA6ABD000B3678 /* nopic3@2x.png */; };
 		1486529A19CA6ABD000B3678 /* nopic2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1486529619CA6ABD000B3678 /* nopic2@2x.png */; };
@@ -565,6 +567,13 @@
 		14A7BFF219C9260A009039DF /* VPImageCropperViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A7BFF119C9260A009039DF /* VPImageCropperViewController.m */; };
 		14A7BFF619C92612009039DF /* ZJSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A7BFF519C92612009039DF /* ZJSwitch.m */; };
 		14A7BFFA19C92B6C009039DF /* ExpressCompany.plist in Resources */ = {isa = PBXBuildFile; fileRef = 14A7BFF919C92B6C009039DF /* ExpressCompany.plist */; };
+		14B7E32919EBD06C007686A9 /* VolnInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B7E32419EBD06C007686A9 /* VolnInfoView.m */; };
+		14B7E32A19EBD06C007686A9 /* VolnInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14B7E32519EBD06C007686A9 /* VolnInfoView.xib */; };
+		14B7E32B19EBD06C007686A9 /* VolnInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B7E32719EBD06C007686A9 /* VolnInfoCell.m */; };
+		14B7E32C19EBD06C007686A9 /* VolnInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14B7E32819EBD06C007686A9 /* VolnInfoCell.xib */; };
+		14B7E32F19EBD0B6007686A9 /* Voln.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B7E32E19EBD0B6007686A9 /* Voln.m */; };
+		14B7E33319EBD632007686A9 /* VolnRulesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B7E33119EBD632007686A9 /* VolnRulesView.m */; };
+		14B7E33419EBD632007686A9 /* VolnRulesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14B7E33219EBD632007686A9 /* VolnRulesView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -594,6 +603,8 @@
 		142A7DD719D0126D00F0AD31 /* life_znjj@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "life_znjj@2x.png"; sourceTree = "<group>"; };
 		142A7DD819D0126D00F0AD31 /* life_jjzs@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "life_jjzs@2x.png"; sourceTree = "<group>"; };
 		142A7DD919D0126D00F0AD31 /* life_sqjr@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "life_sqjr@2x.png"; sourceTree = "<group>"; };
+		1447B14D19D2BB6300492D55 /* alipayFeeBtn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alipayFeeBtn@2x.png"; sourceTree = "<group>"; };
+		1447B14F19D2C01F00492D55 /* alipayBtn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alipayBtn@2x.png"; sourceTree = "<group>"; };
 		1486529419CA6ABD000B3678 /* nopic4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nopic4@2x.png"; sourceTree = "<group>"; };
 		1486529519CA6ABD000B3678 /* nopic3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nopic3@2x.png"; sourceTree = "<group>"; };
 		1486529619CA6ABD000B3678 /* nopic2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nopic2@2x.png"; sourceTree = "<group>"; };
@@ -1452,6 +1463,17 @@
 		14A7BFF419C92612009039DF /* ZJSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJSwitch.h; sourceTree = "<group>"; };
 		14A7BFF519C92612009039DF /* ZJSwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJSwitch.m; sourceTree = "<group>"; };
 		14A7BFF919C92B6C009039DF /* ExpressCompany.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ExpressCompany.plist; sourceTree = "<group>"; };
+		14B7E32319EBD06C007686A9 /* VolnInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VolnInfoView.h; sourceTree = "<group>"; };
+		14B7E32419EBD06C007686A9 /* VolnInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VolnInfoView.m; sourceTree = "<group>"; };
+		14B7E32519EBD06C007686A9 /* VolnInfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VolnInfoView.xib; sourceTree = "<group>"; };
+		14B7E32619EBD06C007686A9 /* VolnInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VolnInfoCell.h; sourceTree = "<group>"; };
+		14B7E32719EBD06C007686A9 /* VolnInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VolnInfoCell.m; sourceTree = "<group>"; };
+		14B7E32819EBD06C007686A9 /* VolnInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VolnInfoCell.xib; sourceTree = "<group>"; };
+		14B7E32D19EBD0B6007686A9 /* Voln.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Voln.h; sourceTree = "<group>"; };
+		14B7E32E19EBD0B6007686A9 /* Voln.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Voln.m; sourceTree = "<group>"; };
+		14B7E33019EBD632007686A9 /* VolnRulesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VolnRulesView.h; sourceTree = "<group>"; };
+		14B7E33119EBD632007686A9 /* VolnRulesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VolnRulesView.m; sourceTree = "<group>"; };
+		14B7E33219EBD632007686A9 /* VolnRulesView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VolnRulesView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1866,6 +1888,15 @@
 				14A7BB9619C921C6009039DF /* VolnJoinView.h */,
 				14A7BB9719C921C6009039DF /* VolnJoinView.m */,
 				14A7BB9819C921C6009039DF /* VolnJoinView.xib */,
+				14B7E32319EBD06C007686A9 /* VolnInfoView.h */,
+				14B7E32419EBD06C007686A9 /* VolnInfoView.m */,
+				14B7E32519EBD06C007686A9 /* VolnInfoView.xib */,
+				14B7E32619EBD06C007686A9 /* VolnInfoCell.h */,
+				14B7E32719EBD06C007686A9 /* VolnInfoCell.m */,
+				14B7E32819EBD06C007686A9 /* VolnInfoCell.xib */,
+				14B7E33019EBD632007686A9 /* VolnRulesView.h */,
+				14B7E33119EBD632007686A9 /* VolnRulesView.m */,
+				14B7E33219EBD632007686A9 /* VolnRulesView.xib */,
 				14A7BB9919C921C6009039DF /* HelperView.h */,
 				14A7BB9A19C921C6009039DF /* HelperView.m */,
 				14A7BB9B19C921C6009039DF /* HelperView.xib */,
@@ -1919,6 +1950,8 @@
 		14A7BA6119C9214E009039DF /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				1447B14F19D2C01F00492D55 /* alipayBtn@2x.png */,
+				1447B14D19D2BB6300492D55 /* alipayFeeBtn@2x.png */,
 				140D570619D159EC00C8C067 /* head_shopcar@2x.png */,
 				142A7DD719D0126D00F0AD31 /* life_znjj@2x.png */,
 				142A7DD819D0126D00F0AD31 /* life_jjzs@2x.png */,
@@ -2167,6 +2200,8 @@
 				14A7BD7219C921EE009039DF /* BBSModel.m */,
 				14A7BD7319C921EE009039DF /* BBSReplyModel.h */,
 				14A7BD7419C921EE009039DF /* BBSReplyModel.m */,
+				14B7E32D19EBD0B6007686A9 /* Voln.h */,
+				14B7E32E19EBD0B6007686A9 /* Voln.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -3027,6 +3062,7 @@
 				14A7BB6419C921BA009039DF /* BusinessCell.xib in Resources */,
 				14A7BCF119C921E1009039DF /* queryImg@2x.png in Resources */,
 				14A7BCB319C921E1009039DF /* cm_phone@2x.png in Resources */,
+				14B7E33419EBD632007686A9 /* VolnRulesView.xib in Resources */,
 				14A7BD0C19C921E1009039DF /* feelogo@2x.png in Resources */,
 				14A7BCBC19C921E1009039DF /* bm_luyou@2x.png in Resources */,
 				14A7BCB719C921E1009039DF /* xm_fangdai.png in Resources */,
@@ -3087,6 +3123,7 @@
 				14A7BD1019C921E1009039DF /* areaarrows@2x.png in Resources */,
 				14A7BD2C19C921E1009039DF /* praise@2x.png in Resources */,
 				14A7BCEC19C921E1009039DF /* wuye_baoxiu@2x.png in Resources */,
+				1447B14E19D2BB6300492D55 /* alipayFeeBtn@2x.png in Resources */,
 				14A7BD1419C921E1009039DF /* textfieldbg.png in Resources */,
 				14A7BBE419C921D1009039DF /* MyGoodsCell.xib in Resources */,
 				14A7BD1A19C921E1009039DF /* setting_info@2x.png in Resources */,
@@ -3151,6 +3188,7 @@
 				14A7BB7A19C921BA009039DF /* ProjectCollectionCell.xib in Resources */,
 				14A7BB7419C921BA009039DF /* ShoppingCartCell.xib in Resources */,
 				14A7BCB019C921E1009039DF /* main_btn_bg.png in Resources */,
+				14B7E32C19EBD06C007686A9 /* VolnInfoCell.xib in Resources */,
 				14A7BBE019C921D1009039DF /* SearchAdderssView.xib in Resources */,
 				14A7BD1119C921E1009039DF /* areaimage.png in Resources */,
 				14A7BCE919C921E1009039DF /* wuye_parkjiaofei@2x.png in Resources */,
@@ -3176,6 +3214,7 @@
 				14A7BCD319C921E1009039DF /* detail_menubg.png in Resources */,
 				14A7BBDA19C921D1009039DF /* UserInfoView.xib in Resources */,
 				14A7BCCC19C921E1009039DF /* goods_buy@2x.png in Resources */,
+				1447B15019D2C01F00492D55 /* alipayBtn@2x.png in Resources */,
 				14A7BAC119C921A0009039DF /* StewardFeeView.xib in Resources */,
 				14A7BF0119C9249D009039DF /* IQKeyboardManager.bundle in Resources */,
 				14A7BD2819C921E1009039DF /* stewardtop@2x.png in Resources */,
@@ -3195,6 +3234,7 @@
 				14A7BD2F19C921E1009039DF /* maingoodbg@2x.png in Resources */,
 				141C464419CB11750035322A /* BBSTableView.xib in Resources */,
 				14A7BB7219C921BA009039DF /* ShoppingCartView.xib in Resources */,
+				14B7E32A19EBD06C007686A9 /* VolnInfoView.xib in Resources */,
 				14A7BCB819C921E1009039DF /* conv_order_phone@2x.png in Resources */,
 				14A7BCCD19C921E1009039DF /* bdetail_price_bg@2x.png in Resources */,
 				142A7DDA19D0126D00F0AD31 /* life_znjj@2x.png in Resources */,
@@ -3289,6 +3329,7 @@
 				14A7BDAA19C92215009039DF /* RegionModel.m in Sources */,
 				14A7BEBD19C92445009039DF /* ASIWebPageRequest.m in Sources */,
 				14A7BF8D19C924FA009039DF /* SDWebImageDownloaderOperation.m in Sources */,
+				14B7E32B19EBD06C007686A9 /* VolnInfoCell.m in Sources */,
 				14A7BAD819C921A0009039DF /* NewsTableView.m in Sources */,
 				14A7BD9D19C9220B009039DF /* BuildModel.m in Sources */,
 				14A7BEC119C92445009039DF /* ASIDownloadCache.m in Sources */,
@@ -3379,6 +3420,7 @@
 				14A7BFEE19C92601009039DF /* StrikeThroughLabel.m in Sources */,
 				14A7BB4B19C921BA009039DF /* ConvCell.m in Sources */,
 				14A7BAEE19C921A0009039DF /* ArticleDetailView.m in Sources */,
+				14B7E32F19EBD0B6007686A9 /* Voln.m in Sources */,
 				14A7BDA719C92215009039DF /* AreaListModel.m in Sources */,
 				14A7BE7419C92416009039DF /* SBJsonBase.m in Sources */,
 				14A7BDBE19C92225009039DF /* ImageStore.m in Sources */,
@@ -3413,6 +3455,7 @@
 				14A7BEC019C92445009039DF /* ASIDataDecompressor.m in Sources */,
 				14A7BFAB19C92512009039DF /* NSObject+RMArchivable.m in Sources */,
 				14A7BAC019C921A0009039DF /* StewardFeeView.m in Sources */,
+				14B7E33319EBD632007686A9 /* VolnRulesView.m in Sources */,
 				14A7BF9719C924FA009039DF /* MWGridViewController.m in Sources */,
 				14A7BB4719C921BA009039DF /* LifePageView.m in Sources */,
 				14A7BB7319C921BA009039DF /* ShoppingCartCell.m in Sources */,
@@ -3493,6 +3536,7 @@
 				141C464319CB11750035322A /* BBSTableView.m in Sources */,
 				14A7BF7C19C924FA009039DF /* PSTCollectionViewFlowLayout.m in Sources */,
 				14A7BF1319C924B6009039DF /* FMDatabase.m in Sources */,
+				14B7E32919EBD06C007686A9 /* VolnInfoView.m in Sources */,
 				14A7BF1719C924B6009039DF /* FMResultSet.m in Sources */,
 				14A7BADA19C921A0009039DF /* NoticeTableCell.m in Sources */,
 				14A7BAD019C921A0009039DF /* RepairsItemView.m in Sources */,
@@ -3571,7 +3615,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: WEN XIKE (5ACSFNTTZR)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: WEN XIKE (5ACSFNTTZR)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -3589,6 +3634,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "E5658B00-36F5-4F1D-A0E0-C8C7AE866539";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -3609,7 +3655,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: WEN XIKE (5ACSFNTTZR)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: WEN XIKE (5ACSFNTTZR)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -3620,6 +3667,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				PROVISIONING_PROFILE = "E5658B00-36F5-4F1D-A0E0-C8C7AE866539";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -3660,6 +3708,34 @@
 					Framework,
 					"$(PROJECT_DIR)/LuoYang/IQKeyboardManager",
 					Framework,
+					"$(PROJECT_DIR)/LuoYang/IQKeyboardManager",
+					Framework,
+					"$(PROJECT_DIR)/LuoYang/IQKeyboardManager",
+					Framework,
+					"$(PROJECT_DIR)/LuoYang/IQKeyboardManager",
+					Framework,
+					"$(PROJECT_DIR)/LuoYang/IQKeyboardManager",
+					Framework,
+					"$(PROJECT_DIR)/LuoYang/IQKeyboardManager",
+					Framework,
+					"$(PROJECT_DIR)/LuoYang/IQKeyboardManager",
+					Framework,
+					"$(PROJECT_DIR)/LuoYang/IQKeyboardManager",
+					Framework,
+					"$(PROJECT_DIR)/LuoYang/IQKeyboardManager",
+					Framework,
+					"$(PROJECT_DIR)/LuoYang/IQKeyboardManager",
+					Framework,
+					"$(PROJECT_DIR)/LuoYang/IQKeyboardManager",
+					Framework,
+					"$(PROJECT_DIR)/LuoYang/IQKeyboardManager",
+					Framework,
+					"$(PROJECT_DIR)/LuoYang/IQKeyboardManager",
+					Framework,
+					"$(PROJECT_DIR)/LuoYang/IQKeyboardManager",
+					Framework,
+					"$(PROJECT_DIR)/LuoYang/IQKeyboardManager",
+					Framework,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LuoYang/LuoYang-Prefix.pch";
@@ -3681,6 +3757,7 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "E5658B00-36F5-4F1D-A0E0-C8C7AE866539";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -3720,6 +3797,34 @@
 					Framework,
 					"$(PROJECT_DIR)/LuoYang/IQKeyboardManager",
 					Framework,
+					"$(PROJECT_DIR)/LuoYang/IQKeyboardManager",
+					Framework,
+					"$(PROJECT_DIR)/LuoYang/IQKeyboardManager",
+					Framework,
+					"$(PROJECT_DIR)/LuoYang/IQKeyboardManager",
+					Framework,
+					"$(PROJECT_DIR)/LuoYang/IQKeyboardManager",
+					Framework,
+					"$(PROJECT_DIR)/LuoYang/IQKeyboardManager",
+					Framework,
+					"$(PROJECT_DIR)/LuoYang/IQKeyboardManager",
+					Framework,
+					"$(PROJECT_DIR)/LuoYang/IQKeyboardManager",
+					Framework,
+					"$(PROJECT_DIR)/LuoYang/IQKeyboardManager",
+					Framework,
+					"$(PROJECT_DIR)/LuoYang/IQKeyboardManager",
+					Framework,
+					"$(PROJECT_DIR)/LuoYang/IQKeyboardManager",
+					Framework,
+					"$(PROJECT_DIR)/LuoYang/IQKeyboardManager",
+					Framework,
+					"$(PROJECT_DIR)/LuoYang/IQKeyboardManager",
+					Framework,
+					"$(PROJECT_DIR)/LuoYang/IQKeyboardManager",
+					Framework,
+					"$(PROJECT_DIR)/LuoYang/IQKeyboardManager",
+					Framework,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LuoYang/LuoYang-Prefix.pch";
@@ -3741,6 +3846,7 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "E5658B00-36F5-4F1D-A0E0-C8C7AE866539";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

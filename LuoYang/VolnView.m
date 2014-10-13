@@ -389,4 +389,17 @@
     [self.navigationController pushViewController:volnJoinView animated:YES];
 
 }
+
+- (IBAction)volnInfoAction:(UIButton *)sender
+{
+    VolnInfoView *volnInfoView = [[VolnInfoView alloc] init];
+    volnInfoView.hidesBottomBarWhenPushed = NO;
+    [self.navigationController pushViewController:volnInfoView animated:YES];
+}
+
+- (IBAction)rulesAction:(id)sender {
+    VolnRulesView *volnRules = [[VolnRulesView alloc] init];
+    volnRules.hidesBottomBarWhenPushed = NO;
+    [self.navigationController pushViewController:volnRules animated:YES];
+}
 @end

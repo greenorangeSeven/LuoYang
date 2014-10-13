@@ -38,5 +38,8 @@
 - (IBAction)clickCommunity:(UIButton *)sender;
 - (IBAction)clickBBS:(id)sender;
 - (IBAction)telAction:(id)sender;
+- (IBAction)znjjAction:(id)sender;
+- (IBAction)jjzsAction:(id)sender;
+- (IBAction)sqjrAction:(id)sender;
 
 @end

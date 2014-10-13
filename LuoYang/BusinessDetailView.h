@@ -16,10 +16,11 @@
 #import "BusinessGoodCell.h"
 #import "GoodsDetailView.h"
 #import "CouponDetailView.h"
+#import "TQImageCache.h"
 #import "BMapKit.h"
 #import "StoreMapPointView.h"
 
-@interface BusinessDetailView : UIViewController<SGFocusImageFrameDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
+@interface BusinessDetailView : UIViewController<SGFocusImageFrameDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout, IconDownloaderDelegate>
 {
     UIWebView *phoneCallWebView;
     NSMutableArray *goods;
@@ -28,7 +29,12 @@
     NSString *orderByStr;
     SGFocusImageFrame *bannerView;
     int couponIndex;
+    
+    TQImageCache * _iconCache;
 }
+
+//异步加载图片专用
+@property (nonatomic, retain) NSMutableDictionary *imageDownloadsInProgress;
 
 @property (weak, nonatomic) Shop *shop;
 @property (weak, nonatomic) NSString *tjTitle;

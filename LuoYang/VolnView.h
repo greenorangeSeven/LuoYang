@@ -13,6 +13,8 @@
 #import "Article.h"
 #import "VolnCell.h"
 #import "VolnDetailView.h"
+#import "VolnInfoView.h"
+#import "VolnRulesView.h"
 
 @interface VolnView : UIViewController<UITableViewDataSource,UITableViewDelegate,EGORefreshTableHeaderDelegate,MBProgressHUDDelegate,IconDownloaderDelegate>
 
@@ -38,5 +40,7 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 - (IBAction)joinAction:(UIButton *)sender;
+- (IBAction)volnInfoAction:(UIButton *)sender;
+- (IBAction)rulesAction:(id)sender;
 
 @end

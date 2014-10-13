@@ -103,7 +103,7 @@
                                                SGFocusImageItem *item = [[SGFocusImageItem alloc] initWithTitle:@"" image:adv.pic tag:-1];
                                                [itemArray addObject:item];
                                            }
-                                           bannerView = [[SGFocusImageFrame alloc] initWithFrame:CGRectMake(0, 0, 320, 145) delegate:self imageItems:itemArray isAuto:NO];
+                                           bannerView = [[SGFocusImageFrame alloc] initWithFrame:CGRectMake(0, 0, 320, 145) delegate:self imageItems:itemArray isAuto:YES];
                                            [bannerView scrollToIndex:0];
                                            [self.advIv addSubview:bannerView];
                                        }
@@ -169,7 +169,7 @@
 - (IBAction)clickCity:(UIButton *)sender
 {
     CityView *cityView = [[CityView alloc] init];
-    cityView.typeStr = @"1";
+    cityView.typeStr = @"2";
     cityView.typeNameStr = @"城市文化";
     cityView.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:cityView animated:YES];
@@ -178,7 +178,7 @@
 - (IBAction)clickDongmeng:(UIButton *)sender
 {
     CityView *cityView = [[CityView alloc] init];
-    cityView.typeStr = @"2";
+    cityView.typeStr = @"1";
     cityView.typeNameStr = @"魅力洛阳";
     cityView.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:cityView animated:YES];

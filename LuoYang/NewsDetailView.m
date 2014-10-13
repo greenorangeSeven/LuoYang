@@ -46,7 +46,7 @@
 - (void)shareAction:(id)sender
 {
     NSDictionary *contentDic = [NSDictionary dictionaryWithObjectsAndKeys:
-                                self.news.title, @"title",
+                                self.news.summary, @"title",
                                 self.news.summary, @"summary",
                                 nil, @"thumb",
                                 nil];

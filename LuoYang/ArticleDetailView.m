@@ -47,9 +47,10 @@
 }
 
 - (IBAction)shareAction:(id)sender {
+    NSString *shareStr = [Tool flattenHTML:_art.summary];
     NSDictionary *contentDic = [NSDictionary dictionaryWithObjectsAndKeys:
-                                _art.summary , @"title",
-                                _art.summary, @"summary",
+                                shareStr , @"title",
+                                shareStr, @"summary",
                                 _art.thumb, @"thumb",
                                 nil];
     [Tool shareAction:sender andShowView:self.view andContent:contentDic];

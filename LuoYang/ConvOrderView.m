@@ -18,13 +18,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        UILabel *titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 100, 44)];
-        titleLabel.font = [UIFont boldSystemFontOfSize:18];
-        titleLabel.text = @"便民服务";
-        titleLabel.backgroundColor = [UIColor clearColor];
-        titleLabel.textColor = [Tool getColorForGreen];
-        titleLabel.textAlignment = UITextAlignmentCenter;
-        self.navigationItem.titleView = titleLabel;
+        
         
         UIButton *lBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 25, 25)];
         [lBtn addTarget:self action:@selector(backAction) forControlEvents:UIControlEventTouchUpInside];
@@ -59,6 +53,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    UILabel *titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 100, 44)];
+    titleLabel.font = [UIFont boldSystemFontOfSize:18];
+    titleLabel.text = self.shop.title;
+    titleLabel.backgroundColor = [UIColor clearColor];
+    titleLabel.textColor = [Tool getColorForGreen];
+    titleLabel.textAlignment = UITextAlignmentCenter;
+    self.navigationItem.titleView = titleLabel;
     
     _scrollView.contentSize = CGSizeMake(self.scrollView.bounds.size.width, self.view.frame.size.height);
     _titleLb.text = _shop.title;

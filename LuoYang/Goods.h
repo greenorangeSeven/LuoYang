@@ -24,5 +24,6 @@
 @property (nonatomic, retain) NSString *business_id;
 
 @property (nonatomic, retain) NSNumber *number;
+@property (retain,nonatomic) UIImage * imgData;
 
 @end

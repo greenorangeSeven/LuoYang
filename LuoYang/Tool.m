@@ -419,6 +419,21 @@
     return [NSString stringWithFormat:@"%@",roundedOunces];
 }
 
+//过滤HTML标签
++ (NSString *)flattenHTML:(NSString *)html {
+    NSScanner *theScanner;
+    NSString *text = nil;
+    theScanner = [NSScanner scannerWithString:html];
+    while ([theScanner isAtEnd] == NO) {
+        [theScanner scanUpToString:@"<" intoString:NULL] ;
+        [theScanner scanUpToString:@">" intoString:&text] ;
+        html = [html stringByReplacingOccurrencesOfString:
+                [NSString stringWithFormat:@"%@>", text]
+                                               withString:@""];
+    }
+    return html;
+}
+
 + (void)shareAction:(UIButton *)sender andShowView:(UIView *)view andContent:(NSDictionary *)shareContent {
 //    Activity *activity = [[Activity alloc] init];
     //构造分享内容
@@ -600,6 +615,22 @@
     }
     OrdersNum *num = [RMMapper objectWithClass:[OrdersNum class] fromDictionary:detailDic];
     return num;
+}
+
++ (NSMutableArray *)readJsonStrToVolnArray:(NSString *)str
+{
+    NSData *data = [str dataUsingEncoding:NSUTF8StringEncoding];
+    NSError *error;
+    NSArray *volnJsonArray = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+    if ( volnJsonArray == nil || [volnJsonArray count] <= 0) {
+        return nil;
+    }
+    NSMutableArray *volnArray = [RMMapper mutableArrayOfClass:[Voln class] fromArrayOfDictionary:volnJsonArray];
+    for (Voln *v in volnArray) {
+        v.cause = [NSString stringWithFormat:@"加入理由:%@", v.cause];
+        v.causeHeight = [self getTextHeight:287 andUIFont:[UIFont fontWithName:@"Arial-BoldItalicMT" size:12] andText:v.cause];
+    }
+    return volnArray;
 }
 
 

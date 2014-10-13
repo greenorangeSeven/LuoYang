@@ -69,7 +69,7 @@
     self.settingsInSection = [[NSMutableDictionary alloc] initWithCapacity:2];
     NSArray *first = [[NSArray alloc] initWithObjects:
                       [[SettingModel alloc] initWith:@"注册" andImg:@"setting_register" andTag:1 andTitle2:nil],
-                      [[SettingModel alloc] initWith: islogin?@"注销":@"登录" andImg:islogin?@"setting_logout":@"setting_login" andTag:2 andTitle2:nil],
+                      [[SettingModel alloc] initWith: islogin?@"退出登录":@"登录" andImg:islogin?@"setting_logout":@"setting_login" andTag:2 andTitle2:nil],
                       [[SettingModel alloc] initWith: @"个人信息" andImg:@"setting_info" andTag:3 andTitle2:nil],
                       [[SettingModel alloc] initWith: @"修改密码" andImg:@"setting_update" andTag:4 andTitle2:nil],
                       nil];
@@ -93,7 +93,7 @@
                        [[SettingModel alloc] initWith:@"我的物业费" andImg:@"setting_propertyfee" andTag:6 andTitle2:nil],
                        [[SettingModel alloc] initWith:@"我的停车费" andImg:@"setting_parkfee" andTag:7 andTitle2:nil],
                        [[SettingModel alloc] initWith:@"我的寄件箱" andImg:@"setting_mail" andTag:8 andTitle2:nil],
-                       [[SettingModel alloc] initWith:@"我的收藏" andImg:@"setting_collect" andTag:9 andTitle2:nil],
+//                       [[SettingModel alloc] initWith:@"我的收藏" andImg:@"setting_collect" andTag:9 andTitle2:nil],
                        nil];
 
     
