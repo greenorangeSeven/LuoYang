@@ -58,6 +58,15 @@
         self.automaticallyAdjustsScrollViewInsets = NO;
     }
     hud = [[MBProgressHUD alloc] initWithView:self.view];
+    
+    if (_refreshHeaderView == nil) {
+        EGORefreshTableHeaderView *view = [[EGORefreshTableHeaderView alloc] initWithFrame:CGRectMake(0.0f, -320.0f, self.view.frame.size.width, 320)];
+        view.delegate = self;
+        [self.collectionView addSubview:view];
+        _refreshHeaderView = view;
+    }
+    [_refreshHeaderView refreshLastUpdatedDate];
+    
     couponIndex = 0;
     
     self.imageDownloadsInProgress = [NSMutableDictionary dictionary];
@@ -117,6 +126,12 @@
     }
 }
 
+- (void)clear
+{
+    [goods removeAllObjects];
+    [_imageDownloadsInProgress removeAllObjects];
+}
+
 //取数方法
 - (void)reload
 {
@@ -143,55 +158,63 @@
         NSString *url = [[NSString stringWithString:urlTemp] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         [[AFOSCClient sharedClient]getPath:url parameters:Nil
                                    success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//                                       [self clear];
+                                       [self clear];
                                        @try {
                                            BusinessGoods *businessGoods = [Tool readJsonStrBusinessGoods:operation.responseString];
                                            
                                            goods = businessGoods.goodlist;
                                            if (goods != nil) {
+                                               
                                                [self.collectionView reloadData];
                                            }
                                            
-                                           if (coupons == nil || [coupons count] == 0) {
-                                               coupons = businessGoods.coupons;
-                                               if (coupons != nil && [coupons count] > 0) {
-                                                   int length = [coupons count];
-                                                   NSMutableArray *itemArray = [NSMutableArray arrayWithCapacity:length+2];
-                                                   if (length > 1)
-                                                   {
-                                                       Coupons *coupon = [coupons objectAtIndex:length-1];
-                                                       SGFocusImageItem *item = [[SGFocusImageItem alloc] initWithTitle:@"" image:coupon.thumb tag:-1];
-                                                       [itemArray addObject:item];
+                                           [self doneLoadingTableViewData];
+                                           
+                                           if ([self.couponIv.subviews count] == 0)
+                                           {
+                                               if (coupons == nil || [coupons count] == 0) {
+                                                   coupons = businessGoods.coupons;
+                                                   if (coupons != nil && [coupons count] > 0) {
+                                                       int length = [coupons count];
+                                                       NSMutableArray *itemArray = [NSMutableArray arrayWithCapacity:length+2];
+                                                       if (length > 1)
+                                                       {
+                                                           Coupons *coupon = [coupons objectAtIndex:length-1];
+                                                           SGFocusImageItem *item = [[SGFocusImageItem alloc] initWithTitle:@"" image:coupon.thumb tag:-1];
+                                                           [itemArray addObject:item];
+                                                       }
+                                                       for (int i = 0; i < length; i++)
+                                                       {
+                                                           Coupons *coupon = [coupons objectAtIndex:i];
+                                                           SGFocusImageItem *item = [[SGFocusImageItem alloc] initWithTitle:@"" image:coupon.thumb tag:-1];
+                                                           [itemArray addObject:item];
+                                                           
+                                                       }
+                                                       //添加第一张图 用于循环
+                                                       if (length >1)
+                                                       {
+                                                           Coupons *coupon = [coupons objectAtIndex:0];
+                                                           SGFocusImageItem *item = [[SGFocusImageItem alloc] initWithTitle:@"" image:coupon.thumb tag:-1];
+                                                           [itemArray addObject:item];
+                                                       }
+                                                       bannerView = [[SGFocusImageFrame alloc] initWithFrame:CGRectMake(0, 0, 320, 135) delegate:self imageItems:itemArray isAuto:YES];
+                                                       [bannerView scrollToIndex:0];
+                                                       [self.couponIv addSubview:bannerView];
                                                    }
-                                                   for (int i = 0; i < length; i++)
-                                                   {
-                                                       Coupons *coupon = [coupons objectAtIndex:i];
-                                                       SGFocusImageItem *item = [[SGFocusImageItem alloc] initWithTitle:@"" image:coupon.thumb tag:-1];
-                                                       [itemArray addObject:item];
-                                                       
-                                                   }
-                                                   //添加第一张图 用于循环
-                                                   if (length >1)
-                                                   {
-                                                       Coupons *coupon = [coupons objectAtIndex:0];
-                                                       SGFocusImageItem *item = [[SGFocusImageItem alloc] initWithTitle:@"" image:coupon.thumb tag:-1];
-                                                       [itemArray addObject:item];
-                                                   }
-                                                   bannerView = [[SGFocusImageFrame alloc] initWithFrame:CGRectMake(0, 0, 320, 135) delegate:self imageItems:itemArray isAuto:YES];
-                                                   [bannerView scrollToIndex:0];
-                                                   [self.couponIv addSubview:bannerView];
                                                }
-                                           }  
+                                           }
                                        }
                                        @catch (NSException *exception) {
                                            [NdUncaughtExceptionHandler TakeException:exception];
                                        }
                                        @finally {
+                                           [self doneLoadingTableViewData];
                                            if (hud != nil) {
                                                [hud hide:YES];
                                            }
                                        }
                                    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                       [self doneLoadingTableViewData];
                                        if ([UserModel Instance].isNetworkRunning == NO) {
                                            return;
                                        }
@@ -199,6 +222,71 @@
                                            [Tool ToastNotification:@"错误 网络无连接" andView:self.view andLoading:NO andIsBottom:NO];
                                        }
                                    }];
+    }
+}
+
+- (void)refreshed:(NSNotification *)notification
+{
+    if (notification.object) {
+        if ([(NSString *)notification.object isEqualToString:@"0"]) {
+            [self.collectionView setContentOffset:CGPointMake(0, -75) animated:YES];
+            [self performSelector:@selector(doneManualRefresh) withObject:nil afterDelay:0.4];
+        }
+    }
+}
+
+- (void)doneManualRefresh
+{
+    [_refreshHeaderView egoRefreshScrollViewDidScroll:self.collectionView];
+    [_refreshHeaderView egoRefreshScrollViewDidEndDragging:self.collectionView];
+}
+
+#pragma 下提刷新
+- (void)reloadTableViewDataSource
+{
+    _reloading = YES;
+}
+
+- (void)doneLoadingTableViewData
+{
+    _reloading = NO;
+    [_refreshHeaderView egoRefreshScrollViewDataSourceDidFinishedLoading:self.collectionView];
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    [_refreshHeaderView egoRefreshScrollViewDidScroll:scrollView];
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+    [_refreshHeaderView egoRefreshScrollViewDidEndDragging:scrollView];
+}
+
+- (void)egoRefreshTableHeaderDidTriggerRefresh:(EGORefreshTableHeaderView *)view
+{
+    [self reloadTableViewDataSource];
+    [self refresh];
+}
+
+// tableView添加拉更新
+- (void)egoRefreshTableHeaderDidTriggerToBottom
+{
+    
+}
+
+- (BOOL)egoRefreshTableHeaderDataSourceIsLoading:(EGORefreshTableHeaderView *)view
+{
+    return _reloading;
+}
+- (NSDate *)egoRefreshTableHeaderDataSourceLastUpdated:(EGORefreshTableHeaderView *)view
+{
+    return [NSDate date];
+}
+- (void)refresh
+{
+    if ([UserModel Instance].isNetworkRunning) {
+        [self reload];
     }
 }
 

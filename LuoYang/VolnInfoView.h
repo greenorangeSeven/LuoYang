@@ -11,11 +11,20 @@
 #import "SGFocusImageItem.h"
 #import "TQImageCache.h"
 
-@interface VolnInfoView : UIViewController<UITableViewDataSource,UITableViewDelegate>
+@interface VolnInfoView : UIViewController<UITableViewDataSource,UITableViewDelegate, EGORefreshTableHeaderDelegate>
 {
     NSMutableArray *volnArray;
+    
+    //下拉刷新
+    EGORefreshTableHeaderView *_refreshHeaderView;
+    BOOL _reloading;
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+
+//下拉刷新
+- (void)refresh;
+- (void)reloadTableViewDataSource;
+- (void)doneLoadingTableViewData;
 
 @end

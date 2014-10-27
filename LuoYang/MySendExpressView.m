@@ -83,6 +83,7 @@
     //如果有网络连接
     if ([UserModel Instance].isNetworkRunning) {
         NSString *url = [NSString stringWithFormat:@"%@%@?APPKey=%@&cid=%@&build_id=%@&house_number=%@", api_base_url, api_myoutbox, appkey, [usermodel getUserValueForKey:@"cid"], [usermodel getUserValueForKey:@"build_id"], [usermodel getUserValueForKey:@"house_number"]];
+        url = [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         [[AFOSCClient sharedClient]getPath:url parameters:Nil
                                    success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                        @try {

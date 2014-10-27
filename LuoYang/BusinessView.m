@@ -61,10 +61,38 @@
     [super viewDidLoad];
     
     hud = [[MBProgressHUD alloc] initWithView:self.view];
-    [Tool showHUD:@"正在定位" andView:self.view andHUD:hud];
+    
+    if (_refreshHeaderView == nil) {
+        EGORefreshTableHeaderView *view = [[EGORefreshTableHeaderView alloc] initWithFrame:CGRectMake(0.0f, -320.0f, self.view.frame.size.width, 320)];
+        view.delegate = self;
+        [self.tableView addSubview:view];
+        _refreshHeaderView = view;
+    }
+    [_refreshHeaderView refreshLastUpdatedDate];
+    
     _locService = [[BMKLocationService alloc]init];
     _locService.delegate = self;
+    [self reload];
     [self startLocation];
+    
+//    // 实例化一个位置管理器
+//    CLLocationManager *_locationManager = [[CLLocationManager alloc] init];
+//    [_locationManager startUpdatingLocation];
+//    if(![CLLocationManager locationServicesEnabled]){
+//        NSLog(@"请开启定位:设置 > 隐私 > 位置 > 定位服务");
+//    }else{
+//        if ([CLLocationManager authorizationStatus] != kCLAuthorizationStatusAuthorized) {
+//            NSLog(@"定位失败，请开启定位:设置 > 隐私 > 位置 > 定位服务 下 XX应用");
+//            [self reload];
+//        }
+//        else
+//        {
+//            [Tool showHUD:@"正在定位" andView:self.view andHUD:hud];
+//            _locService = [[BMKLocationService alloc]init];
+//            _locService.delegate = self;
+//            [self startLocation];
+//        }
+//    }
     
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
@@ -119,37 +147,25 @@
                                    success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                        [shopData removeAllObjects];
                                        @try {
-                                           [shopData removeAllObjects];
                                            noDataLabel.hidden = YES;
                                            shopData = [Tool readJsonStrToShopArray:operation.responseString];
-                                           if (shopData != nil && [shopData count] > 0) {
-                                               //计算当前位置与商家距离
-                                               for (int i = 0; i < [shopData count]; i++) {
-                                                   Shop *temp =[shopData objectAtIndex:(i)];
-                                                   CLLocationCoordinate2D coor;
-                                                   coor.longitude = [temp.longitude doubleValue];
-                                                   coor.latitude = [temp.latitude doubleValue];
-                                                   BMKMapPoint shopPoint = BMKMapPointForCoordinate(coor);
-                                                   CLLocationDistance distanceTmp = BMKMetersBetweenMapPoints(myPoint,shopPoint);
-                                                   temp.distance =(int)distanceTmp;
-                                               }
-                                               [self startArraySort:@"distance" isAscending:YES];
-                                           }
-                                           else
-                                           {
+                                           if (shopData == nil || [shopData count] == 0) {
                                                noDataLabel.hidden = NO;
                                            }
                                            [self.tableView reloadData];
+                                           [self doneLoadingTableViewData];
                                        }
                                        @catch (NSException *exception) {
                                            [NdUncaughtExceptionHandler TakeException:exception];
                                        }
                                        @finally {
+                                           [self doneLoadingTableViewData];
                                            if (hud != nil) {
                                                [hud hide:YES];
                                            }
                                        }
                                    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                       [self doneLoadingTableViewData];
                                        if ([UserModel Instance].isNetworkRunning == NO) {
                                            return;
                                        }
@@ -157,6 +173,90 @@
                                            [Tool ToastNotification:@"错误 网络无连接" andView:self.view andLoading:NO andIsBottom:NO];
                                        }
                                    }];
+    }
+}
+
+- (void)distanceShop
+{
+    //计算当前位置与商家距离
+    for (int i = 0; i < [shopData count]; i++) {
+        Shop *temp =[shopData objectAtIndex:(i)];
+        CLLocationCoordinate2D coor;
+        coor.longitude = [temp.longitude doubleValue];
+        coor.latitude = [temp.latitude doubleValue];
+        BMKMapPoint shopPoint = BMKMapPointForCoordinate(coor);
+        CLLocationDistance distanceTmp = BMKMetersBetweenMapPoints(myPoint,shopPoint);
+        temp.distance =(int)distanceTmp;
+    }
+    [self startArraySort:@"distance" isAscending:YES];
+    [self.tableView reloadData];
+    if (hud != nil) {
+        [hud hide:YES];
+    }
+}
+
+- (void)refreshed:(NSNotification *)notification
+{
+    if (notification.object) {
+        if ([(NSString *)notification.object isEqualToString:@"0"]) {
+            [self.tableView setContentOffset:CGPointMake(0, -75) animated:YES];
+            [self performSelector:@selector(doneManualRefresh) withObject:nil afterDelay:0.4];
+        }
+    }
+}
+
+- (void)doneManualRefresh
+{
+    [_refreshHeaderView egoRefreshScrollViewDidScroll:self.tableView];
+    [_refreshHeaderView egoRefreshScrollViewDidEndDragging:self.tableView];
+}
+
+#pragma 下提刷新
+- (void)reloadTableViewDataSource
+{
+    _reloading = YES;
+}
+
+- (void)doneLoadingTableViewData
+{
+    _reloading = NO;
+    [_refreshHeaderView egoRefreshScrollViewDataSourceDidFinishedLoading:self.tableView];
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    [_refreshHeaderView egoRefreshScrollViewDidScroll:scrollView];
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+    [_refreshHeaderView egoRefreshScrollViewDidEndDragging:scrollView];
+}
+
+- (void)egoRefreshTableHeaderDidTriggerRefresh:(EGORefreshTableHeaderView *)view
+{
+    [self reloadTableViewDataSource];
+    [self refresh];
+}
+
+// tableView添加拉更新
+- (void)egoRefreshTableHeaderDidTriggerToBottom
+{
+    
+}
+
+- (BOOL)egoRefreshTableHeaderDataSourceIsLoading:(EGORefreshTableHeaderView *)view
+{
+    return _reloading;
+}
+- (NSDate *)egoRefreshTableHeaderDataSourceLastUpdated:(EGORefreshTableHeaderView *)view
+{
+    return [NSDate date];
+}
+- (void)refresh
+{
+    if ([UserModel Instance].isNetworkRunning) {
+        [self reload];
     }
 }
 
@@ -232,14 +332,21 @@
     cell.shopTitleLb.text = shop.name;
     cell.summaryLb.text = shop.summary;
     
-    if (shop.distance > 1000) {
-        float disf = ((float)shop.distance)/1000;
-        cell.distanceLb.text = [NSString stringWithFormat:@"距您%.2f千米", disf];
-    }
-    else
+    if (shop.distance == 0) {
+        cell.distanceLb.hidden = YES;
+    }else
     {
-        cell.distanceLb.text = [NSString stringWithFormat:@"距您%d米", shop.distance];
+        if (shop.distance > 1000) {
+            float disf = ((float)shop.distance)/1000;
+            cell.distanceLb.text = [NSString stringWithFormat:@"距您%.2f千米", disf];
+        }
+        else
+        {
+            cell.distanceLb.text = [NSString stringWithFormat:@"距您%d米", shop.distance];
+        }
     }
+    
+    
     [Tool roundView:cell.cellbackgroudView andCornerRadius:3.0];
     
     return cell;
@@ -300,7 +407,7 @@
     myPoint = BMKMapPointForCoordinate(mycoord);
     //    如果经纬度大于0表单表示定位成功，停止定位
     if (userLocation.location.coordinate.latitude > 0) {
-        [self reload];
+        [self distanceShop];
         [_locService stopUserLocationService];
     }
 }

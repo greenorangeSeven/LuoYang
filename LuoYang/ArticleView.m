@@ -52,6 +52,14 @@
         [av show];
     }
     
+    if (_refreshHeaderView == nil) {
+        EGORefreshTableHeaderView *view = [[EGORefreshTableHeaderView alloc] initWithFrame:CGRectMake(0.0f, -320.0f, self.view.frame.size.width, 320)];
+        view.delegate = self;
+        [self.tableView addSubview:view];
+        _refreshHeaderView = view;
+    }
+    [_refreshHeaderView refreshLastUpdatedDate];
+    
     //适配iOS7uinavigationbar遮挡问题
     if(IS_IOS7)
     {
@@ -119,7 +127,7 @@
                                                SGFocusImageItem *item = [[SGFocusImageItem alloc] initWithTitle:@"" image:adv.thumb tag:-1];
                                                [itemArray addObject:item];
                                            }
-                                           bannerView = [[SGFocusImageFrame alloc] initWithFrame:CGRectMake(0, 0, 320, 200) delegate:self imageItems:itemArray isAuto:YES];
+                                           bannerView = [[SGFocusImageFrame alloc] initWithFrame:CGRectMake(0, 0, 320, 181) delegate:self imageItems:itemArray isAuto:YES];
                                            [bannerView scrollToIndex:0];
                                            [self.topIV addSubview:bannerView];
                                        }
@@ -155,19 +163,22 @@
         [[AFOSCClient sharedClient]getPath:url parameters:Nil
                                    success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                        @try {
+                                           [articles removeAllObjects];
                                            articles = [Tool readJsonStrToArticleArray:operation.responseString];
                                            [self.tableView reloadData];
-                                           
+                                           [self doneLoadingTableViewData];
                                        }
                                        @catch (NSException *exception) {
                                            [NdUncaughtExceptionHandler TakeException:exception];
                                        }
                                        @finally {
+                                           [self doneLoadingTableViewData];
                                            if (hud != nil) {
                                                hud.hidden = YES;
                                            }
                                        }
                                    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                       [self doneLoadingTableViewData];
                                        if ([UserModel Instance].isNetworkRunning == NO) {
                                            return;
                                        }
@@ -176,6 +187,61 @@
                                        }
                                    }];
         
+    }
+}
+
+- (void)doneManualRefresh
+{
+    [_refreshHeaderView egoRefreshScrollViewDidScroll:self.tableView];
+    [_refreshHeaderView egoRefreshScrollViewDidEndDragging:self.tableView];
+}
+
+#pragma 下提刷新
+- (void)reloadTableViewDataSource
+{
+    _reloading = YES;
+}
+
+- (void)doneLoadingTableViewData
+{
+    _reloading = NO;
+    [_refreshHeaderView egoRefreshScrollViewDataSourceDidFinishedLoading:self.tableView];
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    [_refreshHeaderView egoRefreshScrollViewDidScroll:scrollView];
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+    [_refreshHeaderView egoRefreshScrollViewDidEndDragging:scrollView];
+}
+
+- (void)egoRefreshTableHeaderDidTriggerRefresh:(EGORefreshTableHeaderView *)view
+{
+    [self reloadTableViewDataSource];
+    [self refresh];
+}
+
+// tableView添加拉更新
+- (void)egoRefreshTableHeaderDidTriggerToBottom
+{
+    
+}
+
+- (BOOL)egoRefreshTableHeaderDataSourceIsLoading:(EGORefreshTableHeaderView *)view
+{
+    return _reloading;
+}
+- (NSDate *)egoRefreshTableHeaderDataSourceLastUpdated:(EGORefreshTableHeaderView *)view
+{
+    return [NSDate date];
+}
+- (void)refresh
+{
+    if ([UserModel Instance].isNetworkRunning) {
+        [self reload];
     }
 }
 

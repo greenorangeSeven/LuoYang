@@ -51,6 +51,9 @@
         [self.tableSettings setBackgroundColor:[Tool getBackgroundColor]];
     }
     
+    //    设置无分割线
+    self.tableSettings.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
     if ([self.typeView isEqualToString:@"setting"]) {
         ((UILabel *)self.navigationItem.titleView).text = @"设置";
         [self initSettingData];
@@ -72,6 +75,7 @@
                       [[SettingModel alloc] initWith: islogin?@"退出登录":@"登录" andImg:islogin?@"setting_logout":@"setting_login" andTag:2 andTitle2:nil],
                       [[SettingModel alloc] initWith: @"个人信息" andImg:@"setting_info" andTag:3 andTitle2:nil],
                       [[SettingModel alloc] initWith: @"修改密码" andImg:@"setting_update" andTag:4 andTitle2:nil],
+                      [[SettingModel alloc] initWith:@"版本更新" andImg:@"setting_update" andTag:10 andTitle2:nil],
                       nil];
 
 //    NSArray *third = [[NSArray alloc] initWithObjects:
@@ -89,6 +93,7 @@
     self.settingsInSection = [[NSMutableDictionary alloc] initWithCapacity:1];
 
     NSArray *second = [[NSArray alloc] initWithObjects:
+                       [[SettingModel alloc] initWith:@"我的优惠券" andImg:@"setting_order" andTag:9 andTitle2:nil],
                        [[SettingModel alloc] initWith:@"我的订单" andImg:@"setting_order" andTag:5 andTitle2:nil],
                        [[SettingModel alloc] initWith:@"我的物业费" andImg:@"setting_propertyfee" andTag:6 andTitle2:nil],
                        [[SettingModel alloc] initWith:@"我的停车费" andImg:@"setting_parkfee" andTag:7 andTitle2:nil],
@@ -228,12 +233,18 @@
             break;
         case 9:
         {
-            
+            if (![[UserModel Instance] isLogin])
+            {
+                [Tool showCustomHUD:@"请先登录" andView:self.view andImage:@"37x-Failure.png" andAfterDelay:2];
+                return;
+            }
+            MyCouponView *myCoupon = [[MyCouponView alloc] init];
+            [self.navigationController pushViewController:myCoupon animated:YES];
         }
             break;
         case 10:
         {
-            
+            [self checkVersionUpdate];
         }
             break;
         case 11:
@@ -330,6 +341,11 @@
     [cell.textLabel setFont:[UIFont fontWithName:@"American Typewriter" size:14.0f]];
     cell.imageView.image = [UIImage imageNamed:model.img];
     cell.tag = model.tag;
+    
+    UILabel *lineLb = [[UILabel alloc]initWithFrame:CGRectMake(0.0, 44.0, 320.0, 1.0)];
+    [lineLb setBackgroundColor:[UIColor lightGrayColor]];
+    [cell addSubview:lineLb];
+    
     return cell;
 }
 
@@ -338,6 +354,59 @@
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden = NO;
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+}
+
+- (void)checkVersionUpdate
+{
+    NSString *versionUrl = [NSString stringWithFormat:@"%@%@?phone=IOS&APPKey=%@", api_base_url, api_version_url, appkey];
+    [[AFOSCClient sharedClient]getPath:versionUrl parameters:Nil
+                               success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                   @try {
+                                       NSData *data = [operation.responseString dataUsingEncoding:NSUTF8StringEncoding];
+                                       NSError *error;
+                                       NSMutableArray *versionArray = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+                                       if (versionArray) {
+                                           for (int i = 0; i < [versionArray count]; i++) {
+                                               NSDictionary *versionDict = [versionArray objectAtIndex:i];
+                                               int versionCode = [[versionDict objectForKey:@"version"] intValue];
+                                               appPath = [versionDict objectForKey:@"fileurl"];
+                                               if (versionCode > [AppVersionCode intValue]) {
+                                                   UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"温馨提示" message:@"洛阳智慧社区客户端有新版了\n您需要更新吗?" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确认", nil];
+                                                   alert.tag = 0;
+                                                   [alert show];
+                                               }
+                                               else
+                                               {
+                                                   UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"温馨提示" message:@"您当前已是最新版本！" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确认", nil];
+                                                   [alert show];
+                                               }
+                                           }
+                                       }
+                                   }
+                                   @catch (NSException *exception) {
+                                       [NdUncaughtExceptionHandler TakeException:exception];
+                                   }
+                                   @finally {
+                                   }
+                               } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                   NSLog(@"获取出错");
+                                   
+                                   if ([UserModel Instance].isNetworkRunning == NO) {
+                                       return;
+                                   }
+                               }];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 1)
+    {
+        if (alertView.tag == 0)
+        {
+//            NSString *updateUrl = [NSString stringWithFormat:@"itms-services://?action=download-manifest&url=%@", appPath];
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:appPath]];
+        }
+    }
 }
 
 @end

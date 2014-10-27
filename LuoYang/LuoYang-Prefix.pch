@@ -100,6 +100,8 @@
 #define api_replybbs @"/reply_subject"
 #define api_addbbs @"/add_bbs_subject"
 #define api_delbbs @"/del_bbs_subject"
+#define api_version_url @"/getVersion"
+#define api_mycoupons @"/my_coupons_list"
 
 //商品下单地址
 #define api_send_order @"/send_order"
@@ -176,6 +178,8 @@
 #define ArticleCellIdentifier @"ArticleCellIdentifier"
 #define CommunityCellIdentifier @"CommunityCellIdentifier"
 #define ProjectCollectionCellIdentifier @"ProjectCollectionCellIdentifier"
+#define MyCouponCellIdentifier @"MyCouponCellIdentifier"
+
 
 #define createshoppingcart @"create table shoppingcart (id integer primary key autoincrement not null,goodid text,title text,thumb text,price text,store_name text,business_id text,number int,user_id text)"
 

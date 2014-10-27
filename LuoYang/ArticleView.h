@@ -13,7 +13,7 @@
 #import "ArticleCell.h"
 #import "ArticleDetailView.h"
 
-@interface ArticleView : UIViewController<SGFocusImageFrameDelegate, UITableViewDelegate, UITableViewDataSource, UIAlertViewDelegate>
+@interface ArticleView : UIViewController<SGFocusImageFrameDelegate, UITableViewDelegate, UITableViewDataSource, EGORefreshTableHeaderDelegate, UIAlertViewDelegate>
 {
     NSMutableArray *advs;
     
@@ -22,9 +22,18 @@
     int advIndex;
     
     MBProgressHUD *hud;
+    
+    //下拉刷新
+    EGORefreshTableHeaderView *_refreshHeaderView;
+    BOOL _reloading;
 }
 
 @property (weak, nonatomic) IBOutlet UIImageView *topIV;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+
+//下拉刷新
+- (void)refresh;
+- (void)reloadTableViewDataSource;
+- (void)doneLoadingTableViewData;
 
 @end

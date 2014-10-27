@@ -18,12 +18,14 @@
 #import "ExpressView.h"
 #import "MyOrderView.h"
 #import "ChangPWDView.h"
+#import "MyCouponView.h"
 
 @interface SettingView : UIViewController<UITableViewDataSource, UITableViewDelegate,UIAlertViewDelegate>
 {
     UIWebView *phoneCallWebView;
     NSArray * settings;
     NSMutableDictionary * settingsInSection;
+    NSString *appPath;
 }
 
 @property (strong, nonatomic) NSString *typeView;

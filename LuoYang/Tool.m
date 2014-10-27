@@ -633,6 +633,20 @@
     return volnArray;
 }
 
++ (NSMutableArray *)readJsonStrToMyCouponArray:(NSString *)str
+{
+    NSData *data = [str dataUsingEncoding:NSUTF8StringEncoding];
+    NSError *error;
+    NSArray *conponJsonArray = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+    if ( conponJsonArray == nil || [conponJsonArray count] <= 0) {
+        return nil;
+    }
+    NSMutableArray *myArray = [RMMapper mutableArrayOfClass:[Coupons class] fromArrayOfDictionary:conponJsonArray];
+    for (Coupons *c in myArray) {
+        c.validityStr = [Tool intervalSinceNow:[Tool TimestampToDateStr:c.validity_date andFormatterStr:@"yyyy-MM-dd"]];
+    }
+    return myArray;
+}
 
 + (AlipayInfo *)readJsonStrToAliPay:(NSString *)str
 {

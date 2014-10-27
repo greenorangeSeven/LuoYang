@@ -567,6 +567,10 @@
 		14A7BFF219C9260A009039DF /* VPImageCropperViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A7BFF119C9260A009039DF /* VPImageCropperViewController.m */; };
 		14A7BFF619C92612009039DF /* ZJSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A7BFF519C92612009039DF /* ZJSwitch.m */; };
 		14A7BFFA19C92B6C009039DF /* ExpressCompany.plist in Resources */ = {isa = PBXBuildFile; fileRef = 14A7BFF919C92B6C009039DF /* ExpressCompany.plist */; };
+		14B3A1B619EE193500BD29B6 /* MyCouponView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B3A1B419EE193500BD29B6 /* MyCouponView.m */; };
+		14B3A1B719EE193500BD29B6 /* MyCouponView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14B3A1B519EE193500BD29B6 /* MyCouponView.xib */; };
+		14B3A1BB19EE1A4F00BD29B6 /* MyCouponCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B3A1B919EE1A4F00BD29B6 /* MyCouponCell.m */; };
+		14B3A1BC19EE1A4F00BD29B6 /* MyCouponCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14B3A1BA19EE1A4F00BD29B6 /* MyCouponCell.xib */; };
 		14B7E32919EBD06C007686A9 /* VolnInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B7E32419EBD06C007686A9 /* VolnInfoView.m */; };
 		14B7E32A19EBD06C007686A9 /* VolnInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14B7E32519EBD06C007686A9 /* VolnInfoView.xib */; };
 		14B7E32B19EBD06C007686A9 /* VolnInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B7E32719EBD06C007686A9 /* VolnInfoCell.m */; };
@@ -1463,6 +1467,12 @@
 		14A7BFF419C92612009039DF /* ZJSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJSwitch.h; sourceTree = "<group>"; };
 		14A7BFF519C92612009039DF /* ZJSwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJSwitch.m; sourceTree = "<group>"; };
 		14A7BFF919C92B6C009039DF /* ExpressCompany.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ExpressCompany.plist; sourceTree = "<group>"; };
+		14B3A1B319EE193500BD29B6 /* MyCouponView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCouponView.h; sourceTree = "<group>"; };
+		14B3A1B419EE193500BD29B6 /* MyCouponView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCouponView.m; sourceTree = "<group>"; };
+		14B3A1B519EE193500BD29B6 /* MyCouponView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyCouponView.xib; sourceTree = "<group>"; };
+		14B3A1B819EE1A4F00BD29B6 /* MyCouponCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCouponCell.h; sourceTree = "<group>"; };
+		14B3A1B919EE1A4F00BD29B6 /* MyCouponCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCouponCell.m; sourceTree = "<group>"; };
+		14B3A1BA19EE1A4F00BD29B6 /* MyCouponCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyCouponCell.xib; sourceTree = "<group>"; };
 		14B7E32319EBD06C007686A9 /* VolnInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VolnInfoView.h; sourceTree = "<group>"; };
 		14B7E32419EBD06C007686A9 /* VolnInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VolnInfoView.m; sourceTree = "<group>"; };
 		14B7E32519EBD06C007686A9 /* VolnInfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VolnInfoView.xib; sourceTree = "<group>"; };
@@ -1524,8 +1534,8 @@
 				14A7BA3019C92078009039DF /* CoreGraphics.framework in Frameworks */,
 				14A7BE0019C923E1009039DF /* libbaidumapapi.a in Frameworks */,
 				14A7BA3219C92078009039DF /* UIKit.framework in Frameworks */,
-				14A7BFDA19C925D8009039DF /* SinaWeiboConnection.framework in Frameworks */,
 				14A7BF0219C9249D009039DF /* KeyboardManager.framework in Frameworks */,
+				14A7BFDA19C925D8009039DF /* SinaWeiboConnection.framework in Frameworks */,
 				14A7BA2E19C92078009039DF /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1830,6 +1840,12 @@
 				14A7BB2C19C921BA009039DF /* CouponDetailView.h */,
 				14A7BB2D19C921BA009039DF /* CouponDetailView.m */,
 				14A7BB2E19C921BA009039DF /* CouponDetailView.xib */,
+				14B3A1B319EE193500BD29B6 /* MyCouponView.h */,
+				14B3A1B419EE193500BD29B6 /* MyCouponView.m */,
+				14B3A1B519EE193500BD29B6 /* MyCouponView.xib */,
+				14B3A1B819EE1A4F00BD29B6 /* MyCouponCell.h */,
+				14B3A1B919EE1A4F00BD29B6 /* MyCouponCell.m */,
+				14B3A1BA19EE1A4F00BD29B6 /* MyCouponCell.xib */,
 				14A7BB2F19C921BA009039DF /* ShoppingCartView.h */,
 				14A7BB3019C921BA009039DF /* ShoppingCartView.m */,
 				14A7BB3119C921BA009039DF /* ShoppingCartView.xib */,
@@ -3021,6 +3037,7 @@
 				14A7BC9B19C921E1009039DF /* loadingpic1@2x.png in Resources */,
 				14A7BB7819C921BA009039DF /* ProjectCollectionView.xib in Resources */,
 				14A7BCE819C921E1009039DF /* wuye_notification@2x.png in Resources */,
+				14B3A1B719EE193500BD29B6 /* MyCouponView.xib in Resources */,
 				14A7BCA919C921E1009039DF /* ritem-3@2x.png in Resources */,
 				14A7BC9919C921E1009039DF /* fragment_zyz@2x.png in Resources */,
 				14A7BD1219C921E1009039DF /* backBtn.png in Resources */,
@@ -3207,6 +3224,7 @@
 				14A7BCC419C921E1009039DF /* lm_fushi@2x.png in Resources */,
 				14A7BB6819C921BA009039DF /* BusinessDetailView.xib in Resources */,
 				14A7BC9C19C921E1009039DF /* loadingpic2@2x.png in Resources */,
+				14B3A1BC19EE1A4F00BD29B6 /* MyCouponCell.xib in Resources */,
 				14A7BAD319C921A0009039DF /* RepairsItemCell.xib in Resources */,
 				14A7BCEB19C921E1009039DF /* wuye_jiaofei@2x.png in Resources */,
 				14A7BCAD19C921E1009039DF /* city_cell_temp@2x.png in Resources */,
@@ -3319,6 +3337,7 @@
 				14A7BACE19C921A0009039DF /* MyRepairsCell.m in Sources */,
 				14A7BE9A19C92426009039DF /* AFURLConnectionOperation.m in Sources */,
 				14A7BF0619C924A8009039DF /* KxMenu.m in Sources */,
+				14B3A1BB19EE1A4F00BD29B6 /* MyCouponCell.m in Sources */,
 				14A7BB5919C921BA009039DF /* CBusinessPublishView.m in Sources */,
 				14A7BEDC19C9245E009039DF /* Base64.m in Sources */,
 				14A7BF7919C924FA009039DF /* PSTCollectionViewCell.m in Sources */,
@@ -3386,6 +3405,7 @@
 				14A7BDA919C92215009039DF /* CityModel.m in Sources */,
 				14A7BE9B19C92426009039DF /* AFXMLRequestOperation.m in Sources */,
 				14A7BEF919C9247C009039DF /* EGOImageView.m in Sources */,
+				14B3A1B619EE193500BD29B6 /* MyCouponView.m in Sources */,
 				14A7BD7E19C921EE009039DF /* PropertyFeeInfo.m in Sources */,
 				14A7BB6919C921BA009039DF /* StoreMapPointView.m in Sources */,
 				14A7BB6F19C921BA009039DF /* CouponDetailView.m in Sources */,
@@ -3634,7 +3654,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "E5658B00-36F5-4F1D-A0E0-C8C7AE866539";
+				PROVISIONING_PROFILE = "2bafcc52-6469-49a7-9265-8e74274fd636";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -3667,7 +3687,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				PROVISIONING_PROFILE = "E5658B00-36F5-4F1D-A0E0-C8C7AE866539";
+				PROVISIONING_PROFILE = "2bafcc52-6469-49a7-9265-8e74274fd636";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -3736,6 +3756,28 @@
 					Framework,
 					"$(PROJECT_DIR)/LuoYang/IQKeyboardManager",
 					Framework,
+					"$(PROJECT_DIR)/LuoYang/IQKeyboardManager",
+					Framework,
+					"$(PROJECT_DIR)/LuoYang/IQKeyboardManager",
+					Framework,
+					"$(PROJECT_DIR)/LuoYang/IQKeyboardManager",
+					Framework,
+					"$(PROJECT_DIR)/LuoYang/IQKeyboardManager",
+					Framework,
+					"$(PROJECT_DIR)/LuoYang/IQKeyboardManager",
+					Framework,
+					"$(PROJECT_DIR)/LuoYang/IQKeyboardManager",
+					Framework,
+					"$(PROJECT_DIR)/LuoYang/IQKeyboardManager",
+					Framework,
+					"$(PROJECT_DIR)/LuoYang/IQKeyboardManager",
+					Framework,
+					"$(PROJECT_DIR)/LuoYang/IQKeyboardManager",
+					Framework,
+					"$(PROJECT_DIR)/LuoYang/IQKeyboardManager",
+					Framework,
+					"$(PROJECT_DIR)/LuoYang/IQKeyboardManager",
+					Framework,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LuoYang/LuoYang-Prefix.pch";
@@ -3757,7 +3799,7 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "E5658B00-36F5-4F1D-A0E0-C8C7AE866539";
+				PROVISIONING_PROFILE = "2bafcc52-6469-49a7-9265-8e74274fd636";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -3825,6 +3867,28 @@
 					Framework,
 					"$(PROJECT_DIR)/LuoYang/IQKeyboardManager",
 					Framework,
+					"$(PROJECT_DIR)/LuoYang/IQKeyboardManager",
+					Framework,
+					"$(PROJECT_DIR)/LuoYang/IQKeyboardManager",
+					Framework,
+					"$(PROJECT_DIR)/LuoYang/IQKeyboardManager",
+					Framework,
+					"$(PROJECT_DIR)/LuoYang/IQKeyboardManager",
+					Framework,
+					"$(PROJECT_DIR)/LuoYang/IQKeyboardManager",
+					Framework,
+					"$(PROJECT_DIR)/LuoYang/IQKeyboardManager",
+					Framework,
+					"$(PROJECT_DIR)/LuoYang/IQKeyboardManager",
+					Framework,
+					"$(PROJECT_DIR)/LuoYang/IQKeyboardManager",
+					Framework,
+					"$(PROJECT_DIR)/LuoYang/IQKeyboardManager",
+					Framework,
+					"$(PROJECT_DIR)/LuoYang/IQKeyboardManager",
+					Framework,
+					"$(PROJECT_DIR)/LuoYang/IQKeyboardManager",
+					Framework,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LuoYang/LuoYang-Prefix.pch";
@@ -3846,7 +3910,7 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "E5658B00-36F5-4F1D-A0E0-C8C7AE866539";
+				PROVISIONING_PROFILE = "2bafcc52-6469-49a7-9265-8e74274fd636";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

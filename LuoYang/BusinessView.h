@@ -16,7 +16,7 @@
 #import "BusinessDetailView.h"
 #import "BusniessSearchView.h"
 
-@interface BusinessView : UIViewController<UITableViewDelegate,UITableViewDataSource,BMKLocationServiceDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
+@interface BusinessView : UIViewController<UITableViewDelegate,UITableViewDataSource,EGORefreshTableHeaderDelegate,BMKLocationServiceDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 {
     NSMutableArray *shopData;
     NSMutableArray *shopCateData;
@@ -25,9 +25,20 @@
     MBProgressHUD *hud;
     NSString *catid;
     UILabel *noDataLabel;
+    
+    //下拉刷新
+    BOOL _reloading;
+    EGORefreshTableHeaderView *_refreshHeaderView;
+    BOOL isLoading;
+    BOOL isLoadOver;
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UICollectionView *cateCollection;
+
+//下拉刷新
+- (void)refresh;
+- (void)reloadTableViewDataSource;
+- (void)doneLoadingTableViewData;
 
 @end

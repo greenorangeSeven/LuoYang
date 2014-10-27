@@ -21,4 +21,16 @@
 @property (nonatomic, retain) NSString *business_id;
 @property (nonatomic, retain) NSString *published;
 
+//mycoupons
+@property (nonatomic, retain) NSString *coupons_id;
+@property (nonatomic, retain) NSString *coupons_title;
+@property (nonatomic, retain) NSString *userid;
+@property (nonatomic, retain) NSString *remark;
+@property (nonatomic, retain) NSString *addtime;
+@property (nonatomic, retain) NSString *validity_date;
+@property (nonatomic, retain) NSString *validityStr;
+@property (nonatomic, retain) NSString *store_name;
+
+@property (retain,nonatomic) UIImage * imgData;
+
 @end

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "EGOImageView.h"
+#import "Coupons.h"
 
 @interface CouponDetailView : UIViewController<UIWebViewDelegate,UIActionSheetDelegate>
 {

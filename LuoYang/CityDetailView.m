@@ -65,7 +65,7 @@
 
 - (void)loadData
 {
-    NSString *html = [NSString stringWithFormat:@"<body>%@<div id='web_title'>%@</div>%@<div id='web_img'><img src='%@' height='150' width='150' hspace='35'/></div></body><div id='web_body'>%@</div></body>", HTML_Style, info.title, HTML_Splitline, info.thumb,info.content];
+    NSString *html = [NSString stringWithFormat:@"<body>%@<div id='web_title'>%@</div>%@<div id='web_img'><img src='%@' width='200' hspace='35'/></div></body><div id='web_body'>%@</div></body>", HTML_Style, info.title, HTML_Splitline, info.thumb,info.content];
     NSString *result = [Tool getHTMLString:html];
     [self.webView loadHTMLString:result baseURL:nil];
     

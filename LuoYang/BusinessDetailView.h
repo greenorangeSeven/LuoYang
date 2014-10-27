@@ -20,7 +20,7 @@
 #import "BMapKit.h"
 #import "StoreMapPointView.h"
 
-@interface BusinessDetailView : UIViewController<SGFocusImageFrameDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout, IconDownloaderDelegate>
+@interface BusinessDetailView : UIViewController<SGFocusImageFrameDelegate, EGORefreshTableHeaderDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout, IconDownloaderDelegate>
 {
     UIWebView *phoneCallWebView;
     NSMutableArray *goods;
@@ -31,10 +31,21 @@
     int couponIndex;
     
     TQImageCache * _iconCache;
+    
+    //下拉刷新
+    BOOL _reloading;
+    EGORefreshTableHeaderView *_refreshHeaderView;
+    BOOL isLoading;
+    BOOL isLoadOver;
 }
 
 //异步加载图片专用
 @property (nonatomic, retain) NSMutableDictionary *imageDownloadsInProgress;
+
+//下拉刷新
+- (void)refresh;
+- (void)reloadTableViewDataSource;
+- (void)doneLoadingTableViewData;
 
 @property (weak, nonatomic) Shop *shop;
 @property (weak, nonatomic) NSString *tjTitle;
