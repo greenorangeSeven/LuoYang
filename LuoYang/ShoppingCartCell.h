@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *titleLb;
 @property (weak, nonatomic) IBOutlet UILabel *priceLb;
 @property (weak, nonatomic) IBOutlet UITextField *numberTv;
+@property (weak, nonatomic) IBOutlet UILabel *attrsLb;
 
 @property (weak, nonatomic) IBOutlet UIButton *minusBtn;
 @property (weak, nonatomic) IBOutlet UIButton *addBtn;

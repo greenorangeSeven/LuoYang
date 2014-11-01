@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface BusinessCateCell : UICollectionViewCell
+
 @property (weak, nonatomic) IBOutlet UILabel *nameLb;
+@property (weak, nonatomic) IBOutlet UIImageView *picIv;
 
 @end

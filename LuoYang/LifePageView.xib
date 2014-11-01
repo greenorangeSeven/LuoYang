@@ -195,6 +195,22 @@
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="XIP-pC-Rks">
+                            <rect key="frame" x="231" y="376" width="58" height="51"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" image="left_yhq.png">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="yhqAction:" destination="-1" eventType="touchUpInside" id="ml8-0B-GyG"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="优惠券" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="LtY-EC-sEU">
+                            <rect key="frame" x="231" y="435" width="59" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" red="0.91764705882352937" green="0.91764705882352937" blue="0.91764705882352937" alpha="1" colorSpace="calibratedRGB"/>
                 </scrollView>
@@ -207,6 +223,7 @@
     <resources>
         <image name="business.png" width="48" height="48"/>
         <image name="fragment_forum.png" width="48" height="48"/>
+        <image name="left_yhq.png" width="48" height="48"/>
         <image name="life_btn_bg.png" width="297" height="239"/>
         <image name="life_jjzs.png" width="49" height="49"/>
         <image name="life_sqjr.png" width="49" height="49"/>

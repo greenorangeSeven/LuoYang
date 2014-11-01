@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "NSString+STRegex.h"
+#import "BPush.h"
 
 @interface LoginView : UIViewController
 

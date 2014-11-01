@@ -16,6 +16,7 @@
 @property (nonatomic, retain) NSString *longitude;
 @property (nonatomic, retain) NSString *latitude;
 @property (nonatomic, retain) NSString *address;
+@property (nonatomic, retain) NSString *tel;
 
 @property (nonatomic, retain) NSArray *build_list;
 @property (nonatomic, retain) NSArray *buildArray;

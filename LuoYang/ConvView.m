@@ -75,19 +75,6 @@
     _locService.delegate = self;
     [self reload];
     [self startLocation];
-    // 实例化一个位置管理器
-//    CLLocationManager *_locationManager = [[CLLocationManager alloc] init];
-//    [_locationManager startUpdatingLocation];
-//    if(![CLLocationManager locationServicesEnabled]){
-//        NSLog(@"请开启定位:设置 > 隐私 > 位置 > 定位服务");
-//    }else{
-//        if ([CLLocationManager authorizationStatus] != kCLAuthorizationStatusAuthorized) {
-//            NSLog(@"定位失败，请开启定位:设置 > 隐私 > 位置 > 定位服务 下 XX应用");
-    
-//            [_locService stopUserLocationService];
-//        }
-//    }
-
     
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
@@ -254,7 +241,7 @@
         NSString *url = [NSString stringWithFormat:@"%@%@?APPKey=%@", api_base_url, api_lifecate, appkey];
         [[AFOSCClient sharedClient]getPath:url parameters:Nil
                                    success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                                       [shopData removeAllObjects];
+                                       [shopCateData removeAllObjects];
                                        @try {
                                            shopCateData = [Tool readJsonStrToShopsCate:operation.   responseString];
                                            [self.cateCollection reloadData];

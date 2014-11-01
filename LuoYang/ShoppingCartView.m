@@ -58,17 +58,17 @@
         UIBarButtonItem *btnBack = [[UIBarButtonItem alloc]initWithCustomView:lBtn];
         self.navigationItem.leftBarButtonItem = btnBack;
     } else {
-        UIButton *lBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 31, 28)];
-        [lBtn addTarget:self action:@selector(myAction) forControlEvents:UIControlEventTouchUpInside];
-        [lBtn setImage:[UIImage imageNamed:@"navi_my"] forState:UIControlStateNormal];
-        UIBarButtonItem *btnMy = [[UIBarButtonItem alloc]initWithCustomView:lBtn];
-        self.navigationItem.leftBarButtonItem = btnMy;
-        
-        UIButton *rBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 31, 28)];
-        [rBtn addTarget:self action:@selector(settingAction) forControlEvents:UIControlEventTouchUpInside];
-        [rBtn setImage:[UIImage imageNamed:@"navi_setting"] forState:UIControlStateNormal];
-        UIBarButtonItem *btnSetting = [[UIBarButtonItem alloc]initWithCustomView:rBtn];
-        self.navigationItem.rightBarButtonItem = btnSetting;
+//        UIButton *lBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 31, 28)];
+//        [lBtn addTarget:self action:@selector(myAction) forControlEvents:UIControlEventTouchUpInside];
+//        [lBtn setImage:[UIImage imageNamed:@"navi_my"] forState:UIControlStateNormal];
+//        UIBarButtonItem *btnMy = [[UIBarButtonItem alloc]initWithCustomView:lBtn];
+//        self.navigationItem.leftBarButtonItem = btnMy;
+//        
+//        UIButton *rBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 31, 28)];
+//        [rBtn addTarget:self action:@selector(settingAction) forControlEvents:UIControlEventTouchUpInside];
+//        [rBtn setImage:[UIImage imageNamed:@"navi_setting"] forState:UIControlStateNormal];
+//        UIBarButtonItem *btnSetting = [[UIBarButtonItem alloc]initWithCustomView:rBtn];
+//        self.navigationItem.rightBarButtonItem = btnSetting;
     }
     
     hud = [[MBProgressHUD alloc] initWithView:self.view];
@@ -129,6 +129,7 @@
         Goods *good = [[Goods alloc] init];
         good.id = [resultSet stringForColumn:@"goodid"];
         good.title = [resultSet stringForColumn:@"title"];
+        good.attrsStr = [resultSet stringForColumn:@"attrs"];
         good.thumb = [resultSet stringForColumn:@"thumb"];
         good.price = [resultSet stringForColumn:@"price"];
         good.store_name = [resultSet stringForColumn:@"store_name"];
@@ -184,6 +185,8 @@
         cell.minusBtn.enabled = NO;
     }
     
+    cell.attrsLb.text = good.attrsStr;
+    
     [cell.minusBtn addTarget:self action:@selector(minusAction:) forControlEvents:UIControlEventTouchUpInside];
     cell.minusBtn.tag = indexRow;
     
@@ -198,19 +201,19 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 92;
+    return 113;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-
+    
 }
 
 - (IBAction)minusAction:(id)sender {
     UIButton *tap = (UIButton *)sender;
     if (tap) {
         Goods *good = (Goods *)[goodData objectAtIndex:tap.tag];
-
+        
         FMDatabase* database=[FMDatabase databaseWithPath:[Tool databasePath]];
         if (![database open]) {
             NSLog(@"Open database failed");
@@ -286,8 +289,8 @@
     {
         
     }
-
-   
+    
+    
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex

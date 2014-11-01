@@ -132,11 +132,19 @@
 {
     NSLog(@"%s \n click===>%@",__FUNCTION__,item.title);
     Advertisement *adv = (Advertisement *)[advDatas objectAtIndex:advIndex];
-    if (adv) {
-        ADVDetailView *advDetail = [[ADVDetailView alloc] init];
-        advDetail.hidesBottomBarWhenPushed = YES;
-        advDetail.adv = adv;
-        [self.navigationController pushViewController:advDetail animated:YES];
+    if (adv)
+    {
+        if ([adv.redirecturl length] > 0)
+        {
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:adv.redirecturl]];
+        }
+        else
+        {
+            ADVDetailView *advDetail = [[ADVDetailView alloc] init];
+            advDetail.hidesBottomBarWhenPushed = YES;
+            advDetail.adv = adv;
+            [self.navigationController pushViewController:advDetail animated:YES];
+        }
     }
 }
 
@@ -225,6 +233,16 @@
         phoneCallWebView = [[UIWebView alloc] initWithFrame:CGRectZero];
     }
     [phoneCallWebView loadRequest:[NSURLRequest requestWithURL:phoneUrl]];
+}
+
+- (IBAction)complainAction:(id)sender {
+    if ([UserModel Instance].isLogin == NO) {
+        [Tool noticeLogin:self.view andDelegate:self andTitle:@""];
+        return;
+    }
+    ComplainView *comView = [[ComplainView alloc] init];
+    comView.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:comView animated:YES];
 }
 
 @end

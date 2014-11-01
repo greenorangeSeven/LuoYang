@@ -7,6 +7,7 @@
 //
 
 #import "CityView.h"
+#import "CityDetail2View.h"
 
 @interface CityView ()
 
@@ -79,13 +80,19 @@
     if ([UserModel Instance].isNetworkRunning) {
         //        [Tool showHUD:@"数据加载" andView:self.view andHUD:hud];
         NSString *advType = @"7";
-        if ([self.typeStr isEqualToString:@"1"]) {
+        if ([self.typeStr isEqualToString:@"1"])
+        {
             advType = @"7";
         }
-        else
+        else if ([self.typeStr isEqualToString:@"2"])
         {
             advType = @"10";
         }
+        else
+        {
+            advType = @"12";
+        }
+            
         
         NSMutableString *tempUrl = [NSMutableString stringWithFormat:@"%@%@?APPKey=%@&spaceid=%@", api_base_url, api_getadv, appkey, advType];
         NSString *cid = [[UserModel Instance] getUserValueForKey:@"cid"];
@@ -99,8 +106,6 @@
                                            advDatas = [Tool readJsonStrToADV:operation.responseString];
                                            
                                            int length = [advDatas count];
-                                           //点赞按钮初始化
-                                           Advertisement *adv = (Advertisement *)[advDatas objectAtIndex:advIndex];
                                            
                                            NSMutableArray *itemArray = [NSMutableArray arrayWithCapacity:length+2];
                                            if (length > 1)
@@ -151,11 +156,19 @@
 {
     NSLog(@"%s \n click===>%@",__FUNCTION__,item.title);
     Advertisement *adv = (Advertisement *)[advDatas objectAtIndex:advIndex];
-    if (adv) {
-        ADVDetailView *advDetail = [[ADVDetailView alloc] init];
-        advDetail.hidesBottomBarWhenPushed = YES;
-        advDetail.adv = adv;
-        [self.navigationController pushViewController:advDetail animated:YES];
+    if (adv)
+    {
+        if ([adv.redirecturl length] > 0)
+        {
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:adv.redirecturl]];
+        }
+        else
+        {
+            ADVDetailView *advDetail = [[ADVDetailView alloc] init];
+            advDetail.hidesBottomBarWhenPushed = YES;
+            advDetail.adv = adv;
+            [self.navigationController pushViewController:advDetail animated:YES];
+        }
     }
 }
 
@@ -207,6 +220,7 @@
     _iconCache = nil;
     [super viewDidUnload];
 }
+
 - (void)didReceiveMemoryWarning
 {
     NSArray *allDownloads = [self.imageDownloadsInProgress allValues];
@@ -483,9 +497,18 @@
     {
         Citys *art = [cityArray objectAtIndex:[indexPath row]];
         if (art) {
-            CityDetailView *cityDetailView = [[CityDetailView alloc] init];
-            cityDetailView.art = art;
-            [self.navigationController pushViewController:cityDetailView animated:YES];
+            if ([self.typeStr isEqualToString:@"4"] || [self.typeStr isEqualToString:@"5"])
+            {
+                CityDetail2View *cityDetailView = [[CityDetail2View alloc] init];
+                cityDetailView.art = art;
+                [self.navigationController pushViewController:cityDetailView animated:YES];
+            }
+            else
+            {
+                CityDetailView *cityDetailView = [[CityDetailView alloc] init];
+                cityDetailView.art = art;
+                [self.navigationController pushViewController:cityDetailView animated:YES];
+            }
         }
     }
 }

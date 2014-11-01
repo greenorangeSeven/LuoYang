@@ -7,7 +7,7 @@
 //
 
 #import "SettingView.h"
-
+#import "MyComplainView.h"
 
 @implementation SettingView
 @synthesize tableSettings;
@@ -98,7 +98,7 @@
                        [[SettingModel alloc] initWith:@"我的物业费" andImg:@"setting_propertyfee" andTag:6 andTitle2:nil],
                        [[SettingModel alloc] initWith:@"我的停车费" andImg:@"setting_parkfee" andTag:7 andTitle2:nil],
                        [[SettingModel alloc] initWith:@"我的寄件箱" andImg:@"setting_mail" andTag:8 andTitle2:nil],
-//                       [[SettingModel alloc] initWith:@"我的收藏" andImg:@"setting_collect" andTag:9 andTitle2:nil],
+                       [[SettingModel alloc] initWith:@"我的投诉建议" andImg:@"setting_collect" andTag:11 andTitle2:nil],
                        nil];
 
     
@@ -249,7 +249,13 @@
             break;
         case 11:
         {
-            
+            if (![[UserModel Instance] isLogin])
+            {
+                [Tool showCustomHUD:@"请先登录" andView:self.view andImage:@"37x-Failure.png" andAfterDelay:2];
+                return;
+            }
+            MyComplainView *myCom = [[MyComplainView alloc] init];
+            [self.navigationController pushViewController:myCom animated:YES];
         }
             break;
         case 12:
@@ -345,6 +351,8 @@
     UILabel *lineLb = [[UILabel alloc]initWithFrame:CGRectMake(0.0, 44.0, 320.0, 1.0)];
     [lineLb setBackgroundColor:[UIColor lightGrayColor]];
     [cell addSubview:lineLb];
+    
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     return cell;
 }

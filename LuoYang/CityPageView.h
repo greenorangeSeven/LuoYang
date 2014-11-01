@@ -33,5 +33,9 @@
 - (IBAction)clickHelp:(UIButton *)sender;
 
 - (IBAction)telAction:(id)sender;
+- (IBAction)sqzsAction:(id)sender;
+- (IBAction)ptzsAction:(id)sender;
+- (IBAction)zxlsAction:(id)sender;
+- (IBAction)fwdjAction:(id)sender;
 
 @end

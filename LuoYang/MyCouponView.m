@@ -77,7 +77,7 @@
     [[AFOSCClient sharedClient] getPath:url parameters:Nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         @try
         {
-            [couponArray removeAllObjects];
+            [self clear];
             couponArray = [Tool readJsonStrToMyCouponArray:operation.responseString];
             [self.tableView reloadData];
             [self doneLoadingTableViewData];
@@ -105,6 +105,44 @@
              [Tool ToastNotification:@"错误 网络无连接" andView:self.view andLoading:NO andIsBottom:NO];
          }
      }];
+}
+
+#pragma 生命周期
+- (void)viewDidUnload
+{
+    [self setTableView:nil];
+    _refreshHeaderView = nil;
+    [couponArray removeAllObjects];
+    [_imageDownloadsInProgress removeAllObjects];
+    couponArray = nil;
+    _iconCache = nil;
+    [super viewDidUnload];
+}
+
+- (void)didReceiveMemoryWarning
+{
+    NSArray *allDownloads = [self.imageDownloadsInProgress allValues];
+    [allDownloads makeObjectsPerformSelector:@selector(cancelDownload)];
+    //清空
+    for (Coupons *c in couponArray) {
+        c.imgData = nil;
+    }
+    
+    [super didReceiveMemoryWarning];
+}
+
+- (void)clear
+{
+    [couponArray removeAllObjects];
+    [_imageDownloadsInProgress removeAllObjects];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    if (self.imageDownloadsInProgress != nil) {
+        NSArray *allDownloads = [self.imageDownloadsInProgress allValues];
+        [allDownloads makeObjectsPerformSelector:@selector(cancelDownload)];
+    }
 }
 
 - (void)doneManualRefresh
@@ -228,7 +266,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 91;
+    return 105;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -276,11 +314,6 @@
             [self.tableView reloadData];
         }
     }
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
 }
 
 @end

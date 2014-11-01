@@ -13,6 +13,7 @@
 #import "EGOImageView.h"
 #import "NSString+STRegex.h"
 #import "ChooseAreaView.h"
+#import "BPush.h"
 
 @interface UserInfoView : UIViewController<UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIActionSheetDelegate, VPImageCropperDelegate, UIPickerViewDelegate>
 {

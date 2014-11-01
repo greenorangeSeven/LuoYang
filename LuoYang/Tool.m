@@ -648,6 +648,22 @@
     return myArray;
 }
 
++ (NSMutableArray *)readJsonStrToMyComplainArray:(NSString *)str
+{
+    NSData *data = [str dataUsingEncoding:NSUTF8StringEncoding];
+    NSError *error;
+    NSArray *conponJsonArray = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+    if ( conponJsonArray == nil || [conponJsonArray count] <= 0) {
+        return nil;
+    }
+    NSMutableArray *myArray = [RMMapper mutableArrayOfClass:[Complain class] fromArrayOfDictionary:conponJsonArray];
+    for (Complain *c in myArray) {
+        c.addtimeStr = [Tool intervalSinceNow:[Tool TimestampToDateStr:c.addtime andFormatterStr:@"yyyy年MM月dd日 HH:mm"]];
+        c.replytimeStr = [Tool intervalSinceNow:[Tool TimestampToDateStr:c.reply_time andFormatterStr:@"yyyy年MM月dd日 HH:mm"]];
+    }
+    return myArray;
+}
+
 + (AlipayInfo *)readJsonStrToAliPay:(NSString *)str
 {
     NSData *data = [str dataUsingEncoding:NSUTF8StringEncoding];
@@ -895,6 +911,11 @@
         return nil;
     }
     Goods *goodInfo = [RMMapper objectWithClass:[Goods class] fromDictionary:goodJsondDic];
+    if ([goodInfo.attrs count] > 0) {
+        NSMutableArray *goodsAttrs = [RMMapper mutableArrayOfClass:[GoodsAttrs class]
+                                             fromArrayOfDictionary:[goodJsondDic objectForKey:@"attrs"]];
+        goodInfo.attrsArray = goodsAttrs;
+    }
     return goodInfo;
 }
 
@@ -1035,6 +1056,26 @@
         o.replyHeight = [self getTextHeight:253 andUIFont:[UIFont fontWithName:@"Arial-BoldItalicMT" size:12] andText:ms];
     }
     return bbsArray;
+}
+
++ (void)saveJsonStrToCommunityTel:(NSString *)cid
+{
+    NSString *detailUrl = [NSString stringWithFormat:@"%@%@?APPKey=%@&id=%@", api_base_url, api_getcinfo, appkey, cid];
+    NSURL *url = [ NSURL URLWithString : detailUrl];
+    // 构造 ASIHTTPRequest 对象
+    ASIHTTPRequest *request = [ ASIHTTPRequest requestWithURL :url];
+    // 开始同步请求
+    [request startSynchronous ];
+    NSData *data = [[request responseString ] dataUsingEncoding:NSUTF8StringEncoding];
+    NSError *error;
+    NSDictionary *communityJsondDic = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+    if ( communityJsondDic == nil ) {
+        return ;
+    }
+    CommunityModel *communityMInfo = [RMMapper objectWithClass:[CommunityModel class] fromDictionary:communityJsondDic];
+    if (communityMInfo.tel != nil && [communityMInfo.tel length] > 0) {
+        [[UserModel Instance] saveValue:communityMInfo.tel ForKey:@"CommunityTel"];
+    }
 }
 
 @end

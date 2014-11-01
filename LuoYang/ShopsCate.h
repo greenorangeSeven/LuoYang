@@ -15,4 +15,6 @@
 @property (nonatomic, retain) NSString *logo;
 @property (nonatomic, retain) NSString *sort;
 
+@property (retain,nonatomic) UIImage * imgData;
+
 @end

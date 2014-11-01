@@ -131,11 +131,19 @@
 {
     NSLog(@"%s \n click===>%@",__FUNCTION__,item.title);
     Advertisement *adv = (Advertisement *)[advDatas objectAtIndex:advIndex];
-    if (adv) {
-        ADVDetailView *advDetail = [[ADVDetailView alloc] init];
-        advDetail.hidesBottomBarWhenPushed = YES;
-        advDetail.adv = adv;
-        [self.navigationController pushViewController:advDetail animated:YES];
+    if (adv)
+    {
+        if ([adv.redirecturl length] > 0)
+        {
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:adv.redirecturl]];
+        }
+        else
+        {
+            ADVDetailView *advDetail = [[ADVDetailView alloc] init];
+            advDetail.hidesBottomBarWhenPushed = YES;
+            advDetail.adv = adv;
+            [self.navigationController pushViewController:advDetail animated:YES];
+        }
     }
 }
 
@@ -204,6 +212,38 @@
         phoneCallWebView = [[UIWebView alloc] initWithFrame:CGRectZero];
     }
     [phoneCallWebView loadRequest:[NSURLRequest requestWithURL:phoneUrl]];
+}
+
+- (IBAction)sqzsAction:(id)sender {
+    CityView *cityView = [[CityView alloc] init];
+    cityView.typeStr = @"4";
+    cityView.typeNameStr = @"社区招商";
+    cityView.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:cityView animated:YES];
+}
+
+- (IBAction)ptzsAction:(id)sender {
+    CityView *cityView = [[CityView alloc] init];
+    cityView.typeStr = @"5";
+    cityView.typeNameStr = @"平台招商";
+    cityView.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:cityView animated:YES];
+}
+
+- (IBAction)zxlsAction:(id)sender {
+    CityView *cityView = [[CityView alloc] init];
+    cityView.typeStr = @"6";
+    cityView.typeNameStr = @"招贤纳士";
+    cityView.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:cityView animated:YES];
+}
+
+- (IBAction)fwdjAction:(id)sender {
+    CityView *cityView = [[CityView alloc] init];
+    cityView.typeStr = @"7";
+    cityView.typeNameStr = @"服务到家";
+    cityView.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:cityView animated:YES];
 }
 
 @end

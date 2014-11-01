@@ -126,7 +126,11 @@
 }
 
 - (IBAction)telAction:(id)sender {
-    NSURL *phoneUrl = [NSURL URLWithString:[NSString stringWithFormat:@"tel:%@", servicephone]];
+    NSString *telNum = [[UserModel Instance] getUserValueForKey:@"CommunityTel"];
+    if (!telNum) {
+        telNum = servicephone;
+    }
+    NSURL *phoneUrl = [NSURL URLWithString:[NSString stringWithFormat:@"tel:%@", telNum]];
     if (!phoneCallWebView) {
         phoneCallWebView = [[UIWebView alloc] initWithFrame:CGRectZero];
     }

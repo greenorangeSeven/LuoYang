@@ -404,7 +404,7 @@
     Goods *good = (Goods *)[goods objectAtIndex:[indexPath row]];
     if (good) {
         GoodsDetailView *goodsDetail = [[GoodsDetailView alloc] init];
-        goodsDetail.good = good;
+        goodsDetail.goodId = good.id;
         [self.navigationController pushViewController:goodsDetail animated:YES];
     }
 }

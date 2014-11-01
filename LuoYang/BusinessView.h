@@ -11,19 +11,18 @@
 #import "Shop.h"
 #import "EGOImageView.h"
 #import "EGOImageButton.h"
-#import "BusinessCateCell.h"
 #import "BusinessCell.h"
 #import "BusinessDetailView.h"
 #import "BusniessSearchView.h"
+#import "SGFocusImageFrame.h"
+#import "SGFocusImageItem.h"
+#import "ADVDetailView.h"
 
-@interface BusinessView : UIViewController<UITableViewDelegate,UITableViewDataSource,EGORefreshTableHeaderDelegate,BMKLocationServiceDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
+@interface BusinessView : UIViewController<UITableViewDelegate,UITableViewDataSource,EGORefreshTableHeaderDelegate,SGFocusImageFrameDelegate>
 {
     NSMutableArray *shopData;
-    NSMutableArray *shopCateData;
-    BMKMapPoint myPoint;
-    BMKLocationService* _locService;
     MBProgressHUD *hud;
-    NSString *catid;
+    
     UILabel *noDataLabel;
     
     //下拉刷新
@@ -31,10 +30,17 @@
     EGORefreshTableHeaderView *_refreshHeaderView;
     BOOL isLoading;
     BOOL isLoadOver;
+    
+    NSMutableArray *advDatas;
+    SGFocusImageFrame *bannerView;
+    int advIndex;
 }
 
+@property (weak, nonatomic) NSString *catid;
+@property (weak, nonatomic) NSString *typeTitle;
+@property BMKMapPoint myPoint;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (weak, nonatomic) IBOutlet UICollectionView *cateCollection;
+@property (weak, nonatomic) IBOutlet UIImageView *advIv;
 
 //下拉刷新
 - (void)refresh;

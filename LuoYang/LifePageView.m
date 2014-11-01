@@ -133,11 +133,19 @@
 {
     NSLog(@"%s \n click===>%@",__FUNCTION__,item.title);
     Advertisement *adv = (Advertisement *)[advDatas objectAtIndex:advIndex];
-    if (adv) {
-        ADVDetailView *advDetail = [[ADVDetailView alloc] init];
-        advDetail.hidesBottomBarWhenPushed = YES;
-        advDetail.adv = adv;
-        [self.navigationController pushViewController:advDetail animated:YES];
+    if (adv)
+    {
+        if ([adv.redirecturl length] > 0)
+        {
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:adv.redirecturl]];
+        }
+        else
+        {
+            ADVDetailView *advDetail = [[ADVDetailView alloc] init];
+            advDetail.hidesBottomBarWhenPushed = YES;
+            advDetail.adv = adv;
+            [self.navigationController pushViewController:advDetail animated:YES];
+        }
     }
 }
 
@@ -193,9 +201,8 @@
 
 - (IBAction)clickBusiness:(UIButton *)sender
 {
-    BusinessView *businessView = [[BusinessView alloc] init];
+    BusinessCateView *businessView = [[BusinessCateView alloc] init];
     businessView.hidesBottomBarWhenPushed = YES;
-    
     [self.navigationController pushViewController:businessView animated:YES];
 }
 
@@ -231,6 +238,12 @@
 
 - (IBAction)sqjrAction:(id)sender {
     [Tool showCustomHUD:@"功能努力完善中，敬请期待！" andView:self.view  andImage:@"" andAfterDelay:1];
+}
+
+- (IBAction)yhqAction:(id)sender {
+    CouponView *couponView = [[CouponView alloc] init];
+    couponView.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:couponView animated:YES];
 }
 
 @end

@@ -38,6 +38,7 @@
 #import "BusinessGoods.h"
 #import "Coupons.h"
 #import "Goods.h"
+#import "GoodsAttrs.h"
 #import "OrdersNum.h"
 #import "FeeHistory.h"
 #import "Article.h"
@@ -50,6 +51,7 @@
 #import "BBSModel.h"
 #import "BBSReplyModel.h"
 #import "Voln.h"
+#import "Complain.h"
 
 @interface Tool : NSObject
 
@@ -167,5 +169,7 @@
 + (NSMutableArray *)readJsonStrToVolnArray:(NSString *)str;
 + (NSMutableArray *)readJsonStrToBBSArray:(NSString *)str;
 + (NSMutableArray *)readJsonStrToMyCouponArray:(NSString *)str;
++ (void *)saveJsonStrToCommunityTel:(NSString *)cid;
++ (NSMutableArray *)readJsonStrToMyComplainArray:(NSString *)str;
 
 @end

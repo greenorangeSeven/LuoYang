@@ -62,6 +62,7 @@
         self.edgesForExtendedLayout = UIRectEdgeNone;
         self.automaticallyAdjustsScrollViewInsets = NO;
     }
+    
     self.nameField.text = [user getUserValueForKey:@"name"];
     self.addressField.text = [user getUserValueForKey:@"address"];
     self.phoneField.text =[user getUserValueForKey:@"tel"];
@@ -71,7 +72,7 @@
 
 - (void)buyOK
 {
-   
+    
     FMDatabase* database=[FMDatabase databaseWithPath:[Tool databasePath]];
     if (![database open]) {
         NSLog(@"Open database failed");
@@ -97,7 +98,7 @@
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     
-   [self.navigationController popViewControllerAnimated:YES];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)didReceiveMemoryWarning
@@ -160,6 +161,7 @@
                 OrderGood *good = [[OrderGood alloc] init];
                 good.goods_id = [NSNumber numberWithInt:[[goodSet stringForColumn:@"goodid"] intValue]];
                 good.title = [goodSet stringForColumn:@"title"];
+                good.title = [NSString stringWithFormat:@"%@  %@", [goodSet stringForColumn:@"title"], [goodSet stringForColumn:@"attrs"]];
                 good.price = [goodSet stringForColumn:@"price"];
                 good.quantity = [NSNumber numberWithInteger:[goodSet intForColumn:@"number"]];
                 businessAmount += [good.price floatValue] * [goodSet intForColumn:@"number"];
@@ -182,7 +184,7 @@
         float businessAmount = 0.0;
         OrderGood *good = [[OrderGood alloc] init];
         good.goods_id = [[NSNumber alloc] initWithInt:[_goods.id intValue]];
-        good.title = _goods.title;
+        good.title = [NSString stringWithFormat:@"%@  %@", _goods.title,  _goods.attrsStr];
         good.price = _goods.price;
         good.quantity = [[NSNumber alloc] initWithInt:1];
         businessAmount += [good.price floatValue];
@@ -263,6 +265,7 @@
             pro.partnerID = [usermodel getUserValueForKey:@"DEFAULT_PARTNER"];
             pro.partnerPrivKey = [usermodel getUserValueForKey:@"PRIVATE"];
             pro.sellerID = [usermodel getUserValueForKey:@"DEFAULT_SELLER"];
+
             
             [AlipayUtils doPay:pro NotifyURL:api_goods_notify AndScheme:@"LuoYangAlipay" seletor:nil target:nil];
         }

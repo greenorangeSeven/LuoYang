@@ -1,0 +1,217 @@
+//
+//  Prefix header
+//
+//  The contents of this file are implicitly included at the beginning of every source file.
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_3_0
+#warning "This project uses features only available in iOS SDK 3.0 and later."
+#endif
+
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
+#import <QuartzCore/QuartzCore.h>
+
+//添加的预编译
+#import "ASIHTTPRequest.h"
+#import "ASIFormDataRequest.h"
+#import "ASIHTTPRequestDelegate.h"
+#import "ASIHTTPRequestConfig.h"
+#import "Tool.h"
+#import "UserModel.h"
+#import "EGORefreshTableHeaderView.h"
+#import "DataSingleton.h"
+#import "ImgRecord.h"
+#import "IconDownloader.h"
+#import "MBProgressHUD.h"
+#import "GCDiscreetNotificationView.h"
+#import "NdUncaughtExceptionHandler.h"
+#import "JSNotifier.h"
+#import "AFOSCClient.h"
+#import "AFHTTPRequestOperation.h"
+#import "AFXMLRequestOperation.h"
+
+#define appkey @"Pyb0BO876aoMFb7b0JFaF5y9cHt80QSm"
+#define api_base_url @"http://appm.nnzhsq.com/api"
+#define api_register @"/register"
+#define api_login @"/login"
+#define api_changepwd @"/changePwd"
+#define api_getuserinfo @"/get_member_info"
+#define api_getregion @"/get_region"
+#define api_community @"/community"
+#define api_editinfo @"/edit_member_info"
+#define api_upload_avatar @"/upload_avatar"
+#define api_getadv @"/get_adv"
+#define api_getadv2 @"/get_app_home_adv"
+#define api_getadvinfo @"/get_adv_info"
+#define api_getnoticelist @"/get_notice_list"
+#define api_getactivitylist @"/get_activity_list"
+#define api_getnoticeinfo @"/get_notice_info"
+#define api_getbaixiucate @"/get_baoxiu_cate"
+#define api_addbaoxiu @"/add_baoxiu"
+#define api_mybaoxiu @"/my_baoxiu_list"
+#define api_getbaoxiuinfo @"/get_baoxiu_info"
+#define api_commentbaoxiu @"/comment_baoxiu"
+#define api_mypropertyfee @"/my_property_fee"
+#define api_myparkfee @"/my_car_fee"
+#define api_addmyoutbox @"/add_my_outbox"
+#define api_addmyinbox @"/add_my_inbox"
+#define api_myoutbox @"/my_outbox"
+#define api_myinbox @"/my_inbox"
+#define api_getAlipay @"/getAlipay"
+#define api_getinboxremindy @"/inbox_remind"
+#define api_shoplist @"/get_shops_list"
+#define api_shopinfo @"/get_shops_info"
+#define api_shopcate @"/get_shops_cate"
+#define api_shopsgoods @"/get_shops_goods"
+#define api_tjgoods @"/get_tj_goods"
+#define api_goodsinfo @"/get_goods_info"
+#define api_couponsinfo @"/get_shops_coupons_info"
+#define api_couponsisget @"/is_receive"
+#define api_getcoupons @"/get_coupons"
+#define api_getrecommendgoods @"/get_recommend_goods"
+#define api_lifecate @"/get_life_cate"
+#define api_lifelist @"/get_life_list"
+#define api_lifeinfo @"/get_life_info"
+#define api_points @"/points"
+#define api_baoming @"/baoming"
+#define api_articlepiclist @"/get_article_piclist"
+#define api_articlelist @"/get_article_list"
+#define api_commerciallist @"/get_business_info_list"
+#define api_commercialinfo @"/get_bussiness_info"
+#define api_delcommercial @"/del_business_info"
+#define api_replycommercial @"/reply_business_info"
+#define api_bbslist @"/bbs"
+#define api_replybbs @"/reply_subject"
+#define api_addbbs @"/add_bbs_subject"
+#define api_delbbs @"/del_bbs_subject"
+
+//商品下单地址
+#define api_send_order @"/send_order"
+
+//商品付款返回url
+#define api_goods_return @"http://appm.nnzhsq.com/api/order_returnurl"
+//商品付款通知url
+#define api_goods_notify @"http://appm.nnzhsq.com/api/order_notifyurl"
+
+//物业缴费订单提交地址
+#define api_pay_property_fee @"/pay_property_fee"
+//物业缴费返回url
+#define api_property_return @"http://appm.nnzhsq.com/api/property_returnurl"
+//物业缴费通知url
+#define api_property_notify @"http://appm.nnzhsq.com/api/property_notifyurl"
+
+//停车缴费订单提交地址
+#define api_pay_park_fee @"/pay_park_fee"
+//停车缴费返回url
+#define api_park_return @"http://appm.nnzhsq.com/api/park_returnurl"
+//停车缴费通知url
+#define api_park_notify @"http://appm.nnzhsq.com/api/park_notifyurl"
+
+//物业缴费历史
+#define api_pay_property_fee_record @"/pay_property_fee_record"
+//停车缴费历史
+#define api_pay_park_fee_record @"/pay_park_fee_record"
+//我的订单
+#define api_my_order_list @"/my_order_list"
+//确认收货
+#define api_take_my_order @"/take_my_order"
+//取消订单
+#define api_cancel_my_order @"/cancel_my_order"
+
+//智慧南宁列表
+#define api_get_wisdom_list @"/get_wisdom_list"
+//智慧南宁详情
+#define api_get_wisdom_info @"/get_wisdom_info"
+
+//志愿者
+#define api_get_volnews_list @"/get_volnews_list"
+//加入志愿者
+#define api_vol_baoming @"/vol_baoming"
+//志愿者动态详情
+#define api_get_volnews_info @"/get_volnews_info"
+
+//能帮就帮换灯片
+#define api_get_help_piclist @"/get_help_piclist"
+//能帮就帮新闻列表
+#define api_get_help_list @"/get_help_list"
+//能帮就帮新闻详情
+#define api_get_help_info @"/get_help_info"
+//小区商务发布
+#define api_add_business_info @"/add_bussiness_info"
+//志愿者列表
+#define api_get_vol_list @"/get_vol_list"
+//社区服务
+#define api_get_services_list @"/get_services_list"
+
+#define AreaListKey @"AreList"
+#define SecurityCode @"SecurityCode"
+#define ReSetSecurityCode @"ReSetSecurityCode"
+
+#define SMSURL @"http://61.156.38.47:8080/CPDXT/SendSms"
+#define SMSCorpID @"nnzhsq"
+#define SMSPWD @"a654321"
+
+
+#define servicephone @"4008974367"
+
+#define SettingTableIdentifier @"SettingTableIdentifier"
+#define MyRepairsCellIdentifier @"MyRepairsCellIdentifier"
+#define NoticeTableCellIdentifier @"NoticeTableCellIdentifier"
+#define MySendExpressCellIdentifier @"MySendExpressCellIdentifier"
+#define BusinessDetailCellIdentifier @"BusinessDetailCellIdentifier"
+#define RepairsItemCellIdentifier @"RepairsItemCellIdentifier"
+#define BusinessCellIdentifier @"BusinessCellIdentifier"
+#define BusinessCateCellIdentifier @"BusinessCateCellIdentifier"
+#define BusinessGoodCellIdentifier @"BusinessGoodCellIdentifier"
+#define ShoppingCartCellIdentifier @"ShoppingCartCellIdentifier"
+#define ConvCellIdentifier @"ConvCellIdentifier"
+#define FeeHistoryIdentifier @"FeeHistoryIdentifier"
+#define ArticleCellIdentifier @"ArticleCellIdentifier"
+#define CommunityCellIdentifier @"CommunityCellIdentifier"
+#define ProjectCollectionCellIdentifier @"ProjectCollectionCellIdentifier"
+#define CommunityReplyCellIdentifier @"CommunityReplyCellIdentifier"
+
+#define createshoppingcart @"create table shoppingcart (id integer primary key autoincrement not null,goodid text,title text,attrs text,thumb text,price text,store_name text,business_id text,number int,user_id text)"
+
+
+#define Notification_RefreshMyRepairs @"Notification_RefreshMyRepairs"
+#define Notification_ShowPackAlertView @"Notification_ShowPackAlertView"
+#define Notification_RefreshSetting @"Notification_RefreshSetting"
+#define Notification_RefreshBBS @"Notification_RefreshBBS"
+#define Notification_ADDBBS @"Notification_ADDBBS"
+
+#define IS_IPHONE_5 ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )568 ) < DBL_EPSILON )
+
+#define IS_IOS7 ([[[UIDevice currentDevice]systemVersion]floatValue]>=7.0)
+
+#define loadNext20Tip @"点击加载更多 . . ."
+#define loadingTip @"正在加载 . . ."
+#define networkError @"网络无连接"
+#define noNetworkTip @"网络无连接"
+
+//html头部
+#define HTML_Style @"<meta name='viewport' content='width=decice-width,uer-scalable=no'><style>#web_title {color: #249A08; margin-top: 15px; margin-bottom: 10px; font-weight:bold; text-align:center; font-size:20px;}#web_title img{vertical-align:middle;margin-right:6px;}#web_title a{color:#0D6DA8;}#web_summary {margin-top: 15px; margin-bottom: 10px; font-size:16px;}#web_summaryred {color: #c7252b;margin-top: 15px; margin-bottom: 10px; font-size:16px;}#web_column {background-color:#e5e5e5; padding-top: 5px; padding-bottom: 5px; padding-left: 10px; font-size:16px; margin-right: -7px; margin-left: -7px;}#web_date {color: #000000; margin-top: 15px; margin-bottom: 10px; font-size:14px;text-align:center;}#web_outline {color: #707070; font-size: 12px;}#web_outline a{color:#0D6DA8;}#web_software{color:#808080;font-size:12px}#web_body img {max-width: 300px;}#web_body {font-size:14px;max-width:320px;line-height:24px; margin-top: 5px} #web_body table{max-width:320px;}#web_body pre { font-size:9pt;font-family:Courier New,Arial;border:1px solid #ddd;border-left:5px solid #6CE26C;background:#f6f6f6;padding:5px;}</style>"
+#define HTML_Splitline @"<hr style='height:0.5px; background-color:#0D6DA8; margin-bottom:5px'/>"
+#define HTML_Bottom @"<div style='margin-bottom:60px'/>"
+
+#define AppVersion @"1.0"
+#define AppVersionCode @"1"
+
+#define noConnect @"noConnect"
+#define wifi @"wifi"
+#define netConnect @"netConnect"
+
+#ifdef DEBUG
+#define debugLog(...) NSLog(__VA_ARGS__)
+#define debugMethod() NSLog(@"%s", __func__)
+#else
+#define debugLog(...)
+#define debugMethod()
+#endif
+
+#endif

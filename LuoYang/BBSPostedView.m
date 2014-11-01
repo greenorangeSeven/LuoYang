@@ -70,7 +70,6 @@
         [request addData:UIImageJPEGRepresentation(picimage, 0.75f) withFileName:@"img.jpg" andContentType:@"image/jpeg" forKey:@"pics"];
     }
     request.delegate = self;
-    request.tag = 11;
     [request setDidFailSelector:@selector(requestFailed:)];
     [request setDidFinishSelector:@selector(requestSubmit:)];
     [request startAsynchronous];

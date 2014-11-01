@@ -26,4 +26,11 @@
 @property (nonatomic, retain) NSNumber *number;
 @property (retain,nonatomic) UIImage * imgData;
 
+//detail
+@property (nonatomic, retain) NSArray *attrs;
+@property (nonatomic, retain) NSArray *attrsArray;
+
+@property (nonatomic, retain) NSString *attrsStr;
+
+
 @end

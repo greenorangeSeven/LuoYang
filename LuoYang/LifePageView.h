@@ -17,6 +17,8 @@
 #import "SGFocusImageItem.h"
 #import "ArticleView.h"
 #import "ADVDetailView.h"
+#import "CouponView.h"
+#import "BusinessCateView.h"
 
 @interface LifePageView : UIViewController<SGFocusImageFrameDelegate, UIActionSheetDelegate>
 {
@@ -41,5 +43,6 @@
 - (IBAction)znjjAction:(id)sender;
 - (IBAction)jjzsAction:(id)sender;
 - (IBAction)sqjrAction:(id)sender;
+- (IBAction)yhqAction:(id)sender;
 
 @end

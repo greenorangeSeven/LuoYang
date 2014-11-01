@@ -14,7 +14,7 @@
 #import "SGFocusImageFrame.h"
 #import "SGFocusImageItem.h"
 #import "ADVDetailView.h"
-
+#import "BusinessCateView.h"
 
 @interface MainPageView : UIViewController<SGFocusImageFrameDelegate, UIActionSheetDelegate>
 {
