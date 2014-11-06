@@ -76,13 +76,13 @@
                                            if (length > 1)
                                            {
                                                Advertisement *adv = [advDatas objectAtIndex:length-1];
-                                               SGFocusImageItem *item = [[SGFocusImageItem alloc] initWithTitle:@"" image:adv.pic tag:-1];
+                                               SGFocusImageItem *item = [[SGFocusImageItem alloc] initWithTitle:adv.title image:adv.pic tag:-1];
                                                [itemArray addObject:item];
                                            }
                                            for (int i = 0; i < length; i++)
                                            {
                                                Advertisement *adv = [advDatas objectAtIndex:i];
-                                               SGFocusImageItem *item = [[SGFocusImageItem alloc] initWithTitle:@"" image:adv.pic tag:-1];
+                                               SGFocusImageItem *item = [[SGFocusImageItem alloc] initWithTitle:adv.title image:adv.pic tag:-1];
                                                [itemArray addObject:item];
                                                
                                            }
@@ -90,7 +90,7 @@
                                            if (length >1)
                                            {
                                                Advertisement *adv = [advDatas objectAtIndex:0];
-                                               SGFocusImageItem *item = [[SGFocusImageItem alloc] initWithTitle:@"" image:adv.pic tag:-1];
+                                               SGFocusImageItem *item = [[SGFocusImageItem alloc] initWithTitle:adv.title image:adv.pic tag:-1];
                                                [itemArray addObject:item];
                                            }
                                            bannerView = [[SGFocusImageFrame alloc] initWithFrame:CGRectMake(0, 0, 320, 145) delegate:self imageItems:itemArray isAuto:YES];

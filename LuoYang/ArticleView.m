@@ -110,13 +110,13 @@
                                            if (length > 1)
                                            {
                                                Article *adv = [advs objectAtIndex:length-1];
-                                               SGFocusImageItem *item = [[SGFocusImageItem alloc] initWithTitle:@"" image:adv.thumb tag:-1];
+                                               SGFocusImageItem *item = [[SGFocusImageItem alloc] initWithTitle:adv.title image:adv.thumb tag:-1];
                                                [itemArray addObject:item];
                                            }
                                            for (int i = 0; i < length; i++)
                                            {
                                                Article *adv = [advs objectAtIndex:i];
-                                               SGFocusImageItem *item = [[SGFocusImageItem alloc] initWithTitle:@"" image:adv.thumb tag:-1];
+                                               SGFocusImageItem *item = [[SGFocusImageItem alloc] initWithTitle:adv.title image:adv.thumb tag:-1];
                                                [itemArray addObject:item];
                                                
                                            }
@@ -124,7 +124,7 @@
                                            if (length >1)
                                            {
                                                Article *adv = [advs objectAtIndex:0];
-                                               SGFocusImageItem *item = [[SGFocusImageItem alloc] initWithTitle:@"" image:adv.thumb tag:-1];
+                                               SGFocusImageItem *item = [[SGFocusImageItem alloc] initWithTitle:adv.title image:adv.thumb tag:-1];
                                                [itemArray addObject:item];
                                            }
                                            bannerView = [[SGFocusImageFrame alloc] initWithFrame:CGRectMake(0, 0, 320, 181) delegate:self imageItems:itemArray isAuto:YES];

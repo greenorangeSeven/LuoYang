@@ -19,6 +19,7 @@
 #import "ADVDetailView.h"
 #import "CouponView.h"
 #import "BusinessCateView.h"
+#import "ConvCateView.h"
 
 @interface LifePageView : UIViewController<SGFocusImageFrameDelegate, UIActionSheetDelegate>
 {

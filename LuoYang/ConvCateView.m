@@ -1,19 +1,18 @@
 //
-//  BusinessCateView.m
+//  ConvCateView.m
 //  LuoYang
 //
-//  Created by Seven on 14-10-27.
+//  Created by Seven on 14-11-6.
 //  Copyright (c) 2014年 greenorange. All rights reserved.
 //
 
-#import "BusinessCateView.h"
-#import "BusniessSearchView.h"
+#import "ConvCateView.h"
 
-@interface BusinessCateView ()
+@interface ConvCateView ()
 
 @end
 
-@implementation BusinessCateView
+@implementation ConvCateView
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -21,7 +20,7 @@
     if (self) {
         UILabel *titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 100, 44)];
         titleLabel.font = [UIFont boldSystemFontOfSize:18];
-        titleLabel.text = @"生活如意通";
+        titleLabel.text = @"社区万花筒";
         titleLabel.backgroundColor = [UIColor clearColor];
         titleLabel.textColor = [Tool getColorForGreen];
         titleLabel.textAlignment = UITextAlignmentCenter;
@@ -51,7 +50,7 @@
 {
     BusniessSearchView *searchView = [[BusniessSearchView alloc] init];
     searchView.myPoint = myPoint;
-    searchView.viewType = @"shop";
+    searchView.viewType = @"conv";
     [self.navigationController pushViewController:searchView animated:YES];
 }
 
@@ -125,7 +124,7 @@
     //如果有网络连接
     if ([UserModel Instance].isNetworkRunning) {
         //        [Tool showHUD:@"正在加载" andView:self.view andHUD:hud];
-        NSString *url = [NSString stringWithFormat:@"%@%@?APPKey=%@", api_base_url, api_shopcate, appkey];
+        NSString *url = [NSString stringWithFormat:@"%@%@?APPKey=%@", api_base_url, api_lifecate, appkey];
         [[AFOSCClient sharedClient]getPath:url parameters:Nil
                                    success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                        [shopCateData removeAllObjects];
@@ -142,16 +141,21 @@
                                            }
                                            
                                            [self.cateCollection reloadData];
+
                                        }
                                        @catch (NSException *exception) {
                                            [NdUncaughtExceptionHandler TakeException:exception];
                                        }
                                        @finally {
-
+                                           //                                           if (hud != nil) {
+                                           //                                               [hud hide:YES];
+                                           //                                           }
                                        }
                                    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+
                                        if ([UserModel Instance].isNetworkRunning == NO) {
                                            return;
+                                           
                                        }
                                        if ([UserModel Instance].isNetworkRunning) {
                                            [Tool ToastNotification:@"错误 网络无连接" andView:self.view andLoading:NO andIsBottom:NO];
@@ -253,11 +257,11 @@
     ShopsCate *cate = [shopCateData objectAtIndex:[indexPath row]];
     if (cate) {
         if ([cate.id isEqualToString:@"-1"] == NO) {
-            BusinessView *businessView = [[BusinessView alloc] init];
-            businessView.catid = cate.id;
-            businessView.typeTitle = cate.cate_name;
-            businessView.myPoint = myPoint;
-            [self.navigationController pushViewController:businessView animated:YES];
+            ConvView *convView = [[ConvView alloc] init];
+            convView.catid = cate.id;
+            convView.typeTitle = cate.cate_name;
+            convView.myPoint = myPoint;
+            [self.navigationController pushViewController:convView animated:YES];
         }
     }
 }

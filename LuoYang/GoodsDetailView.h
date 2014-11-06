@@ -32,14 +32,12 @@
 @property (weak, nonatomic) IBOutlet UIView *baseInfoView;
 @property (weak, nonatomic) IBOutlet UILabel *stocksLb;
 @property (weak, nonatomic) IBOutlet UIView *attrs0View;
-//@property (weak, nonatomic) IBOutlet UIView *attrs1View;
-//@property (weak, nonatomic) IBOutlet UILabel *attrs0KeyLb;
-//@property (weak, nonatomic) IBOutlet UIView *attrs0ValView;
-//@property (weak, nonatomic) IBOutlet UILabel *attrs1KeyLb;
-//@property (weak, nonatomic) IBOutlet UIView *attrs1ValView;
+@property (weak, nonatomic) IBOutlet UITextField *numberTf;
 
 - (IBAction)toShoppingCartAction:(id)sender;
 - (IBAction)buyAction:(id)sender;
 - (IBAction)selectTabAction:(id)sender;
+- (IBAction)minusAction:(id)sender;
+- (IBAction)addAction:(id)sender;
 
 @end

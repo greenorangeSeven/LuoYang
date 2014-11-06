@@ -1,21 +1,20 @@
 //
-//  BusinessCateView.h
+//  ConvCateView.h
 //  LuoYang
 //
-//  Created by Seven on 14-10-27.
+//  Created by Seven on 14-11-6.
 //  Copyright (c) 2014年 greenorange. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 #import "BMapKit.h"
-#import "EGOImageView.h"
-#import "EGOImageButton.h"
 #import "BusinessCateCell.h"
 #import "TQImageCache.h"
-#import "BusinessView.h"
+#import "ConvView.h"
 #import "ADVDetailView.h"
 
-@interface BusinessCateView : UIViewController<UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,IconDownloaderDelegate,BMKLocationServiceDelegate>
+
+@interface ConvCateView : UIViewController<UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,IconDownloaderDelegate,BMKLocationServiceDelegate>
 {
     NSMutableArray *shopCateData;
     MBProgressHUD *hud;

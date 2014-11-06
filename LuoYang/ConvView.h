@@ -16,14 +16,10 @@
 #import "ConvOrderView.h"
 #import "BusniessSearchView.h"
 
-@interface ConvView : UIViewController<UITableViewDelegate,UITableViewDataSource, EGORefreshTableHeaderDelegate,BMKLocationServiceDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
+@interface ConvView : UIViewController<UITableViewDelegate,UITableViewDataSource, EGORefreshTableHeaderDelegate>
 {
     NSMutableArray *shopData;
-    NSMutableArray *shopCateData;
-    BMKMapPoint myPoint;
-    BMKLocationService* _locService;
     MBProgressHUD *hud;
-    NSString *catid;
     UILabel *noDataLabel;
     
     //下拉刷新
@@ -33,8 +29,11 @@
     BOOL isLoadOver;
 }
 
+@property (weak, nonatomic) NSString *catid;
+@property (weak, nonatomic) NSString *typeTitle;
+@property BMKMapPoint myPoint;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (weak, nonatomic) IBOutlet UICollectionView *cateCollection;
+@property (weak, nonatomic) IBOutlet UIImageView *advIv;
 
 //下拉刷新
 - (void)refresh;

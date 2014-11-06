@@ -75,6 +75,7 @@
     imageView.frame = CGRectMake(0.0f, 0.0f, 320.0f, 213.0f);
     [self.picIv addSubview:imageView];
     
+    self.numberTf.text = @"1";
     self.priceLb.text = [NSString stringWithFormat:@"￥%@", goodDetail.price];
     self.titleLb.text = goodDetail.title;
     self.stocksLb.text = [NSString stringWithFormat:@"库存:%@", goodDetail.stocks];
@@ -223,11 +224,11 @@
     BOOL addGood;
     FMResultSet* resultSet=[database executeQuery:@"select * from shoppingcart where goodid = ? and user_id = ? and attrs = ?", goodDetail.id, [[UserModel Instance] getUserValueForKey:@"id"], attrsStr];
     if ([resultSet next]) {
-        addGood = [database executeUpdate:@"update shoppingcart set number = number + 1 where id= ?", [resultSet stringForColumn:@"id"]];
+        addGood = [database executeUpdate:@"update shoppingcart set number = number + ? where id= ?", [resultSet stringForColumn:@"id"] , [NSNumber numberWithInt:[self.numberTf.text intValue]]];
     }
     else
     {
-        addGood = [database executeUpdate:@"insert into shoppingcart (goodid, title, attrs, thumb, price, store_name, business_id, number, user_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?)", goodDetail.id, goodDetail.title, goodDetail.attrsStr, goodDetail.thumb, goodDetail.price, goodDetail.store_name, goodDetail.business_id, [NSNumber numberWithInt:1], [[UserModel Instance] getUserValueForKey:@"id"]];
+        addGood = [database executeUpdate:@"insert into shoppingcart (goodid, title, attrs, thumb, price, store_name, business_id, number, user_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?)", goodDetail.id, goodDetail.title, goodDetail.attrsStr, goodDetail.thumb, goodDetail.price, goodDetail.store_name, goodDetail.business_id, [NSNumber numberWithInt:[self.numberTf.text intValue]], [[UserModel Instance] getUserValueForKey:@"id"]];
     }
     if (addGood) {
         [Tool showCustomHUD:@"已添加至购物车" andView:self.view andImage:@"37x-Checkmark.png" andAfterDelay:3];
@@ -248,10 +249,12 @@
         [attrsStr appendString:[NSString stringWithFormat:@"%@:%@  ", [attrsKeyArray objectAtIndex:i], [attrsValArray objectAtIndex:i]]];
     }
     goodDetail.attrsStr = [NSString stringWithString:attrsStr];
+    goodDetail.number = [NSNumber numberWithInt:[self.numberTf.text intValue]];
     
     ShoppingBuyView *shoppingBuyView = [[ShoppingBuyView alloc] init];
     shoppingBuyView.hidesBottomBarWhenPushed = YES;
     shoppingBuyView.goods = goodDetail;
+    shoppingBuyView.amountStr = [NSString stringWithFormat:@"%.2f", [goodDetail.price floatValue] * [goodDetail.number intValue]];
     [self.navigationController pushViewController:shoppingBuyView animated:YES];
 }
 
@@ -270,6 +273,22 @@
         default:
             break;
     }
+}
+
+- (IBAction)minusAction:(id)sender {
+    int number = [self.numberTf.text intValue];
+    if (number > 1) {
+        number -= 1;
+        self.numberTf.text = [NSString stringWithFormat:@"%d", number];
+    }
+}
+
+- (IBAction)addAction:(id)sender {
+    int number = [self.numberTf.text intValue];
+
+        number += 1;
+        self.numberTf.text = [NSString stringWithFormat:@"%d", number];
+
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex

@@ -180,13 +180,13 @@
                                                        if (length > 1)
                                                        {
                                                            Coupons *coupon = [coupons objectAtIndex:length-1];
-                                                           SGFocusImageItem *item = [[SGFocusImageItem alloc] initWithTitle:@"" image:coupon.thumb tag:-1];
+                                                           SGFocusImageItem *item = [[SGFocusImageItem alloc] initWithTitle:coupon.title image:coupon.thumb tag:-1];
                                                            [itemArray addObject:item];
                                                        }
                                                        for (int i = 0; i < length; i++)
                                                        {
                                                            Coupons *coupon = [coupons objectAtIndex:i];
-                                                           SGFocusImageItem *item = [[SGFocusImageItem alloc] initWithTitle:@"" image:coupon.thumb tag:-1];
+                                                           SGFocusImageItem *item = [[SGFocusImageItem alloc] initWithTitle:coupon.title image:coupon.thumb tag:-1];
                                                            [itemArray addObject:item];
                                                            
                                                        }
@@ -194,7 +194,7 @@
                                                        if (length >1)
                                                        {
                                                            Coupons *coupon = [coupons objectAtIndex:0];
-                                                           SGFocusImageItem *item = [[SGFocusImageItem alloc] initWithTitle:@"" image:coupon.thumb tag:-1];
+                                                           SGFocusImageItem *item = [[SGFocusImageItem alloc] initWithTitle:coupon.title image:coupon.thumb tag:-1];
                                                            [itemArray addObject:item];
                                                        }
                                                        bannerView = [[SGFocusImageFrame alloc] initWithFrame:CGRectMake(0, 0, 320, 135) delegate:self imageItems:itemArray isAuto:YES];

@@ -379,7 +379,7 @@
                                                int versionCode = [[versionDict objectForKey:@"version"] intValue];
                                                appPath = [versionDict objectForKey:@"fileurl"];
                                                if (versionCode > [AppVersionCode intValue]) {
-                                                   UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"温馨提示" message:@"洛阳智慧社区客户端有新版了\n您需要更新吗?" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确认", nil];
+                                                   UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"温馨提示" message:@"智慧社区河南客户端有新版了\n您需要更新吗?" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确认", nil];
                                                    alert.tag = 0;
                                                    [alert show];
                                                }

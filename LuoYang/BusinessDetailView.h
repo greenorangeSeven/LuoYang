@@ -25,6 +25,7 @@
     UIWebView *phoneCallWebView;
     NSMutableArray *goods;
     NSMutableArray *coupons;
+    NSMutableArray *advDatas;
     MBProgressHUD *hud;
     NSString *orderByStr;
     SGFocusImageFrame *bannerView;

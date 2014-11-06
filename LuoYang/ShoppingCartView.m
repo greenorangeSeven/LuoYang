@@ -282,15 +282,10 @@
     if ([goodData count] > 0)
     {
         ShoppingBuyView *shoppingBuyView = [[ShoppingBuyView alloc] init];
+        shoppingBuyView.amountStr = self.totalLb.text;
         shoppingBuyView.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:shoppingBuyView animated:YES];
     }
-    else
-    {
-        
-    }
-    
-    
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex

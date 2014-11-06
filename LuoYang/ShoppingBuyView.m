@@ -63,6 +63,7 @@
         self.automaticallyAdjustsScrollViewInsets = NO;
     }
     
+    self.amountLb.text = [NSString stringWithFormat:@"￥%@", self.amountStr];
     self.nameField.text = [user getUserValueForKey:@"name"];
     self.addressField.text = [user getUserValueForKey:@"address"];
     self.phoneField.text =[user getUserValueForKey:@"tel"];
@@ -169,6 +170,7 @@
             }
             business.goodlist = goodArray;
             business.amount = [NSNumber numberWithFloat:businessAmount];
+            amount = [business.amount doubleValue];
             [orderBusinessArray addObject:business];
         }
         orderInfo.businessOrderList = orderBusinessArray;
@@ -186,12 +188,13 @@
         good.goods_id = [[NSNumber alloc] initWithInt:[_goods.id intValue]];
         good.title = [NSString stringWithFormat:@"%@  %@", _goods.title,  _goods.attrsStr];
         good.price = _goods.price;
-        good.quantity = [[NSNumber alloc] initWithInt:1];
-        businessAmount += [good.price floatValue];
+        good.quantity = _goods.number;
+        businessAmount += [good.price floatValue] * [_goods.number intValue];
         [goodArray addObject:good];
         
         business.goodlist = goodArray;
         business.amount = [NSNumber numberWithFloat:businessAmount];
+        amount = [business.amount doubleValue];
         [orderBusinessArray addObject:business];
         
         orderInfo.businessOrderList = orderBusinessArray;
@@ -261,7 +264,8 @@
             pro.out_no = num.serial_no;
             pro.subject = @"订单付款";
             pro.body = @"订单在线付款";
-            pro.price = 0.01;
+//            pro.price = 0.01;
+            pro.price = amount;
             pro.partnerID = [usermodel getUserValueForKey:@"DEFAULT_PARTNER"];
             pro.partnerPrivKey = [usermodel getUserValueForKey:@"PRIVATE"];
             pro.sellerID = [usermodel getUserValueForKey:@"DEFAULT_SELLER"];

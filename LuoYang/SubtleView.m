@@ -64,13 +64,13 @@
                                            if (length > 1)
                                            {
                                                Goods *good = [goods objectAtIndex:length-1];
-                                               SGFocusImageItem *item = [[SGFocusImageItem alloc] initWithTitle:@"" image:good.thumb tag:-1];
+                                               SGFocusImageItem *item = [[SGFocusImageItem alloc] initWithTitle:good.title image:good.thumb tag:-1];
                                                [itemArray addObject:item];
                                            }
                                            for (int i = 0; i < length; i++)
                                            {
                                                Goods *good = [goods objectAtIndex:i];
-                                               SGFocusImageItem *item = [[SGFocusImageItem alloc] initWithTitle:@"" image:good.thumb tag:-1];
+                                               SGFocusImageItem *item = [[SGFocusImageItem alloc] initWithTitle:good.title image:good.thumb tag:-1];
                                                [itemArray addObject:item];
                                                
                                            }
@@ -78,10 +78,10 @@
                                            if (length >1)
                                            {
                                                Goods *good = [goods objectAtIndex:0];
-                                               SGFocusImageItem *item = [[SGFocusImageItem alloc] initWithTitle:@"" image:good.thumb tag:-1];
+                                               SGFocusImageItem *item = [[SGFocusImageItem alloc] initWithTitle:good.title image:good.thumb tag:-1];
                                                [itemArray addObject:item];
                                            }
-                                           bannerView = [[SGFocusImageFrame alloc] initWithFrame:CGRectMake(0, 0, 320, 246) delegate:self imageItems:itemArray isAuto:YES];
+                                           bannerView = [[SGFocusImageFrame alloc] initWithFrame:CGRectMake(0, 0, 320, 160) delegate:self imageItems:itemArray isAuto:YES];
                                            [bannerView scrollToIndex:0];
                                            [self.recommendIv addSubview:bannerView];
                                        }

@@ -604,6 +604,8 @@
 		14E1FA0019FDE34800E3E1A2 /* ShoppingCartCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14E1F9FC19FDE34800E3E1A2 /* ShoppingCartCell.xib */; };
 		14E1FA0319FDEC8F00E3E1A2 /* attrs_g@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 14E1FA0119FDEC8F00E3E1A2 /* attrs_g@2x.png */; };
 		14E1FA0419FDEC8F00E3E1A2 /* attrs_w@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 14E1FA0219FDEC8F00E3E1A2 /* attrs_w@2x.png */; };
+		14F8D3F91A0BBCD00064CDCA /* ConvCateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F8D3F71A0BBCD00064CDCA /* ConvCateView.m */; };
+		14F8D3FA1A0BBCD00064CDCA /* ConvCateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14F8D3F81A0BBCD00064CDCA /* ConvCateView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1547,6 +1549,9 @@
 		14E1F9FC19FDE34800E3E1A2 /* ShoppingCartCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShoppingCartCell.xib; sourceTree = "<group>"; };
 		14E1FA0119FDEC8F00E3E1A2 /* attrs_g@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "attrs_g@2x.png"; sourceTree = "<group>"; };
 		14E1FA0219FDEC8F00E3E1A2 /* attrs_w@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "attrs_w@2x.png"; sourceTree = "<group>"; };
+		14F8D3F61A0BBCD00064CDCA /* ConvCateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConvCateView.h; sourceTree = "<group>"; };
+		14F8D3F71A0BBCD00064CDCA /* ConvCateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConvCateView.m; sourceTree = "<group>"; };
+		14F8D3F81A0BBCD00064CDCA /* ConvCateView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConvCateView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1855,6 +1860,9 @@
 				14A7BAF019C921BA009039DF /* LifePageView.h */,
 				14A7BAF119C921BA009039DF /* LifePageView.m */,
 				14A7BAF219C921BA009039DF /* LifePageView.xib */,
+				14F8D3F61A0BBCD00064CDCA /* ConvCateView.h */,
+				14F8D3F71A0BBCD00064CDCA /* ConvCateView.m */,
+				14F8D3F81A0BBCD00064CDCA /* ConvCateView.xib */,
 				14A7BAF319C921BA009039DF /* ConvView.h */,
 				14A7BAF419C921BA009039DF /* ConvView.m */,
 				14A7BAF519C921BA009039DF /* ConvView.xib */,
@@ -3290,6 +3298,7 @@
 				14A7BCED19C921E1009039DF /* wuye_bg@2x.png in Resources */,
 				14A7BD2B19C921E1009039DF /* mainlogo@2x.png in Resources */,
 				14A7BCFE19C921E1009039DF /* goods_temps.png in Resources */,
+				14F8D3FA1A0BBCD00064CDCA /* ConvCateView.xib in Resources */,
 				14A7BCAE19C921E1009039DF /* city_temp@2x.png in Resources */,
 				14A7BFDE19C925D8009039DF /* ShareSDKLocalizable.strings in Resources */,
 				14A7BCB219C921E1009039DF /* cm_ attention@2x.png in Resources */,
@@ -3689,6 +3698,7 @@
 				14A7BBA619C921C6009039DF /* CityCell.m in Sources */,
 				14A7BEDF19C9245E009039DF /* JSONKit.m in Sources */,
 				14A7BFB519C92539009039DF /* SGFocusImageItem.m in Sources */,
+				14F8D3F91A0BBCD00064CDCA /* ConvCateView.m in Sources */,
 				14A7BE7119C92416009039DF /* NSObject+SBJSON.m in Sources */,
 				14A7BBA419C921C6009039DF /* CityView.m in Sources */,
 				14A7BBA219C921C6009039DF /* CityPageView.m in Sources */,
@@ -3761,8 +3771,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: WEN XIKE (5ACSFNTTZR)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: WEN XIKE (5ACSFNTTZR)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: WEN XIKE (KPRX6RYNKY)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: WEN XIKE (KPRX6RYNKY)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -3780,7 +3790,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "ca3b88eb-3d55-4548-b86e-89d45e2d4757";
+				PROVISIONING_PROFILE = "E5658B00-36F5-4F1D-A0E0-C8C7AE866539";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -3801,8 +3811,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: WEN XIKE (5ACSFNTTZR)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: WEN XIKE (5ACSFNTTZR)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: WEN XIKE (KPRX6RYNKY)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: WEN XIKE (KPRX6RYNKY)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -3813,7 +3823,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				PROVISIONING_PROFILE = "ca3b88eb-3d55-4548-b86e-89d45e2d4757";
+				PROVISIONING_PROFILE = "E5658B00-36F5-4F1D-A0E0-C8C7AE866539";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -3828,6 +3838,7 @@
 				);
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer: WEN XIKE (KPRX6RYNKY)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
@@ -3859,7 +3870,7 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "ca3b88eb-3d55-4548-b86e-89d45e2d4757";
+				PROVISIONING_PROFILE = "E5658B00-36F5-4F1D-A0E0-C8C7AE866539";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -3873,6 +3884,7 @@
 				);
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer: WEN XIKE (KPRX6RYNKY)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
@@ -3904,7 +3916,7 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "ca3b88eb-3d55-4548-b86e-89d45e2d4757";
+				PROVISIONING_PROFILE = "E5658B00-36F5-4F1D-A0E0-C8C7AE866539";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
