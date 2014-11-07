@@ -107,6 +107,8 @@
 #define api_getcinfo @"/get_community_info"
 #define api_feedback @"/feedback"
 #define api_myfeedback @"/my_feedback"
+#define api_getlinks @"/get_links_list"
+
 
 //商品下单地址
 #define api_send_order @"/send_order"
@@ -166,7 +168,7 @@
 
 #define AreaListKey @"AreList"
 
-#define servicephone @"0379-63255586"
+#define servicephone @"4008-361-020"
 
 #define SettingTableIdentifier @"SettingTableIdentifier"
 #define MyRepairsCellIdentifier @"MyRepairsCellIdentifier"
@@ -185,6 +187,7 @@
 #define ProjectCollectionCellIdentifier @"ProjectCollectionCellIdentifier"
 #define MyCouponCellIdentifier @"MyCouponCellIdentifier"
 #define MyComplainCellIdentifier @"MyComplainCellIdentifier"
+#define RechargeCellIdentifier @"RechargeCellIdentifier"
 
 #define createshoppingcart @"create table shoppingcart (id integer primary key autoincrement not null,goodid text,title text,attrs text,thumb text,price text,store_name text,business_id text,number int,user_id text)"
 

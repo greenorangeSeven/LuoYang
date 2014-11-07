@@ -21,6 +21,8 @@
     
     UIImage *picimage;
     UIWebView *phoneCallWebView;
+    
+    MBProgressHUD *hud;
 }
 
 @property (strong, nonatomic) UIView *parentView;

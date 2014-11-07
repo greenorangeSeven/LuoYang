@@ -1078,4 +1078,16 @@
     }
 }
 
++ (NSMutableArray *)readJsonStrToLinksArray:(NSString *)str
+{
+    NSData *data = [str dataUsingEncoding:NSUTF8StringEncoding];
+    NSError *error;
+    NSArray *linkJsonArray = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+    if ( linkJsonArray == nil || [linkJsonArray count] <= 0) {
+        return nil;
+    }
+    NSMutableArray *linkArray = [RMMapper mutableArrayOfClass:[OnlineLink class] fromArrayOfDictionary:linkJsonArray];
+    return linkArray;
+}
+
 @end

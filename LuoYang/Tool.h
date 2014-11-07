@@ -52,6 +52,7 @@
 #import "BBSReplyModel.h"
 #import "Voln.h"
 #import "Complain.h"
+#import "OnlineLink.h"
 
 @interface Tool : NSObject
 
@@ -171,5 +172,6 @@
 + (NSMutableArray *)readJsonStrToMyCouponArray:(NSString *)str;
 + (void *)saveJsonStrToCommunityTel:(NSString *)cid;
 + (NSMutableArray *)readJsonStrToMyComplainArray:(NSString *)str;
++ (NSMutableArray *)readJsonStrToLinksArray:(NSString *)str;
 
 @end

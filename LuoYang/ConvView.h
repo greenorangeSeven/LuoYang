@@ -15,8 +15,11 @@
 #import "ConvCell.h"
 #import "ConvOrderView.h"
 #import "BusniessSearchView.h"
+#import "SGFocusImageFrame.h"
+#import "SGFocusImageItem.h"
+#import "ADVDetailView.h"
 
-@interface ConvView : UIViewController<UITableViewDelegate,UITableViewDataSource, EGORefreshTableHeaderDelegate>
+@interface ConvView : UIViewController<UITableViewDelegate,UITableViewDataSource, EGORefreshTableHeaderDelegate,SGFocusImageFrameDelegate>
 {
     NSMutableArray *shopData;
     MBProgressHUD *hud;
@@ -27,6 +30,10 @@
     EGORefreshTableHeaderView *_refreshHeaderView;
     BOOL isLoading;
     BOOL isLoadOver;
+    
+    NSMutableArray *advDatas;
+    SGFocusImageFrame *bannerView;
+    int advIndex;
 }
 
 @property (weak, nonatomic) NSString *catid;

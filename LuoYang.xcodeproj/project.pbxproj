@@ -119,8 +119,6 @@
 		14A7BB4C19C921BA009039DF /* ConvCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14A7BAF819C921BA009039DF /* ConvCell.xib */; };
 		14A7BB4D19C921BA009039DF /* ConvOrderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A7BAFA19C921BA009039DF /* ConvOrderView.m */; };
 		14A7BB4E19C921BA009039DF /* ConvOrderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14A7BAFB19C921BA009039DF /* ConvOrderView.xib */; };
-		14A7BB4F19C921BA009039DF /* RechargeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A7BAFD19C921BA009039DF /* RechargeView.m */; };
-		14A7BB5019C921BA009039DF /* RechargeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14A7BAFE19C921BA009039DF /* RechargeView.xib */; };
 		14A7BB5119C921BA009039DF /* RechargeDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A7BB0019C921BA009039DF /* RechargeDetailView.m */; };
 		14A7BB5219C921BA009039DF /* RechargeDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14A7BB0119C921BA009039DF /* RechargeDetailView.xib */; };
 		14A7BB5319C921BA009039DF /* CommunityView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A7BB0319C921BA009039DF /* CommunityView.m */; };
@@ -588,6 +586,11 @@
 		14B3A1B719EE193500BD29B6 /* MyCouponView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14B3A1B519EE193500BD29B6 /* MyCouponView.xib */; };
 		14B3A1BB19EE1A4F00BD29B6 /* MyCouponCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B3A1B919EE1A4F00BD29B6 /* MyCouponCell.m */; };
 		14B3A1BC19EE1A4F00BD29B6 /* MyCouponCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14B3A1BA19EE1A4F00BD29B6 /* MyCouponCell.xib */; };
+		14B71DA11A0C5940000C8A4E /* RechargeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B71D9C1A0C5940000C8A4E /* RechargeView.m */; };
+		14B71DA21A0C5940000C8A4E /* RechargeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14B71D9D1A0C5940000C8A4E /* RechargeView.xib */; };
+		14B71DA31A0C5940000C8A4E /* RechargeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B71D9F1A0C5940000C8A4E /* RechargeCell.m */; };
+		14B71DA41A0C5940000C8A4E /* RechargeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14B71DA01A0C5940000C8A4E /* RechargeCell.xib */; };
+		14B71DA71A0C598B000C8A4E /* OnlineLink.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B71DA61A0C598B000C8A4E /* OnlineLink.m */; };
 		14B7E32919EBD06C007686A9 /* VolnInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B7E32419EBD06C007686A9 /* VolnInfoView.m */; };
 		14B7E32A19EBD06C007686A9 /* VolnInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14B7E32519EBD06C007686A9 /* VolnInfoView.xib */; };
 		14B7E32B19EBD06C007686A9 /* VolnInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B7E32719EBD06C007686A9 /* VolnInfoCell.m */; };
@@ -778,9 +781,6 @@
 		14A7BAF919C921BA009039DF /* ConvOrderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConvOrderView.h; sourceTree = "<group>"; };
 		14A7BAFA19C921BA009039DF /* ConvOrderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConvOrderView.m; sourceTree = "<group>"; };
 		14A7BAFB19C921BA009039DF /* ConvOrderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConvOrderView.xib; sourceTree = "<group>"; };
-		14A7BAFC19C921BA009039DF /* RechargeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RechargeView.h; sourceTree = "<group>"; };
-		14A7BAFD19C921BA009039DF /* RechargeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RechargeView.m; sourceTree = "<group>"; };
-		14A7BAFE19C921BA009039DF /* RechargeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RechargeView.xib; sourceTree = "<group>"; };
 		14A7BAFF19C921BA009039DF /* RechargeDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RechargeDetailView.h; sourceTree = "<group>"; };
 		14A7BB0019C921BA009039DF /* RechargeDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RechargeDetailView.m; sourceTree = "<group>"; };
 		14A7BB0119C921BA009039DF /* RechargeDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RechargeDetailView.xib; sourceTree = "<group>"; };
@@ -1524,6 +1524,14 @@
 		14B3A1B819EE1A4F00BD29B6 /* MyCouponCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCouponCell.h; sourceTree = "<group>"; };
 		14B3A1B919EE1A4F00BD29B6 /* MyCouponCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCouponCell.m; sourceTree = "<group>"; };
 		14B3A1BA19EE1A4F00BD29B6 /* MyCouponCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyCouponCell.xib; sourceTree = "<group>"; };
+		14B71D9B1A0C5940000C8A4E /* RechargeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RechargeView.h; sourceTree = "<group>"; };
+		14B71D9C1A0C5940000C8A4E /* RechargeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RechargeView.m; sourceTree = "<group>"; };
+		14B71D9D1A0C5940000C8A4E /* RechargeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RechargeView.xib; sourceTree = "<group>"; };
+		14B71D9E1A0C5940000C8A4E /* RechargeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RechargeCell.h; sourceTree = "<group>"; };
+		14B71D9F1A0C5940000C8A4E /* RechargeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RechargeCell.m; sourceTree = "<group>"; };
+		14B71DA01A0C5940000C8A4E /* RechargeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RechargeCell.xib; sourceTree = "<group>"; };
+		14B71DA51A0C598B000C8A4E /* OnlineLink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OnlineLink.h; sourceTree = "<group>"; };
+		14B71DA61A0C598B000C8A4E /* OnlineLink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnlineLink.m; sourceTree = "<group>"; };
 		14B7E32319EBD06C007686A9 /* VolnInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VolnInfoView.h; sourceTree = "<group>"; };
 		14B7E32419EBD06C007686A9 /* VolnInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VolnInfoView.m; sourceTree = "<group>"; };
 		14B7E32519EBD06C007686A9 /* VolnInfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VolnInfoView.xib; sourceTree = "<group>"; };
@@ -1872,9 +1880,12 @@
 				14A7BAF919C921BA009039DF /* ConvOrderView.h */,
 				14A7BAFA19C921BA009039DF /* ConvOrderView.m */,
 				14A7BAFB19C921BA009039DF /* ConvOrderView.xib */,
-				14A7BAFC19C921BA009039DF /* RechargeView.h */,
-				14A7BAFD19C921BA009039DF /* RechargeView.m */,
-				14A7BAFE19C921BA009039DF /* RechargeView.xib */,
+				14B71D9B1A0C5940000C8A4E /* RechargeView.h */,
+				14B71D9C1A0C5940000C8A4E /* RechargeView.m */,
+				14B71D9D1A0C5940000C8A4E /* RechargeView.xib */,
+				14B71D9E1A0C5940000C8A4E /* RechargeCell.h */,
+				14B71D9F1A0C5940000C8A4E /* RechargeCell.m */,
+				14B71DA01A0C5940000C8A4E /* RechargeCell.xib */,
 				14A7BAFF19C921BA009039DF /* RechargeDetailView.h */,
 				14A7BB0019C921BA009039DF /* RechargeDetailView.m */,
 				14A7BB0119C921BA009039DF /* RechargeDetailView.xib */,
@@ -2255,6 +2266,8 @@
 		14A7BA6219C92157009039DF /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				14B71DA51A0C598B000C8A4E /* OnlineLink.h */,
+				14B71DA61A0C598B000C8A4E /* OnlineLink.m */,
 				14A7BD9519C92200009039DF /* AreaModel */,
 				14A7BD9419C921F8009039DF /* CommunityModel */,
 				14A7BD3719C921EE009039DF /* SettingModel.h */,
@@ -3280,6 +3293,7 @@
 				14A7BCBE19C921E1009039DF /* bm_water@2x.png in Resources */,
 				14A7BACF19C921A0009039DF /* MyRepairsCell.xib in Resources */,
 				14A7BCBB19C921E1009039DF /* bm_jiazheng@2x.png in Resources */,
+				14B71DA21A0C5940000C8A4E /* RechargeView.xib in Resources */,
 				14A7BC9019C921E1009039DF /* voln_join@2x.png in Resources */,
 				14A7BAE519C921A0009039DF /* MyInBoxView.xib in Resources */,
 				14A7BB4C19C921BA009039DF /* ConvCell.xib in Resources */,
@@ -3299,6 +3313,7 @@
 				14A7BD2B19C921E1009039DF /* mainlogo@2x.png in Resources */,
 				14A7BCFE19C921E1009039DF /* goods_temps.png in Resources */,
 				14F8D3FA1A0BBCD00064CDCA /* ConvCateView.xib in Resources */,
+				14B71DA41A0C5940000C8A4E /* RechargeCell.xib in Resources */,
 				14A7BCAE19C921E1009039DF /* city_temp@2x.png in Resources */,
 				14A7BFDE19C925D8009039DF /* ShareSDKLocalizable.strings in Resources */,
 				14A7BCB219C921E1009039DF /* cm_ attention@2x.png in Resources */,
@@ -3315,7 +3330,6 @@
 				14A7BAD519C921A0009039DF /* RepairsRateView.xib in Resources */,
 				14A7BB4819C921BA009039DF /* LifePageView.xib in Resources */,
 				14A7BB7019C921BA009039DF /* CouponDetailView.xib in Resources */,
-				14A7BB5019C921BA009039DF /* RechargeView.xib in Resources */,
 				14A7BCF319C921E1009039DF /* maillogo@2x.png in Resources */,
 				14A7BD0419C921E1009039DF /* online_title.png in Resources */,
 				14A7BAE719C921A0009039DF /* AddInboxView.xib in Resources */,
@@ -3477,6 +3491,7 @@
 				14A7BF8D19C924FA009039DF /* SDWebImageDownloaderOperation.m in Sources */,
 				14B7E32B19EBD06C007686A9 /* VolnInfoCell.m in Sources */,
 				14A7BAD819C921A0009039DF /* NewsTableView.m in Sources */,
+				14B71DA71A0C598B000C8A4E /* OnlineLink.m in Sources */,
 				14AFC9461A01DF64001A43CF /* MerchantsView.m in Sources */,
 				14A7BD9D19C9220B009039DF /* BuildModel.m in Sources */,
 				14A7BEC119C92445009039DF /* ASIDownloadCache.m in Sources */,
@@ -3516,6 +3531,7 @@
 				14A7BBB619C921C6009039DF /* HelperDetailView.m in Sources */,
 				14A7BFB419C92539009039DF /* SGFocusImageFrame.m in Sources */,
 				14A7BE9919C92426009039DF /* AFPropertyListRequestOperation.m in Sources */,
+				14B71DA11A0C5940000C8A4E /* RechargeView.m in Sources */,
 				14A7BE6F19C92416009039DF /* AlixPayOrder.m in Sources */,
 				14A7BEF619C9247C009039DF /* EGOImageButton.m in Sources */,
 				14A7BD8119C921EE009039DF /* OutExpress.m in Sources */,
@@ -3543,7 +3559,6 @@
 				14A7BF9219C924FA009039DF /* UIImage+MultiFormat.m in Sources */,
 				14A7BB7519C921BA009039DF /* ShoppingBuyView.m in Sources */,
 				14A7BF1419C924B6009039DF /* FMDatabaseAdditions.m in Sources */,
-				14A7BB4F19C921BA009039DF /* RechargeView.m in Sources */,
 				14A7BECD19C92451009039DF /* IconDownloader.m in Sources */,
 				14A7BE7919C92416009039DF /* PayOrder.m in Sources */,
 				14A7BE6C19C92416009039DF /* AlipayUtils.m in Sources */,
@@ -3641,6 +3656,7 @@
 				14A7BDBF19C92225009039DF /* LoadingCell.m in Sources */,
 				14A7BB7719C921BA009039DF /* ProjectCollectionView.m in Sources */,
 				14A7BE9519C92426009039DF /* AFJSONRequestOperation.m in Sources */,
+				14B71DA31A0C5940000C8A4E /* RechargeCell.m in Sources */,
 				14A7BBB219C921C6009039DF /* HelperView.m in Sources */,
 				14A7BB4D19C921BA009039DF /* ConvOrderView.m in Sources */,
 				14A7BBDB19C921D1009039DF /* ChooseAreaView.m in Sources */,
@@ -3771,8 +3787,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: WEN XIKE (KPRX6RYNKY)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: WEN XIKE (KPRX6RYNKY)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: WEN XIKE (5ACSFNTTZR)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: WEN XIKE (5ACSFNTTZR)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -3790,7 +3806,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "E5658B00-36F5-4F1D-A0E0-C8C7AE866539";
+				PROVISIONING_PROFILE = "ca3b88eb-3d55-4548-b86e-89d45e2d4757";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -3811,8 +3827,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: WEN XIKE (KPRX6RYNKY)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: WEN XIKE (KPRX6RYNKY)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: WEN XIKE (5ACSFNTTZR)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: WEN XIKE (5ACSFNTTZR)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -3823,7 +3839,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				PROVISIONING_PROFILE = "E5658B00-36F5-4F1D-A0E0-C8C7AE866539";
+				PROVISIONING_PROFILE = "ca3b88eb-3d55-4548-b86e-89d45e2d4757";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -3838,7 +3854,7 @@
 				);
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: WEN XIKE (KPRX6RYNKY)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: WEN XIKE (5ACSFNTTZR)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
@@ -3870,7 +3886,7 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "E5658B00-36F5-4F1D-A0E0-C8C7AE866539";
+				PROVISIONING_PROFILE = "ca3b88eb-3d55-4548-b86e-89d45e2d4757";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -3884,7 +3900,7 @@
 				);
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: WEN XIKE (KPRX6RYNKY)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: WEN XIKE (5ACSFNTTZR)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
@@ -3916,7 +3932,7 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "E5658B00-36F5-4F1D-A0E0-C8C7AE866539";
+				PROVISIONING_PROFILE = "ca3b88eb-3d55-4548-b86e-89d45e2d4757";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

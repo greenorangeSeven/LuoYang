@@ -51,7 +51,7 @@ BMKMapManager* _mapManager;
     //智慧城市
     self.cityPage = [[CityPageView alloc] initWithNibName:@"CityPageView" bundle:nil];
     cityPage.tabBarItem.image = [UIImage imageNamed:@"tab_nanning"];
-    cityPage.tabBarItem.title = @"智慧洛阳";
+    cityPage.tabBarItem.title = @"智慧河南";
     UINavigationController *cityPageNav = [[UINavigationController alloc] initWithRootViewController:self.cityPage];
     
     //购物车

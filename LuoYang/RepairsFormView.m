@@ -29,18 +29,7 @@
 {
     [super viewDidLoad];
     usermodel = [UserModel Instance];
-    
-    //用户是否已认证，已认证后才能报修
-//    if (![[usermodel getUserValueForKey:@"checkin"] isEqualToString:@"1"]) {
-//        self.submitBtn.enabled = NO;
-//        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"温馨提醒"
-//                                                     message:@"您的入住信息暂未审核通过，暂未能提交报修信息，请联系客户服务中心！"
-//                                                    delegate:nil
-//                                           cancelButtonTitle:@"确定"
-//                                           otherButtonTitles:nil];
-//        [av show];
-//    }
-//
+    hud = [[MBProgressHUD alloc] initWithView:self.view];
     if ([[usermodel getUserValueForKey:@"house_number"] isEqualToString:@""]) {
         self.submitBtn.enabled = NO;
         UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"温馨提醒"
@@ -96,6 +85,7 @@
 {
     //如果有网络连接
     if ([UserModel Instance].isNetworkRunning) {
+        [Tool showHUD:@"数据加载" andView:self.view andHUD:hud];
         NSString *url = [NSString stringWithFormat:@"%@%@?APPKey=%@", api_base_url, api_getbaixiucate, appkey];
         [[AFOSCClient sharedClient]getPath:url parameters:Nil
                                    success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -106,6 +96,9 @@
                                            [NdUncaughtExceptionHandler TakeException:exception];
                                        }
                                        @finally {
+                                           if (hud != nil) {
+                                               hud.hidden = YES;
+                                           }
 
                                        }
                                    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {

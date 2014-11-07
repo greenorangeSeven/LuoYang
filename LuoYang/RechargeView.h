@@ -8,17 +8,21 @@
 
 #import <UIKit/UIKit.h>
 #import "RechargeDetailView.h"
+#import "TQImageCache.h"
+#import "RechargeCell.h"
+#import "OnlineLink.h"
 
-@interface RechargeView : UIViewController
+@interface RechargeView : UIViewController<UICollectionViewDataSource,UICollectionViewDelegateFlowLayout, IconDownloaderDelegate>
+{
+    NSMutableArray *links;
+    TQImageCache * _iconCache;
+}
 
-- (IBAction)huocheAction:(id)sender;
-- (IBAction)jipiaoAction:(id)sender;
-- (IBAction)yidongAction:(id)sender;
-- (IBAction)liantongAction:(id)sender;
-- (IBAction)dianxinAction:(id)sender;
-- (IBAction)tianqiAction:(id)sender;
-- (IBAction)wannianliAction:(id)sender;
-- (IBAction)shenfenzhengAction:(id)sender;
-- (IBAction)fangdaiAction:(id)sender;
+@property (weak, nonatomic) IBOutlet UILabel *bgLb;
+@property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
+
+//异步加载图片专用
+@property (nonatomic, retain) NSMutableDictionary *imageDownloadsInProgress;
+- (void)startIconDownload:(ImgRecord *)imgRecord forIndexPath:(NSIndexPath *)indexPath;
 
 @end

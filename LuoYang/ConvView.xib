@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ConvView">
             <connections>
+                <outlet property="advIv" destination="NPo-b0-Dqd" id="RhI-OR-Gzf"/>
                 <outlet property="tableView" destination="frl-xI-agz" id="DVT-Gn-PaI"/>
                 <outlet property="view" destination="hCI-n5-6oN" id="eIp-2k-8eH"/>
             </connections>
@@ -17,13 +18,20 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="frl-xI-agz">
-                    <rect key="frame" x="0.0" y="167" width="319" height="401"/>
+                    <rect key="frame" x="0.0" y="146" width="319" height="422"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" red="0.91764705879999997" green="0.91764705879999997" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
                     <color key="sectionIndexBackgroundColor" red="0.93333333333333335" green="0.91764705882352937" blue="0.88235294117647056" alpha="1" colorSpace="calibratedRGB"/>
                 </tableView>
+                <imageView multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loadingpic1.png" id="NPo-b0-Dqd">
+                    <rect key="frame" x="-1" y="0.0" width="320" height="145"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
             </subviews>
             <color key="backgroundColor" red="0.91764705879999997" green="0.91764705879999997" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
         </view>
     </objects>
+    <resources>
+        <image name="loadingpic1.png" width="320" height="143"/>
+    </resources>
 </document>
