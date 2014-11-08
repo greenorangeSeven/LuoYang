@@ -112,8 +112,16 @@ static CGFloat SWITCH_FOCUS_PICTURE_INTERVAL = 5.0; //switch interval time
     [self addSubview:_titleLb];
     
     if ([imageItems count] > 0) {
-        SGFocusImageItem *item = [imageItems objectAtIndex:1];
-        _titleLb.text = item.title;
+        if ([imageItems count] == 1)
+        {
+            SGFocusImageItem *item = [imageItems objectAtIndex:0];
+            _titleLb.text = item.title;
+        }
+        else
+        {
+            SGFocusImageItem *item = [imageItems objectAtIndex:1];
+            _titleLb.text = item.title;
+        }
     }
     
     /*
@@ -236,8 +244,18 @@ static CGFloat SWITCH_FOCUS_PICTURE_INTERVAL = 5.0; //switch interval time
         }
     }
     _pageControl.currentPage = page;
-    SGFocusImageItem *item = [imageItems objectAtIndex:page+1];
-    _titleLb.text = item.title;
+    if ([imageItems count] == 1)
+    {
+        SGFocusImageItem *item = [imageItems objectAtIndex:0];
+        _titleLb.text = item.title;
+    }
+    else
+    {
+       SGFocusImageItem *item = [imageItems objectAtIndex:page+1];
+        _titleLb.text = item.title;
+    }
+    
+    
 }
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {

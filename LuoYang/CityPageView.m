@@ -187,7 +187,7 @@
 {
     CityView *cityView = [[CityView alloc] init];
     cityView.typeStr = @"1";
-    cityView.typeNameStr = @"魅力洛阳";
+    cityView.typeNameStr = @"神都风采";
     cityView.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:cityView animated:YES];
 }
@@ -242,6 +242,22 @@
     CityView *cityView = [[CityView alloc] init];
     cityView.typeStr = @"7";
     cityView.typeNameStr = @"服务到家";
+    cityView.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:cityView animated:YES];
+}
+
+- (IBAction)mlhnAction:(id)sender {
+    CityView *cityView = [[CityView alloc] init];
+    cityView.typeStr = @"8";
+    cityView.typeNameStr = @"魅力河南";
+    cityView.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:cityView animated:YES];
+}
+
+- (IBAction)mqhjjAction:(id)sender {
+    CityView *cityView = [[CityView alloc] init];
+    cityView.typeStr = @"9";
+    cityView.typeNameStr = @"母亲河基金";
     cityView.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:cityView animated:YES];
 }

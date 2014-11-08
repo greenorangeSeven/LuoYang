@@ -37,5 +37,7 @@
 - (IBAction)ptzsAction:(id)sender;
 - (IBAction)zxlsAction:(id)sender;
 - (IBAction)fwdjAction:(id)sender;
+- (IBAction)mlhnAction:(id)sender;
+- (IBAction)mqhjjAction:(id)sender;
 
 @end

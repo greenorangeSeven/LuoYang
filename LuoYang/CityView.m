@@ -80,7 +80,7 @@
     if ([UserModel Instance].isNetworkRunning) {
         //        [Tool showHUD:@"数据加载" andView:self.view andHUD:hud];
         NSString *advType = @"7";
-        if ([self.typeStr isEqualToString:@"1"])
+        if ([self.typeStr isEqualToString:@"1"] || [self.typeStr isEqualToString:@"8"] || [self.typeStr isEqualToString:@"9"])
         {
             advType = @"7";
         }

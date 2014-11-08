@@ -582,6 +582,8 @@
 		14AFC9491A0216D5001A43CF /* wuye_tousu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 14AFC9481A0216D5001A43CF /* wuye_tousu@2x.png */; };
 		14AFC94D1A021735001A43CF /* ComplainView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14AFC94B1A021735001A43CF /* ComplainView.m */; };
 		14AFC94E1A021735001A43CF /* ComplainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14AFC94C1A021735001A43CF /* ComplainView.xib */; };
+		14B222B71A0DC40300092B0C /* city_mlhn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 14B222B51A0DC40300092B0C /* city_mlhn@2x.png */; };
+		14B222B81A0DC40300092B0C /* city_mqhjj@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 14B222B61A0DC40300092B0C /* city_mqhjj@2x.png */; };
 		14B3A1B619EE193500BD29B6 /* MyCouponView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B3A1B419EE193500BD29B6 /* MyCouponView.m */; };
 		14B3A1B719EE193500BD29B6 /* MyCouponView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14B3A1B519EE193500BD29B6 /* MyCouponView.xib */; };
 		14B3A1BB19EE1A4F00BD29B6 /* MyCouponCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B3A1B919EE1A4F00BD29B6 /* MyCouponCell.m */; };
@@ -1518,6 +1520,8 @@
 		14AFC94A1A021735001A43CF /* ComplainView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComplainView.h; sourceTree = "<group>"; };
 		14AFC94B1A021735001A43CF /* ComplainView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComplainView.m; sourceTree = "<group>"; };
 		14AFC94C1A021735001A43CF /* ComplainView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ComplainView.xib; sourceTree = "<group>"; };
+		14B222B51A0DC40300092B0C /* city_mlhn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "city_mlhn@2x.png"; sourceTree = "<group>"; };
+		14B222B61A0DC40300092B0C /* city_mqhjj@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "city_mqhjj@2x.png"; sourceTree = "<group>"; };
 		14B3A1B319EE193500BD29B6 /* MyCouponView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCouponView.h; sourceTree = "<group>"; };
 		14B3A1B419EE193500BD29B6 /* MyCouponView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCouponView.m; sourceTree = "<group>"; };
 		14B3A1B519EE193500BD29B6 /* MyCouponView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyCouponView.xib; sourceTree = "<group>"; };
@@ -2072,6 +2076,8 @@
 		14A7BA6119C9214E009039DF /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				14B222B51A0DC40300092B0C /* city_mlhn@2x.png */,
+				14B222B61A0DC40300092B0C /* city_mqhjj@2x.png */,
 				14AFC9481A0216D5001A43CF /* wuye_tousu@2x.png */,
 				1481AFC819FF3F1900662CA8 /* city_fwdj@2x.png */,
 				1481AFC919FF3F1900662CA8 /* city_zxls@2x.png */,
@@ -3321,6 +3327,7 @@
 				14A7BD0119C921E1009039DF /* business_map.png in Resources */,
 				14A7BCF819C921E1009039DF /* payfeequery@2x.png in Resources */,
 				14A7BD3519C921E1009039DF /* tab_steward@2x.png in Resources */,
+				14B222B81A0DC40300092B0C /* city_mqhjj@2x.png in Resources */,
 				14A7BD2119C921E1009039DF /* setting_push@2x.png in Resources */,
 				14A7BC8F19C921E1009039DF /* reply@2x.png in Resources */,
 				14A7BC9819C921E1009039DF /* fragment_help@2x.png in Resources */,
@@ -3400,6 +3407,7 @@
 				14A7BBDC19C921D1009039DF /* ChooseAreaView.xib in Resources */,
 				14A7BB6219C921BA009039DF /* BusniessSearchView.xib in Resources */,
 				14A7BD0819C921E1009039DF /* online_yidong@2x.png in Resources */,
+				14B222B71A0DC40300092B0C /* city_mlhn@2x.png in Resources */,
 				14E1FA0019FDE34800E3E1A2 /* ShoppingCartCell.xib in Resources */,
 				14A7BAE119C921A0009039DF /* MySendExpressView.xib in Resources */,
 				14A7BC9719C921E1009039DF /* fragment_forum@2x.png in Resources */,
@@ -3806,7 +3814,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "ca3b88eb-3d55-4548-b86e-89d45e2d4757";
+				PROVISIONING_PROFILE = "a49573bb-86bb-490f-9138-c49e3eeb09b9";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -3839,7 +3847,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				PROVISIONING_PROFILE = "ca3b88eb-3d55-4548-b86e-89d45e2d4757";
+				PROVISIONING_PROFILE = "a49573bb-86bb-490f-9138-c49e3eeb09b9";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -3886,7 +3894,7 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "ca3b88eb-3d55-4548-b86e-89d45e2d4757";
+				PROVISIONING_PROFILE = "a49573bb-86bb-490f-9138-c49e3eeb09b9";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -3932,7 +3940,7 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "ca3b88eb-3d55-4548-b86e-89d45e2d4757";
+				PROVISIONING_PROFILE = "a49573bb-86bb-490f-9138-c49e3eeb09b9";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
