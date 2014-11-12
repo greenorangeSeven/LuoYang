@@ -12,6 +12,8 @@
 #import "EGOImageView.h"
 #import "ResponseCode.h"
 #import "MyOrder.h"
+#import "PayOrder.h"
+#import "AlipayUtils.h"
 
 //确认收货
 #define TAKE_ORDER 200
@@ -70,7 +72,7 @@
         self.automaticallyAdjustsScrollViewInsets = NO;
     }
     //加载订单记录
-    [self loadOrder];
+//    [self loadOrder];
 }
 
 //弹出框事件
@@ -211,6 +213,16 @@
         else
         {
             [btn setTitle:@"取消订单" forState:UIControlStateNormal];
+            
+            UIButton *paybtn = [UIButton buttonWithType:UIButtonTypeSystem];
+            paybtn.frame = CGRectMake(130, 40, 90, 30);
+            paybtn.backgroundColor = [UIColor clearColor];
+            paybtn.titleLabel.textColor = [UIColor blueColor];
+            paybtn.titleLabel.font = [UIFont boldSystemFontOfSize:15.0];
+            [paybtn setTitle:@"去付款" forState:UIControlStateNormal];
+            [paybtn setTag:section];
+            [paybtn addTarget:self action:@selector(payBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+            [headerView addSubview:paybtn];
         }
         [btn setTag:section];
         [btn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
@@ -234,6 +246,23 @@
     return footerView;
 }
 
+//去支付按钮事件
+- (void) payBtnClick:(UIButton *) target
+{
+    MyOrder *order = [orderData objectAtIndex:[target tag]];
+    UserModel *usermodel = [UserModel Instance];
+    PayOrder *pro = [[PayOrder alloc] init];
+    pro.out_no = order.serial_no;
+    pro.subject = @"订单付款";
+    pro.body = @"订单在线付款";
+    //            pro.price = 0.01;
+    pro.price = [order.amount doubleValue];
+    pro.partnerID = [usermodel getUserValueForKey:@"DEFAULT_PARTNER"];
+    pro.partnerPrivKey = [usermodel getUserValueForKey:@"PRIVATE"];
+    pro.sellerID = [usermodel getUserValueForKey:@"DEFAULT_SELLER"];
+    [AlipayUtils doPay:pro NotifyURL:api_goods_notify AndScheme:@"LuoYangAlipay" seletor:nil target:nil];
+}
+
 //确认收货和取消订单按钮事件
 - (void) btnClick:(UIButton *) target
 {
@@ -246,6 +275,12 @@
     {
         [self cancleOrder:order];
     }
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self loadOrder];
 }
 
 //确认收货

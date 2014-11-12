@@ -228,7 +228,7 @@
     }
     else
     {
-        addGood = [database executeUpdate:@"insert into shoppingcart (goodid, title, attrs, thumb, price, store_name, business_id, number, user_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?)", goodDetail.id, goodDetail.title, goodDetail.attrsStr, goodDetail.thumb, goodDetail.price, goodDetail.store_name, goodDetail.business_id, [NSNumber numberWithInt:[self.numberTf.text intValue]], [[UserModel Instance] getUserValueForKey:@"id"]];
+        addGood = [database executeUpdate:@"insert into shoppingcart (goodid, title, attrs, thumb, price, store_name, business_id, number, user_id, ischeck) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", goodDetail.id, goodDetail.title, goodDetail.attrsStr, goodDetail.thumb, goodDetail.price, goodDetail.store_name, goodDetail.business_id, [NSNumber numberWithInt:[self.numberTf.text intValue]], [[UserModel Instance] getUserValueForKey:@"id"], @"0"];
     }
     if (addGood) {
         [Tool showCustomHUD:@"已添加至购物车" andView:self.view andImage:@"37x-Checkmark.png" andAfterDelay:3];

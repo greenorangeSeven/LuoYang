@@ -67,27 +67,27 @@
     self.nameField.text = [user getUserValueForKey:@"name"];
     self.addressField.text = [user getUserValueForKey:@"address"];
     self.phoneField.text =[user getUserValueForKey:@"tel"];
-    
+    [self initOrderTitle];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(buyOK) name:@"buyOK" object:nil];
 }
 
 - (void)buyOK
 {
-    
-    FMDatabase* database=[FMDatabase databaseWithPath:[Tool databasePath]];
-    if (![database open]) {
-        NSLog(@"Open database failed");
-        return;
-    }
-    if (![database tableExists:@"shoppingcart"])
-    {
-        [database executeUpdate:createshoppingcart];
-    }
-    BOOL isOK = [database executeUpdate:@"DELETE FROM shoppingcart"];
-    if(isOK)
-    {
-        NSLog(@"数据已清空");
-    }
+//    FMDatabase* database=[FMDatabase databaseWithPath:[Tool databasePath]];
+//    if (![database open]) {
+//        NSLog(@"Open database failed");
+//        return;
+//    }
+//    if (![database tableExists:@"shoppingcart"])
+//    {
+//        [database executeUpdate:createshoppingcart];
+//    }
+//    BOOL isOK = [database executeUpdate:@"DELETE FROM shoppingcart"];
+//    [database close];
+//    if(isOK)
+//    {
+//        NSLog(@"数据已清空");
+//    }
     UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"提示"
                                                  message:@"支付成功"                         delegate:self
                                        cancelButtonTitle:@"确定"
@@ -108,9 +108,42 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)initOrderTitle
+{
+    UserModel *user = [UserModel Instance];
+    
+    NSMutableString *goodsTitleStr = [[NSMutableString alloc] init];
+    
+    if(_goods == nil)
+    {
+        FMDatabase* database=[FMDatabase databaseWithPath:[Tool databasePath]];
+        if (![database open]) {
+            NSLog(@"Open database failed");
+            return;
+        }
+        if (![database tableExists:@"shoppingcart"])
+        {
+            [database executeUpdate:createshoppingcart];
+        }
+        FMResultSet* businessSet=[database executeQuery:@"SELECT DISTINCT business_id FROM shoppingcart where user_id = ? and ischeck = '1'", [user getUserValueForKey:@"id"]];
+        while ([businessSet next]) {
+            FMResultSet* goodSet=[database executeQuery:@"SELECT * FROM shoppingcart where business_id = ? and ischeck = '1'", [businessSet stringForColumn:@"business_id"]];
+            while ([goodSet next]) {
+                [goodsTitleStr appendString:[NSString stringWithFormat:@"%@     数量：%@\n", [NSString stringWithFormat:@"%@  %@", [goodSet stringForColumn:@"title"], [goodSet stringForColumn:@"attrs"]], [NSNumber numberWithInteger:[goodSet intForColumn:@"number"]]]];
+            }
+        }
+        [database close];
+    }
+    else
+    {
+        [goodsTitleStr appendString:[NSString stringWithFormat:@"%@     数量：%@\n", [NSString stringWithFormat:@"%@  %@", _goods.title,  _goods.attrsStr], _goods.number]];
+    }
+    self.GoodsTitles.text = goodsTitleStr;
+}
+
 - (IBAction)doBuy:(UIButton *)sender
 {
-    
+    self.payBuootn.enabled = NO;
     NSString *nameStr = self.nameField.text;
     NSString *phoneStr = self.phoneField.text;
     NSString *addressStr = self.addressField.text;
@@ -149,13 +182,13 @@
         {
             [database executeUpdate:createshoppingcart];
         }
-        FMResultSet* businessSet=[database executeQuery:@"SELECT DISTINCT business_id FROM shoppingcart"];
+        FMResultSet* businessSet=[database executeQuery:@"SELECT DISTINCT business_id FROM shoppingcart where user_id = ? and ischeck = '1'", [user getUserValueForKey:@"id"]];
         NSMutableArray *orderBusinessArray = [[NSMutableArray alloc] init];
         while ([businessSet next]) {
             OrderBusiness *business = [[OrderBusiness alloc] init];
             business.store_id = [NSNumber numberWithInt:[[businessSet stringForColumn:@"business_id"] intValue]];
             
-            FMResultSet* goodSet=[database executeQuery:@"SELECT * FROM shoppingcart where business_id = ?", [businessSet stringForColumn:@"business_id"]];
+            FMResultSet* goodSet=[database executeQuery:@"SELECT * FROM shoppingcart where business_id = ? and user_id = ? and ischeck = '1'", [businessSet stringForColumn:@"business_id"], [user getUserValueForKey:@"id"]];
             NSMutableArray *goodArray = [[NSMutableArray alloc] init];
             float businessAmount = 0.0;
             while ([goodSet next]) {
@@ -173,6 +206,7 @@
             amount = [business.amount doubleValue];
             [orderBusinessArray addObject:business];
         }
+        [database close];
         orderInfo.businessOrderList = orderBusinessArray;
     }
     else
@@ -259,6 +293,7 @@
     switch (errorCode) {
         case 1:
         {
+            [self deleteSelectGoods];
             UserModel *usermodel = [UserModel Instance];
             PayOrder *pro = [[PayOrder alloc] init];
             pro.out_no = num.serial_no;
@@ -276,9 +311,29 @@
             break;
         case 0:
         {
+            self.payBuootn.enabled = YES;
             [Tool showCustomHUD:errorMessage andView:self.view  andImage:@"37x-Failure.png" andAfterDelay:3];
         }
             break;
+    }
+}
+
+- (void)deleteSelectGoods
+{
+    FMDatabase* database=[FMDatabase databaseWithPath:[Tool databasePath]];
+    if (![database open]) {
+        NSLog(@"Open database failed");
+        return;
+    }
+    if (![database tableExists:@"shoppingcart"])
+    {
+        [database executeUpdate:createshoppingcart];
+    }
+    BOOL isOK = [database executeUpdate:@"DELETE FROM shoppingcart where ischeck = '1'"];
+    [database close];
+    if(isOK)
+    {
+        NSLog(@"数据已清空");
     }
 }
 

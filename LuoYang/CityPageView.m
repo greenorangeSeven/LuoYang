@@ -23,7 +23,7 @@
     if (self) {
         UILabel *titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 150, 44)];
         titleLabel.font = [UIFont boldSystemFontOfSize:18];
-        titleLabel.text = @"智慧河南";
+        titleLabel.text = @"智慧中原";
         titleLabel.backgroundColor = [UIColor clearColor];
         titleLabel.textColor = [Tool getColorForGreen];
         titleLabel.textAlignment = UITextAlignmentCenter;
@@ -79,8 +79,6 @@
                                            advDatas = [Tool readJsonStrToADV:operation.responseString];
                                            
                                            int length = [advDatas count];
-                                           //点赞按钮初始化
-                                           Advertisement *adv = (Advertisement *)[advDatas objectAtIndex:advIndex];
                                            
                                            NSMutableArray *itemArray = [NSMutableArray arrayWithCapacity:length+2];
                                            if (length > 1)
@@ -233,7 +231,7 @@
 - (IBAction)zxlsAction:(id)sender {
     CityView *cityView = [[CityView alloc] init];
     cityView.typeStr = @"6";
-    cityView.typeNameStr = @"招贤纳士";
+    cityView.typeNameStr = @"为聚英台";
     cityView.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:cityView animated:YES];
 }
@@ -249,7 +247,7 @@
 - (IBAction)mlhnAction:(id)sender {
     CityView *cityView = [[CityView alloc] init];
     cityView.typeStr = @"8";
-    cityView.typeNameStr = @"魅力河南";
+    cityView.typeNameStr = @"魅力中原";
     cityView.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:cityView animated:YES];
 }

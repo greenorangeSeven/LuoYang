@@ -14,5 +14,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *storenameLb;
 @property (weak, nonatomic) IBOutlet UILabel *titleLb;
 @property (weak, nonatomic) IBOutlet UILabel *validityLb;
+@property (weak, nonatomic) IBOutlet UIButton *deleCouponBtn;
 
 @end

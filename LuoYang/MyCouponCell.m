@@ -22,4 +22,6 @@
     // Configure the view for the selected state
 }
 
+- (IBAction)deleCouponAction:(id)sender {
+}
 @end

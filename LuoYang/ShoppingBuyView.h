@@ -21,6 +21,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *addressField;
 @property (weak, nonatomic) IBOutlet UITextField *phoneField;
 - (IBAction)doBuy:(UIButton *)sender;
+@property (weak, nonatomic) IBOutlet UITextView *GoodsTitles;
+@property (weak, nonatomic) IBOutlet UIButton *payBuootn;
 
 
 @end

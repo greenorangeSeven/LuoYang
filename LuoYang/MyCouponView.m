@@ -65,7 +65,7 @@
     
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
-
+    
     [self loadData];
 }
 
@@ -230,6 +230,9 @@
             cell.titleLb.text = coupon.coupons_title;
             cell.validityLb.text = [NSString stringWithFormat:@"%@前有效", coupon.validityStr];
             
+            [cell.deleCouponBtn addTarget:self action:@selector(deleteAction:) forControlEvents:UIControlEventTouchUpInside];
+            cell.deleCouponBtn.tag = [indexPath row];
+            
             if (coupon.imgData) {
                 cell.thumbIv.image = coupon.imgData;
             }
@@ -262,6 +265,54 @@
         }
     }
     return nil;
+}
+
+- (IBAction)deleteAction:(id)sender {
+    UIButton *delbtn = (UIButton *)sender;
+    int rowIndex = delbtn.tag;
+    Coupons *coupon = [couponArray objectAtIndex:rowIndex];
+    NSMutableString *url = [NSMutableString stringWithFormat:@"%@%@?APPKey=%@&userid=%@&coupons_id=%@", api_base_url, api_delcoupons, appkey, [[UserModel Instance] getUserValueForKey:@"id"], coupon.coupons_id];
+    
+    [[AFOSCClient sharedClient] getPath:url parameters:Nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        @try
+        {
+            NSData *data = [operation.responseString dataUsingEncoding:NSUTF8StringEncoding];
+            NSError *error;
+            NSDictionary *statusDic = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+            if ([[statusDic valueForKey:@"status"] intValue] == 1) {
+                [couponArray removeObjectAtIndex:rowIndex];
+                [Tool showCustomHUD:@"删除成功" andView:self.view  andImage:@"37x-Checkmark.png" andAfterDelay:1];
+                [self.tableView reloadData];
+            }
+            else
+            {
+                [Tool showCustomHUD:@"删除失败" andView:self.view  andImage:@"37x-Failure.png" andAfterDelay:1];
+            }
+            
+        }
+        @catch (NSException *exception)
+        {
+            [NdUncaughtExceptionHandler TakeException:exception];
+        }
+        @finally
+        {
+            [self doneLoadingTableViewData];
+        }
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error)
+     {
+         NSLog(@"获取出错");
+         [self doneLoadingTableViewData];
+         //刷新错误
+         if([UserModel Instance].isNetworkRunning == NO)
+         {
+             return;
+         }
+         if([UserModel Instance].isNetworkRunning)
+         {
+             [Tool ToastNotification:@"错误 网络无连接" andView:self.view andLoading:NO andIsBottom:NO];
+         }
+     }];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

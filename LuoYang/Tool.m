@@ -642,10 +642,15 @@
         return nil;
     }
     NSMutableArray *myArray = [RMMapper mutableArrayOfClass:[Coupons class] fromArrayOfDictionary:conponJsonArray];
+    NSMutableArray *myArray2 = [[NSMutableArray alloc] init];
     for (Coupons *c in myArray) {
-        c.validityStr = [Tool intervalSinceNow:[Tool TimestampToDateStr:c.validity_date andFormatterStr:@"yyyy-MM-dd"]];
+        if ([c.status isEqualToString:@"0"]) {
+            c.validityStr = [Tool intervalSinceNow:[Tool TimestampToDateStr:c.validity_date andFormatterStr:@"yyyy-MM-dd"]];
+            [myArray2 addObject:c];
+        }
     }
-    return myArray;
+    myArray = nil;
+    return myArray2;
 }
 
 + (NSMutableArray *)readJsonStrToMyComplainArray:(NSString *)str

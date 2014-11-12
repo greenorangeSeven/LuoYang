@@ -20,6 +20,7 @@
 @property (nonatomic, retain) NSString *content;
 @property (nonatomic, retain) NSString *business_id;
 @property (nonatomic, retain) NSString *published;
+@property (nonatomic, retain) NSString *status;
 
 //mycoupons
 @property (nonatomic, retain) NSString *coupons_id;
@@ -32,5 +33,6 @@
 @property (nonatomic, retain) NSString *store_name;
 
 @property (retain,nonatomic) UIImage * imgData;
+
 
 @end

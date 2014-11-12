@@ -9,6 +9,7 @@
 #import "ShoppingCartView.h"
 #import "PayOrder.h"
 #import "ShoppingBuyView.h"
+#import "SSCheckBoxView.h"
 
 @interface ShoppingCartView ()
 
@@ -135,7 +136,8 @@
         good.store_name = [resultSet stringForColumn:@"store_name"];
         good.business_id = [resultSet stringForColumn:@"business_id"];
         good.number = [NSNumber numberWithInteger:[resultSet intForColumn:@"number"]];
-        
+        good.ischeck = [resultSet stringForColumn:@"ischeck"];
+        good.dbid = [NSNumber numberWithInteger:[resultSet intForColumn:@"id"]];
         total += [good.price doubleValue] * [good.number intValue];
         [goodData addObject:good];
     }
@@ -195,6 +197,39 @@
     
     [cell.deleteBtn addTarget:self action:@selector(deleteAction:) forControlEvents:UIControlEventTouchUpInside];
     cell.deleteBtn.tag = indexRow;
+    
+    SSCheckBoxView *cb = [[SSCheckBoxView alloc] initWithFrame:CGRectMake(3, 37, 50, 50) style:kSSCheckBoxViewStyleGreen checked:[good.ischeck isEqualToString:@"1"]];
+    [cb setStateChangedBlock:^(SSCheckBoxView *cbv) {
+        if (cbv.checked) {
+            FMDatabase* database=[FMDatabase databaseWithPath:[Tool databasePath]];
+            if (![database open]) {
+                NSLog(@"Open database failed");
+                return;
+            }
+            if (![database tableExists:@"shoppingcart"]) {
+                [database executeUpdate:createshoppingcart];
+            }
+            good.ischeck = @"1";
+            BOOL addGood = [database executeUpdate:@"update shoppingcart set ischeck = '1' where id= ?", good.dbid];
+            [database close];
+        }
+        else
+        {
+            FMDatabase* database=[FMDatabase databaseWithPath:[Tool databasePath]];
+            if (![database open]) {
+                NSLog(@"Open database failed");
+                return;
+            }
+            if (![database tableExists:@"shoppingcart"]) {
+                [database executeUpdate:createshoppingcart];
+            }
+            good.ischeck = @"0";
+            BOOL addGood = [database executeUpdate:@"update shoppingcart set ischeck = '0' where id= ?", good.dbid];
+            [database close];
+        }
+    }];
+    
+    [cell addSubview:cb];
     
     return cell;
 }

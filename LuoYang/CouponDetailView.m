@@ -168,7 +168,7 @@
         {
             [self.getBtn setTitle:@"已领取" forState:UIControlStateNormal];
             self.getBtn.enabled = NO;
-//            [Tool showCustomHUD:user.info andView:self.view  andImage:@"37x-Checkmark.png" andAfterDelay:1];
+            //            [Tool showCustomHUD:user.info andView:self.view  andImage:@"37x-Checkmark.png" andAfterDelay:1];
             UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"领取成功"
                                                          message:@"您领取优惠券后，拿手机到商家实体店，在\"我的\"中打开\"我的优惠\"券，向商家出示优惠券，即可使用。"
                                                         delegate:nil
@@ -196,8 +196,12 @@
         NSError *error = [request error ];
         assert (!error);
         NSString *value = (NSString *)[request responseString];
-        if ([value isEqualToString:@"1"]) {
+        if ([value isEqualToString:@"0"]) {
             [self.getBtn setTitle:@"已领取" forState:UIControlStateNormal];
+            self.getBtn.enabled = NO;
+        }
+        else if ([value isEqualToString:@"1"]){
+            [self.getBtn setTitle:@"已使用" forState:UIControlStateNormal];
             self.getBtn.enabled = NO;
         }
     }

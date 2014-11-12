@@ -31,6 +31,7 @@
 @property (nonatomic, retain) NSArray *attrsArray;
 
 @property (nonatomic, retain) NSString *attrsStr;
-
+@property (nonatomic, retain) NSString *ischeck;
+@property (nonatomic, retain) NSNumber *dbid;
 
 @end

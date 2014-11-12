@@ -102,6 +102,7 @@
 #define api_delbbs @"/del_bbs_subject"
 #define api_version_url @"/getVersion"
 #define api_mycoupons @"/my_coupons_list"
+#define api_delcoupons @"/del_my_coupons"
 #define api_shopscoupons @"/get_shops_coupons"
 #define api_supplier @"/supplier"
 #define api_getcinfo @"/get_community_info"
@@ -189,7 +190,7 @@
 #define MyComplainCellIdentifier @"MyComplainCellIdentifier"
 #define RechargeCellIdentifier @"RechargeCellIdentifier"
 
-#define createshoppingcart @"create table shoppingcart (id integer primary key autoincrement not null,goodid text,title text,attrs text,thumb text,price text,store_name text,business_id text,number int,user_id text)"
+#define createshoppingcart @"create table shoppingcart (id integer primary key autoincrement not null,goodid text,title text,attrs text,thumb text,price text,store_name text,business_id text,number int,user_id text,ischeck text)"
 
 
 #define Notification_RefreshMyRepairs @"Notification_RefreshMyRepairs"
