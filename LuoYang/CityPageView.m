@@ -177,6 +177,7 @@
     CityView *cityView = [[CityView alloc] init];
     cityView.typeStr = @"2";
     cityView.typeNameStr = @"城市文化";
+    
     cityView.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:cityView animated:YES];
 }
@@ -186,6 +187,7 @@
     CityView *cityView = [[CityView alloc] init];
     cityView.typeStr = @"1";
     cityView.typeNameStr = @"神都风采";
+    cityView.advId = @"10";
     cityView.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:cityView animated:YES];
 }
@@ -216,6 +218,7 @@
     CityView *cityView = [[CityView alloc] init];
     cityView.typeStr = @"4";
     cityView.typeNameStr = @"社区招商";
+    cityView.advId = @"18";
     cityView.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:cityView animated:YES];
 }
@@ -224,6 +227,7 @@
     CityView *cityView = [[CityView alloc] init];
     cityView.typeStr = @"5";
     cityView.typeNameStr = @"平台招商";
+    cityView.advId = @"17";
     cityView.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:cityView animated:YES];
 }
@@ -232,6 +236,7 @@
     CityView *cityView = [[CityView alloc] init];
     cityView.typeStr = @"6";
     cityView.typeNameStr = @"为聚英台";
+    cityView.advId = @"16";
     cityView.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:cityView animated:YES];
 }
@@ -247,7 +252,8 @@
 - (IBAction)mlhnAction:(id)sender {
     CityView *cityView = [[CityView alloc] init];
     cityView.typeStr = @"8";
-    cityView.typeNameStr = @"魅力中原";
+    cityView.typeNameStr = @"魅力河南";
+    cityView.advId = @"12";
     cityView.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:cityView animated:YES];
 }
@@ -256,6 +262,7 @@
     CityView *cityView = [[CityView alloc] init];
     cityView.typeStr = @"9";
     cityView.typeNameStr = @"母亲河基金";
+    cityView.advId = @"15";
     cityView.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:cityView animated:YES];
 }

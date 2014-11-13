@@ -78,23 +78,7 @@
 {
     //如果有网络连接
     if ([UserModel Instance].isNetworkRunning) {
-        //        [Tool showHUD:@"数据加载" andView:self.view andHUD:hud];
-        NSString *advType = @"7";
-        if ([self.typeStr isEqualToString:@"1"] || [self.typeStr isEqualToString:@"8"] || [self.typeStr isEqualToString:@"9"])
-        {
-            advType = @"7";
-        }
-        else if ([self.typeStr isEqualToString:@"2"])
-        {
-            advType = @"10";
-        }
-        else
-        {
-            advType = @"12";
-        }
-            
-        
-        NSMutableString *tempUrl = [NSMutableString stringWithFormat:@"%@%@?APPKey=%@&spaceid=%@", api_base_url, api_getadv, appkey, advType];
+        NSMutableString *tempUrl = [NSMutableString stringWithFormat:@"%@%@?APPKey=%@&spaceid=%@", api_base_url, api_getadv, appkey, self.advId];
         NSString *cid = [[UserModel Instance] getUserValueForKey:@"cid"];
         if (cid != nil && [cid length] > 0) {
             [tempUrl appendString:[NSString stringWithFormat:@"&cid=%@", cid]];

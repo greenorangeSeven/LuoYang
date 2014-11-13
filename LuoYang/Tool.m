@@ -957,13 +957,18 @@
         return nil;
     }
     NSMutableArray *orders = [RMMapper mutableArrayOfClass:[MyOrder class] fromArrayOfDictionary:orderJsonArray];
+    NSMutableArray *orders2 = [[NSMutableArray alloc] init];
     for (MyOrder *o in orders)
     {
-        NSMutableArray *goodsArray = [RMMapper mutableArrayOfClass:[MyGoods class]
-                                             fromArrayOfDictionary:o.goodlist];
-        o.goodArray = goodsArray;
+        if (![o.status isEqualToString:@"交易已取消"]) {
+            NSMutableArray *goodsArray = [RMMapper mutableArrayOfClass:[MyGoods class]
+                                                 fromArrayOfDictionary:o.goodlist];
+            o.goodArray = goodsArray;
+            [orders2 addObject:o];
+        }
+        
     }
-    return orders;
+    return orders2;
 }
 
 + (ResponseCode *)readJsonStrToResponseCode:(NSString *)str

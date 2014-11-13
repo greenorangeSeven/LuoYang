@@ -41,6 +41,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *advIv;
 @property (weak, nonatomic) NSString *typeStr;
 @property (weak, nonatomic) NSString *typeNameStr;
+@property (weak, nonatomic) NSString *advId;
 
 //异步加载图片专用
 @property (nonatomic, retain) NSMutableDictionary *imageDownloadsInProgress;

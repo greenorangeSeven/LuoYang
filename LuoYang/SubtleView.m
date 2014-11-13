@@ -169,7 +169,7 @@
 - (IBAction)allProductAction:(id)sender {
     BusinessDetailView *businessDetailView = [[BusinessDetailView alloc] init];
     businessDetailView.tjTitle = @"特价超市区";
-    businessDetailView.tjCatId = @"0";
+    businessDetailView.tjCatId = @"10";
     businessDetailView.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:businessDetailView animated:YES];
 }
