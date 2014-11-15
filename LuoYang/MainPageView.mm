@@ -12,6 +12,7 @@
 #import "SubtleView.h"
 #import "BusinessView.h"
 #import "CityView.h"
+#import "ConvCateView.h"
 
 @interface MainPageView ()
 
@@ -27,7 +28,7 @@
     if (self) {
         UILabel *titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 150, 44)];
         titleLabel.font = [UIFont boldSystemFontOfSize:18];
-        titleLabel.text = @"智慧社区中原";
+        titleLabel.text = @"中原智慧社区";
         titleLabel.backgroundColor = [UIColor clearColor];
         titleLabel.textColor = [Tool getColorForGreen];
         titleLabel.textAlignment = NSTextAlignmentCenter;
@@ -240,23 +241,6 @@
     }
 }
 
-- (IBAction)clickService:(UIButton *)sender
-{
-    ConvView *convView = [[ConvView alloc] init];
-    convView.hidesBottomBarWhenPushed = YES;
-    
-    [self.navigationController pushViewController:convView animated:YES];
-}
-
-- (IBAction)clickCityCulture:(UIButton *)sender
-{
-    CityView *cityView = [[CityView alloc] init];
-    cityView.typeStr = @"1";
-    cityView.typeNameStr = @"城市文化";
-    cityView.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:cityView animated:YES];
-}
-
 - (IBAction)stewardFeeAction:(id)sender {
     if ([UserModel Instance].isLogin == NO) {
         [Tool noticeLogin:self.view andDelegate:self andTitle:@""];
@@ -329,6 +313,13 @@
         advDetail.adv = adv;
         [self.navigationController pushViewController:advDetail animated:YES];
     }
+}
+
+- (IBAction)clickService:(UIButton *)sender
+{
+    ConvCateView *convView = [[ConvCateView alloc] init];
+    convView.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:convView animated:YES];
 }
 
 - (IBAction)pointsAction:(id)sender {

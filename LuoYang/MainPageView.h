@@ -31,12 +31,6 @@
 
 #pragma mark -按钮点击事件
 
-#pragma mark 便民服务
-- (IBAction)clickService:(UIButton *)sender;
-
-#pragma mark 城市文化
-- (IBAction)clickCityCulture:(UIButton *)sender;
-
 #pragma mark 精选特价
 - (IBAction)clickSubtle:(UIButton *)sender;
 
@@ -51,5 +45,6 @@
 - (IBAction)shareAction:(id)sender;
 - (IBAction)advDetailAction:(id)sender;
 - (IBAction)pointsAction:(id)sender;
+- (IBAction)clickService:(UIButton *)sender;
 
 @end

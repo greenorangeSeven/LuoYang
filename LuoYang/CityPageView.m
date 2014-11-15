@@ -235,7 +235,7 @@
 - (IBAction)zxlsAction:(id)sender {
     CityView *cityView = [[CityView alloc] init];
     cityView.typeStr = @"6";
-    cityView.typeNameStr = @"为聚英台";
+    cityView.typeNameStr = @"聚英台";
     cityView.advId = @"16";
     cityView.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:cityView animated:YES];
