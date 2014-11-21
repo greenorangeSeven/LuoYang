@@ -167,17 +167,37 @@
 }
 
 - (IBAction)selectTypeAction:(id)sender {
-    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"\n\n\n\n\n\n\n\n\n\n"
-                                                             delegate:self
-                                                    cancelButtonTitle:nil
-                                               destructiveButtonTitle:nil
-                                                    otherButtonTitles:@"确  定", nil];
-    actionSheet.tag = 0;
-    [actionSheet showInView:self.view];
-    UIPickerView *catePicker = [[UIPickerView alloc] init];
-    catePicker.delegate = self;
-    catePicker.showsSelectionIndicator = YES;
-    [actionSheet addSubview:catePicker];
+    if (IS_IOS8) {
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@""
+                                                                       message:@"\n\n\n\n\n\n\n\n\n\n"
+                                                                preferredStyle:UIAlertControllerStyleActionSheet];
+        
+        UIPickerView *catePicker = [[UIPickerView alloc] init];
+        catePicker.delegate = self;
+        catePicker.showsSelectionIndicator = YES;
+        [alert.view addSubview:catePicker];
+        
+        [alert addAction:[UIAlertAction actionWithTitle:@"确定"
+                                                  style:UIAlertActionStyleDefault
+                                                handler:^(UIAlertAction *action) {
+                                                    
+                                                }]];
+        [self presentViewController:alert animated:YES completion:nil];
+    }
+    else
+    {
+        UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"\n\n\n\n\n\n\n\n\n\n"
+                                                                 delegate:self
+                                                        cancelButtonTitle:nil
+                                                   destructiveButtonTitle:nil
+                                                        otherButtonTitles:@"确  定", nil];
+        actionSheet.tag = 0;
+        [actionSheet showInView:self.view];
+        UIPickerView *catePicker = [[UIPickerView alloc] init];
+        catePicker.delegate = self;
+        catePicker.showsSelectionIndicator = YES;
+        [actionSheet addSubview:catePicker];
+    }
 }
 
 - (IBAction)telAction:(id)sender {

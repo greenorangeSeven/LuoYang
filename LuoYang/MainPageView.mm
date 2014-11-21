@@ -69,9 +69,18 @@
         self.automaticallyAdjustsScrollViewInsets = NO;
     }
     scrollView.contentSize = CGSizeMake(self.scrollView.bounds.size.width, self.view.frame.size.height);
+    [Tool roundView:self.telBg andCornerRadius:3.0];
     hud = [[MBProgressHUD alloc] initWithView:self.view];
     [self initMainADV];
     [self getInBoxRemind];
+}
+
+- (IBAction)telAction:(id)sender{
+    NSURL *phoneUrl = [NSURL URLWithString:[NSString stringWithFormat:@"tel:%@", servicephone]];
+    if (!phoneCallWebView) {
+        phoneCallWebView = [[UIWebView alloc] initWithFrame:CGRectZero];
+    }
+    [phoneCallWebView loadRequest:[NSURLRequest requestWithURL:phoneUrl]];
 }
 
 - (void)initMainADV
@@ -317,9 +326,12 @@
 
 - (IBAction)clickService:(UIButton *)sender
 {
-    ConvCateView *convView = [[ConvCateView alloc] init];
-    convView.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:convView animated:YES];
+    CityView *cityView = [[CityView alloc] init];
+    cityView.typeStr = @"8";
+    cityView.typeNameStr = @"魅力河南";
+    cityView.advId = @"12";
+    cityView.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:cityView animated:YES];
 }
 
 - (IBAction)pointsAction:(id)sender {

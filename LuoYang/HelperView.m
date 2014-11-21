@@ -117,7 +117,7 @@
                                                SGFocusImageItem *item = [[SGFocusImageItem alloc] initWithTitle:adv.title image:adv.thumb tag:-1];
                                                [itemArray addObject:item];
                                            }
-                                           bannerView = [[SGFocusImageFrame alloc] initWithFrame:CGRectMake(0, 0, 320, 200) delegate:self imageItems:itemArray isAuto:YES];
+                                           bannerView = [[SGFocusImageFrame alloc] initWithFrame:CGRectMake(0, 0, 320, 145) delegate:self imageItems:itemArray isAuto:YES];
                                            [bannerView scrollToIndex:0];
                                            [self.advIv addSubview:bannerView];
                                        }

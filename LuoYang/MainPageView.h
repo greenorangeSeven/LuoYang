@@ -23,10 +23,13 @@
     int advIndex;
     
     MBProgressHUD *hud;
+    
+    UIWebView *phoneCallWebView;
 }
 
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIButton *pointsBtn;
+@property (strong, nonatomic) IBOutlet UILabel *telBg;
 @property (weak, nonatomic) IBOutlet UIImageView *advIv;
 
 #pragma mark -按钮点击事件
@@ -46,5 +49,7 @@
 - (IBAction)advDetailAction:(id)sender;
 - (IBAction)pointsAction:(id)sender;
 - (IBAction)clickService:(UIButton *)sender;
+
+- (IBAction)telAction:(id)sender;
 
 @end

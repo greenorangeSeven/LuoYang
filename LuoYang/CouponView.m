@@ -87,7 +87,7 @@
         @try
         {
             [self clear];
-            couponArray = [Tool readJsonStrToMyCouponArray:operation.responseString];
+            couponArray = [Tool readJsonStrToCouponArray:operation.responseString];
             [self.tableView reloadData];
             [self doneLoadingTableViewData];
         }
@@ -250,6 +250,7 @@
             }
             
             cell.validityLb.text = [NSString stringWithFormat:@"%@前有效", coupon.validityStr];
+            cell.deleCouponBtn.hidden = YES;
             
             if (coupon.imgData) {
                 cell.thumbIv.image = coupon.imgData;

@@ -169,6 +169,7 @@
 + (CityInfo *)readJsonStrToCityInfo:(NSString *)str;
 + (NSMutableArray *)readJsonStrToVolnArray:(NSString *)str;
 + (NSMutableArray *)readJsonStrToBBSArray:(NSString *)str;
++ (NSMutableArray *)readJsonStrToCouponArray:(NSString *)str;
 + (NSMutableArray *)readJsonStrToMyCouponArray:(NSString *)str;
 + (void *)saveJsonStrToCommunityTel:(NSString *)cid;
 + (NSMutableArray *)readJsonStrToMyComplainArray:(NSString *)str;

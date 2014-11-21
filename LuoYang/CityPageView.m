@@ -267,4 +267,13 @@
     [self.navigationController pushViewController:cityView animated:YES];
 }
 
+- (IBAction)alwAction:(id)sender {
+    CityView *cityView = [[CityView alloc] init];
+    cityView.typeStr = @"3";
+    cityView.typeNameStr = @"安乐窝";
+    cityView.advId = @"19";
+    cityView.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:cityView animated:YES];
+}
+
 @end

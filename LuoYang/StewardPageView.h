@@ -29,6 +29,7 @@
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (strong, nonatomic) IBOutlet UILabel *telBg;
 @property (weak, nonatomic) IBOutlet UIImageView *advIv;
+@property (weak, nonatomic) IBOutlet UILabel *telLb;
 
 - (IBAction)stewardFeeAction:(id)sender;
 - (IBAction)repairsAction:(id)sender;

@@ -39,5 +39,6 @@
 - (IBAction)fwdjAction:(id)sender;
 - (IBAction)mlhnAction:(id)sender;
 - (IBAction)mqhjjAction:(id)sender;
+- (IBAction)alwAction:(id)sender;
 
 @end

@@ -45,7 +45,7 @@
     faceEGOImageView.frame = CGRectMake(0.0f, 0.0f, 50.0f, 50.0f);
     [self.faceIv addSubview:faceEGOImageView];
     [self getParkFee];
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showAlertView) name:Notification_ShowPackAlertView object:nil];
+    //    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showAlertView) name:Notification_ShowPackAlertView object:nil];
 }
 
 - (void)getParkFee
@@ -56,7 +56,7 @@
         [[AFOSCClient sharedClient]getPath:url parameters:Nil
                                    success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                        @try {
-//                                           PropertyFeeInfo *feeInfo = [Tool readJsonStrToPropertyFeeInfo:operation.responseString];
+                                           //                                           PropertyFeeInfo *feeInfo = [Tool readJsonStrToPropertyFeeInfo:operation.responseString];
                                            NSData *data = [operation.responseString dataUsingEncoding:NSUTF8StringEncoding];
                                            NSError *error;
                                            NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
@@ -157,17 +157,37 @@
 
 - (IBAction)showPresetAction:(id)sender
 {
-    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"\n\n\n\n\n\n\n\n\n\n"
-                                                             delegate:self
-                                                    cancelButtonTitle:nil
-                                               destructiveButtonTitle:nil
-                                                    otherButtonTitles:@"确  定", nil];
-    actionSheet.tag = 0;
-    [actionSheet showInView:self.parentView];
-    UIPickerView *catePicker = [[UIPickerView alloc] init];
-    catePicker.delegate = self;
-    catePicker.showsSelectionIndicator = YES;
-    [actionSheet addSubview:catePicker];
+    if (IS_IOS8) {
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@""
+                                                                       message:@"\n\n\n\n\n\n\n\n\n\n"
+                                                                preferredStyle:UIAlertControllerStyleActionSheet];
+        
+        UIPickerView *catePicker = [[UIPickerView alloc] init];
+        catePicker.delegate = self;
+        catePicker.showsSelectionIndicator = YES;
+        [alert.view addSubview:catePicker];
+        
+        [alert addAction:[UIAlertAction actionWithTitle:@"确定"
+                                                  style:UIAlertActionStyleDefault
+                                                handler:^(UIAlertAction *action) {
+                                                    
+                                                }]];
+        [self presentViewController:alert animated:YES completion:nil];
+    }
+    else
+    {
+        UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"\n\n\n\n\n\n\n\n\n\n"
+                                                                 delegate:self
+                                                        cancelButtonTitle:nil
+                                                   destructiveButtonTitle:nil
+                                                        otherButtonTitles:@"确  定", nil];
+        actionSheet.tag = 0;
+        [actionSheet showInView:self.parentView];
+        UIPickerView *catePicker = [[UIPickerView alloc] init];
+        catePicker.delegate = self;
+        catePicker.showsSelectionIndicator = YES;
+        [actionSheet addSubview:catePicker];
+    }
 }
 
 #pragma mark 付费按钮事件处理

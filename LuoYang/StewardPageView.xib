@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
     <dependencies>
-        <deployment defaultVersion="1536" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="StewardPageView">
@@ -10,6 +10,7 @@
                 <outlet property="advIv" destination="A8x-zd-Vyx" id="8yQ-Gs-eBm"/>
                 <outlet property="scrollView" destination="HMR-nI-bgi" id="FD7-mp-rGJ"/>
                 <outlet property="telBg" destination="yX3-We-aq8" id="qhR-ik-b5M"/>
+                <outlet property="telLb" destination="n2z-zH-8Tz" id="Mfh-aF-toA"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -22,7 +23,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="454"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <subviews>
-                        <imageView multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wuye_bg.png" id="A8x-zd-Vyx">
+                        <imageView multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loadingpic1.png" id="A8x-zd-Vyx">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="145"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
@@ -121,7 +122,7 @@
                             <rect key="frame" x="19" y="395" width="47" height="42"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="立即致电全国统一服务热线咨询" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="eK5-mL-3IQ">
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="立即致电物业服务热线咨询" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="eK5-mL-3IQ">
                             <rect key="frame" x="79" y="395" width="180" height="21"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -168,20 +169,24 @@
                 </scrollView>
             </subviews>
             <color key="backgroundColor" red="0.74509803919999995" green="0.7725490196" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
-            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </view>
     </objects>
     <resources>
         <image name="life_btn_bg.png" width="297" height="239"/>
+        <image name="loadingpic1.png" width="320" height="143"/>
         <image name="rightarrows.png" width="18" height="19"/>
         <image name="tellogo.png" width="46" height="41"/>
         <image name="wuye_baoxiu.png" width="47" height="48"/>
-        <image name="wuye_bg.png" width="320" height="133"/>
         <image name="wuye_jiaofei.png" width="48" height="48"/>
         <image name="wuye_juweihui.png" width="48" height="48"/>
         <image name="wuye_notification.png" width="48" height="47"/>
         <image name="wuye_send.png" width="48" height="48"/>
         <image name="wuye_tousu.png" width="48" height="48"/>
     </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
 </document>

@@ -61,6 +61,9 @@
     self.view.backgroundColor = [Tool getBackgroundColor];
     scrollView.contentSize = CGSizeMake(self.scrollView.bounds.size.width, self.view.frame.size.height);
     [Tool roundView:self.telBg andCornerRadius:3.0];
+    
+    
+    
     [self initMainADV];
 }
 
@@ -165,6 +168,12 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    NSString *telNum = [[UserModel Instance] getUserValueForKey:@"CommunityTel"];
+    if (!telNum) {
+        telNum = servicephone;
+    }
+    self.tellB.text = telNum;
+    
     self.navigationController.navigationBar.hidden = NO;
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
     bannerView.delegate = self;
@@ -223,7 +232,7 @@
 }
 
 - (IBAction)telAction:(id)sender{
-    NSURL *phoneUrl = [NSURL URLWithString:[NSString stringWithFormat:@"tel:%@", servicephone]];
+    NSURL *phoneUrl = [NSURL URLWithString:[NSString stringWithFormat:@"tel:%@", self.tellB.text]];
     if (!phoneCallWebView) {
         phoneCallWebView = [[UIWebView alloc] initWithFrame:CGRectZero];
     }

@@ -32,6 +32,7 @@
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (strong, nonatomic) IBOutlet UILabel *telBg;
 @property (weak, nonatomic) IBOutlet UIImageView *advIv;
+@property (weak, nonatomic) IBOutlet UILabel *tellB;
 
 - (IBAction)clickService:(UIButton *)sender;
 - (IBAction)clickRecharge:(UIButton *)sender;
