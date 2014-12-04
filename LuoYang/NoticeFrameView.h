@@ -11,6 +11,8 @@
 
 @interface NoticeFrameView : UIViewController
 
+@property (strong, nonatomic) NSString *presentType;
+
 @property (strong, nonatomic) NewsTableView *noticeView;
 @property (strong, nonatomic) NewsTableView *activityView;
 

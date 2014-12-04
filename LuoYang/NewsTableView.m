@@ -209,7 +209,7 @@
         if (!noRefresh) {
             allCount = 0;
         }
-        int pageIndex = allCount/20;
+        int pageIndex = allCount/20 + 1;
         NSMutableString *tempUrl;
         switch (self.catalog) {
             case 1:

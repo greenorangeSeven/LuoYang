@@ -193,7 +193,8 @@
         [alert addAction:[UIAlertAction actionWithTitle:@"确定"
                                                   style:UIAlertActionStyleDefault
                                                 handler:^(UIAlertAction *action) {
-                                                    
+                                                    double sumMoney = arrearage + presetValue;
+                                                    self.sumMoneyLb.text = [NSString stringWithFormat:@"￥%0.2f元", sumMoney];
                                                 }]];
         [self presentViewController:alert animated:YES completion:nil];
     }
@@ -283,9 +284,11 @@
         {
             PayOrder *pro = [[PayOrder alloc] init];
             pro.out_no = num.trade_no;
-            pro.subject = @"美世界物业费";
-            pro.body = @"美世界物业费在线缴纳";
-            pro.price = 0.01;
+            pro.subject = @"中原智慧社区物业费";
+            pro.body = @"中原智慧社区物业费在线缴纳";
+            double sumMoney = arrearage + presetValue;
+            pro.price = sumMoney;
+//            pro.price = 0.01;
             pro.partnerID = [usermodel getUserValueForKey:@"DEFAULT_PARTNER"];
             pro.partnerPrivKey = [usermodel getUserValueForKey:@"PRIVATE"];
             pro.sellerID = [usermodel getUserValueForKey:@"DEFAULT_SELLER"];

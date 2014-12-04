@@ -37,6 +37,13 @@
 
 - (void)backAction
 {
+    UserModel *userModel = [UserModel Instance];
+    [userModel saveValue:selectCommunityId ForKey:@"selectCommunityId"];
+    [userModel saveValue:selectCommunityStr ForKey:@"selectCommunityStr"];
+    [userModel saveValue:selectBuildId ForKey:@"selectBuildId"];
+    [userModel saveValue:selectBuildStr ForKey:@"selectBuildStr"];
+    [userModel saveValue:selectHouseId ForKey:@"selectHouseId"];
+    [userModel saveValue:selectHouseStr ForKey:@"selectHouseStr"];
     [self.navigationController popViewControllerAnimated:YES];
 }
 

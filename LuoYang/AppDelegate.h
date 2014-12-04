@@ -21,10 +21,10 @@
 #import "WeiboApi.h"
 #import "AlixPayResult.h"
 #import "DataVerifier.h"
-#import "BPush.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate, BMKGeneralDelegate>
 
+@property BOOL isForeground;
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) UITabBarController *tabBarController;
 

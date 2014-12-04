@@ -130,6 +130,7 @@
 {
     [goods removeAllObjects];
     [_imageDownloadsInProgress removeAllObjects];
+    isLoadOver = NO;
 }
 
 //取数方法
@@ -171,7 +172,10 @@
                                            [self doneLoadingTableViewData];
                                            
                                            if (self.tjCatId != nil && [self.tjCatId length] > 0) {
-                                               [self initMainADV];
+                                               if(advDatas == nil || [advDatas count] == 0)
+                                               {
+                                                   [self initMainADV];
+                                               }
                                            }
                                            else
                                            {
@@ -405,6 +409,10 @@
 {
     [super viewWillDisappear:animated];
     bannerView.delegate = nil;
+    if (self.imageDownloadsInProgress != nil) {
+        NSArray *allDownloads = [self.imageDownloadsInProgress allValues];
+        [allDownloads makeObjectsPerformSelector:@selector(cancelDownload)];
+    }
 }
 
 //定义展示的UICollectionViewCell的个数

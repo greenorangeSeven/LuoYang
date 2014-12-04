@@ -8,6 +8,9 @@
 
 #import "AppDelegate.h"
 
+#import "XGPush.h"
+#import "XGSetting.h"
+
 BMKMapManager* _mapManager;
 
 @implementation AppDelegate
@@ -17,6 +20,47 @@ BMKMapManager* _mapManager;
 @synthesize shopCarPage;
 @synthesize tabBarController;
 @synthesize cityPage;
+
+- (void)registerPushForIOS8{
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= _IPHONE80_
+    
+    //Types
+    UIUserNotificationType types = UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert;
+    
+    //Actions
+    UIMutableUserNotificationAction *acceptAction = [[UIMutableUserNotificationAction alloc] init];
+    
+    acceptAction.identifier = @"ACCEPT_IDENTIFIER";
+    acceptAction.title = @"Accept";
+    
+    acceptAction.activationMode = UIUserNotificationActivationModeForeground;
+    acceptAction.destructive = NO;
+    acceptAction.authenticationRequired = NO;
+    
+    //Categories
+    UIMutableUserNotificationCategory *inviteCategory = [[UIMutableUserNotificationCategory alloc] init];
+    
+    inviteCategory.identifier = @"INVITE_CATEGORY";
+    
+    [inviteCategory setActions:@[acceptAction] forContext:UIUserNotificationActionContextDefault];
+    
+    [inviteCategory setActions:@[acceptAction] forContext:UIUserNotificationActionContextMinimal];
+    
+    NSSet *categories = [NSSet setWithObjects:inviteCategory, nil];
+    
+    
+    UIUserNotificationSettings *mySettings = [UIUserNotificationSettings settingsForTypes:types categories:categories];
+    
+    [[UIApplication sharedApplication] registerUserNotificationSettings:mySettings];
+    
+    
+    [[UIApplication sharedApplication] registerForRemoteNotifications];
+#endif
+}
+
+- (void)registerPush{
+    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound)];
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -93,13 +137,53 @@ BMKMapManager* _mapManager;
     [self addSkipBackupAttributeToItemAtURL:dbURLPath];
     [self addSkipBackupAttributeToPath:directory];
     
-    [BPush setupChannel:launchOptions]; // 必须
-    [BPush setDelegate:self]; // 必须。参数对象必须实现onMethod: response:方法，本示例中为self
-    // [BPush setAccessToken:@"3.ad0c16fa2c6aa378f450f54adb08039.2592000.1367133742.282335-602025"];  // 可选。api key绑定时不需要，也可在其它时机调用
-    [application registerForRemoteNotificationTypes:
-     UIRemoteNotificationTypeAlert
-     | UIRemoteNotificationTypeBadge
-     | UIRemoteNotificationTypeSound];
+    //集成信鸽start
+    [XGPush startApp:2200065165 appKey:@"I873KJNK6V4T"];
+    
+    //注销之后需要再次注册前的准备
+    void (^successCallback)(void) = ^(void){
+        //如果变成需要注册状态
+        if(![XGPush isUnRegisterStatus])
+        {
+            //iOS8注册push方法
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= _IPHONE80_
+            
+            float sysVer = [[[UIDevice currentDevice] systemVersion] floatValue];
+            if(sysVer < 8){
+                [self registerPush];
+            }
+            else{
+                [self registerPushForIOS8];
+            }
+#else
+            //iOS8之前注册push方法
+            //注册Push服务，注册后才能收到推送
+            [self registerPush];
+#endif
+        }
+    };
+    [XGPush initForReregister:successCallback];
+    
+    //[XGPush setAccount:@"testAccount1"];
+    
+    //推送反馈(app不在前台运行时，点击推送激活时)
+    //[XGPush handleLaunching:launchOptions];
+    
+    //推送反馈回调版本示例
+    void (^successBlock)(void) = ^(void){
+        //成功之后的处理
+        NSLog(@"[XGPush]handleLaunching's successBlock");
+    };
+    
+    void (^errorBlock)(void) = ^(void){
+        //失败之后的处理
+        NSLog(@"[XGPush]handleLaunching's errorBlock");
+    };
+    //清除所有通知(包含本地通知)
+    [[UIApplication sharedApplication] cancelAllLocalNotifications];
+    
+    [XGPush handleLaunching:launchOptions successCallback:successBlock errorCallback:errorBlock];
+    //信鸽END
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     [self.window setRootViewController:self.tabBarController ];
@@ -108,35 +192,141 @@ BMKMapManager* _mapManager;
     return YES;
 }
 
-- (void)application:(UIApplication *)application
-didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
-{
+//信鸽
+-(void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification{
+    //notification是发送推送时传入的字典信息
+    [XGPush localNotificationAtFrontEnd:notification userInfoKey:@"clockID" userInfoValue:@"myid"];
     
-    [BPush registerDeviceToken:deviceToken]; // 必须
-    [BPush bindChannel]; // 必须。可以在其它时机调用，只有在该方法返回（通过onMethod:response:回调）绑定成功时，app才能接收到Push消息。一个app绑定成功至少一次即可（如果access token变更请重新绑定）。
+    //删除推送列表中的这一条
+    [XGPush delLocalNotification:notification];
+    //[XGPush delLocalNotification:@"clockID" userInfoValue:@"myid"];
+    
+    //清空推送列表
+    //[XGPush clearLocalNotifications];
 }
 
-// 必须，如果正确调用了setDelegate，在bindChannel之后，结果在这个回调中返回。
-// 若绑定失败，请进行重新绑定，确保至少绑定成功一次
-- (void) onMethod:(NSString*)method response:(NSDictionary*)data
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= _IPHONE80_
+
+//注册UserNotification成功的回调
+- (void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings
 {
-    if ([BPushRequestMethod_Bind isEqualToString:method])
-    {
-        NSDictionary* res = [[NSDictionary alloc] initWithDictionary:data];
+    //用户已经允许接收以下类型的推送
+    //UIUserNotificationType allowedTypes = [notificationSettings types];
+    
+}
+
+//按钮点击事件回调
+- (void)application:(UIApplication *)application handleActionWithIdentifier:(NSString *)identifier forRemoteNotification:(NSDictionary *)userInfo completionHandler:(void (^)())completionHandler{
+    if([identifier isEqualToString:@"ACCEPT_IDENTIFIER"]){
+        NSLog(@"ACCEPT_IDENTIFIER is clicked");
+    }
+    
+    completionHandler();
+}
+
+#endif
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+    
+    NSString * deviceTokenStr = [XGPush registerDevice:deviceToken];
+    
+    void (^successBlock)(void) = ^(void){
+        //成功之后的处理
+        NSLog(@"[XGPush]register successBlock ,deviceToken: %@",deviceTokenStr);
+    };
+    
+    void (^errorBlock)(void) = ^(void){
+        //失败之后的处理
+        NSLog(@"[XGPush]register errorBlock");
+    };
+    
+    //注册设备
+    [[XGSetting getInstance] setChannel:@"appstore"];
+    //    [[XGSetting getInstance] setGameServer:@"巨神峰"];
+    [XGPush registerDevice:deviceToken successCallback:successBlock errorCallback:errorBlock];
+    [XGPush setTag:@"0"];
+    //如果不需要回调
+    //[XGPush registerDevice:deviceToken];
+    
+    //打印获取的deviceToken的字符串
+    NSLog(@"deviceTokenStr is %@",deviceTokenStr);
+}
+
+//如果deviceToken获取不到会进入此事件
+- (void)application:(UIApplication *)app didFailToRegisterForRemoteNotificationsWithError:(NSError *)err {
+    
+    NSString *str = [NSString stringWithFormat: @"Error: %@",err];
+    
+    NSLog(@"%@",str);
+    
+}
+
+//点击通知出发事件
+- (void)application:(UIApplication*)application didReceiveRemoteNotification:(NSDictionary*)userInfo
+{
+    //推送反馈(app运行时)
+    [XGPush handleReceiveNotification:userInfo];
+    
+    
+    //回调版本示例
+    /**/
+    void (^successBlock)(void) = ^(void){
+        //成功之后的处理
+        NSLog(@"[XGPush]handleReceiveNotification successBlock");
+        if (_isForeground == YES) {
+            //角标清0
+            [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
+            //清除所有通知(包含本地通知)
+            [[UIApplication sharedApplication] cancelAllLocalNotifications];
+            NoticeFrameView *noticeView = [[NoticeFrameView alloc] initWithNibName:@"NoticeFrameView" bundle:nil];
+            noticeView.presentType = @"present";
+            UINavigationController *noticeViewNav = [[UINavigationController alloc] initWithRootViewController:noticeView];
+            
+            [self.window.rootViewController presentViewController:noticeViewNav animated:YES completion:^{
+                _isForeground = NO;
+            }];
+        }
+        else
+        {
+            NSString *alertStr = [[userInfo objectForKey:@"aps"] objectForKey:@"alert"];
+            UIAlertView *notificationAlert = [[UIAlertView alloc] initWithTitle:@"推送消息" message:alertStr delegate:self cancelButtonTitle:@"忽略" otherButtonTitles:@"查看", nil];
+            [notificationAlert show];
+        }
         
-        NSString *appid = [res valueForKey:BPushRequestAppIdKey];
-        NSString *userid = [res valueForKey:BPushRequestUserIdKey];
-        NSString *channelid = [res valueForKey:BPushRequestChannelIdKey];
-        int returnCode = [[res valueForKey:BPushRequestErrorCodeKey] intValue];
-        NSString *requestid = [res valueForKey:BPushRequestRequestIdKey];
+    };
+    
+    void (^errorBlock)(void) = ^(void){
+        //失败之后的处理
+        NSLog(@"[XGPush]handleReceiveNotification errorBlock");
+    };
+    
+    void (^completion)(void) = ^(void){
+        //失败之后的处理
+        NSLog(@"[xg push completion]userInfo is %@",userInfo);
+    };
+    
+    [XGPush handleReceiveNotification:userInfo successCallback:successBlock errorCallback:errorBlock completion:completion];
+    
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 1) {
+        //角标清0
+        [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
+        //清除所有通知(包含本地通知)
+        [[UIApplication sharedApplication] cancelAllLocalNotifications];
+        NoticeFrameView *noticeView = [[NoticeFrameView alloc] initWithNibName:@"NoticeFrameView" bundle:nil];
+        noticeView.presentType = @"present";
+        UINavigationController *noticeViewNav = [[UINavigationController alloc] initWithRootViewController:noticeView];
+        
+        [self.window.rootViewController presentViewController:noticeViewNav animated:YES completion:^{
+            
+        }];
     }
 }
 
-- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
-{
-    [BPush handleNotification:userInfo]; // 可选
-    //userInfo包含推送消息值及消息附加值
-}
+//信鸽
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {
@@ -146,12 +336,16 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
+    //角标清0
     [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
+    //清除所有通知(包含本地通知)
+    [[UIApplication sharedApplication] cancelAllLocalNotifications];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+    _isForeground = YES;
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application

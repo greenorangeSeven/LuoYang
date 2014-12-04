@@ -16,6 +16,7 @@
 #import "ArticleView.h"
 #import "ADVDetailView.h"
 #import "ComplainView.h"
+#import "NewsTable2View.h"
 
 @interface StewardPageView : UIViewController<SGFocusImageFrameDelegate, UIActionSheetDelegate>
 {
@@ -38,5 +39,7 @@
 - (IBAction)arttileAction:(id)sender;
 - (IBAction)telAction:(id)sender;
 - (IBAction)complainAction:(id)sender;
+- (IBAction)clickBBS:(id)sender;
+- (IBAction)newsTable2Action:(id)sender;
 
 @end

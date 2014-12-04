@@ -7,7 +7,7 @@
 //
 
 #import "LifePageView.h"
-
+#import "RuhuWeixiuView.h"
 
 @interface LifePageView ()
 
@@ -256,6 +256,16 @@
     CouponView *couponView = [[CouponView alloc] init];
     couponView.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:couponView animated:YES];
+}
+
+- (IBAction)ruwxAction:(id)sender {
+    if ([UserModel Instance].isLogin == NO) {
+        [Tool noticeLogin:self.view andDelegate:self andTitle:@""];
+        return;
+    }
+    RuhuWeixiuView *rhwxView = [[RuhuWeixiuView alloc] init];
+    rhwxView.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:rhwxView animated:YES];
 }
 
 @end

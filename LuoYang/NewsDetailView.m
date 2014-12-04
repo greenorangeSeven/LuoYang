@@ -72,6 +72,12 @@
     {
         titleLabel.text = @"活动详情";
     }
+    else
+    {
+        self.webView.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.frame.size.height);
+        self.menuView.hidden = YES;
+        titleLabel.text = @"详情";
+    }
     [self.pointsBtn setTitle:[NSString stringWithFormat:@"点赞( %@ )", self.news.points] forState:UIControlStateNormal];
     
     NSString *detailUrl = [NSString stringWithFormat:@"%@%@?APPKey=%@&id=%@", api_base_url, api_getnoticeinfo, appkey, news.id];

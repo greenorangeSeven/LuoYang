@@ -37,7 +37,15 @@
 
 - (void)backAction
 {
-    [self.navigationController popViewControllerAnimated:YES];
+    if ([self.presentType isEqualToString:@"present"]) {
+        [self.navigationController dismissViewControllerAnimated:YES completion:^{
+            
+        }];
+    }
+    else
+    {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 
 - (void)viewDidLoad

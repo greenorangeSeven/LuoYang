@@ -53,7 +53,7 @@
 {
     if ([[[UserModel Instance] getUserValueForKey:@"house_number"] isEqualToString:@""]) {
         UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"温馨提醒"
-                                                     message:@"您的个人信息不完善，暂未能在线报修，请完善个人信息！"
+                                                     message:@"您的个人信息不完善，请完善个人信息！"
                                                     delegate:self
                                            cancelButtonTitle:nil
                                            otherButtonTitles:@"确定", nil];
@@ -157,7 +157,7 @@
     [Tool roundTextView:self.contentTv andBorderWidth:1 andCornerRadius:3.0];
     if ([[[UserModel Instance] getUserValueForKey:@"house_number"] isEqualToString:@""]) {
         UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"温馨提醒"
-                                                     message:@"您的个人信息不完善，暂未能在线报修，请完善个人信息！"
+                                                     message:@"您的个人信息不完善，请完善个人信息！"
                                                     delegate:self
                                            cancelButtonTitle:nil
                                            otherButtonTitles:@"确定", nil];

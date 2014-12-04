@@ -109,7 +109,8 @@
 #define api_feedback @"/feedback"
 #define api_myfeedback @"/my_feedback"
 #define api_getlinks @"/get_links_list"
-
+#define api_addweixiu @"/add_weixiu"
+#define api_getmyweixiu @"/my_weixiu"
 
 //商品下单地址
 #define api_send_order @"/send_order"

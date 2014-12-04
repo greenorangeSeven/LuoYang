@@ -7,6 +7,7 @@
 //
 
 #import "StewardPageView.h"
+#import "ProjectCollectionView.h"
 
 @interface StewardPageView ()
 
@@ -251,6 +252,18 @@
     ComplainView *comView = [[ComplainView alloc] init];
     comView.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:comView animated:YES];
+}
+
+- (IBAction)clickBBS:(id)sender {
+    ProjectCollectionView *projectView = [[ProjectCollectionView alloc] init];
+    projectView.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:projectView animated:YES];
+}
+
+- (IBAction)newsTable2Action:(id)sender {
+    NewsTable2View *newsTableView = [[NewsTable2View alloc] init];
+    newsTableView.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:newsTableView animated:YES];
 }
 
 @end

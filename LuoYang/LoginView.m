@@ -139,8 +139,17 @@
             [userModel saveValue:user.comm_name ForKey:@"comm_name"];
             [userModel saveValue:user.build_name ForKey:@"build_name"];
             
-            NSArray *tags = [[NSArray alloc] initWithObjects:user.cid, [NSString stringWithFormat:@"userid%@", user.id], nil];
-            [BPush setTags:tags];
+//            NSArray *tags = [[NSArray alloc] initWithObjects:user.cid, [NSString stringWithFormat:@"userid%@", user.id], nil];
+//            for (NSString *tag in tags) {
+//                [XGPush setTag:tag];
+//            }
+            
+            NSString *cidTag = [userModel getUserValueForKey:@"cid"];
+            if (cidTag != nil && [cidTag length] > 0) {
+                [XGPush setTag:cidTag];
+            }
+            [XGPush setTag:[NSString stringWithFormat:@"userid%@", user.id]];
+            
             
             UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"登录提醒"
                                                          message:errorMessage

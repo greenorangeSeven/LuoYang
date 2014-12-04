@@ -39,6 +39,19 @@
 
 - (void)backAction
 {
+    UserModel *userModel = [UserModel Instance];
+    [userModel saveValue:selectProvinceId ForKey:@"selectProvinceId"];
+    [userModel saveValue:selectProvinceStr ForKey:@"selectProvinceStr"];
+    [userModel saveValue:selectCityId ForKey:@"selectCityId"];
+    [userModel saveValue:selectCityStr ForKey:@"selectCityStr"];
+    [userModel saveValue:selectRegionId ForKey:@"selectRegionId"];
+    [userModel saveValue:selectRegionStr ForKey:@"selectRegionStr"];
+    [userModel saveValue:selectCommunityId ForKey:@"selectCommunityId"];
+    [userModel saveValue:selectCommunityStr ForKey:@"selectCommunityStr"];
+    [userModel saveValue:selectBuildId ForKey:@"selectBuildId"];
+    [userModel saveValue:selectBuildStr ForKey:@"selectBuildStr"];
+    [userModel saveValue:selectHouseId ForKey:@"selectHouseId"];
+    [userModel saveValue:selectHouseStr ForKey:@"selectHouseStr"];
     [self.navigationController popViewControllerAnimated:YES];
 }
 

@@ -269,9 +269,9 @@
 
 - (IBAction)alwAction:(id)sender {
     CityView *cityView = [[CityView alloc] init];
-    cityView.typeStr = @"3";
+    cityView.typeStr = @"10";
     cityView.typeNameStr = @"安乐窝";
-    cityView.advId = @"19";
+    cityView.advId = @"21";
     cityView.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:cityView animated:YES];
 }

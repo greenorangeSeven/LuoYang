@@ -204,14 +204,19 @@
             NSString * selectBuildId = [userModel getUserValueForKey:@"selectBuildId"];
             NSString * selectHouseStr = [userModel getUserValueForKey:@"selectHouseStr"];
             if (![selectCommunityId isEqualToString:@""] && ![selectBuildId isEqualToString:@""] && ![selectHouseStr isEqualToString:@""]) {
+                NSString *oldTag = [userModel getUserValueForKey:@"cid"];
+                if (oldTag != nil && [oldTag length] > 0) {
+                    [XGPush delTag:oldTag];
+                }
+                
                 [userModel saveValue:selectCommunityId ForKey:@"cid"];
                 [userModel saveValue:selectBuildId ForKey:@"build_id"];
                 [userModel saveValue:selectHouseStr ForKey:@"house_number"];
                 [userModel saveValue:[userModel getUserValueForKey:@"selectCommunityStr"] ForKey:@"comm_name"];
                 [userModel saveValue:[userModel getUserValueForKey:@"selectBuildStr"] ForKey:@"build_name"];
                 
-                NSArray *tags = [[NSArray alloc] initWithObjects:[userModel getUserValueForKey:@"cid"], [NSString stringWithFormat:@"userid%@", [userModel getUserValueForKey:@"id"]], nil];
-                [BPush setTags:tags];
+
+                [XGPush setTag:selectCommunityId];
             }
             
             [userModel saveValue:self.nameTf.text ForKey:@"name"];

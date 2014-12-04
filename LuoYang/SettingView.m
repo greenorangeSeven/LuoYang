@@ -8,6 +8,7 @@
 
 #import "SettingView.h"
 #import "MyComplainView.h"
+#import "MyRuHuWeiXiuView.h"
 
 @implementation SettingView
 @synthesize tableSettings;
@@ -99,6 +100,7 @@
                        [[SettingModel alloc] initWith:@"我的停车费" andImg:@"setting_parkfee" andTag:7 andTitle2:nil],
                        [[SettingModel alloc] initWith:@"我的寄件箱" andImg:@"setting_mail" andTag:8 andTitle2:nil],
                        [[SettingModel alloc] initWith:@"我的投诉建议" andImg:@"setting_collect" andTag:11 andTitle2:nil],
+                       [[SettingModel alloc] initWith:@"我的入户维修" andImg:@"setting_collect" andTag:13 andTitle2:nil],
                        nil];
 
     
@@ -268,8 +270,32 @@
             {
                 [ASIHTTPRequest setSessionCookies:nil];
                 [ASIHTTPRequest clearSession];
+                //注销时删除标签
+                NSString *cidTag = [[UserModel Instance] getUserValueForKey:@"cid"];
+                if (cidTag != nil && [cidTag length] > 0) {
+                    [XGPush delTag:cidTag];
+                }
+                [XGPush delTag:[NSString stringWithFormat:@"userid%@", [[UserModel Instance] getUserValueForKey:@"id"]]];
                 [[UserModel Instance] saveIsLogin:NO];
                 [Tool showCustomHUD:@"注销成功" andView:self.view andImage:@"37x-Checkmark.png" andAfterDelay:2];
+            }
+        }
+            break;
+        case 13:
+        {
+            if (![[UserModel Instance] isLogin])
+            {
+                [Tool showCustomHUD:@"请先登录" andView:self.view andImage:@"37x-Failure.png" andAfterDelay:2];
+            }
+            else
+            {
+                if (![[UserModel Instance] isLogin])
+                {
+                    [Tool showCustomHUD:@"请先登录" andView:self.view andImage:@"37x-Failure.png" andAfterDelay:2];
+                    return;
+                }
+                MyRuHuWeiXiuView *myRhwx = [[MyRuHuWeiXiuView alloc] init];
+                [self.navigationController pushViewController:myRhwx animated:YES];;
             }
         }
             break;
