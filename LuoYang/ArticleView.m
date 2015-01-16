@@ -7,6 +7,7 @@
 //
 
 #import "ArticleView.h"
+#import "ADVDetailView.h"
 
 @interface ArticleView ()
 
@@ -81,7 +82,7 @@
     
     if ([[[UserModel Instance] getUserValueForKey:@"house_number"] isEqualToString:@""] == NO)
     {
-        if (advs ==nil || [advs count] == 0) {
+        if (articles ==nil || [articles count] == 0) {
             [self initMainADV];
             [self reload];
         }
@@ -93,7 +94,7 @@
     //如果有网络连接
     if ([UserModel Instance].isNetworkRunning) {
         //        [Tool showHUD:@"数据加载" andView:self.view andHUD:hud];
-        NSMutableString *tempUrl = [NSMutableString stringWithFormat:@"%@%@?APPKey=%@", api_base_url, api_articlepiclist, appkey];
+        NSMutableString *tempUrl = [NSMutableString stringWithFormat:@"%@%@?APPKey=%@&spaceid=25", api_base_url, api_getadv, appkey];
         NSString *cid = [[UserModel Instance] getUserValueForKey:@"cid"];
         if (cid != nil && [cid length] > 0) {
             [tempUrl appendString:[NSString stringWithFormat:@"&cid=%@", cid]];
@@ -102,40 +103,44 @@
         [[AFOSCClient sharedClient]getPath:url parameters:Nil
                                    success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                        @try {
-                                           advs = [Tool readJsonStrToArticleArray:operation.responseString];
+                                           advDatas = [Tool readJsonStrToADV:operation.responseString];
                                            
-                                           int length = [advs count];
-
+                                           int length = [advDatas count];
+                                           //点赞按钮初始化
+                                           Advertisement *adv = (Advertisement *)[advDatas objectAtIndex:advIndex];
+                                           
                                            NSMutableArray *itemArray = [NSMutableArray arrayWithCapacity:length+2];
                                            if (length > 1)
                                            {
-                                               Article *adv = [advs objectAtIndex:length-1];
-                                               SGFocusImageItem *item = [[SGFocusImageItem alloc] initWithTitle:adv.title image:adv.thumb tag:-1];
+                                               Advertisement *adv = [advDatas objectAtIndex:length-1];
+                                               SGFocusImageItem *item = [[SGFocusImageItem alloc] initWithTitle:adv.title image:adv.pic tag:-1];
                                                [itemArray addObject:item];
                                            }
                                            for (int i = 0; i < length; i++)
                                            {
-                                               Article *adv = [advs objectAtIndex:i];
-                                               SGFocusImageItem *item = [[SGFocusImageItem alloc] initWithTitle:adv.title image:adv.thumb tag:-1];
+                                               Advertisement *adv = [advDatas objectAtIndex:i];
+                                               SGFocusImageItem *item = [[SGFocusImageItem alloc] initWithTitle:adv.title image:adv.pic tag:-1];
                                                [itemArray addObject:item];
                                                
                                            }
                                            //添加第一张图 用于循环
                                            if (length >1)
                                            {
-                                               Article *adv = [advs objectAtIndex:0];
-                                               SGFocusImageItem *item = [[SGFocusImageItem alloc] initWithTitle:adv.title image:adv.thumb tag:-1];
+                                               Advertisement *adv = [advDatas objectAtIndex:0];
+                                               SGFocusImageItem *item = [[SGFocusImageItem alloc] initWithTitle:adv.title image:adv.pic tag:-1];
                                                [itemArray addObject:item];
                                            }
                                            bannerView = [[SGFocusImageFrame alloc] initWithFrame:CGRectMake(0, 0, 320, 181) delegate:self imageItems:itemArray isAuto:YES];
                                            [bannerView scrollToIndex:0];
-                                           [self.topIV addSubview:bannerView];
+                                           [self.advIv addSubview:bannerView];
                                        }
                                        @catch (NSException *exception) {
                                            [NdUncaughtExceptionHandler TakeException:exception];
                                        }
                                        @finally {
-                                           
+                                           //                                           if (hud != nil) {
+                                           //                                               [hud hide:YES];
+                                           //                                           }
                                        }
                                    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                        if ([UserModel Instance].isNetworkRunning == NO) {
@@ -145,7 +150,6 @@
                                            [Tool ToastNotification:@"错误 网络无连接" andView:self.view andLoading:NO andIsBottom:NO];
                                        }
                                    }];
-        
     }
 }
 
@@ -249,11 +253,20 @@
 - (void)foucusImageFrame:(SGFocusImageFrame *)imageFrame didSelectItem:(SGFocusImageItem *)item
 {
     NSLog(@"%s \n click===>%@",__FUNCTION__,item.title);
-    Article *art = (Article *)[advs objectAtIndex:advIndex];
-    if (art) {
-        ArticleDetailView *artDetailView = [[ArticleDetailView alloc] init];
-        artDetailView.art = art;
-        [self.navigationController pushViewController:artDetailView animated:YES];
+    Advertisement *adv = (Advertisement *)[advDatas objectAtIndex:advIndex];
+    if (adv)
+    {
+        if ([adv.redirecturl length] > 0)
+        {
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:adv.redirecturl]];
+        }
+        else
+        {
+            ADVDetailView *advDetail = [[ADVDetailView alloc] init];
+            advDetail.hidesBottomBarWhenPushed = YES;
+            advDetail.adv = adv;
+            [self.navigationController pushViewController:advDetail animated:YES];
+        }
     }
 }
 
@@ -262,7 +275,6 @@
 {
     //    NSLog(@"%s \n scrollToIndex===>%d",__FUNCTION__,index);
     advIndex = index;
-
 }
 
 - (void)didReceiveMemoryWarning

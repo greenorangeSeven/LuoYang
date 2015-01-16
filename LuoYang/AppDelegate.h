@@ -23,6 +23,9 @@
 #import "DataVerifier.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate, BMKGeneralDelegate>
+{
+    NSString *appPath;
+}
 
 @property BOOL isForeground;
 @property (strong, nonatomic) UIWindow *window;

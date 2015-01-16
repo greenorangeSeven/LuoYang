@@ -39,6 +39,7 @@
 @property (weak, nonatomic) NSString *catid;
 @property (weak, nonatomic) NSString *typeTitle;
 @property BMKMapPoint myPoint;
+@property CLLocationCoordinate2D mycoord;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIImageView *advIv;
 

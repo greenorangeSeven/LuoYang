@@ -56,12 +56,14 @@
 
     
     UserModel *usermodel = [UserModel Instance];
-    self.nameLb.text = [usermodel getUserValueForKey:@"name"];
+    self.nameLb.text = [NSString stringWithFormat:@"%@（%@）", [usermodel getUserValueForKey:@"name"], [usermodel getUserValueForKey:@"tel"]];
+    self.userInfoLb.text = [usermodel getUserValueForKey:@"address"];
+    
     EGOImageView *faceEGOImageView = [[EGOImageView alloc] initWithPlaceholderImage:[UIImage imageNamed:@"userface.png"]];
     faceEGOImageView.imageURL = [NSURL URLWithString:[[UserModel Instance] getUserValueForKey:@"avatar"]];
     faceEGOImageView.frame = CGRectMake(0.0f, 0.0f, 50.0f, 50.0f);
     [self.faceIv addSubview:faceEGOImageView];
-    self.userInfoLb.text = [NSString stringWithFormat:@"%@    %@", [usermodel getUserValueForKey:@"tel"], [usermodel getUserValueForKey:@"house_number"]];
+    
     typeData = [[NSArray alloc] initWithObjects:@"包裹", @"文件", @"大件", nil];
     typeStr = [typeData objectAtIndex:0];
     [self.typeBtn setTitle:[typeData objectAtIndex:0] forState:UIControlStateNormal];

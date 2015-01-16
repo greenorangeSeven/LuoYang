@@ -92,6 +92,8 @@
         self.edgesForExtendedLayout = UIRectEdgeNone;
         self.automaticallyAdjustsScrollViewInsets = NO;
     }
+    
+    [self initMainADV];
 }
 
 - (void)initMainADV

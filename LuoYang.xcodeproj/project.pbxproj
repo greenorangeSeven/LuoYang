@@ -626,6 +626,8 @@
 		14B7E33319EBD632007686A9 /* VolnRulesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B7E33119EBD632007686A9 /* VolnRulesView.m */; };
 		14B7E33419EBD632007686A9 /* VolnRulesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14B7E33219EBD632007686A9 /* VolnRulesView.xib */; };
 		14D3C0B51A28BA09003E650A /* libXG-SDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14D3C0B21A28BA09003E650A /* libXG-SDK.a */; };
+		14DCB4EC1A5232D20007B222 /* RouteSearchView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14DCB4EA1A5232D20007B222 /* RouteSearchView.mm */; };
+		14DCB4ED1A5232D20007B222 /* RouteSearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14DCB4EB1A5232D20007B222 /* RouteSearchView.xib */; };
 		14E1F9F119FDDFBB00E3E1A2 /* GoodsDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14E1F9EF19FDDFBB00E3E1A2 /* GoodsDetailView.m */; };
 		14E1F9F219FDDFBB00E3E1A2 /* GoodsDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14E1F9F019FDDFBB00E3E1A2 /* GoodsDetailView.xib */; };
 		14E1F9F619FDE07F00E3E1A2 /* GoodsAttrs.m in Sources */ = {isa = PBXBuildFile; fileRef = 14E1F9F419FDE07F00E3E1A2 /* GoodsAttrs.m */; };
@@ -1613,6 +1615,9 @@
 		14D3C0B21A28BA09003E650A /* libXG-SDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libXG-SDK.a"; sourceTree = "<group>"; };
 		14D3C0B31A28BA09003E650A /* XGPush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XGPush.h; sourceTree = "<group>"; };
 		14D3C0B41A28BA09003E650A /* XGSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XGSetting.h; sourceTree = "<group>"; };
+		14DCB4E91A5232D20007B222 /* RouteSearchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteSearchView.h; sourceTree = "<group>"; };
+		14DCB4EA1A5232D20007B222 /* RouteSearchView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RouteSearchView.mm; sourceTree = "<group>"; };
+		14DCB4EB1A5232D20007B222 /* RouteSearchView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RouteSearchView.xib; sourceTree = "<group>"; };
 		14E1F9EE19FDDFBB00E3E1A2 /* GoodsDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodsDetailView.h; sourceTree = "<group>"; };
 		14E1F9EF19FDDFBB00E3E1A2 /* GoodsDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsDetailView.m; sourceTree = "<group>"; };
 		14E1F9F019FDDFBB00E3E1A2 /* GoodsDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GoodsDetailView.xib; sourceTree = "<group>"; };
@@ -2274,6 +2279,9 @@
 				14A7BB2319C921BA009039DF /* StoreMapPointView.h */,
 				14A7BB2419C921BA009039DF /* StoreMapPointView.m */,
 				14A7BB2519C921BA009039DF /* StoreMapPointView.xib */,
+				14DCB4E91A5232D20007B222 /* RouteSearchView.h */,
+				14DCB4EA1A5232D20007B222 /* RouteSearchView.mm */,
+				14DCB4EB1A5232D20007B222 /* RouteSearchView.xib */,
 				14A7BB2619C921BA009039DF /* BusinessGoodCell.h */,
 				14A7BB2719C921BA009039DF /* BusinessGoodCell.m */,
 				14A7BB2819C921BA009039DF /* BusinessGoodCell.xib */,
@@ -3382,6 +3390,7 @@
 				143046C21A1346690089A6E7 /* cb_box_off.png in Resources */,
 				14A7BC9619C921E1009039DF /* activity_zyz@2x.png in Resources */,
 				14A7BCD719C921E1009039DF /* subtle_temp.png in Resources */,
+				14DCB4ED1A5232D20007B222 /* RouteSearchView.xib in Resources */,
 				14A7BCD519C921E1009039DF /* subtle_new@2x.png in Resources */,
 				14081D101A1995980068FE00 /* MWPhotoBrowser.bundle in Resources */,
 				14A7BC9119C921E1009039DF /* voln_join_ti@2x.png in Resources */,
@@ -3843,6 +3852,7 @@
 				14A7BB4D19C921BA009039DF /* ConvOrderView.m in Sources */,
 				14A7BBDB19C921D1009039DF /* ChooseAreaView.m in Sources */,
 				14A7BB4919C921BA009039DF /* ConvView.m in Sources */,
+				14DCB4EC1A5232D20007B222 /* RouteSearchView.mm in Sources */,
 				14A7BFF219C9260A009039DF /* VPImageCropperViewController.m in Sources */,
 				14A7BB5719C921BA009039DF /* CommunityDetailView.m in Sources */,
 				14A7BAEA19C921A0009039DF /* ArticleView.m in Sources */,
@@ -3968,8 +3978,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: WEN XIKE (KPRX6RYNKY)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: WEN XIKE (KPRX6RYNKY)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: WEN XIKE (5ACSFNTTZR)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: WEN XIKE (5ACSFNTTZR)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -3987,7 +3997,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "e6ae4afa-2c5c-4fb2-b7c8-af1c8bf28578";
+				PROVISIONING_PROFILE = "7ac7bb41-53bd-4750-9d96-7f321ea03200";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -4008,8 +4018,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: WEN XIKE (KPRX6RYNKY)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: WEN XIKE (KPRX6RYNKY)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: WEN XIKE (5ACSFNTTZR)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: WEN XIKE (5ACSFNTTZR)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -4020,7 +4030,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				PROVISIONING_PROFILE = "e6ae4afa-2c5c-4fb2-b7c8-af1c8bf28578";
+				PROVISIONING_PROFILE = "7ac7bb41-53bd-4750-9d96-7f321ea03200";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -4068,7 +4078,7 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "e6ae4afa-2c5c-4fb2-b7c8-af1c8bf28578";
+				PROVISIONING_PROFILE = "793fd9da-cbf0-4132-ad4a-a801f275ce44";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -4115,7 +4125,7 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "e6ae4afa-2c5c-4fb2-b7c8-af1c8bf28578";
+				PROVISIONING_PROFILE = "793fd9da-cbf0-4132-ad4a-a801f275ce44";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

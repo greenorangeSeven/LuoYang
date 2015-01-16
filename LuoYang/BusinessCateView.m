@@ -256,6 +256,7 @@
             BusinessView *businessView = [[BusinessView alloc] init];
             businessView.catid = cate.id;
             businessView.typeTitle = cate.cate_name;
+            businessView.mycoord = coord;
             businessView.myPoint = myPoint;
             [self.navigationController pushViewController:businessView animated:YES];
         }
@@ -335,6 +336,7 @@
 - (void)didUpdateUserLocation:(BMKUserLocation *)userLocation
 {
     CLLocationCoordinate2D mycoord = userLocation.location.coordinate;
+    coord = mycoord;
     myPoint = BMKMapPointForCoordinate(mycoord);
     //    如果经纬度大于0表单表示定位成功，停止定位
     if (userLocation.location.coordinate.latitude > 0) {

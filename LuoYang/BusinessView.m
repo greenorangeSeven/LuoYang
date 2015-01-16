@@ -404,6 +404,7 @@
     Shop *shop = [shopData objectAtIndex:[indexPath row]];
     if (shop) {
         BusinessDetailView *businessDetailView = [[BusinessDetailView alloc] init];
+        businessDetailView.myCoor = self.mycoord;
         businessDetailView.shop = shop;
         businessDetailView.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:businessDetailView animated:YES];

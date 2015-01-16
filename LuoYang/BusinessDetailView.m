@@ -8,6 +8,7 @@
 
 #import "BusinessDetailView.h"
 #import "ADVDetailView.h"
+#import "RouteSearchView.h"
 
 @interface BusinessDetailView () <UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 
@@ -37,13 +38,28 @@
 - (void)mapPointAction
 {
     if (_shop) {
-        CLLocationCoordinate2D coor;
-        coor.longitude = [_shop.longitude doubleValue];
-        coor.latitude = [_shop.latitude doubleValue];
-        StoreMapPointView *pointView = [[StoreMapPointView alloc] init];
-        pointView.storeCoor = coor;
-        pointView.storeTitle = _shop.name;
-        [self.navigationController pushViewController:pointView animated:YES];
+        if(self.myCoor.latitude > 0)
+        {
+            CLLocationCoordinate2D coor;
+            coor.longitude = [_shop.longitude doubleValue];
+            coor.latitude = [_shop.latitude doubleValue];
+            
+            RouteSearchView *routeSearch = [[RouteSearchView alloc] init];
+            routeSearch.startCoor = self.myCoor;
+            routeSearch.endCoor = coor;
+            routeSearch.storeTitle = _shop.title;
+            [self.navigationController pushViewController:routeSearch animated:YES];
+        }
+        else
+        {
+            CLLocationCoordinate2D coor;
+            coor.longitude = [_shop.longitude doubleValue];
+            coor.latitude = [_shop.latitude doubleValue];
+            StoreMapPointView *pointView = [[StoreMapPointView alloc] init];
+            pointView.storeCoor = coor;
+            pointView.storeTitle = _shop.name;
+            [self.navigationController pushViewController:pointView animated:YES];
+        }
     }
     
 }

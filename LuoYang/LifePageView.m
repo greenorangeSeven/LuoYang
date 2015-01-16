@@ -8,6 +8,7 @@
 
 #import "LifePageView.h"
 #import "RuhuWeixiuView.h"
+#import "CityView.h"
 
 @interface LifePageView ()
 
@@ -240,16 +241,31 @@
 }
 
 - (IBAction)znjjAction:(id)sender {
-    [Tool showCustomHUD:@"功能努力完善中，敬请期待！" andView:self.view  andImage:@"" andAfterDelay:1];
+    CityView *cityView = [[CityView alloc] init];
+    cityView.typeStr = @"11";
+    cityView.typeNameStr = @"智能家居";
+    cityView.advId = @"22";
+    cityView.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:cityView animated:YES];
     
 }
 
 - (IBAction)jjzsAction:(id)sender {
-    [Tool showCustomHUD:@"功能努力完善中，敬请期待！" andView:self.view  andImage:@"" andAfterDelay:1];
+    CityView *cityView = [[CityView alloc] init];
+    cityView.typeStr = @"12";
+    cityView.typeNameStr = @"家居装饰";
+    cityView.advId = @"23";
+    cityView.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:cityView animated:YES];
 }
 
 - (IBAction)sqjrAction:(id)sender {
-    [Tool showCustomHUD:@"功能努力完善中，敬请期待！" andView:self.view  andImage:@"" andAfterDelay:1];
+    CityView *cityView = [[CityView alloc] init];
+    cityView.typeStr = @"13";
+    cityView.typeNameStr = @"社区金融";
+    cityView.advId = @"24";
+    cityView.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:cityView animated:YES];
 }
 
 - (IBAction)yhqAction:(id)sender {

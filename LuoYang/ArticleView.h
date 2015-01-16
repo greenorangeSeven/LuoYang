@@ -15,9 +15,9 @@
 
 @interface ArticleView : UIViewController<SGFocusImageFrameDelegate, UITableViewDelegate, UITableViewDataSource, EGORefreshTableHeaderDelegate, UIAlertViewDelegate>
 {
-    NSMutableArray *advs;
     
     NSMutableArray *articles;
+    NSMutableArray *advDatas;
     SGFocusImageFrame *bannerView;
     int advIndex;
     
@@ -28,7 +28,7 @@
     BOOL _reloading;
 }
 
-@property (weak, nonatomic) IBOutlet UIImageView *topIV;
+@property (weak, nonatomic) IBOutlet UIImageView *advIv;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 //下拉刷新

@@ -22,6 +22,7 @@
     NSString *catid;
     
     BMKMapPoint myPoint;
+    CLLocationCoordinate2D coord;
     BMKLocationService* _locService;
     
     TQImageCache * _iconCache;

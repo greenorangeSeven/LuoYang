@@ -80,10 +80,18 @@
                                                    //获得已缴月份
                                                    int endFeeMonth = [[feeInfo.fee_enddate substringWithRange:NSMakeRange(0, 4)] intValue] *12 + [[feeInfo.fee_enddate substringWithRange:NSMakeRange(5, 2)] intValue];
                                                    //获得当前月份
-                                                   NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-                                                   [formatter setDateFormat:@"YYYY-MM"];
-                                                   NSString *currentMonthStr = [formatter stringFromDate:[NSDate date]];
-                                                   int currentMonth = [[currentMonthStr substringWithRange:NSMakeRange(0, 4)] intValue] *12 + [[currentMonthStr substringWithRange:NSMakeRange(5, 2)] intValue];
+//                                                   NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+//                                                   [formatter setDateFormat:@"YYYY-MM"];
+//                                                   NSString *currentMonthStr = [formatter stringFromDate:[NSDate date]];
+//                                                   int currentMonth = [[currentMonthStr substringWithRange:NSMakeRange(0, 4)] intValue] *12 + [[currentMonthStr substringWithRange:NSMakeRange(5, 2)] intValue];
+                                                   NSDate* now = [NSDate date];
+                                                   NSCalendar *cal = [NSCalendar currentCalendar];
+                                                   
+                                                   unsigned int unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit |NSSecondCalendarUnit;
+                                                   NSDateComponents *dd = [cal components:unitFlags fromDate:now];
+                                                   int y = [dd year];
+                                                   int m = [dd month];
+                                                   int currentMonth = y *12 + m;
                                                    if ( (currentMonth - endFeeMonth) > 0)
                                                    {
                                                        shouldMoney = monthFee * (currentMonth - endFeeMonth);
@@ -103,20 +111,20 @@
                                                                             @"0.00", @"money",
                                                                             @"不预缴", @"text", nil];
                                                    //季度预交字典，季度98折优惠
-                                                   double month3Fee = monthFee * 3 * 0.98;
+                                                   double month3Fee = monthFee * 3;
                                                    NSDictionary *preset1 = [NSDictionary dictionaryWithObjectsAndKeys:
                                                                             [Tool notRounding:month3Fee afterPoint:2], @"money",
-                                                                            [NSString stringWithFormat:@"预缴一季度（9.8折优惠，%@元）", [Tool notRounding:month3Fee afterPoint:2]], @"text", nil];
+                                                                            [NSString stringWithFormat:@"预缴一季度  %@元", [Tool notRounding:month3Fee afterPoint:2]], @"text", nil];
                                                    //半年预交字典，半年95折优惠
-                                                   double month6Fee = monthFee * 6 * 0.95;
+                                                   double month6Fee = monthFee * 6;
                                                    NSDictionary *preset2 = [NSDictionary dictionaryWithObjectsAndKeys:
                                                                             [Tool notRounding:month6Fee afterPoint:2], @"money",
-                                                                            [NSString stringWithFormat:@"预缴半年（9.5折优惠，%@元）", [Tool notRounding:month6Fee afterPoint:2]], @"text", nil];
+                                                                            [NSString stringWithFormat:@"预缴半年  %@元", [Tool notRounding:month6Fee afterPoint:2]], @"text", nil];
                                                    //一年预交字典，半年9折优惠
-                                                   double month12Fee = monthFee * 12 * 0.9;
+                                                   double month12Fee = monthFee * 12;
                                                    NSDictionary *preset3 = [NSDictionary dictionaryWithObjectsAndKeys:
                                                                             [Tool notRounding:month12Fee afterPoint:2], @"money",
-                                                                            [NSString stringWithFormat:@"预缴一年（9折优惠，%@元）", [Tool notRounding:month12Fee afterPoint:2]], @"text", nil];
+                                                                            [NSString stringWithFormat:@"预缴一年  %@元", [Tool notRounding:month12Fee afterPoint:2]], @"text", nil];
                                                    presetData = [[NSArray alloc] initWithObjects:preset0, preset1, preset2, preset3, nil];
                                                    
                                                    NSDictionary *preset = (NSDictionary *)[presetData objectAtIndex:0];

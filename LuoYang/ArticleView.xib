@@ -7,8 +7,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ArticleView">
             <connections>
+                <outlet property="advIv" destination="r2p-Yf-DSo" id="W7T-nb-zqM"/>
                 <outlet property="tableView" destination="9XN-ZQ-UyZ" id="54W-e2-M8a"/>
-                <outlet property="topIV" destination="r2p-Yf-DSo" id="5t4-mV-XkU"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

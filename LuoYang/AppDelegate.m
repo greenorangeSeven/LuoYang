@@ -167,12 +167,23 @@ BMKMapManager* _mapManager;
     //[XGPush setAccount:@"testAccount1"];
     
     //推送反馈(app不在前台运行时，点击推送激活时)
-    //[XGPush handleLaunching:launchOptions];
+    [XGPush handleLaunching:launchOptions];
     
     //推送反馈回调版本示例
     void (^successBlock)(void) = ^(void){
         //成功之后的处理
         NSLog(@"[XGPush]handleLaunching's successBlock");
+        //角标清0
+        [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
+        //清除所有通知(包含本地通知)
+        [[UIApplication sharedApplication] cancelAllLocalNotifications];
+        NoticeFrameView *noticeView = [[NoticeFrameView alloc] initWithNibName:@"NoticeFrameView" bundle:nil];
+        noticeView.presentType = @"present";
+        UINavigationController *noticeViewNav = [[UINavigationController alloc] initWithRootViewController:noticeView];
+        
+        [self.window.rootViewController presentViewController:noticeViewNav animated:YES completion:^{
+            _isForeground = NO;
+        }];
     };
     
     void (^errorBlock)(void) = ^(void){
@@ -189,6 +200,9 @@ BMKMapManager* _mapManager;
     [self.window setRootViewController:self.tabBarController ];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    
+    [self checkVersionUpdate];
+    
     return YES;
 }
 
@@ -290,6 +304,7 @@ BMKMapManager* _mapManager;
         {
             NSString *alertStr = [[userInfo objectForKey:@"aps"] objectForKey:@"alert"];
             UIAlertView *notificationAlert = [[UIAlertView alloc] initWithTitle:@"推送消息" message:alertStr delegate:self cancelButtonTitle:@"忽略" otherButtonTitles:@"查看", nil];
+            notificationAlert.tag = 0;
             [notificationAlert show];
         }
         
@@ -312,17 +327,23 @@ BMKMapManager* _mapManager;
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if (buttonIndex == 1) {
-        //角标清0
-        [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
-        //清除所有通知(包含本地通知)
-        [[UIApplication sharedApplication] cancelAllLocalNotifications];
-        NoticeFrameView *noticeView = [[NoticeFrameView alloc] initWithNibName:@"NoticeFrameView" bundle:nil];
-        noticeView.presentType = @"present";
-        UINavigationController *noticeViewNav = [[UINavigationController alloc] initWithRootViewController:noticeView];
-        
-        [self.window.rootViewController presentViewController:noticeViewNav animated:YES completion:^{
+        if (alertView.tag == 0) {
+            //角标清0
+            [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
+            //清除所有通知(包含本地通知)
+            [[UIApplication sharedApplication] cancelAllLocalNotifications];
+            NoticeFrameView *noticeView = [[NoticeFrameView alloc] initWithNibName:@"NoticeFrameView" bundle:nil];
+            noticeView.presentType = @"present";
+            UINavigationController *noticeViewNav = [[UINavigationController alloc] initWithRootViewController:noticeView];
             
-        }];
+            [self.window.rootViewController presentViewController:noticeViewNav animated:YES completion:^{
+                
+            }];
+        }
+        else if (alertView.tag == 1)
+        {
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:appPath]];
+        }
     }
 }
 
@@ -554,6 +575,42 @@ BMKMapManager* _mapManager;
      http://open.weixin.qq.com上注册应用，并将相关信息填写以下字段
      **/
     [ShareSDK connectWeChatWithAppId:@"wx222c78266c573598" wechatCls:[WXApi class]];
+}
+
+- (void)checkVersionUpdate
+{
+    NSString *versionUrl = [NSString stringWithFormat:@"%@%@?phone=IOS&APPKey=%@", api_base_url, api_version_url, appkey];
+    [[AFOSCClient sharedClient]getPath:versionUrl parameters:Nil
+                               success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                   @try {
+                                       NSData *data = [operation.responseString dataUsingEncoding:NSUTF8StringEncoding];
+                                       NSError *error;
+                                       NSMutableArray *versionArray = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+                                       if (versionArray) {
+                                           for (int i = 0; i < [versionArray count]; i++) {
+                                               NSDictionary *versionDict = [versionArray objectAtIndex:i];
+                                               int versionCode = [[versionDict objectForKey:@"version"] intValue];
+                                               appPath = [versionDict objectForKey:@"fileurl"];
+                                               if (versionCode > [AppVersionCode intValue]) {
+                                                   UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"温馨提示" message:@"智慧社区中原客户端有新版了\n您需要更新吗?" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确认", nil];
+                                                   alert.tag = 1;
+                                                   [alert show];
+                                               }
+                                           }
+                                       }
+                                   }
+                                   @catch (NSException *exception) {
+                                       [NdUncaughtExceptionHandler TakeException:exception];
+                                   }
+                                   @finally {
+                                   }
+                               } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                   NSLog(@"获取出错");
+                                   
+                                   if ([UserModel Instance].isNetworkRunning == NO) {
+                                       return;
+                                   }
+                               }];
 }
 
 @end

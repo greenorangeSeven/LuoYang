@@ -124,6 +124,8 @@
     cell.imageBg.layer.masksToBounds=YES;
     cell.imageBg.layer.cornerRadius=50.0;    //最重要的是这个地方要设成view高的一半
     
+    
+    
     //图片显示及缓存
     if (project.imgData) {
         cell.imageIv.image = project.imgData;

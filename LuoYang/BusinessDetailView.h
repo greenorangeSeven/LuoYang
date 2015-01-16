@@ -48,6 +48,7 @@
 - (void)reloadTableViewDataSource;
 - (void)doneLoadingTableViewData;
 
+@property CLLocationCoordinate2D myCoor;
 @property (weak, nonatomic) Shop *shop;
 @property (weak, nonatomic) NSString *tjTitle;
 @property (weak, nonatomic) NSString *tjCatId;

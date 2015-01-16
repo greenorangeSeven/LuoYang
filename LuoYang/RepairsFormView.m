@@ -73,11 +73,23 @@
 - (void)timerFunc
 {
     //刷新时钟
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-//    [formatter setDateFormat:@"HH:mm:ss"];
-//    //    [formatter setDateFormat:@"MM/dd/YY HH:mm:ss"];
-    [formatter setDateFormat:@"YYYY年MM月dd日 HH:mm"];
-    NSString *timestamp = [formatter stringFromDate:[NSDate date]];
+//    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+////    [formatter setDateFormat:@"HH:mm:ss"];
+////    //    [formatter setDateFormat:@"MM/dd/YY HH:mm:ss"];
+//    [formatter setDateFormat:@"YYYY年MM月dd日 HH:mm"];
+//    NSString *timestamp = [formatter stringFromDate:[NSDate date]];
+    NSDate* now = [NSDate date];
+    NSCalendar *cal = [NSCalendar currentCalendar];
+    
+    unsigned int unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit |NSSecondCalendarUnit;
+    NSDateComponents *dd = [cal components:unitFlags fromDate:now];
+    int y = [dd year];
+    int m = [dd month];
+    int d = [dd day];
+    
+    int hour = [dd hour];
+    int min = [dd minute];
+    NSString *timestamp = [NSString stringWithFormat:@"%d年%d月%d日 %d:%d", y, m, d, hour, min];
     [self.timeLb setText:timestamp];
 }
 

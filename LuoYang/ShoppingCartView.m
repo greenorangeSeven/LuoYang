@@ -138,19 +138,29 @@
         good.number = [NSNumber numberWithInteger:[resultSet intForColumn:@"number"]];
         good.ischeck = [resultSet stringForColumn:@"ischeck"];
         good.dbid = [NSNumber numberWithInteger:[resultSet intForColumn:@"id"]];
-        total += [good.price doubleValue] * [good.number intValue];
+//        total += [good.price doubleValue] * [good.number intValue];
         [goodData addObject:good];
     }
-    if ([goodData count] > 0) {
-        self.totalLb.text = [NSString stringWithFormat:@"%.2f", total];
-    }
-    else
-    {
+    if ([goodData count] == 0) {
         noDataLabel.hidden = NO;
         _buyButton.enabled = NO;
     }
+
     [self.goodTableView reloadData];
+    
+    FMResultSet* amountSet=[database executeQuery:@"select sum(price * number) amount from shoppingcart where user_id = ? and ischeck = '1'", [[UserModel Instance] getUserValueForKey:@"id"]];
+    if ([amountSet next]) {
+        self.totalLb.text = [amountSet stringForColumn:@"amount"];
+    }
+    else
+    {
+        self.totalLb.text = @"0.00";
+    }
+    
     [database close];
+    
+    
+    
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -212,6 +222,7 @@
             good.ischeck = @"1";
             BOOL addGood = [database executeUpdate:@"update shoppingcart set ischeck = '1' where id= ?", good.dbid];
             [database close];
+            [self reloadData];
         }
         else
         {
@@ -226,6 +237,7 @@
             good.ischeck = @"0";
             BOOL addGood = [database executeUpdate:@"update shoppingcart set ischeck = '0' where id= ?", good.dbid];
             [database close];
+            [self reloadData];
         }
     }];
     
