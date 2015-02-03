@@ -17,5 +17,8 @@
 @property (nonatomic, retain) NSString *fee_enddate;
 @property (nonatomic, retain) NSString *property_fee;
 @property (nonatomic, retain) NSString *discount;
+@property (nonatomic, retain) NSString *three_month_discount;
+@property (nonatomic, retain) NSString *six_month_discount;
+@property (nonatomic, retain) NSString *one_year_discount;
 
 @end
