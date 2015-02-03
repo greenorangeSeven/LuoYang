@@ -224,7 +224,7 @@
     BOOL addGood;
     FMResultSet* resultSet=[database executeQuery:@"select * from shoppingcart where goodid = ? and user_id = ? and attrs = ?", goodDetail.id, [[UserModel Instance] getUserValueForKey:@"id"], attrsStr];
     if ([resultSet next]) {
-        addGood = [database executeUpdate:@"update shoppingcart set number = number + ? where id= ?", [resultSet stringForColumn:@"id"] , [NSNumber numberWithInt:[self.numberTf.text intValue]]];
+        addGood = [database executeUpdate:@"update shoppingcart set number = number + ? where id= ?" , [NSNumber numberWithInt:[self.numberTf.text intValue]], [resultSet stringForColumn:@"id"]];
     }
     else
     {
