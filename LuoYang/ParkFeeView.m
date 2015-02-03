@@ -112,17 +112,17 @@
                                                                             @"0.00", @"money",
                                                                             @"不预缴", @"text", nil];
                                                    //季度预交字典，季度98折优惠
-                                                   double month3Fee = monthFee * 3;
+                                                   double month3Fee = monthFee * 3 * [feeInfo.park_three_month_discount doubleValue];
                                                    NSDictionary *preset1 = [NSDictionary dictionaryWithObjectsAndKeys:
                                                                             [Tool notRounding:month3Fee afterPoint:2], @"money",
                                                                             [NSString stringWithFormat:@"预缴一季度  %@元", [Tool notRounding:month3Fee afterPoint:2]], @"text", nil];
                                                    //半年预交字典，半年95折优惠
-                                                   double month6Fee = monthFee * 6;
+                                                   double month6Fee = monthFee * 6 * [feeInfo.park_six_month_discount doubleValue];
                                                    NSDictionary *preset2 = [NSDictionary dictionaryWithObjectsAndKeys:
                                                                             [Tool notRounding:month6Fee afterPoint:2], @"money",
                                                                             [NSString stringWithFormat:@"预缴半年  %@元", [Tool notRounding:month6Fee afterPoint:2]], @"text", nil];
                                                    //一年预交字典，半年9折优惠
-                                                   double month12Fee = monthFee * 12;
+                                                   double month12Fee = monthFee * 12 * [feeInfo.park_one_year_discount doubleValue];
                                                    NSDictionary *preset3 = [NSDictionary dictionaryWithObjectsAndKeys:
                                                                             [Tool notRounding:month12Fee afterPoint:2], @"money",
                                                                             [NSString stringWithFormat:@"预缴一年  %@元", [Tool notRounding:month12Fee afterPoint:2]], @"text", nil];

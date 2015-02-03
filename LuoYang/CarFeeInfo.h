@@ -17,4 +17,8 @@
 @property (nonatomic, retain) NSString *park_fee;
 @property (nonatomic, retain) NSString *discount;
 
+@property (nonatomic, retain) NSString *park_three_month_discount;
+@property (nonatomic, retain) NSString *park_six_month_discount;
+@property (nonatomic, retain) NSString *park_one_year_discount;
+
 @end
