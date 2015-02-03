@@ -32,7 +32,14 @@
         UIBarButtonItem *btnBack = [[UIBarButtonItem alloc]initWithCustomView:lBtn];
         self.navigationItem.leftBarButtonItem = btnBack;
     }
+    
     return self;
+}
+
+#pragma mark 刷新列表(当程序支付时在后台被kill掉时供appdelegate调用)
+- (void)updatePayedTable
+{
+    [Tool showCustomHUD:@"支付成功" andView:self.view  andImage:@"37x-Failure.png" andAfterDelay:2];
 }
 
 - (void)backAction
@@ -52,13 +59,18 @@
     [self addChildViewController:self.stewardView];
     [self.mainView addSubview:self.parkView.view];
     [self.mainView addSubview:self.stewardView.view];
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updatePayedTable) name:ORDER_PAY_NOTIC object:nil];
     //适配iOS7  scrollView计算uinavigationbar高度的问题
     if(IS_IOS7)
     {
         self.edgesForExtendedLayout = UIRectEdgeNone;
         self.automaticallyAdjustsScrollViewInsets = NO;
     }
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)didReceiveMemoryWarning

@@ -14,6 +14,7 @@
 #import "MyOrder.h"
 #import "PayOrder.h"
 #import "AlipayUtils.h"
+#import <AlipaySDK/AlipaySDK.h>
 
 //确认收货
 #define TAKE_ORDER 200
@@ -73,6 +74,12 @@
     }
     //加载订单记录
 //    [self loadOrder];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(buyOK) name:ORDER_PAY_NOTIC object:nil];
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 //弹出框事件
@@ -260,7 +267,24 @@
     pro.partnerID = [usermodel getUserValueForKey:@"DEFAULT_PARTNER"];
     pro.partnerPrivKey = [usermodel getUserValueForKey:@"PRIVATE"];
     pro.sellerID = [usermodel getUserValueForKey:@"DEFAULT_SELLER"];
-    [AlipayUtils doPay:pro NotifyURL:api_goods_notify AndScheme:@"LuoYangAlipay" seletor:nil target:nil];
+    NSString *orderString = [AlipayUtils getPayStr:pro NotifyURL:api_goods_notify];
+    [[AlipaySDK defaultService] payOrder:orderString fromScheme:@"LuoYangAlipay" callback:^(NSDictionary *resultDic)
+     {
+         NSString *resultState = resultDic[@"resultStatus"];
+         if([resultState isEqualToString:ORDER_PAY_OK])
+         {
+             [self buyOK];
+         }
+     }];
+}
+
+- (void)buyOK
+{
+    UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"提示"
+                                                 message:@"支付成功"                         delegate:self
+                                       cancelButtonTitle:@"确定"
+                                       otherButtonTitles:nil];
+    [av show];
 }
 
 //确认收货和取消订单按钮事件

@@ -18,6 +18,7 @@
 #import "PrintObject.h"
 #import "PayOrder.h"
 #import "AlipayUtils.h"
+#import <AlipaySDK/AlipaySDK.h>
 
 @interface ShoppingBuyView () <UIAlertViewDelegate>
 
@@ -68,26 +69,16 @@
     self.addressField.text = [user getUserValueForKey:@"address"];
     self.phoneField.text =[user getUserValueForKey:@"tel"];
     [self initOrderTitle];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(buyOK) name:@"buyOK" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(buyOK) name:ORDER_PAY_NOTIC object:nil];
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)buyOK
 {
-//    FMDatabase* database=[FMDatabase databaseWithPath:[Tool databasePath]];
-//    if (![database open]) {
-//        NSLog(@"Open database failed");
-//        return;
-//    }
-//    if (![database tableExists:@"shoppingcart"])
-//    {
-//        [database executeUpdate:createshoppingcart];
-//    }
-//    BOOL isOK = [database executeUpdate:@"DELETE FROM shoppingcart"];
-//    [database close];
-//    if(isOK)
-//    {
-//        NSLog(@"数据已清空");
-//    }
     UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"提示"
                                                  message:@"支付成功"                         delegate:self
                                        cancelButtonTitle:@"确定"
@@ -305,8 +296,15 @@
             pro.partnerPrivKey = [usermodel getUserValueForKey:@"PRIVATE"];
             pro.sellerID = [usermodel getUserValueForKey:@"DEFAULT_SELLER"];
 
-            
-            [AlipayUtils doPay:pro NotifyURL:api_goods_notify AndScheme:@"LuoYangAlipay" seletor:nil target:nil];
+            NSString *orderString = [AlipayUtils getPayStr:pro NotifyURL:api_goods_notify];
+            [[AlipaySDK defaultService] payOrder:orderString fromScheme:@"LuoYangAlipay" callback:^(NSDictionary *resultDic)
+             {
+                 NSString *resultState = resultDic[@"resultStatus"];
+                 if([resultState isEqualToString:ORDER_PAY_OK])
+                 {
+                     [self buyOK];
+                 }
+             }];
         }
             break;
         case 0:

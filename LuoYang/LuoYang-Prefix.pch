@@ -172,6 +172,12 @@
 
 #define servicephone @"4008-361-020"
 
+//订单支付成功状态码
+#define ORDER_PAY_OK @"9000"
+
+//订单支付通知
+#define ORDER_PAY_NOTIC @"ORDER_PAY_NOTIC"
+
 #define SettingTableIdentifier @"SettingTableIdentifier"
 #define MyRepairsCellIdentifier @"MyRepairsCellIdentifier"
 #define NoticeTableCellIdentifier @"NoticeTableCellIdentifier"

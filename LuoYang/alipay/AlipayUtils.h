@@ -11,6 +11,6 @@
 
 @interface AlipayUtils : NSObject
 
-+ (void)doPay:(PayOrder *)payOrder NotifyURL :(NSString *) notifyURL AndScheme:(NSString *)scheme seletor:(SEL)seletor target:(id)target;
++ (NSString *)getPayStr:(PayOrder *)payOrder NotifyURL :(NSString *) notifyURL;
 
 @end

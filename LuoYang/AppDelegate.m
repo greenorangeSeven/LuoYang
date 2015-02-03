@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-
+#import <AlipaySDK/AlipaySDK.h>
 #import "XGPush.h"
 #import "XGSetting.h"
 
@@ -484,69 +484,30 @@ BMKMapManager* _mapManager;
     setxattr([path fileSystemRepresentation], "com.apple.MobileBackup", &b, 1, 0, 0);
 }
 
-
-//支付宝独立客户端回调函数
-- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
-    NSString * query = [[url query] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    NSLog(@"uoe:%@",query);
-	[self parse:url application:application];
-	return YES;
-}
-
-- (void)parse:(NSURL *)url application:(UIApplication *)application {
-    
-    //结果处理
-    AlixPayResult* result = [self handleOpenURL:url];
-    
-	if (result)
-    {
-		
-		if (result.statusCode == 9000)
-        {
-			/*
-			 *用公钥验证签名 严格验证请使用result.resultString与result.signString验签
-			 */
-            
-            //交易成功
-            //UserModel *userModel = [UserModel Instance];
-            NSString* key = @"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCnxj/9qwVfgoUh/y2W89L6BkRAFljhNhgPdyPuBV64bfQNN1PjbCzkIM6qRdKBoLPXmKKMiFYnkd6rAoprih3/PrQEB/VsW8OoM8fxn67UDYuyBTqA23MML9q1+ilIZwBC2AQ2UBVOrFXfFl75p6/B5KsiNG9zpgmLCUYuLkxpLQIDAQAB";
-            id<DataVerifier> verifier;
-            verifier = CreateRSADataVerifier(key);
-            if ([verifier verifyString:result.resultString withSign:result.signString])
-            {
-                [[NSNotificationCenter defaultCenter] postNotificationName:@"buyOK" object:nil];
-            }
-            
-        }
-        else
-        {
-            //交易失败
-        }
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    //如果极简 SDK 不可用,会跳转支付宝钱包进行支付,需要将支付宝钱包的支付结果回传给 SDK
+    if ([url.host isEqualToString:@"safepay"]) {
+        [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic)
+         {
+             NSString *resultState = resultDic[@"resultStatus"];
+             if([resultState isEqualToString:ORDER_PAY_OK])
+             {
+                 [[NSNotificationCenter defaultCenter] postNotificationName:ORDER_PAY_NOTIC object:nil];
+             }
+         }];
     }
-    else
-    {
-        //失败
+    if ([url.host isEqualToString:@"platformapi"])
+    {//支付宝钱包快登授权返回 authCode
+        [[AlipaySDK defaultService] processAuthResult:url standbyCallback:^(NSDictionary *resultDic)
+         {
+             NSString *resultState = resultDic[@"resultStatus"];
+             if([resultState isEqualToString:ORDER_PAY_OK])
+             {
+                 [[NSNotificationCenter defaultCenter] postNotificationName:ORDER_PAY_NOTIC object:nil];
+             }
+         }];
     }
-    
-}
-
-- (AlixPayResult *)resultFromURL:(NSURL *)url {
-	NSString * query = [[url query] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-#if ! __has_feature(objc_arc)
-    return [[[AlixPayResult alloc] initWithString:query] autorelease];
-#else
-	return [[AlixPayResult alloc] initWithString:query];
-#endif
-}
-
-- (AlixPayResult *)handleOpenURL:(NSURL *)url {
-	AlixPayResult * result = nil;
-	
-	if (url != nil && [[url host] compare:@"safepay"] == 0) {
-		result = [self resultFromURL:url];
-	}
-    
-	return result;
+    return YES;
 }
 
 //初始化分享
