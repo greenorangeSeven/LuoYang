@@ -193,6 +193,20 @@
     [self.webView stopLoading];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+//    if ([goodDetail.stocks intValue] <= 0) {
+//        self.buyBtn.enabled = NO;
+//        self.toShoppingCarBtn.enabled = NO;
+//    }
+//    else
+//    {
+//        self.buyBtn.enabled = YES;
+//        self.toShoppingCarBtn.enabled = YES;
+//    }
+}
+
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
@@ -200,6 +214,10 @@
 }
 
 - (IBAction)toShoppingCartAction:(id)sender {
+    if ( [goodDetail.stocks intValue] - [self.numberTf.text intValue] < 0) {
+        [Tool showCustomHUD:@"所购商品缺货" andView:self.view andImage:@"37x-Failure.png" andAfterDelay:3];
+        return;
+    }
     if ([UserModel Instance].isLogin == NO)
     {
         [Tool noticeLogin:self.view andDelegate:self andTitle:@""];
@@ -238,6 +256,10 @@
 
 - (IBAction)buyAction:(id)sender
 {
+    if ([goodDetail.stocks intValue] - [self.numberTf.text intValue] < 0) {
+        [Tool showCustomHUD:@"所购商品缺货" andView:self.view andImage:@"37x-Failure.png" andAfterDelay:3];
+        return;
+    }
     NSMutableString *attrsStr = [[NSMutableString alloc] init];
 //    if (attrs0Str != nil && [attrs0Str length] > 0) {
 //        [attrsStr appendString:[NSString stringWithFormat:@"%@:%@", self.attrs0KeyLb.text, attrs0Str]];

@@ -49,6 +49,19 @@
     //    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showAlertView) name:Notification_ShowPackAlertView object:nil];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    if ([Tool testAlipayInstall]) {
+        self.payfeeBtn.hidden = NO;
+    }
+    else
+    {
+        self.payfeeBtn.hidden = YES;
+    }
+}
+
 - (void)getParkFee
 {
     //如果有网络连接

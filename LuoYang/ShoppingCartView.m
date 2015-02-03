@@ -107,6 +107,18 @@
         [Tool noticeLogin:self.view andDelegate:self andTitle:@""];
         return;
     }
+    
+    if ([Tool testAlipayInstall]) {
+        //        self.addShopCarBtn.hidden = NO;
+        self.buyButton.hidden = NO;
+    }
+    else
+    {
+        //        self.addShopCarBtn.hidden = YES;
+        self.buyButton.hidden = YES;
+        self.navigationItem.rightBarButtonItem = nil;
+    }
+    
     noDataLabel.hidden = YES;
     [self reloadData];
 }

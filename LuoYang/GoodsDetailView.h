@@ -33,6 +33,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *stocksLb;
 @property (weak, nonatomic) IBOutlet UIView *attrs0View;
 @property (weak, nonatomic) IBOutlet UITextField *numberTf;
+@property (weak, nonatomic) IBOutlet UIButton *buyBtn;
+@property (weak, nonatomic) IBOutlet UIButton *toShoppingCarBtn;
 
 - (IBAction)toShoppingCartAction:(id)sender;
 - (IBAction)buyAction:(id)sender;

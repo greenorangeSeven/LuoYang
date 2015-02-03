@@ -138,6 +138,9 @@
 + (NSString *)databasePath;
 + (void)pushToSettingView:(UINavigationController *)navigationController;
 + (void)pushToMyView:(UINavigationController *)navigationController;
++ (BOOL)testAlipayInstall;
++ (BOOL)testWeiXinInstall;
+
 
 + (User *)readJsonStrToUser:(NSString *)str;
 + (AlipayInfo *)readJsonStrToAliPay:(NSString *)str;

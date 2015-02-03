@@ -72,6 +72,19 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(buyOK) name:ORDER_PAY_NOTIC object:nil];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    if ([Tool testAlipayInstall]) {
+        self.payBuootn.hidden = NO;
+    }
+    else
+    {
+        self.payBuootn.hidden = YES;
+    }
+}
+
 - (void)dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
