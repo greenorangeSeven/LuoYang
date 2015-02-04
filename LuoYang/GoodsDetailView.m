@@ -102,6 +102,20 @@
     }
 }
 
+- (void)getDetail
+{
+    NSString *detailUrl = [NSString stringWithFormat:@"%@%@?APPKey=%@&id=%@", api_base_url, api_goodsinfo, appkey, self.goodId];
+    NSURL *url = [ NSURL URLWithString : detailUrl];
+    // 构造 ASIHTTPRequest 对象
+    ASIHTTPRequest *request = [ ASIHTTPRequest requestWithURL :url];
+    // 开始同步请求
+    [request startSynchronous ];
+    NSError *error = [request error ];
+    assert (!error);
+    goodDetail = [Tool readJsonStrToGoodsInfo:[request responseString]];
+    self.stocksLb.text = [NSString stringWithFormat:@"库存:%@", goodDetail.stocks];
+}
+
 - (void)initGoodsAttrsNew
 {
     attrsKeyArray = [[NSMutableArray alloc] init];
@@ -196,6 +210,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [self getDetail];
 //    if ([goodDetail.stocks intValue] <= 0) {
 //        self.buyBtn.enabled = NO;
 //        self.toShoppingCarBtn.enabled = NO;

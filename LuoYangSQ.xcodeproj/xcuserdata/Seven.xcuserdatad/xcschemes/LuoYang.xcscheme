@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "14A7BA2919C92078009039DF"
-               BuildableName = "LuoYang.app"
-               BlueprintName = "LuoYang"
-               ReferencedContainer = "container:LuoYang.xcodeproj">
+               BuildableName = "LuoYangSQ.app"
+               BlueprintName = "LuoYangSQ"
+               ReferencedContainer = "container:LuoYangSQ.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "14A7BA4419C92078009039DF"
-               BuildableName = "LuoYangTests.xctest"
-               BlueprintName = "LuoYangTests"
-               ReferencedContainer = "container:LuoYang.xcodeproj">
+               BuildableName = "LuoYangSQTests.xctest"
+               BlueprintName = "LuoYangSQTests"
+               ReferencedContainer = "container:LuoYangSQ.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -43,9 +43,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "14A7BA2919C92078009039DF"
-            BuildableName = "LuoYang.app"
-            BlueprintName = "LuoYang"
-            ReferencedContainer = "container:LuoYang.xcodeproj">
+            BuildableName = "LuoYangSQ.app"
+            BlueprintName = "LuoYangSQ"
+            ReferencedContainer = "container:LuoYangSQ.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -62,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "14A7BA2919C92078009039DF"
-            BuildableName = "LuoYang.app"
-            BlueprintName = "LuoYang"
-            ReferencedContainer = "container:LuoYang.xcodeproj">
+            BuildableName = "LuoYangSQ.app"
+            BlueprintName = "LuoYangSQ"
+            ReferencedContainer = "container:LuoYangSQ.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -80,9 +80,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "14A7BA2919C92078009039DF"
-            BuildableName = "LuoYang.app"
-            BlueprintName = "LuoYang"
-            ReferencedContainer = "container:LuoYang.xcodeproj">
+            BuildableName = "LuoYangSQ.app"
+            BlueprintName = "LuoYangSQ"
+            ReferencedContainer = "container:LuoYangSQ.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

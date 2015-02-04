@@ -53,13 +53,13 @@
 {
     [super viewWillAppear:animated];
     
-    if ([Tool testAlipayInstall]) {
-        self.payfeeBtn.hidden = NO;
-    }
-    else
-    {
-        self.payfeeBtn.hidden = YES;
-    }
+//    if ([Tool testAlipayInstall]) {
+//        self.payfeeBtn.hidden = NO;
+//    }
+//    else
+//    {
+//        self.payfeeBtn.hidden = YES;
+//    }
 }
 
 - (void)getParkFee

@@ -76,13 +76,13 @@
 {
     [super viewWillAppear:animated];
     
-    if ([Tool testAlipayInstall]) {
-        self.payBuootn.hidden = NO;
-    }
-    else
-    {
-        self.payBuootn.hidden = YES;
-    }
+//    if ([Tool testAlipayInstall]) {
+//        self.payBuootn.hidden = NO;
+//    }
+//    else
+//    {
+//        self.payBuootn.hidden = YES;
+//    }
 }
 
 - (void)dealloc

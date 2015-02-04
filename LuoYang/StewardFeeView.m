@@ -80,13 +80,13 @@
         self.payfeeBtn.enabled = YES;
         [self getPropertyFee];
     }
-    if ([Tool testAlipayInstall]) {
-        self.payfeeBtn.hidden = NO;
-    }
-    else
-    {
-        self.payfeeBtn.hidden = YES;
-    }
+//    if ([Tool testAlipayInstall]) {
+//        self.payfeeBtn.hidden = NO;
+//    }
+//    else
+//    {
+//        self.payfeeBtn.hidden = YES;
+//    }
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex

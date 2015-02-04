@@ -1002,20 +1002,20 @@
 		1495755B1A2AB75E00320CF8 /* MyRuHuWeiXiuDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyRuHuWeiXiuDetailView.m; sourceTree = "<group>"; };
 		1495755C1A2AB75E00320CF8 /* MyRuHuWeiXiuDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyRuHuWeiXiuDetailView.xib; sourceTree = "<group>"; };
 		1495755F1A2AC1C200320CF8 /* left_rhwx@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left_rhwx@2x.png"; sourceTree = "<group>"; };
-		14A7BA2A19C92078009039DF /* LuoYang.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LuoYang.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		14A7BA2A19C92078009039DF /* LuoYangSQ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LuoYangSQ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14A7BA2D19C92078009039DF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		14A7BA2F19C92078009039DF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		14A7BA3119C92078009039DF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		14A7BA3519C92078009039DF /* LuoYang-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LuoYang-Info.plist"; sourceTree = "<group>"; };
+		14A7BA3519C92078009039DF /* LuoYangSQ-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LuoYangSQ-Info.plist"; sourceTree = "<group>"; };
 		14A7BA3719C92078009039DF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		14A7BA3919C92078009039DF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		14A7BA3B19C92078009039DF /* LuoYang-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LuoYang-Prefix.pch"; sourceTree = "<group>"; };
+		14A7BA3B19C92078009039DF /* LuoYangSQ-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LuoYangSQ-Prefix.pch"; sourceTree = "<group>"; };
 		14A7BA3C19C92078009039DF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		14A7BA3D19C92078009039DF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		14A7BA3F19C92078009039DF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		14A7BA4519C92078009039DF /* LuoYangTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LuoYangTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		14A7BA4519C92078009039DF /* LuoYangSQTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LuoYangSQTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		14A7BA4619C92078009039DF /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		14A7BA4E19C92078009039DF /* LuoYangTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LuoYangTests-Info.plist"; sourceTree = "<group>"; };
+		14A7BA4E19C92078009039DF /* LuoYangSQTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LuoYangSQTests-Info.plist"; sourceTree = "<group>"; };
 		14A7BA5019C92078009039DF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		14A7BA5219C92078009039DF /* LuoYangTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LuoYangTests.m; sourceTree = "<group>"; };
 		14A7BA6419C9218D009039DF /* MainPageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainPageView.h; sourceTree = "<group>"; };
@@ -2183,8 +2183,8 @@
 		14A7BA2B19C92078009039DF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				14A7BA2A19C92078009039DF /* LuoYang.app */,
-				14A7BA4519C92078009039DF /* LuoYangTests.xctest */,
+				14A7BA2A19C92078009039DF /* LuoYangSQ.app */,
+				14A7BA4519C92078009039DF /* LuoYangSQTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -2270,10 +2270,10 @@
 		14A7BA3419C92078009039DF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				14A7BA3519C92078009039DF /* LuoYang-Info.plist */,
+				14A7BA3519C92078009039DF /* LuoYangSQ-Info.plist */,
 				14A7BA3619C92078009039DF /* InfoPlist.strings */,
 				14A7BA3919C92078009039DF /* main.m */,
-				14A7BA3B19C92078009039DF /* LuoYang-Prefix.pch */,
+				14A7BA3B19C92078009039DF /* LuoYangSQ-Prefix.pch */,
 				14A7BFF919C92B6C009039DF /* ExpressCompany.plist */,
 			);
 			name = "Supporting Files";
@@ -2291,7 +2291,7 @@
 		14A7BA4D19C92078009039DF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				14A7BA4E19C92078009039DF /* LuoYangTests-Info.plist */,
+				14A7BA4E19C92078009039DF /* LuoYangSQTests-Info.plist */,
 				14A7BA4F19C92078009039DF /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -3378,9 +3378,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		14A7BA2919C92078009039DF /* LuoYang */ = {
+		14A7BA2919C92078009039DF /* LuoYangSQ */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 14A7BA5619C92078009039DF /* Build configuration list for PBXNativeTarget "LuoYang" */;
+			buildConfigurationList = 14A7BA5619C92078009039DF /* Build configuration list for PBXNativeTarget "LuoYangSQ" */;
 			buildPhases = (
 				14A7BA2619C92078009039DF /* Sources */,
 				14A7BA2719C92078009039DF /* Frameworks */,
@@ -3390,14 +3390,14 @@
 			);
 			dependencies = (
 			);
-			name = LuoYang;
+			name = LuoYangSQ;
 			productName = LuoYang;
-			productReference = 14A7BA2A19C92078009039DF /* LuoYang.app */;
+			productReference = 14A7BA2A19C92078009039DF /* LuoYangSQ.app */;
 			productType = "com.apple.product-type.application";
 		};
-		14A7BA4419C92078009039DF /* LuoYangTests */ = {
+		14A7BA4419C92078009039DF /* LuoYangSQTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 14A7BA5919C92078009039DF /* Build configuration list for PBXNativeTarget "LuoYangTests" */;
+			buildConfigurationList = 14A7BA5919C92078009039DF /* Build configuration list for PBXNativeTarget "LuoYangSQTests" */;
 			buildPhases = (
 				14A7BA4119C92078009039DF /* Sources */,
 				14A7BA4219C92078009039DF /* Frameworks */,
@@ -3408,9 +3408,9 @@
 			dependencies = (
 				14A7BA4B19C92078009039DF /* PBXTargetDependency */,
 			);
-			name = LuoYangTests;
+			name = LuoYangSQTests;
 			productName = LuoYangTests;
-			productReference = 14A7BA4519C92078009039DF /* LuoYangTests.xctest */;
+			productReference = 14A7BA4519C92078009039DF /* LuoYangSQTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -3427,7 +3427,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 14A7BA2519C92078009039DF /* Build configuration list for PBXProject "LuoYang" */;
+			buildConfigurationList = 14A7BA2519C92078009039DF /* Build configuration list for PBXProject "LuoYangSQ" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -3446,8 +3446,8 @@
 			);
 			projectRoot = "";
 			targets = (
-				14A7BA2919C92078009039DF /* LuoYang */,
-				14A7BA4419C92078009039DF /* LuoYangTests */,
+				14A7BA2919C92078009039DF /* LuoYangSQ */,
+				14A7BA4419C92078009039DF /* LuoYangSQTests */,
 			);
 		};
 /* End PBXProject section */
@@ -4084,7 +4084,7 @@
 /* Begin PBXTargetDependency section */
 		14A7BA4B19C92078009039DF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 14A7BA2919C92078009039DF /* LuoYang */;
+			target = 14A7BA2919C92078009039DF /* LuoYangSQ */;
 			targetProxy = 14A7BA4A19C92078009039DF /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -4214,13 +4214,13 @@
 					"$(PROJECT_DIR)/LuoYang/alipay",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "LuoYang/LuoYang-Prefix.pch";
+				GCC_PREFIX_HEADER = "LuoYang/LuoYangSQ-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"${SDK_DIR}/usr/include/libxml2",
 				);
-				INFOPLIST_FILE = "LuoYang/LuoYang-Info.plist";
+				INFOPLIST_FILE = "LuoYang/LuoYangSQ-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -4233,7 +4233,7 @@
 					"$(PROJECT_DIR)/LuoYang/XGPush",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = LuoYangSQ;
 				PROVISIONING_PROFILE = "0a9510f1-f872-4d82-a69c-0c83fd9adb13";
 				WRAPPER_EXTENSION = app;
 			};
@@ -4259,13 +4259,13 @@
 					"$(PROJECT_DIR)/LuoYang/alipay",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "LuoYang/LuoYang-Prefix.pch";
+				GCC_PREFIX_HEADER = "LuoYang/LuoYangSQ-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"${SDK_DIR}/usr/include/libxml2",
 				);
-				INFOPLIST_FILE = "LuoYang/LuoYang-Info.plist";
+				INFOPLIST_FILE = "LuoYang/LuoYangSQ-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -4278,7 +4278,7 @@
 					"$(PROJECT_DIR)/LuoYang/XGPush",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = LuoYangSQ;
 				PROVISIONING_PROFILE = "0a9510f1-f872-4d82-a69c-0c83fd9adb13";
 				WRAPPER_EXTENSION = app;
 			};
@@ -4299,8 +4299,8 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "LuoYangTests/LuoYangTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "LuoYangTests/LuoYangSQTests-Info.plist";
+				PRODUCT_NAME = LuoYangSQTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -4317,8 +4317,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LuoYang/LuoYang-Prefix.pch";
-				INFOPLIST_FILE = "LuoYangTests/LuoYangTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "LuoYangTests/LuoYangSQTests-Info.plist";
+				PRODUCT_NAME = LuoYangSQTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -4327,7 +4327,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		14A7BA2519C92078009039DF /* Build configuration list for PBXProject "LuoYang" */ = {
+		14A7BA2519C92078009039DF /* Build configuration list for PBXProject "LuoYangSQ" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				14A7BA5419C92078009039DF /* Debug */,
@@ -4336,7 +4336,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		14A7BA5619C92078009039DF /* Build configuration list for PBXNativeTarget "LuoYang" */ = {
+		14A7BA5619C92078009039DF /* Build configuration list for PBXNativeTarget "LuoYangSQ" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				14A7BA5719C92078009039DF /* Debug */,
@@ -4345,7 +4345,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		14A7BA5919C92078009039DF /* Build configuration list for PBXNativeTarget "LuoYangTests" */ = {
+		14A7BA5919C92078009039DF /* Build configuration list for PBXNativeTarget "LuoYangSQTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				14A7BA5A19C92078009039DF /* Debug */,
