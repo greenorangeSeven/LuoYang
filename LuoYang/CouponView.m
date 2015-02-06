@@ -82,7 +82,10 @@
     if ([typeId isEqualToString:@"-1"]) {
         url = [NSMutableString stringWithFormat:@"%@%@?APPKey=%@", api_base_url, api_shopscoupons, appkey];
     }
-    
+    NSString *cid = [[UserModel Instance] getUserValueForKey:@"cid"];
+    if (cid != nil && [cid length] > 0) {
+        [url appendString:[NSString stringWithFormat:@"&target=%@", cid]];
+    }
     [[AFOSCClient sharedClient] getPath:url parameters:Nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         @try
         {
@@ -214,7 +217,15 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return couponArray.count;
+    if([couponArray count] == 0)
+    {
+        return 1;
+    }
+    else
+    {
+        return couponArray.count;
+    }
+    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -279,9 +290,12 @@
                     }
                 }
             }
-            
             return cell;
         }
+    }
+    else
+    {
+        return [[DataSingleton Instance] getLoadMoreCell:tableView andIsLoadOver:NO andLoadOverString:@"暂无数据" andLoadingString:@"暂无数据" andIsLoading:NO];
     }
     return nil;
 }

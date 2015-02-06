@@ -220,6 +220,10 @@
         //        if (keyword != nil && [keyword length] > 0) {
         //            [urlTemp appendString:[NSString stringWithFormat:@"?name=%@", keyword]];
         //        }
+        NSString *cid = [[UserModel Instance] getUserValueForKey:@"cid"];
+        if (cid != nil && [cid length] > 0) {
+            [urlTemp appendString:[NSString stringWithFormat:@"&target=%@", cid]];
+        }
         NSString *url = [[NSString stringWithString:urlTemp] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         [[AFOSCClient sharedClient]getPath:url parameters:Nil
                                    success:^(AFHTTPRequestOperation *operation, id responseObject) {

@@ -172,6 +172,10 @@
         if (orderByStr != nil && [orderByStr length] > 0) {
             [urlTemp appendString:[NSString stringWithFormat:@"&orderby=%@", orderByStr]];
         }
+        NSString *cid = [[UserModel Instance] getUserValueForKey:@"cid"];
+        if (cid != nil && [cid length] > 0) {
+            [urlTemp appendString:[NSString stringWithFormat:@"&target=%@", cid]];
+        }
         NSString *url = [[NSString stringWithString:urlTemp] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         [[AFOSCClient sharedClient]getPath:url parameters:Nil
                                    success:^(AFHTTPRequestOperation *operation, id responseObject) {

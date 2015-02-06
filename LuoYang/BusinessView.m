@@ -216,6 +216,10 @@
         if (self.catid != nil && [self.catid intValue] > 0) {
             [urlTemp appendString:[NSString stringWithFormat:@"&catid=%@", self.catid]];
         }
+        NSString *cid = [[UserModel Instance] getUserValueForKey:@"cid"];
+        if (cid != nil && [cid length] > 0) {
+            [urlTemp appendString:[NSString stringWithFormat:@"&target=%@", cid]];
+        }
         NSString *url = [[NSString stringWithString:urlTemp] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         [[AFOSCClient sharedClient]getPath:url parameters:Nil
                                    success:^(AFHTTPRequestOperation *operation, id responseObject) {

@@ -256,7 +256,12 @@
         }
         int pageIndex = allCount / 20 + 1;
         NSMutableString *tempUrl = [NSMutableString stringWithFormat:@"%@%@?APPKey=%@&catid=%@&p=%i", api_base_url, api_get_wisdom_list, appkey,self.typeStr,pageIndex];
-        
+        if (!([self.typeStr isEqualToString:@"1"] || [self.typeStr isEqualToString:@"8"])) {
+            NSString *cid = [[UserModel Instance] getUserValueForKey:@"cid"];
+            if (cid != nil && [cid length] > 0) {
+                [tempUrl appendString:[NSString stringWithFormat:@"&target=%@", cid]];
+            }
+        }
          NSString *url = [NSString stringWithString:tempUrl];
         [[AFOSCClient sharedClient] getPath:url parameters:Nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
             @try {
