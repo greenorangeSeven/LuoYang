@@ -261,7 +261,7 @@
 - (IBAction)mqhjjAction:(id)sender {
     CityView *cityView = [[CityView alloc] init];
     cityView.typeStr = @"9";
-    cityView.typeNameStr = @"母亲河基金";
+    cityView.typeNameStr = @"母亲河公益";
     cityView.advId = @"15";
     cityView.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:cityView animated:YES];

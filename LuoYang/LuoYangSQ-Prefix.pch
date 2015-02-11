@@ -222,7 +222,7 @@
 #define HTML_Bottom @"<div style='margin-bottom:60px'/>"
 
 #define AppVersion @"1.0"
-#define AppVersionCode @"3"
+#define AppVersionCode @"1"
 
 #define noConnect @"noConnect"
 #define wifi @"wifi"
