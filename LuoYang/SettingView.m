@@ -76,7 +76,7 @@
                       [[SettingModel alloc] initWith: islogin?@"退出登录":@"登录" andImg:islogin?@"setting_logout":@"setting_login" andTag:2 andTitle2:nil],
                       [[SettingModel alloc] initWith: @"个人信息" andImg:@"setting_info" andTag:3 andTitle2:nil],
                       [[SettingModel alloc] initWith: @"修改密码" andImg:@"setting_update" andTag:4 andTitle2:nil],
-                      [[SettingModel alloc] initWith:@"版本更新" andImg:@"setting_update" andTag:10 andTitle2:nil],
+//                      [[SettingModel alloc] initWith:@"版本更新" andImg:@"setting_update" andTag:10 andTitle2:nil],
                       nil];
 
 //    NSArray *third = [[NSArray alloc] initWithObjects:

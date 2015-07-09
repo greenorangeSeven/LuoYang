@@ -76,13 +76,13 @@
 {
     [super viewWillAppear:animated];
     
-//    if ([Tool testAlipayInstall]) {
-//        self.payBuootn.hidden = NO;
-//    }
-//    else
-//    {
-//        self.payBuootn.hidden = YES;
-//    }
+    //    if ([Tool testAlipayInstall]) {
+    //        self.payBuootn.hidden = NO;
+    //    }
+    //    else
+    //    {
+    //        self.payBuootn.hidden = YES;
+    //    }
 }
 
 - (void)dealloc
@@ -92,6 +92,20 @@
 
 - (void)buyOK
 {
+    FMDatabase* database=[FMDatabase databaseWithPath:[Tool databasePath]];
+    if (![database open]) {
+        NSLog(@"Open database failed");
+        return;
+    }
+    if (![database tableExists:@"shoppingcart"])
+    {
+        [database executeUpdate:createshoppingcart];
+    }
+    BOOL isOK = [database executeUpdate:@"DELETE FROM shoppingcart"];
+    if(isOK)
+    {
+        NSLog(@"数据已清空");
+    }
     UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"提示"
                                                  message:@"支付成功"                         delegate:self
                                        cancelButtonTitle:@"确定"
@@ -303,12 +317,12 @@
             pro.out_no = num.serial_no;
             pro.subject = @"订单付款";
             pro.body = @"订单在线付款";
-//            pro.price = 0.01;
+            //            pro.price = 0.01;
             pro.price = amount;
             pro.partnerID = [usermodel getUserValueForKey:@"DEFAULT_PARTNER"];
             pro.partnerPrivKey = [usermodel getUserValueForKey:@"PRIVATE"];
             pro.sellerID = [usermodel getUserValueForKey:@"DEFAULT_SELLER"];
-
+            
             NSString *orderString = [AlipayUtils getPayStr:pro NotifyURL:api_goods_notify];
             [[AlipaySDK defaultService] payOrder:orderString fromScheme:@"LuoYangAlipay" callback:^(NSDictionary *resultDic)
              {

@@ -89,7 +89,8 @@
                                                    if ([carport_number isEqualToString:@"NT"]) {
                                                        carport_number = @"租用车位";
                                                    }
-                                                   monthFee = [feeInfo.park_fee doubleValue] * [feeInfo.discount doubleValue];
+//                                                   monthFee = [feeInfo.park_fee doubleValue] * [feeInfo.discount doubleValue];
+                                                   monthFee = [feeInfo.park_fee doubleValue];
                                                    self.parkInfoLb.text = [NSString stringWithFormat:@"车牌号:%@  车位:%@   ￥%0.2f/月", feeInfo.car_number, carport_number, monthFee];
                                                    //获得已缴月份
                                                    int endFeeMonth = [[feeInfo.fee_enddate substringWithRange:NSMakeRange(0, 4)] intValue] *12 + [[feeInfo.fee_enddate substringWithRange:NSMakeRange(5, 2)] intValue];

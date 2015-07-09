@@ -201,36 +201,37 @@
                                            {
                                                if ([self.couponIv.subviews count] == 0)
                                                {
-                                                   if (coupons == nil || [coupons count] == 0) {
-                                                       coupons = businessGoods.coupons;
-                                                       if (coupons != nil && [coupons count] > 0) {
-                                                           int length = [coupons count];
-                                                           NSMutableArray *itemArray = [NSMutableArray arrayWithCapacity:length+2];
-                                                           if (length > 1)
-                                                           {
-                                                               Coupons *coupon = [coupons objectAtIndex:length-1];
-                                                               SGFocusImageItem *item = [[SGFocusImageItem alloc] initWithTitle:coupon.title image:coupon.thumb tag:-1];
-                                                               [itemArray addObject:item];
-                                                           }
-                                                           for (int i = 0; i < length; i++)
-                                                           {
-                                                               Coupons *coupon = [coupons objectAtIndex:i];
-                                                               SGFocusImageItem *item = [[SGFocusImageItem alloc] initWithTitle:coupon.title image:coupon.thumb tag:-1];
-                                                               [itemArray addObject:item];
-                                                               
-                                                           }
-                                                           //添加第一张图 用于循环
-                                                           if (length >1)
-                                                           {
-                                                               Coupons *coupon = [coupons objectAtIndex:0];
-                                                               SGFocusImageItem *item = [[SGFocusImageItem alloc] initWithTitle:coupon.title image:coupon.thumb tag:-1];
-                                                               [itemArray addObject:item];
-                                                           }
-                                                           bannerView = [[SGFocusImageFrame alloc] initWithFrame:CGRectMake(0, 0, 320, 135) delegate:self imageItems:itemArray isAuto:YES];
-                                                           [bannerView scrollToIndex:0];
-                                                           [self.couponIv addSubview:bannerView];
-                                                       }
-                                                   }
+                                                   [self initMainADV2];
+//                                                   if (coupons == nil || [coupons count] == 0) {
+//                                                       coupons = businessGoods.coupons;
+//                                                       if (coupons != nil && [coupons count] > 0) {
+//                                                           int length = [coupons count];
+//                                                           NSMutableArray *itemArray = [NSMutableArray arrayWithCapacity:length+2];
+//                                                           if (length > 1)
+//                                                           {
+//                                                               Coupons *coupon = [coupons objectAtIndex:length-1];
+//                                                               SGFocusImageItem *item = [[SGFocusImageItem alloc] initWithTitle:coupon.title image:coupon.thumb tag:-1];
+//                                                               [itemArray addObject:item];
+//                                                           }
+//                                                           for (int i = 0; i < length; i++)
+//                                                           {
+//                                                               Coupons *coupon = [coupons objectAtIndex:i];
+//                                                               SGFocusImageItem *item = [[SGFocusImageItem alloc] initWithTitle:coupon.title image:coupon.thumb tag:-1];
+//                                                               [itemArray addObject:item];
+//                                                               
+//                                                           }
+//                                                           //添加第一张图 用于循环
+//                                                           if (length >1)
+//                                                           {
+//                                                               Coupons *coupon = [coupons objectAtIndex:0];
+//                                                               SGFocusImageItem *item = [[SGFocusImageItem alloc] initWithTitle:coupon.title image:coupon.thumb tag:-1];
+//                                                               [itemArray addObject:item];
+//                                                           }
+//                                                           bannerView = [[SGFocusImageFrame alloc] initWithFrame:CGRectMake(0, 0, 320, 135) delegate:self imageItems:itemArray isAuto:YES];
+//                                                           [bannerView scrollToIndex:0];
+//                                                           [self.couponIv addSubview:bannerView];
+//                                                       }
+//                                                   }
                                                }
                                            }
                                        }
@@ -380,11 +381,71 @@
     }
 }
 
+- (void)initMainADV2
+{
+    //如果有网络连接
+    if ([UserModel Instance].isNetworkRunning) {
+        //        [Tool showHUD:@"数据加载" andView:self.view andHUD:hud];
+        NSMutableString *tempUrl = [NSMutableString stringWithFormat:@"%@%@?APPKey=%@&spaceid=28", api_base_url, api_getadv, appkey];
+        NSString *cid = [[UserModel Instance] getUserValueForKey:@"cid"];
+        if (cid != nil && [cid length] > 0) {
+            [tempUrl appendString:[NSString stringWithFormat:@"&cid=%@", cid]];
+        }
+        NSString *url = [NSString stringWithString:tempUrl];
+        [[AFOSCClient sharedClient]getPath:url parameters:Nil
+                                   success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                       @try {
+                                           advDatas = [Tool readJsonStrToADV:operation.responseString];
+                                           
+                                           int length = [advDatas count];
+                                           
+                                           NSMutableArray *itemArray = [NSMutableArray arrayWithCapacity:length+2];
+                                           if (length > 1)
+                                           {
+                                               Advertisement *adv = [advDatas objectAtIndex:length-1];
+                                               SGFocusImageItem *item = [[SGFocusImageItem alloc] initWithTitle:adv.title image:adv.pic tag:length-1];
+                                               [itemArray addObject:item];
+                                           }
+                                           for (int i = 0; i < length; i++)
+                                           {
+                                               Advertisement *adv = [advDatas objectAtIndex:i];
+                                               SGFocusImageItem *item = [[SGFocusImageItem alloc] initWithTitle:adv.title image:adv.pic tag:i];
+                                               [itemArray addObject:item];
+                                               
+                                           }
+                                           //添加第一张图 用于循环
+                                           if (length >1)
+                                           {
+                                               Advertisement *adv = [advDatas objectAtIndex:0];
+                                               SGFocusImageItem *item = [[SGFocusImageItem alloc] initWithTitle:adv.title image:adv.pic tag:0];
+                                               [itemArray addObject:item];
+                                           }
+                                           bannerView = [[SGFocusImageFrame alloc] initWithFrame:CGRectMake(0, 0, 320, 135) delegate:self imageItems:itemArray isAuto:YES];
+                                           [bannerView scrollToIndex:0];
+                                           [self.couponIv addSubview:bannerView];
+                                       }
+                                       @catch (NSException *exception) {
+                                           [NdUncaughtExceptionHandler TakeException:exception];
+                                       }
+                                       @finally {
+                                           
+                                       }
+                                   } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                       if ([UserModel Instance].isNetworkRunning == NO) {
+                                           return;
+                                       }
+                                       if ([UserModel Instance].isNetworkRunning) {
+                                           [Tool ToastNotification:@"错误 网络无连接" andView:self.view andLoading:NO andIsBottom:NO];
+                                       }
+                                   }];
+    }
+}
+
 //顶部图片滑动点击委托协议实现事件
 - (void)foucusImageFrame:(SGFocusImageFrame *)imageFrame didSelectItem:(SGFocusImageItem *)item
 {
     NSLog(@"%s \n click===>%@",__FUNCTION__,item.title);
-    if (self.tjCatId != nil && [self.tjCatId length] > 0) {
+//    if (self.tjCatId != nil && [self.tjCatId length] > 0) {
         Advertisement *adv = (Advertisement *)[advDatas objectAtIndex:couponIndex];
         if (adv)
         {
@@ -400,14 +461,14 @@
                 [self.navigationController pushViewController:advDetail animated:YES];
             }
         }
-    }
-    else
-    {
-        Coupons *coupon = [coupons objectAtIndex:couponIndex];
-        CouponDetailView *couponDetail = [[CouponDetailView alloc] init];
-        couponDetail.couponsId = coupon.id;
-        [self.navigationController pushViewController:couponDetail animated:YES];
-    }
+//    }
+//    else
+//    {
+//        Coupons *coupon = [coupons objectAtIndex:couponIndex];
+//        CouponDetailView *couponDetail = [[CouponDetailView alloc] init];
+//        couponDetail.couponsId = coupon.id;
+//        [self.navigationController pushViewController:couponDetail animated:YES];
+//    }
     
 }
 

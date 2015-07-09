@@ -110,7 +110,7 @@
                                            
                                            self.userInfoLb.text = [NSString stringWithFormat:@"%@%@%@(%@㎡)", [usermodel getUserValueForKey:@"comm_name"], [usermodel getUserValueForKey:@"build_name"], feeInfo.house_number, feeInfo.area];
                                            
-                                           monthFee = [feeInfo.property_fee doubleValue];
+                                           monthFee = [feeInfo.property_fee doubleValue] * [feeInfo.area intValue];
                                            //获得已缴月份
                                            int endFeeMonth = [[feeInfo.fee_enddate substringWithRange:NSMakeRange(0, 4)] intValue] *12 + [[feeInfo.fee_enddate substringWithRange:NSMakeRange(5, 2)] intValue];
 //                                           //获得当前月份
