@@ -298,8 +298,8 @@
         {
             PayOrder *pro = [[PayOrder alloc] init];
             pro.out_no = num.trade_no;
-            pro.subject = @"中原智慧社区物业费";
-            pro.body = @"中原智慧社区物业费在线缴纳";
+            pro.subject = @"深盟智慧社区物业费";
+            pro.body = @"深盟智慧社区物业费在线缴纳";
             double sumMoney = arrearage + presetValue;
             pro.price = sumMoney;
 //            pro.price = 0.01;

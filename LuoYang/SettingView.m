@@ -9,6 +9,8 @@
 #import "SettingView.h"
 #import "MyComplainView.h"
 #import "MyRuHuWeiXiuView.h"
+#import "MyConvertView.h"
+#import "MyConvertShopView.h"
 
 @implementation SettingView
 @synthesize tableSettings;
@@ -101,6 +103,8 @@
                        [[SettingModel alloc] initWith:@"我的寄件箱" andImg:@"setting_mail" andTag:8 andTitle2:nil],
                        [[SettingModel alloc] initWith:@"我的投诉建议" andImg:@"setting_collect" andTag:11 andTitle2:nil],
                        [[SettingModel alloc] initWith:@"我的入户维修" andImg:@"setting_collect" andTag:13 andTitle2:nil],
+                       [[SettingModel alloc] initWith:@"我的深盟券" andImg:@"setting_collect" andTag:14 andTitle2:nil],
+                       [[SettingModel alloc] initWith:@"我的兑换记录" andImg:@"setting_collect" andTag:15 andTitle2:nil],
                        nil];
 
     
@@ -246,7 +250,7 @@
             break;
         case 10:
         {
-            [self checkVersionUpdate];
+//            [self checkVersionUpdate];
         }
             break;
         case 11:
@@ -296,6 +300,42 @@
                 }
                 MyRuHuWeiXiuView *myRhwx = [[MyRuHuWeiXiuView alloc] init];
                 [self.navigationController pushViewController:myRhwx animated:YES];;
+            }
+        }
+            break;
+        case 14:
+        {
+            if (![[UserModel Instance] isLogin])
+            {
+                [Tool showCustomHUD:@"请先登录" andView:self.view andImage:@"37x-Failure.png" andAfterDelay:2];
+            }
+            else
+            {
+                if (![[UserModel Instance] isLogin])
+                {
+                    [Tool showCustomHUD:@"请先登录" andView:self.view andImage:@"37x-Failure.png" andAfterDelay:2];
+                    return;
+                }
+                MyConvertView *mydhq= [[MyConvertView alloc] init];
+                [self.navigationController pushViewController:mydhq animated:YES];;
+            }
+        }
+            break;
+        case 15:
+        {
+            if (![[UserModel Instance] isLogin])
+            {
+                [Tool showCustomHUD:@"请先登录" andView:self.view andImage:@"37x-Failure.png" andAfterDelay:2];
+            }
+            else
+            {
+                if (![[UserModel Instance] isLogin])
+                {
+                    [Tool showCustomHUD:@"请先登录" andView:self.view andImage:@"37x-Failure.png" andAfterDelay:2];
+                    return;
+                }
+                MyConvertShopView *mydhjl = [[MyConvertShopView alloc] init];
+                [self.navigationController pushViewController:mydhjl animated:YES];;
             }
         }
             break;

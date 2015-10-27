@@ -9,6 +9,7 @@
 #import "LifePageView.h"
 #import "RuhuWeixiuView.h"
 #import "CityView.h"
+#import "DuiHuanClassView.h"
 
 @interface LifePageView ()
 
@@ -282,6 +283,12 @@
     RuhuWeixiuView *rhwxView = [[RuhuWeixiuView alloc] init];
     rhwxView.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:rhwxView animated:YES];
+}
+
+- (IBAction)dhscAction:(id)sender {
+    DuiHuanClassView *classView = [[DuiHuanClassView alloc] init];
+    classView.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:classView animated:YES];
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex

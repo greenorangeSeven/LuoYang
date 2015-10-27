@@ -53,6 +53,11 @@
 #import "Voln.h"
 #import "Complain.h"
 #import "OnlineLink.h"
+#import "Convert.h"
+#import "ConvertShop.h"
+#import "DuiHuanShop.h"
+#import "ShuiBill.h"
+#import "DianBIll.h"
 
 @interface Tool : NSObject
 
@@ -177,5 +182,10 @@
 + (void *)saveJsonStrToCommunityTel:(NSString *)cid;
 + (NSMutableArray *)readJsonStrToMyComplainArray:(NSString *)str;
 + (NSMutableArray *)readJsonStrToLinksArray:(NSString *)str;
++ (NSMutableArray *)readJsonStrToConvertArray:(NSString *)str;
++ (NSMutableArray *)readJsonStrToConvertShopArray:(NSString *)str;
++ (NSMutableArray *)readJsonStrToDuiHuanShopArray:(NSString *)str;
++ (NSMutableArray *)readJsonStrToShuiBills:(NSString *)str;
++ (NSMutableArray *)readJsonStrToDianBills:(NSString *)str;
 
 @end

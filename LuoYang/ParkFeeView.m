@@ -281,8 +281,8 @@
         {
             PayOrder *pro = [[PayOrder alloc] init];
             pro.out_no = num.trade_no;
-            pro.subject = @"中原智慧社区停车费";
-            pro.body = @"中原智慧社区停车费在线缴纳";
+            pro.subject = @"深盟智慧社区停车费";
+            pro.body = @"深盟智慧社区停车费在线缴纳";
             double sumMoney = shouldMoney + presetMoney;
             pro.price = sumMoney;
 //            pro.price = 0.01;

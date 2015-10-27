@@ -985,6 +985,49 @@
     return goods;
 }
 
++ (NSMutableArray *)readJsonStrToConvertArray:(NSString *)str
+{
+    NSData *data = [str dataUsingEncoding:NSUTF8StringEncoding];
+    NSError *error;
+    NSArray *convertJsonArray = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+    if ( convertJsonArray == nil || [convertJsonArray count] <= 0) {
+        return nil;
+    }
+    NSMutableArray *convert = [RMMapper mutableArrayOfClass:[Convert class] fromArrayOfDictionary:convertJsonArray];
+    return convert;
+}
+
++ (NSMutableArray *)readJsonStrToConvertShopArray:(NSString *)str
+{
+    NSData *data = [str dataUsingEncoding:NSUTF8StringEncoding];
+    NSError *error;
+    NSDictionary *shopJsonDic = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+    NSMutableArray *shopJsonArray = [shopJsonDic objectForKey:@"data"];
+    if ( shopJsonArray == nil || [shopJsonArray count] <= 0) {
+        return nil;
+    }
+    NSMutableArray *convert = [RMMapper mutableArrayOfClass:[ConvertShop class] fromArrayOfDictionary:shopJsonArray];
+    return convert;
+}
+
++ (NSMutableArray *)readJsonStrToDuiHuanShopArray:(NSString *)str
+{
+    NSData *data = [str dataUsingEncoding:NSUTF8StringEncoding];
+    NSError *error;
+    NSDictionary *shopJsonDic = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+    NSMutableArray *shopJsonArray = [shopJsonDic objectForKey:@"data"];
+    if ( shopJsonArray == nil || [shopJsonArray count] <= 0) {
+        return nil;
+    }
+    NSMutableArray *convert = [RMMapper mutableArrayOfClass:[DuiHuanShop class] fromArrayOfDictionary:shopJsonArray];
+    for (DuiHuanShop *d in convert) {
+        NSMutableArray *goodsAttrs = [RMMapper mutableArrayOfClass:[GoodsAttrs class]
+                                             fromArrayOfDictionary:d.attrs];
+        d.attrsArray = goodsAttrs;
+    }
+    return convert;
+}
+
 + (NSMutableArray *)readJsonStrToMyOrder:(NSString *)str
 {
     NSData *data = [str dataUsingEncoding:NSUTF8StringEncoding];
@@ -1135,6 +1178,30 @@
     }
     NSMutableArray *linkArray = [RMMapper mutableArrayOfClass:[OnlineLink class] fromArrayOfDictionary:linkJsonArray];
     return linkArray;
+}
+
++ (NSMutableArray *)readJsonStrToShuiBills:(NSString *)str
+{
+    NSData *data = [str dataUsingEncoding:NSUTF8StringEncoding];
+    NSError *error;
+    NSArray *billJsonArray = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+    if ( billJsonArray == nil || [billJsonArray count] <= 0) {
+        return nil;
+    }
+    NSMutableArray *bills = [RMMapper mutableArrayOfClass:[ShuiBill class] fromArrayOfDictionary:billJsonArray];
+    return bills;
+}
+
++ (NSMutableArray *)readJsonStrToDianBills:(NSString *)str
+{
+    NSData *data = [str dataUsingEncoding:NSUTF8StringEncoding];
+    NSError *error;
+    NSArray *billJsonArray = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+    if ( billJsonArray == nil || [billJsonArray count] <= 0) {
+        return nil;
+    }
+    NSMutableArray *bills = [RMMapper mutableArrayOfClass:[DianBIll class] fromArrayOfDictionary:billJsonArray];
+    return bills;
 }
 
 @end

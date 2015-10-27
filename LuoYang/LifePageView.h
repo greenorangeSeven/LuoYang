@@ -47,5 +47,6 @@
 - (IBAction)sqjrAction:(id)sender;
 - (IBAction)yhqAction:(id)sender;
 - (IBAction)ruwxAction:(id)sender;
+- (IBAction)dhscAction:(id)sender;
 
 @end

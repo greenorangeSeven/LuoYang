@@ -12,6 +12,8 @@
 
 
 @property (nonatomic, retain) NSNumber *status;
+@property int flag;
+@property (nonatomic, copy) NSString *msg;
 @property (nonatomic, copy) NSString *info;
 
 /**
@@ -23,5 +25,7 @@
  * 订单号(商品支付使用这个)
  */
 @property (nonatomic, copy) NSString *serial_no;
+
+@property (nonatomic, copy) NSString *amount;
 
 @end

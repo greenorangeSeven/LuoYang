@@ -39,6 +39,7 @@
 
 #pragma mark 联盟商家
 - (IBAction)clickBusiness:(UIButton *)sender;
+- (IBAction)duihuanAction:(id)sender;
 
 - (IBAction)stewardFeeAction:(id)sender;
 - (IBAction)repairsAction:(id)sender;
@@ -51,5 +52,6 @@
 - (IBAction)clickService:(UIButton *)sender;
 
 - (IBAction)telAction:(id)sender;
+- (IBAction)lifePayAction:(id)sender;
 
 @end

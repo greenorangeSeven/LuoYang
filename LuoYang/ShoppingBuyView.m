@@ -275,7 +275,7 @@
     [request startAsynchronous];
     
     request.hud = [[MBProgressHUD alloc] initWithView:self.view];
-    [Tool showHUD:@"缴费中..." andView:self.view andHUD:request.hud];
+    [Tool showHUD:@"付费中..." andView:self.view andHUD:request.hud];
 }
 
 - (void)requestFailed:(ASIHTTPRequest *)request

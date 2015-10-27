@@ -13,6 +13,8 @@
 #import "BusinessView.h"
 #import "CityView.h"
 #import "ConvCateView.h"
+#import "DuiHuanClassView.h"
+#import "LifePayMainView.h"
 
 @interface MainPageView ()
 
@@ -28,7 +30,7 @@
     if (self) {
         UILabel *titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 150, 44)];
         titleLabel.font = [UIFont boldSystemFontOfSize:18];
-        titleLabel.text = @"中原智慧社区";
+        titleLabel.text = @"深盟智慧社区";
         titleLabel.backgroundColor = [UIColor clearColor];
         titleLabel.textColor = [Tool getColorForGreen];
         titleLabel.textAlignment = NSTextAlignmentCenter;
@@ -81,6 +83,12 @@
         phoneCallWebView = [[UIWebView alloc] initWithFrame:CGRectZero];
     }
     [phoneCallWebView loadRequest:[NSURLRequest requestWithURL:phoneUrl]];
+}
+
+- (IBAction)lifePayAction:(id)sender {
+    LifePayMainView *lifePay = [[LifePayMainView alloc] init];
+    lifePay.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:lifePay animated:YES];
 }
 
 - (void)initMainADV
@@ -283,6 +291,12 @@
     BusinessCateView *businessView = [[BusinessCateView alloc] init];
     businessView.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:businessView animated:YES];
+}
+
+- (IBAction)duihuanAction:(id)sender {
+    DuiHuanClassView *classView = [[DuiHuanClassView alloc] init];
+    classView.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:classView animated:YES];
 }
 
 - (IBAction)noticeAction:(id)sender {

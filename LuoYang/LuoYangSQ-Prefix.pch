@@ -115,10 +115,13 @@
 //商品下单地址
 #define api_send_order @"/send_order"
 
+
 //商品付款返回url
 #define api_goods_return @"http://121.42.8.86:8900/api/order_returnurl"
 //商品付款通知url
 #define api_goods_notify @"http://121.42.8.86:8900/api/order_notifyurl"
+//兑换付款通知url
+#define api_goods_notify @"http://121.42.8.86:8900/api/integral_notifyurl"
 
 //物业缴费订单提交地址
 #define api_pay_property_fee @"/pay_property_fee"
@@ -168,6 +171,29 @@
 //小区商务发布
 #define api_add_business_info @"/add_bussiness_info"
 
+//我的订单
+#define api_my_order_list @"/my_order_list"
+
+//我的兑换券
+#define api_myDuihuanquan @"/myDuihuanquan"
+
+//获取未缴水费
+#define api_getNoPayShui @"/getNoPayShui"
+//缴纳水费
+#define api_shuifeipay @"/shuifei_pay"
+//水费缴费返回url
+//#define api_shui_return @"http://121.42.8.86:8900/api/park_returnurl"
+//水费缴费通知url
+#define api_shui_notify @"http://121.42.8.86:8900/api/shuifei_notifyurl"
+
+//获取未缴电费
+#define api_getNoPayDian @"/getNoPayDian"
+//缴纳电费
+#define api_dianfeipay @"/dianfei_pay"
+//电费缴费通知url
+#define api_dian_notify @"http://121.42.8.86:8900/api/dianfei_notifyurl"
+
+
 #define AreaListKey @"AreList"
 
 #define servicephone @"4008-361-020"
@@ -196,6 +222,10 @@
 #define MyCouponCellIdentifier @"MyCouponCellIdentifier"
 #define MyComplainCellIdentifier @"MyComplainCellIdentifier"
 #define RechargeCellIdentifier @"RechargeCellIdentifier"
+#define MyConvertCellIdentifier @"MyConvertCellIdentifier"
+#define ConvertShopCellIdentifier @"ConvertShopCellIdentifier"
+#define LifePayCellIdentifier @"LifePayCellIdentifier"
+
 
 #define createshoppingcart @"create table shoppingcart (id integer primary key autoincrement not null,goodid text,title text,attrs text,thumb text,price text,store_name text,business_id text,number int,user_id text,ischeck text)"
 

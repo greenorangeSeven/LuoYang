@@ -201,7 +201,7 @@ BMKMapManager* _mapManager;
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
-    [self checkVersionUpdate];
+//    [self checkVersionUpdate];
     
     return YES;
 }
