@@ -1204,4 +1204,16 @@
     return bills;
 }
 
++ (NSMutableArray *)readJsonStrToRanQiBills:(NSString *)str
+{
+    NSData *data = [str dataUsingEncoding:NSUTF8StringEncoding];
+    NSError *error;
+    NSArray *billJsonArray = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+    if ( billJsonArray == nil || [billJsonArray count] <= 0) {
+        return nil;
+    }
+    NSMutableArray *bills = [RMMapper mutableArrayOfClass:[RanQiBill class] fromArrayOfDictionary:billJsonArray];
+    return bills;
+}
+
 @end

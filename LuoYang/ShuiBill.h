@@ -23,5 +23,9 @@
 
 @property (nonatomic, retain) NSString *total_shui;
 @property (nonatomic, retain) NSString *total_fee;
+@property (nonatomic, retain) NSString *fee_enddate;
+
+@property (nonatomic, retain) NSString *fee_name;
+@property (nonatomic, retain) NSString *amount;
 
 @end

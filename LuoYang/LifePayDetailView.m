@@ -307,13 +307,13 @@
 
 - (IBAction)payAction:(id)sender {
     NSMutableArray *billOrders = [[NSMutableArray alloc] init];
-    
+    UserModel *user = [UserModel Instance];
     if ([self.type isEqualToString:@"1"]) {
         for (ShuiBill *bill in bills) {
             if (bill.isSelect) {
                 NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] init];
                 [dictionary setValue:bill.id forKey:@"id"];
-                [dictionary setValue:bill.tel forKey:@"tel"];
+                [dictionary setValue:[user getUserValueForKey:@"tel"] forKey:@"tel"];
                 [billOrders addObject:dictionary];
             }
         }
@@ -324,7 +324,7 @@
             if (bill.isSelect) {
                 NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] init];
                 [dictionary setValue:bill.id forKey:@"id"];
-                [dictionary setValue:bill.tel forKey:@"tel"];
+                [dictionary setValue:[user getUserValueForKey:@"tel"] forKey:@"tel"];
                 [billOrders addObject:dictionary];
             }
         }

@@ -22,5 +22,6 @@
 @property double total;
 
 @property (nonatomic, retain) NSString *total_dianfei;
+@property (nonatomic, retain) NSString *fee_enddate;
 
 @end

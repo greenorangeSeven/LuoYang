@@ -680,6 +680,13 @@
 		14FA47F51B95F73700F1CB1E /* MyConvertShopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14FA47F31B95F73700F1CB1E /* MyConvertShopView.xib */; };
 		14FA47F91B95F91100F1CB1E /* ConvertShopCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 14FA47F71B95F91100F1CB1E /* ConvertShopCell.m */; };
 		14FA47FA1B95F91100F1CB1E /* ConvertShopCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14FA47F81B95F91100F1CB1E /* ConvertShopCell.xib */; };
+		14FFE5B31BE0A65600314327 /* HistoryPayTypeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14FFE5B11BE0A65600314327 /* HistoryPayTypeView.m */; };
+		14FFE5B41BE0A65600314327 /* HistoryPayTypeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14FFE5B21BE0A65600314327 /* HistoryPayTypeView.xib */; };
+		14FFE5B91BE0AA5A00314327 /* HistoryPayFeeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14FFE5B71BE0AA5A00314327 /* HistoryPayFeeView.m */; };
+		14FFE5BA1BE0AA5A00314327 /* HistoryPayFeeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14FFE5B81BE0AA5A00314327 /* HistoryPayFeeView.xib */; };
+		14FFE5BE1BE0AADD00314327 /* HistoryLifePayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 14FFE5BC1BE0AADD00314327 /* HistoryLifePayCell.m */; };
+		14FFE5BF1BE0AADD00314327 /* HistoryLifePayCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14FFE5BD1BE0AADD00314327 /* HistoryLifePayCell.xib */; };
+		14FFE5C21BE0B96400314327 /* RanQiBill.m in Sources */ = {isa = PBXBuildFile; fileRef = 14FFE5C11BE0B96400314327 /* RanQiBill.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1813,6 +1820,17 @@
 		14FA47F61B95F91100F1CB1E /* ConvertShopCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConvertShopCell.h; sourceTree = "<group>"; };
 		14FA47F71B95F91100F1CB1E /* ConvertShopCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConvertShopCell.m; sourceTree = "<group>"; };
 		14FA47F81B95F91100F1CB1E /* ConvertShopCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConvertShopCell.xib; sourceTree = "<group>"; };
+		14FFE5B01BE0A65600314327 /* HistoryPayTypeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryPayTypeView.h; sourceTree = "<group>"; };
+		14FFE5B11BE0A65600314327 /* HistoryPayTypeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryPayTypeView.m; sourceTree = "<group>"; };
+		14FFE5B21BE0A65600314327 /* HistoryPayTypeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HistoryPayTypeView.xib; sourceTree = "<group>"; };
+		14FFE5B61BE0AA5A00314327 /* HistoryPayFeeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryPayFeeView.h; sourceTree = "<group>"; };
+		14FFE5B71BE0AA5A00314327 /* HistoryPayFeeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryPayFeeView.m; sourceTree = "<group>"; };
+		14FFE5B81BE0AA5A00314327 /* HistoryPayFeeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HistoryPayFeeView.xib; sourceTree = "<group>"; };
+		14FFE5BB1BE0AADD00314327 /* HistoryLifePayCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryLifePayCell.h; sourceTree = "<group>"; };
+		14FFE5BC1BE0AADD00314327 /* HistoryLifePayCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryLifePayCell.m; sourceTree = "<group>"; };
+		14FFE5BD1BE0AADD00314327 /* HistoryLifePayCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HistoryLifePayCell.xib; sourceTree = "<group>"; };
+		14FFE5C01BE0B96400314327 /* RanQiBill.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RanQiBill.h; sourceTree = "<group>"; };
+		14FFE5C11BE0B96400314327 /* RanQiBill.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RanQiBill.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2425,6 +2443,15 @@
 				14A07A331BDA24E500494B43 /* RanQiFeeView.h */,
 				14A07A341BDA24E500494B43 /* RanQiFeeView.m */,
 				14A07A351BDA24E500494B43 /* RanQiFeeView.xib */,
+				14FFE5B01BE0A65600314327 /* HistoryPayTypeView.h */,
+				14FFE5B11BE0A65600314327 /* HistoryPayTypeView.m */,
+				14FFE5B21BE0A65600314327 /* HistoryPayTypeView.xib */,
+				14FFE5B61BE0AA5A00314327 /* HistoryPayFeeView.h */,
+				14FFE5B71BE0AA5A00314327 /* HistoryPayFeeView.m */,
+				14FFE5B81BE0AA5A00314327 /* HistoryPayFeeView.xib */,
+				14FFE5BB1BE0AADD00314327 /* HistoryLifePayCell.h */,
+				14FFE5BC1BE0AADD00314327 /* HistoryLifePayCell.m */,
+				14FFE5BD1BE0AADD00314327 /* HistoryLifePayCell.xib */,
 			);
 			name = MainPage;
 			sourceTree = "<group>";
@@ -3048,6 +3075,8 @@
 				1471A4461BDE001A0068F739 /* ShuiBill.m */,
 				140BBB081BDFC16C003F77D5 /* DianBIll.h */,
 				140BBB091BDFC16C003F77D5 /* DianBIll.m */,
+				14FFE5C01BE0B96400314327 /* RanQiBill.h */,
+				14FFE5C11BE0B96400314327 /* RanQiBill.m */,
 				145244DA1BDF13BC00CDD61E /* ShuiDianOrderArray.h */,
 				145244DB1BDF13BC00CDD61E /* ShuiDianOrderArray.m */,
 				145244D61BDF0FDA00CDD61E /* ShuiDianOrder.h */,
@@ -3764,6 +3793,7 @@
 				14A7BCFF19C921E1009039DF /* detail_temp.png in Resources */,
 				14A7BD0519C921E1009039DF /* online_huoche@2x.png in Resources */,
 				14A7BBAF19C921C6009039DF /* VolnDetailView.xib in Resources */,
+				14FFE5BA1BE0AA5A00314327 /* HistoryPayFeeView.xib in Resources */,
 				14A7BB5219C921BA009039DF /* RechargeDetailView.xib in Resources */,
 				14A7BD1019C921E1009039DF /* areaarrows@2x.png in Resources */,
 				14A7BD2C19C921E1009039DF /* praise@2x.png in Resources */,
@@ -3855,6 +3885,7 @@
 				14A7BBE019C921D1009039DF /* SearchAdderssView.xib in Resources */,
 				14A7BD1119C921E1009039DF /* areaimage.png in Resources */,
 				14A7BCE919C921E1009039DF /* wuye_parkjiaofei@2x.png in Resources */,
+				14FFE5B41BE0A65600314327 /* HistoryPayTypeView.xib in Resources */,
 				1486529819CA6ABD000B3678 /* nopic4@2x.png in Resources */,
 				14A07A151BD9C4C800494B43 /* lifePay@2x.png in Resources */,
 				1454882A1B988465004B03A9 /* DuiHuanBuyView.xib in Resources */,
@@ -3889,6 +3920,7 @@
 				14A7BCCC19C921E1009039DF /* goods_buy@2x.png in Resources */,
 				1481AFD119FF3F1900662CA8 /* left_yhq@2x.png in Resources */,
 				1447B15019D2C01F00492D55 /* alipayBtn@2x.png in Resources */,
+				14FFE5BF1BE0AADD00314327 /* HistoryLifePayCell.xib in Resources */,
 				14A7BAC119C921A0009039DF /* StewardFeeView.xib in Resources */,
 				1454FC4D1A1F23110056DE2F /* NewsTable2View.xib in Resources */,
 				14A7BF0119C9249D009039DF /* IQKeyboardManager.bundle in Resources */,
@@ -4008,6 +4040,7 @@
 				14A7BE9A19C92426009039DF /* AFURLConnectionOperation.m in Sources */,
 				14081D041A1995980068FE00 /* SDWebImageDecoder.m in Sources */,
 				14A7BF0619C924A8009039DF /* KxMenu.m in Sources */,
+				14FFE5BE1BE0AADD00314327 /* HistoryLifePayCell.m in Sources */,
 				0405EEA61A8066D800D33A2B /* AlipayUtils.m in Sources */,
 				149575521A29BCB100320CF8 /* RuhuWeixiuView.m in Sources */,
 				14B3A1BB19EE1A4F00BD29B6 /* MyCouponCell.m in Sources */,
@@ -4102,6 +4135,7 @@
 				14A7BB7519C921BA009039DF /* ShoppingBuyView.m in Sources */,
 				14A7BF1419C924B6009039DF /* FMDatabaseAdditions.m in Sources */,
 				14A7BECD19C92451009039DF /* IconDownloader.m in Sources */,
+				14FFE5B31BE0A65600314327 /* HistoryPayTypeView.m in Sources */,
 				0405EEAD1A8066D800D33A2B /* NSDataEx.m in Sources */,
 				14081CF51A1995980068FE00 /* PSTCollectionViewData.m in Sources */,
 				14081CFC1A1995980068FE00 /* PSTGridLayoutRow.m in Sources */,
@@ -4217,6 +4251,7 @@
 				14A7BAEA19C921A0009039DF /* ArticleView.m in Sources */,
 				14552EEA19FE8C0900F590EA /* BusinessCateView.m in Sources */,
 				14081CF61A1995980068FE00 /* PSTCollectionViewFlowLayout.m in Sources */,
+				14FFE5B91BE0AA5A00314327 /* HistoryPayFeeView.m in Sources */,
 				14A7BB6719C921BA009039DF /* BusinessDetailView.m in Sources */,
 				1454882E1B988E09004B03A9 /* DuiHuanInfo.m in Sources */,
 				0405EF461A80777D00D33A2B /* PayOrder.m in Sources */,
@@ -4240,6 +4275,7 @@
 				14A7BB6519C921BA009039DF /* BusinessCateCell.m in Sources */,
 				14A7BB5519C921BA009039DF /* CommunityCell.m in Sources */,
 				14081CF41A1995980068FE00 /* PSTCollectionViewController.m in Sources */,
+				14FFE5C21BE0B96400314327 /* RanQiBill.m in Sources */,
 				14A7BBAE19C921C6009039DF /* VolnDetailView.m in Sources */,
 				14A7BAD619C921A0009039DF /* NoticeFrameView.m in Sources */,
 				14A7BD8619C921EE009039DF /* OrderInfo.m in Sources */,
@@ -4411,8 +4447,8 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: WEN XIKE (KPRX6RYNKY)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: WEN XIKE (KPRX6RYNKY)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Luo Hongchang (4GEN88HFVP)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Luo Hongchang (4GEN88HFVP)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
@@ -4446,7 +4482,7 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = LuoYangSQ;
-				PROVISIONING_PROFILE = "f8263fe1-9029-4612-aa73-923c44b5464e";
+				PROVISIONING_PROFILE = "236f2cc6-829d-4dd1-87d8-96651ace8a89";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -4457,8 +4493,8 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: WEN XIKE (KPRX6RYNKY)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: WEN XIKE (KPRX6RYNKY)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Luo Hongchang (4GEN88HFVP)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Luo Hongchang (4GEN88HFVP)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
@@ -4492,7 +4528,7 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = LuoYangSQ;
-				PROVISIONING_PROFILE = "f8263fe1-9029-4612-aa73-923c44b5464e";
+				PROVISIONING_PROFILE = "236f2cc6-829d-4dd1-87d8-96651ace8a89";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -4501,7 +4537,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/LuoYang.app/LuoYang";
-				CODE_SIGN_IDENTITY = "iPhone Developer: WEN XIKE (KPRX6RYNKY)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Luo Hongchang (4GEN88HFVP)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -4515,7 +4551,7 @@
 				);
 				INFOPLIST_FILE = "LuoYangTests/LuoYangSQTests-Info.plist";
 				PRODUCT_NAME = LuoYangSQTests;
-				PROVISIONING_PROFILE = "f8263fe1-9029-4612-aa73-923c44b5464e";
+				PROVISIONING_PROFILE = "236f2cc6-829d-4dd1-87d8-96651ace8a89";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -4525,7 +4561,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/LuoYang.app/LuoYang";
-				CODE_SIGN_IDENTITY = "iPhone Developer: WEN XIKE (KPRX6RYNKY)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Luo Hongchang (4GEN88HFVP)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -4535,7 +4571,7 @@
 				GCC_PREFIX_HEADER = "LuoYang/LuoYang-Prefix.pch";
 				INFOPLIST_FILE = "LuoYangTests/LuoYangSQTests-Info.plist";
 				PRODUCT_NAME = LuoYangSQTests;
-				PROVISIONING_PROFILE = "f8263fe1-9029-4612-aa73-923c44b5464e";
+				PROVISIONING_PROFILE = "236f2cc6-829d-4dd1-87d8-96651ace8a89";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};

@@ -58,6 +58,7 @@
 #import "DuiHuanShop.h"
 #import "ShuiBill.h"
 #import "DianBIll.h"
+#import "RanQiBill.h"
 
 @interface Tool : NSObject
 
@@ -187,5 +188,6 @@
 + (NSMutableArray *)readJsonStrToDuiHuanShopArray:(NSString *)str;
 + (NSMutableArray *)readJsonStrToShuiBills:(NSString *)str;
 + (NSMutableArray *)readJsonStrToDianBills:(NSString *)str;
++ (NSMutableArray *)readJsonStrToRanQiBills:(NSString *)str;
 
 @end

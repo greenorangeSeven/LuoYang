@@ -52,7 +52,9 @@
 #import "AFXMLRequestOperation.h"
 
 #define appkey @"3lYbLB5fSR2F7x4rE76xbKEKlf296OFw"
-#define api_base_url @"http://121.42.8.86:8900/api"
+//#define api_base_url @"http://121.42.8.86:8900/api"
+#define api_base_url @"http://www.hm020.cn/api"
+
 #define api_register @"/register"
 #define api_changepwd @"/changePwd"
 #define api_login @"/login"
@@ -193,6 +195,13 @@
 //电费缴费通知url
 #define api_dian_notify @"http://121.42.8.86:8900/api/dianfei_notifyurl"
 
+//燃气充值
+#define api_ranqipay @"/ranqi_pay"
+#define api_ranqi_notify @"http://121.42.8.86:8900/api/ranqi_notifyurl"
+
+#define api_getHavePayShui @"/getHavePayShui"
+#define api_getHavePayDian @"/getHavePayDian"
+#define api_ranqilist @"/ranqi_list"
 
 #define AreaListKey @"AreList"
 
@@ -225,6 +234,8 @@
 #define MyConvertCellIdentifier @"MyConvertCellIdentifier"
 #define ConvertShopCellIdentifier @"ConvertShopCellIdentifier"
 #define LifePayCellIdentifier @"LifePayCellIdentifier"
+#define HistoryLifePayCellIdentifier @"HistoryLifePayCellIdentifier"
+
 
 
 #define createshoppingcart @"create table shoppingcart (id integer primary key autoincrement not null,goodid text,title text,attrs text,thumb text,price text,store_name text,business_id text,number int,user_id text,ischeck text)"

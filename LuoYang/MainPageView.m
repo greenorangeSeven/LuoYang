@@ -86,6 +86,10 @@
 }
 
 - (IBAction)lifePayAction:(id)sender {
+    if ([UserModel Instance].isLogin == NO) {
+        [Tool noticeLogin:self.view andDelegate:self andTitle:@""];
+        return;
+    }
     LifePayMainView *lifePay = [[LifePayMainView alloc] init];
     lifePay.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:lifePay animated:YES];

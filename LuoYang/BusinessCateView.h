@@ -14,8 +14,10 @@
 #import "TQImageCache.h"
 #import "BusinessView.h"
 #import "ADVDetailView.h"
+#import "SGFocusImageFrame.h"
+#import "SGFocusImageItem.h"
 
-@interface BusinessCateView : UIViewController<UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,IconDownloaderDelegate,BMKLocationServiceDelegate>
+@interface BusinessCateView : UIViewController<UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,IconDownloaderDelegate,BMKLocationServiceDelegate,SGFocusImageFrameDelegate>
 {
     NSMutableArray *shopCateData;
     MBProgressHUD *hud;
@@ -27,7 +29,12 @@
     
     TQImageCache * _iconCache;
     
+    NSMutableArray *advDatas;
+    SGFocusImageFrame *bannerView;
+    int advIndex;
 }
+
+@property (weak, nonatomic) IBOutlet UIImageView *advIv;
 
 //异步加载图片专用
 @property (nonatomic, retain) NSMutableDictionary *imageDownloadsInProgress;

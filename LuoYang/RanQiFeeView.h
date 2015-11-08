@@ -10,4 +10,10 @@
 
 @interface RanQiFeeView : UIViewController
 
+@property (weak, nonatomic) IBOutlet UITextField *rqCodeNumTf;
+@property (weak, nonatomic) IBOutlet UITextField *moneyTv;
+- (IBAction)payAction:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *payBtn;
+@property (weak, nonatomic) IBOutlet UITextField *companyNameTf;
+
 @end

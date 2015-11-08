@@ -76,6 +76,100 @@
         self.edgesForExtendedLayout = UIRectEdgeNone;
         self.automaticallyAdjustsScrollViewInsets = NO;
     }
+    
+    [self initMainADV];
+}
+
+- (void)initMainADV
+{
+    //如果有网络连接
+    if ([UserModel Instance].isNetworkRunning) {
+        //        [Tool showHUD:@"数据加载" andView:self.view andHUD:hud];
+        NSMutableString *tempUrl = [NSMutableString stringWithFormat:@"%@%@?APPKey=%@&spaceid=31", api_base_url, api_getadv, appkey];
+        NSString *cid = [[UserModel Instance] getUserValueForKey:@"cid"];
+        if (cid != nil && [cid length] > 0) {
+            [tempUrl appendString:[NSString stringWithFormat:@"&cid=%@", cid]];
+        }
+        NSString *url = [NSString stringWithString:tempUrl];
+        [[AFOSCClient sharedClient]getPath:url parameters:Nil
+                                   success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                       @try {
+                                           advDatas = [Tool readJsonStrToADV:operation.responseString];
+                                           
+                                           int length = [advDatas count];
+                                           //点赞按钮初始化
+                                           Advertisement *adv = (Advertisement *)[advDatas objectAtIndex:advIndex];
+                                           
+                                           NSMutableArray *itemArray = [NSMutableArray arrayWithCapacity:length+2];
+                                           if (length > 1)
+                                           {
+                                               Advertisement *adv = [advDatas objectAtIndex:length-1];
+                                               SGFocusImageItem *item = [[SGFocusImageItem alloc] initWithTitle:adv.title image:adv.pic tag:-1];
+                                               [itemArray addObject:item];
+                                           }
+                                           for (int i = 0; i < length; i++)
+                                           {
+                                               Advertisement *adv = [advDatas objectAtIndex:i];
+                                               SGFocusImageItem *item = [[SGFocusImageItem alloc] initWithTitle:adv.title image:adv.pic tag:-1];
+                                               [itemArray addObject:item];
+                                               
+                                           }
+                                           //添加第一张图 用于循环
+                                           if (length >1)
+                                           {
+                                               Advertisement *adv = [advDatas objectAtIndex:0];
+                                               SGFocusImageItem *item = [[SGFocusImageItem alloc] initWithTitle:adv.title image:adv.pic tag:-1];
+                                               [itemArray addObject:item];
+                                           }
+                                           bannerView = [[SGFocusImageFrame alloc] initWithFrame:CGRectMake(0, 0, 320, 145) delegate:self imageItems:itemArray isAuto:YES];
+                                           [bannerView scrollToIndex:0];
+                                           [self.advIv addSubview:bannerView];
+                                       }
+                                       @catch (NSException *exception) {
+                                           [NdUncaughtExceptionHandler TakeException:exception];
+                                       }
+                                       @finally {
+                                           //                                           if (hud != nil) {
+                                           //                                               [hud hide:YES];
+                                           //                                           }
+                                       }
+                                   } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                       if ([UserModel Instance].isNetworkRunning == NO) {
+                                           return;
+                                       }
+                                       if ([UserModel Instance].isNetworkRunning) {
+                                           [Tool ToastNotification:@"错误 网络无连接" andView:self.view andLoading:NO andIsBottom:NO];
+                                       }
+                                   }];
+    }
+}
+
+//顶部图片滑动点击委托协议实现事件
+- (void)foucusImageFrame:(SGFocusImageFrame *)imageFrame didSelectItem:(SGFocusImageItem *)item
+{
+    NSLog(@"%s \n click===>%@",__FUNCTION__,item.title);
+    Advertisement *adv = (Advertisement *)[advDatas objectAtIndex:advIndex];
+    if (adv)
+    {
+        if ([adv.redirecturl length] > 0)
+        {
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:adv.redirecturl]];
+        }
+        else
+        {
+            ADVDetailView *advDetail = [[ADVDetailView alloc] init];
+            advDetail.hidesBottomBarWhenPushed = YES;
+            advDetail.adv = adv;
+            [self.navigationController pushViewController:advDetail animated:YES];
+        }
+    }
+}
+
+//顶部图片自动滑动委托协议实现事件
+- (void)foucusImageFrame:(SGFocusImageFrame *)imageFrame currentItem:(int)index;
+{
+    //    NSLog(@"%s \n scrollToIndex===>%d",__FUNCTION__,index);
+    advIndex = index;
 }
 
 - (void)viewDidUnload
@@ -111,11 +205,13 @@
 {
     [super viewWillDisappear:animated];
     _locService.delegate = nil;
+    bannerView.delegate = nil;
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    bannerView.delegate = self;
 }
 
 //取数方法
